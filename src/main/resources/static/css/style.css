@@ -1,89 +1,102 @@
-/**
- * Базовые стили для всего сайта
- */
-body {
-    position: relative;
-    font-family: 'Noto Sans', sans-serif;
-    font-size: 16px;
-    line-height: 1.4;
-    color: #000;
-    min-width: 320px;
-    overflow-x: hidden;
-    height: auto;
-}
+@charset "UTF-8";
 /*Оформление заголовка*/
 .navbar {
-    width: 100%;
-    height: 70px;
-    background-color: #559FB3;
-    /*box-shadow: 0px 4px 10px rgba(0, 0, 0, .1);*/
+  background-color: #559FB3;
 }
-.navbar.container {
-    height: inherit;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.container, .container-md, .container-sm {
-    max-width: 98%;
-    max-height: 100%;
-}
-.navbar-menu {
-    list-style-type: none;
-    padding-left: 0;
-    margin-bottom: 0;
-}
-.navbar-menu li {
-    display: inline-block;
-}
-.navbar-menu li a {
-    display: inline-block;
-    color: #eaf6fa;
-    opacity: 0.6;
-    font-weight: 600;
 
-    text-decoration: none;
-    padding: 10px;
-    transition: all .07s ease-in-out;
+.container-fluid {
+  margin: 0 15px;
 }
-.navbar-menu li a:hover{
-    opacity: 1;
+
+.navbar-toggler {
+  border: 2px solid transparent;
 }
-.navbar-wrap {
-    display: flex;
-    flex-flow: row nowrap;
+
+.navbar-light {
+  /*Отображение на маленьком экране*/
 }
-.btn-log {
-    margin-left: 40px;
-    padding: 10px 30px;
-    width: 150px;
-    background-color:#BAEF6D;
-    color: #428194;
-    font-size: 16px;
-    font-weight: 600;
-    border-radius: 25px;
-    box-shadow: 0 9px 6px rgba(11, 105, 124, 0.2);
-    transition: all .1s ease-out;
+.navbar-light .navbar-toggler {
+  padding: 0.2rem 0.4rem;
+  color: #eaf6fa;
+  border-color: #eaf6fa;
+  opacity: 0.5;
 }
-.btn-log:hover{
-    transform: scale(1.04);
-    color: #fff;
-    box-shadow: 0 4px 9px rgb(214, 234, 243,.5);
+.navbar-light .navbar-toggler:focus {
+  text-decoration: none;
+  outline: 0;
+  -webkit-box-shadow: 0 0 0 0.15rem;
+          box-shadow: 0 0 0 0.15rem;
+  border: 3px solid transparent;
+  opacity: 0.8;
 }
-.navbar-brand {
-    line-height: 0;
-    font-family: 'Bakbak One', cursive;
-    font-weight: 1000;
-    font-size: 50px;
-    line-height: 50px;
-    padding-top: 0;
-    padding-bottom: 0;
-    color: rgba(243, 252, 255, 0.65); /*страховка*/
-    /*градиент*/
-    background-image: linear-gradient(90deg, #eaf6fa, #70b2c5);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+.navbar-light .navbar-collapse {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
-.navbar-brand:hover{
-    color: #eaf6fa;
+.navbar-light .navbar-nav {
+  margin-right: 40px;
+}
+.navbar-light .navbar-nav li {
+  display: inline-block;
+  font-size: 18px;
+}
+.navbar-light .navbar-nav li a {
+  display: inline-block;
+  color: #eaf6fa;
+  opacity: 0.6;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 10px;
+  -webkit-transition: all 0.07s ease-in-out;
+  transition: all 0.07s ease-in-out;
+}
+.navbar-light .navbar-nav li a:hover {
+  opacity: 1;
+}
+.navbar-light .btn-log {
+  padding: 10px 30px;
+  width: 150px;
+  height: 40px;
+  line-height: 1;
+  background-color: #BAEF6D;
+  color: #428194;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 25px;
+  -webkit-box-shadow: 0 9px 6px rgba(11, 105, 124, 0.2);
+          box-shadow: 0 9px 6px rgba(11, 105, 124, 0.2);
+  -webkit-transition: all 0.1s ease-out;
+  transition: all 0.1s ease-out;
+}
+.navbar-light .btn-log:hover {
+  -webkit-transform: scale(1.04);
+          transform: scale(1.04);
+  color: #fff;
+  -webkit-box-shadow: 0 4px 9px rgba(214, 234, 243, 0.5);
+          box-shadow: 0 4px 9px rgba(214, 234, 243, 0.5);
+}
+.navbar-light .navbar-brand {
+  text-decoration: none;
+  font-family: "Bakbak One", cursive;
+  font-weight: 1000;
+  font-size: 50px;
+  padding-top: 0;
+  padding-bottom: 0;
+  color: rgba(243, 252, 255, 0.65);
+  background-image: -webkit-gradient(linear, left top, right top, from(#eaf6fa), to(#70b2c5));
+  background-image: linear-gradient(90deg, #eaf6fa, #70b2c5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.navbar-light .navbar-brand:hover {
+  color: #eaf6fa;
+}
+@media screen and (max-width: 769px) {
+  .navbar-light .container-fluid {
+    margin: auto;
+  }
+  .navbar-light .navbar-brand {
+    font-size: 30px;
+  }
 }

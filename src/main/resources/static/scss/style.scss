@@ -1,0 +1,107 @@
+//Переменные
+$main-color: #559FB3;
+$color-header-text: rgb(234, 246, 250);
+$color-usual-text: #000;
+$color-btn: #BAEF6D;
+$color-btb-text: #428194;
+
+
+
+// Базовые стили для всего сайта
+
+
+/*Оформление заголовка*/
+
+.navbar{
+  background-color: $main-color ;
+}
+.container-fluid{
+  margin: 0 15px;
+}
+.navbar-toggler{
+  border: 2px solid transparent;
+}
+.navbar-light {
+  .navbar-toggler {
+    padding: .2rem .4rem;
+    color: $color-header-text;
+    border-color: $color-header-text ;
+    opacity: 0.5;
+
+    &:focus {
+      text-decoration: none;
+      outline: 0;
+      box-shadow: 0 0 0 .15rem;
+      border: 3px solid transparent;
+      opacity: 0.8;
+    }
+  }
+  .navbar-collapse {
+    justify-content:flex-end;
+  }
+  .navbar-nav {
+    margin-right: 40px;
+
+    li {
+      display: inline-block;
+      font-size: 18px;
+      a {
+        display: inline-block;
+        color: $color-header-text;
+        opacity: 0.6;
+        font-weight: 600;
+        text-decoration: none;
+        padding: 10px;
+        transition: all .07s ease-in-out;
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
+  .btn-log {
+    padding: 10px 30px;
+    width: 150px;
+    height: 40px;
+    line-height: 1;
+    background-color: $color-btn;
+    color: $color-btb-text;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 25px;
+    box-shadow: 0 9px 6px rgba(11, 105, 124, 0.2);
+    transition: all .1s ease-out;
+    &:hover {
+      transform: scale(1.04);
+      color: #fff;
+      box-shadow: 0 4px 9px rgb(214, 234, 243, .5);
+    }
+  }
+  .navbar-brand {
+    text-decoration: none;
+    font-family: 'Bakbak One', cursive;
+    font-weight: 1000;
+    font-size: 50px;
+    padding-top: 0;
+    padding-bottom: 0;
+    //страховка
+    color: rgba(243, 252, 255, 0.65);
+    //градиент
+    background-image: linear-gradient(90deg, #eaf6fa, #70b2c5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    &:hover {
+      color: #eaf6fa;
+    }
+  }
+/*Отображение на маленьком экране*/
+  @media screen and (max-width: 769px){
+    .container-fluid{
+      margin: auto;
+    }
+    .navbar-brand{
+      font-size: 30px;
+    }
+  }
+}
