@@ -1,53 +1,47 @@
 @charset "UTF-8";
-/*Переменные*/
-/**
- * Базовые стили для всего сайта
- */
-body {
-  position: relative;
-  font-family: "Noto Sans", sans-serif;
-  font-size: 16px;
-  line-height: 1.4;
-  color: #000;
-  min-width: 320px;
-  overflow-x: hidden;
-  height: auto;
-}
-
 /*Оформление заголовка*/
 .navbar {
-  width: 100%;
-  height: 70px;
   background-color: #559FB3;
-  /*box-shadow: 0px 4px 10px rgba(0, 0, 0, .1);*/
-}
-.navbar .container {
-  height: inherit;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
 
-.container, .container-md, .container-sm {
-  max-width: 98%;
-  max-height: 100%;
+.container-fluid {
+  margin: 0 15px;
 }
 
-.navbar-menu {
-  list-style-type: none;
-  padding-left: 0;
-  margin-bottom: 0;
+.navbar-toggler {
+  border: 2px solid transparent;
 }
-.navbar-menu li {
+
+.navbar-light {
+  /*Отображение на маленьком экране*/
+}
+.navbar-light .navbar-toggler {
+  padding: 0.2rem 0.4rem;
+  color: #eaf6fa;
+  border-color: #eaf6fa;
+  opacity: 0.5;
+}
+.navbar-light .navbar-toggler:focus {
+  text-decoration: none;
+  outline: 0;
+  -webkit-box-shadow: 0 0 0 0.15rem;
+          box-shadow: 0 0 0 0.15rem;
+  border: 3px solid transparent;
+  opacity: 0.8;
+}
+.navbar-light .navbar-collapse {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+.navbar-light .navbar-nav {
+  margin-right: 40px;
+}
+.navbar-light .navbar-nav li {
   display: inline-block;
+  font-size: 18px;
 }
-.navbar-menu li a {
+.navbar-light .navbar-nav li a {
   display: inline-block;
   color: #eaf6fa;
   opacity: 0.6;
@@ -57,27 +51,17 @@ body {
   -webkit-transition: all 0.07s ease-in-out;
   transition: all 0.07s ease-in-out;
 }
-.navbar-menu li a:hover {
+.navbar-light .navbar-nav li a:hover {
   opacity: 1;
 }
-
-.navbar-wrap {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row nowrap;
-          flex-flow: row nowrap;
-}
-
-.btn-log {
-  margin-left: 40px;
+.navbar-light .btn-log {
   padding: 10px 30px;
   width: 150px;
+  height: 40px;
+  line-height: 1;
   background-color: #BAEF6D;
   color: #428194;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600;
   border-radius: 25px;
   -webkit-box-shadow: 0 9px 6px rgba(11, 105, 124, 0.2);
@@ -85,30 +69,34 @@ body {
   -webkit-transition: all 0.1s ease-out;
   transition: all 0.1s ease-out;
 }
-.btn-log:hover {
+.navbar-light .btn-log:hover {
   -webkit-transform: scale(1.04);
           transform: scale(1.04);
   color: #fff;
   -webkit-box-shadow: 0 4px 9px rgba(214, 234, 243, 0.5);
           box-shadow: 0 4px 9px rgba(214, 234, 243, 0.5);
 }
-
-.navbar-brand {
-  line-height: 0;
+.navbar-light .navbar-brand {
+  text-decoration: none;
   font-family: "Bakbak One", cursive;
   font-weight: 1000;
   font-size: 50px;
-  line-height: 50px;
   padding-top: 0;
   padding-bottom: 0;
-  /*страховка*/
   color: rgba(243, 252, 255, 0.65);
-  /*градиент*/
   background-image: -webkit-gradient(linear, left top, right top, from(#eaf6fa), to(#70b2c5));
   background-image: linear-gradient(90deg, #eaf6fa, #70b2c5);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.navbar-brand:hover {
+.navbar-light .navbar-brand:hover {
   color: #eaf6fa;
+}
+@media screen and (max-width: 769px) {
+  .navbar-light .container-fluid {
+    margin: auto;
+  }
+  .navbar-light .navbar-brand {
+    font-size: 30px;
+  }
 }
