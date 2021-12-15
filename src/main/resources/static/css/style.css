@@ -29,6 +29,9 @@
   border: 3px solid transparent;
   opacity: 0.8;
 }
+.navbar-light .navbar-toggler-icon {
+  background-image: url(log.png);
+}
 .navbar-light .navbar-collapse {
   -webkit-box-pack: end;
       -ms-flex-pack: end;

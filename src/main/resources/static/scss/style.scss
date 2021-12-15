@@ -35,7 +35,21 @@ $color-btb-text: #428194;
       border: 3px solid transparent;
       opacity: 0.8;
     }
+
   }
+
+
+    .navbar-toggler-icon {
+    background-image: url(log.png);
+  }
+
+
+
+
+
+
+
+
   .navbar-collapse {
     justify-content:flex-end;
   }
@@ -59,6 +73,7 @@ $color-btb-text: #428194;
       }
     }
   }
+
   .btn-log {
     padding: 10px 30px;
     width: 150px;
