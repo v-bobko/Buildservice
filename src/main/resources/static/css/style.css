@@ -1,7 +1,13 @@
 @charset "UTF-8";
+body {
+  color: #332d2d;
+}
+
 /*Оформление заголовка*/
 .navbar {
-  background-color: #559FB3;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+  background-color: #A69586;
 }
 
 .container-fluid {
@@ -16,9 +22,9 @@
   /*Отображение на маленьком экране*/
 }
 .navbar-light .navbar-toggler {
-  padding: 0.2rem 0.4rem;
-  color: #eaf6fa;
-  border-color: #eaf6fa;
+  padding: 0.15rem 0.3rem;
+  color: #736355;
+  border-color: #736355;
   opacity: 0.5;
 }
 .navbar-light .navbar-toggler:focus {
@@ -30,7 +36,7 @@
   opacity: 0.8;
 }
 .navbar-light .navbar-toggler-icon {
-  background-image: url(log.png);
+  background-image: url(log2.png);
 }
 .navbar-light .navbar-collapse {
   -webkit-box-pack: end;
@@ -46,7 +52,7 @@
 }
 .navbar-light .navbar-nav li a {
   display: inline-block;
-  color: #eaf6fa;
+  color: #F2F0F0;
   opacity: 0.6;
   font-weight: 600;
   text-decoration: none;
@@ -62,22 +68,22 @@
   width: 150px;
   height: 40px;
   line-height: 1;
-  background-color: #BAEF6D;
-  color: #428194;
+  background-color: #b0c046;
+  color: #F2F0F0;
   font-size: 18px;
   font-weight: 600;
-  border-radius: 25px;
-  -webkit-box-shadow: 0 9px 6px rgba(11, 105, 124, 0.2);
-          box-shadow: 0 9px 6px rgba(11, 105, 124, 0.2);
+  border-radius: 5px;
+  -webkit-box-shadow: 0 9px 6px rgba(115, 99, 85, 0.2);
+          box-shadow: 0 9px 6px rgba(115, 99, 85, 0.2);
   -webkit-transition: all 0.1s ease-out;
   transition: all 0.1s ease-out;
 }
 .navbar-light .btn-log:hover {
   -webkit-transform: scale(1.04);
           transform: scale(1.04);
-  color: #fff;
-  -webkit-box-shadow: 0 4px 9px rgba(214, 234, 243, 0.5);
-          box-shadow: 0 4px 9px rgba(214, 234, 243, 0.5);
+  color: #F2F0F0;
+  -webkit-box-shadow: 0 4px 9px rgba(115, 99, 85, 0.7);
+          box-shadow: 0 4px 9px rgba(115, 99, 85, 0.7);
 }
 .navbar-light .navbar-brand {
   text-decoration: none;
@@ -86,14 +92,11 @@
   font-size: 50px;
   padding-top: 0;
   padding-bottom: 0;
-  color: rgba(243, 252, 255, 0.65);
-  background-image: -webkit-gradient(linear, left top, right top, from(#eaf6fa), to(#70b2c5));
-  background-image: linear-gradient(90deg, #eaf6fa, #70b2c5);
+  color: rgba(242, 240, 240, 0.65);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#b0c046), to(#D9CCC5));
+  background-image: linear-gradient(180deg, #b0c046, #D9CCC5);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-.navbar-light .navbar-brand:hover {
-  color: #eaf6fa;
 }
 @media screen and (max-width: 769px) {
   .navbar-light .container-fluid {

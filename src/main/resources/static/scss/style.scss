@@ -1,19 +1,30 @@
 //Переменные
-$main-color: #559FB3;
-$color-header-text: rgb(234, 246, 250);
-$color-usual-text: #000;
-$color-btn: #BAEF6D;
-$color-btb-text: #428194;
+//$main-color: #559FB3;
+//$color-header-text: rgb(234, 246, 250);
+//$color-usual-text: #000;
+//$color-btn: #BAEF6D;
+//$color-btb-text: #428194;
 
+$main-color: #A69586;
+$color-header-text: #F2F0F0;
+$color-toggler: #736355;
+$color-usual-text: #332d2d;
+$color-btn: #b0c046;
+$color-btb-text: #F2F0F0;
 
 
 // Базовые стили для всего сайта
 
-
+body{
+  color:$color-usual-text;
+}
 /*Оформление заголовка*/
 
 .navbar{
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
   background-color: $main-color ;
+
 }
 .container-fluid{
   margin: 0 15px;
@@ -23,9 +34,9 @@ $color-btb-text: #428194;
 }
 .navbar-light {
   .navbar-toggler {
-    padding: .2rem .4rem;
-    color: $color-header-text;
-    border-color: $color-header-text ;
+    padding: .15rem .3rem;
+    color: $color-toggler;
+    border-color: $color-toggler ;
     opacity: 0.5;
 
     &:focus {
@@ -37,18 +48,9 @@ $color-btb-text: #428194;
     }
 
   }
-
-
     .navbar-toggler-icon {
-    background-image: url(log.png);
+    background-image: url(log2.png);
   }
-
-
-
-
-
-
-
 
   .navbar-collapse {
     justify-content:flex-end;
@@ -83,13 +85,16 @@ $color-btb-text: #428194;
     color: $color-btb-text;
     font-size: 18px;
     font-weight: 600;
-    border-radius: 25px;
-    box-shadow: 0 9px 6px rgba(11, 105, 124, 0.2);
+    border-radius: 5px;
+    //box-shadow: 0 9px 6px rgba(11, 105, 124, 0.2);
+    box-shadow: 0 9px 6px rgba(115, 99, 85, 0.2);
     transition: all .1s ease-out;
     &:hover {
       transform: scale(1.04);
-      color: #fff;
-      box-shadow: 0 4px 9px rgb(214, 234, 243, .5);
+      //color: #fff;
+      color: $color-btb-text;
+      //box-shadow: 0 4px 9px rgb(214, 234, 243, .5);
+      box-shadow: 0 4px 9px rgb(115, 99, 85, .7);
     }
   }
   .navbar-brand {
@@ -100,15 +105,17 @@ $color-btb-text: #428194;
     padding-top: 0;
     padding-bottom: 0;
     //страховка
-    color: rgba(243, 252, 255, 0.65);
+    //color: rgba(243, 252, 255, 0.65);
+    color: rgba(242, 240, 240, 0.65);
     //градиент
-    background-image: linear-gradient(90deg, #eaf6fa, #70b2c5);
+    //background-image: linear-gradient(90deg, #eaf6fa, #70b2c5);
+    background-image: linear-gradient(180deg, #b0c046, #D9CCC5);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 
-    &:hover {
-      color: #eaf6fa;
-    }
+    //&:hover {
+    //  color: #faf4ea;
+    //}
   }
 /*Отображение на маленьком экране*/
   @media screen and (max-width: 769px){
