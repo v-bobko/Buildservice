@@ -1,30 +1,37 @@
 //Переменные
-$main-color: #559FB3;
-$color-header-text: #f9f9f9;
-$color-usual-text: #3c4b60;
-$color-btn: #bdd4db;
-$color-btb-text: #f9f9f9;
-$color-toggler: #f9f9f9;
-$color-head1: #3c4b60;
-$color-head2-l: #3c4b60;
-$color-head2-d: #f9f9f9;
-$color-head5: #91629a;
-$color-bg-light: #f9f9f9;
-$color-bg-dark: #3c4b60;
+//$main-color: #559FB3;
+//$color-header-text: #f9f9f9;
+//$color-usual-text: #3c4b60;
+//$color-btn: #bdd4db;
+//$color-btb-text: #f9f9f9;
+//$color-toggler: #f9f9f9;
+//$color-head1: #3c4b60;
+//$color-head2-l: #3c4b60;
+//$color-head2-d: #f9f9f9;
+//$color-head5: #91629a;
+//$color-bg-light: #f9f9f9;
+//$color-bg-dark: #3c4b60;
 
-//$main-color: #A69586;
-//$color-header-text: #F2F0F0;
-//$color-toggler: #736355;
-//$color-usual-text: #332d2d;
-//$color-btn: #b0c046;
-//$color-btb-text: #F2F0F0;
-
+$main-color: #68707e/*#9ca1ab*/;
+$color-header-text: #f7f7f6;
+$color-usual-text: #3d3d4f;
+$color-btn: #c5868e;
+$color-btb-text: #f7f7f6;
+$color-toggler: #f7f7f6;
+$color-head1: #3d3d4f;
+$color-head2-l: #3d3d4f;
+$color-head2-d: #f7f7f6;
+$color-head5:#378fbd;
+$color-bg-light: #f7f7f6;
+$color-bg-dark: #3d3d4f;
 
 // Базовые стили для всего сайта
 
 body {
   color: $color-usual-text;
-
+  p {
+    font-size: 18px;
+  }
   h1 {
     color: $color-head1;
     font-weight: 400;
@@ -32,6 +39,7 @@ body {
 
   h5 {
     color: $color-head5;
+    font-size: 21px;
   }
 }
 
@@ -88,7 +96,7 @@ body {
   }
 
   .navbar-toggler-icon {
-    background-image: url(log.png);
+    background-image: url(../css/log.png);
   }
 
   .navbar-collapse {
@@ -128,16 +136,17 @@ body {
     font-size: 18px;
     font-weight: 600;
     border-radius: 25px;
-    box-shadow: 0 8px 8px rgba(60, 75, 96, 0.4);
-    //box-shadow: 0 9px 6px rgba(115, 99, 85, 0.2);
+    border: none;
+    //box-shadow: 0 8px 8px rgba(60, 75, 96, 0.4);
+    box-shadow: 0 8px 8px rgba(61, 61, 79, 0.2);
     transition: all .1s ease-out;
 
     &:hover {
       transform: scale(1.04);
       //color: #fff;
       color: $color-btb-text;
-      box-shadow: 0 6px 9px rgb(60, 75, 96, .8);
-      //box-shadow: 0 4px 9px rgb(115, 99, 85, .7);
+      //box-shadow: 0 6px 9px rgb(60, 75, 96, .8);
+      box-shadow: 0 6px 9px rgb(61, 61, 79, .7);
     }
   }
 
@@ -152,10 +161,11 @@ body {
     color: rgba(243, 252, 255, 0.65);
     //color: rgba(242, 240, 240, 0.65);
     //градиент
-    background-image: linear-gradient(90deg, #eaf6fa, #70b2c5);
-    //background-image: linear-gradient(180deg, #b0c046, #D9CCC5);
+    //background-image: linear-gradient(90deg, #eaf6fa, #70b2c5);
+    background-image: linear-gradient(180deg,$color-btn,$color-bg-light);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+
 
     //&:hover {
     //  color: #faf4ea;
@@ -166,11 +176,11 @@ body {
 /*Карусель*/
 .carousel, {
   margin-top: 80px;
-  height: 300px;
+  height: 380px;
 }
 
 .carousel-item {
-  height: 300px;
+  height: 380px;
 }
 
 /*Блок возможостей*/
@@ -235,9 +245,9 @@ body {
     li {
       border: none;
       margin-left: 15px;
-
       position: relative;
       padding: .5rem 1rem;
+      font-size: 18px;
 
       &::marker {
         content: "\2013";
@@ -250,7 +260,7 @@ body {
 
 /*Личный кабинет*/
 .personal-account {
-  .one,two {
+  .one,.two,.three {
     padding: 0 25px;
   }
 
@@ -269,8 +279,14 @@ body {
       //padding: 0 15px;
 
       .card-title {
-        color: $main-color;
+
+        font-weight: 600;
       }
+    }
+  }
+  .three{
+    p{
+      font-size: 14px;
     }
   }
 }
@@ -278,11 +294,8 @@ body {
   /*Подвал*/
   footer {
     height: 60px;
-    background-color: $main-color;
+    background-color:$color-bg-dark;
     color: rgba(249, 249, 249, 0.7);
-
-    font-size: 16px;
-    font-style: italic;
 
     .container-fluid {
       height: 100%;
@@ -295,6 +308,8 @@ body {
 
     p {
       margin: 0;
+      font-size: 14px;
+      font-style: italic;
     }
 
     img {
@@ -309,6 +324,9 @@ body {
       .navbar-brand {
         font-size: 40px;
       }
+    }
+    .carousel {
+      margin-top: 58px;
     }
   }
 
@@ -348,7 +366,9 @@ body {
     /*Заказать*/
     /* Подвал*/
     footer {
-      font-size: 12px;
+      p {
+        font-size: 12px;
+      }
     }
 
 
