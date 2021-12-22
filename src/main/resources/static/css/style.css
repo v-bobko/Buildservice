@@ -30,7 +30,7 @@ body h5 {
   color: #3d3d4f;
 }
 
-.header .container-fluid, .maintext .container-fluid {
+.header .container-fluid, .maintext .container-fluid, .contacts .container-fluid {
   padding: 0 25px;
 }
 
@@ -117,26 +117,64 @@ body h5 {
   font-size: 50px;
   padding-top: 0;
   padding-bottom: 0;
-  color: rgba(243, 252, 255, 0.65);
+  color: rgba(247, 247, 246, 0.65);
   background-image: -webkit-gradient(linear, left top, left bottom, from(#c5868e), to(#f7f7f6));
   background-image: linear-gradient(180deg, #c5868e, #f7f7f6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/*Карусель*/
-.carousel {
+/*Фото*/
+.foto {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin-top: 80px;
-  height: 380px;
+  height: 300px;
+  background: url(../images/back1700.jpg) 0px 0px no-repeat;
+  background-size: cover;
 }
-
-.carousel-item {
-  height: 380px;
+.foto::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 300px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(61, 61, 79, 0.8);
+  z-index: 2;
+}
+.foto img {
+  opacity: 0.5;
+}
+.foto h1 {
+  position: relative;
+  padding: 0 50px;
+  z-index: 3;
+  text-align: left;
+  color: #f7f7f6;
 }
 
 /*Блок возможостей*/
 .about {
-  padding: 25px 0;
+  padding: 35px 25px;
+}
+.about p {
+  text-align: justify;
+  text-indent: 25px;
+  padding-right: 10px;
+}
+.about .carousel {
+  padding-left: 10px;
 }
 .about h1 {
   text-align: center;
@@ -220,9 +258,49 @@ body h5 {
   font-size: 14px;
 }
 
+/*Контакты*/
+.contacts {
+  margin-top: 120px;
+}
+.contacts .two {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 85px;
+}
+.contacts .geo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.contacts table {
+  font-size: 18px;
+}
+.contacts table tr {
+  height: 70px;
+}
+.contacts table th, .contacts table td {
+  vertical-align: top;
+}
+.contacts table td {
+  padding: 0px 15px;
+}
+.contacts table p {
+  font-size: 12px;
+  margin-bottom: 0;
+}
+.contacts img {
+  width: 38px;
+}
+
 /*Подвал*/
 footer {
   height: 60px;
+  left: 0;
+  bottom: 0;
   background-color: #3d3d4f;
   color: rgba(249, 249, 249, 0.7);
 }
@@ -249,8 +327,13 @@ footer img {
     font-size: 40px;
   }
 
-  .carousel {
+  .foto {
     margin-top: 58px;
+    background: url(../images/back900.jpg) 0px 0px no-repeat;
+  }
+
+  .contacts {
+    margin-top: 100px;
   }
 }
 @media screen and (max-width: 600px) {
@@ -281,18 +364,60 @@ footer img {
             justify-content: center;
   }
 
-  /*Карусель*/
-  .carousel {
-    margin-top: 58px;
+  /*Фото*/
+  .foto {
+    background: url(../images/back400.jpg) 0px 0px no-repeat;
+    height: 150px;
+  }
+  .foto::after {
+    height: 150px;
+  }
+  .foto h1 {
+    text-align: center;
+  }
+
+  /*Maintext*/
+  .about {
+    padding: 25px 0px;
+  }
+  .about p {
+    padding-right: 0px;
+  }
+  .about .carousel {
+    padding-left: 0px;
+  }
+  .about .carousel, .about .carousel-item {
     height: 250px;
   }
 
-  .carousel-item {
-    height: 250px;
+  /*Контакты*/
+  .contacts .two {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-bottom: 85px;
+  }
+  .contacts .geo {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .contacts h1 {
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: 600;
+  }
+  .contacts table {
+    margin-bottom: 25px;
+  }
+  .contacts table .firstrow {
+    height: 100px;
+    margin-bottom: 2px;
   }
 
-  /*Текст*/
-  /*Заказать*/
   /* Подвал*/
   footer p {
     font-size: 12px;

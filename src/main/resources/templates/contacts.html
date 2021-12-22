@@ -5,15 +5,51 @@
 </div>
 <body>
 <!--Заголовок-->
-<div th:replace="~{first_header::header1}"></div>
+<section class="header">
+	<div th:replace="~{first_header::header1}"></div>
+</section>
+<!--Контакты-->
+<section class="contacts">
+	<div class="container-fluid">
+		<div class="row one">
+			<h1>КОНТАКТЫ</h1>
+		</div>
+		<div class="row two">
+			<div class="col-md-6 col-12">
+				<table>
+					<tr class="firstrow">
+						<th>Адрес:</th>
+						<td>Санкт-Петербург, Проспект Испытателей, дом 11, к.1, оф.87</td>
+					</tr>
+					<tr>
+						<th>Tелефон:</th>
+						<td>8 (999) 999-99-99<br>
+							<p>понедельник-суббота с 10:00 до 16:00</p></td>
+					</tr>
+					<tr>
+						<th>Эл.почта:</th>
+						<td><i>buildservice@mail.ru</i></td>
+					</tr>
+					<tr>
+						<th>Соц.сети:</th>
+						<td><a href="#"><img src="../icon/whatsapp1.png"></a>
+							<a href="#"><img src="../icon/instagram1.png"></a></p></td>
+					</tr>
+				</table>
+			</div>
+			<div class="col-md-6 col-12 geo">
+				<script type="text/javascript" charset="utf-8" async
+				        src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ad5fda839189beb452a030e27e0ee802751fc721822cd60e1e0c7f5db2aff42a7&amp;width=600&amp;height=350&amp;lang=ru_RU&amp;scroll=false"></script>
+			</div>
+		</div>
+	</div>
+</section>
 
 
-<div class="container-xxl">
-    <h1>Контакты</h1>
-</div>
-
-
-
+<!--Подвал-->
+<section class="footer fixed-bottom">
+	<div th:replace="~{footer::footer1}"></div>
+</section>
 <!--Скрипты-->
 <div th:replace="~{scripts::scripts}"></div>
 </body>
