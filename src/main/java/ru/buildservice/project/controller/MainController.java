@@ -2,7 +2,6 @@ package ru.buildservice.project.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 @Controller
 public class MainController {
@@ -14,6 +13,26 @@ public class MainController {
     @GetMapping("/contacts")
     public String contact() {
         return "contacts";
+    }
+    @GetMapping("/customer/objects")
+    public String customerObjects() {
+        return "customer-objects";
+    }
+    @GetMapping("/customer/calendar")
+    public String customerCalendar() {
+        return "customer-calendar";
+    }
+    @GetMapping("/customer/psd")
+    public String customerPSD() {
+        return "customer-psd";
+    }
+    @GetMapping("/customer/work")
+    public String customerWork() {
+        return "customer-work";
+    }
+    @GetMapping("/customer/online")
+    public String customerOnline() {
+        return "customer-online";
     }
 
 
