@@ -333,21 +333,30 @@ footer img {
   background-color: #68707e;
 }
 .header2 .name-object {
-  background-color: #cba5a9;
-  padding: 5px 0;
+  height: 35px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #d2c0c4;
 }
 .header2 .name-object h5 {
   color: #3d3d4f;
+  margin-bottom: 0;
   text-align: center;
   font-size: 18px;
 }
 .header2 .name-account {
-  padding: 5px 0;
+  height: 35px;
+  padding: 0px 10px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 .header2 .name-account h5 {
   color: #f7f7f6;
-  text-align: center;
-  font-size: 18px;
+  text-align: left;
+  font-size: 16px;
+  margin-bottom: 0;
 }
 .header2 .navbar {
   padding-top: 5px;
@@ -373,7 +382,9 @@ footer img {
   opacity: 0.9;
 }
 .header2 .navbar-light .navbar-toggler-icon {
-  background-image: url(../css/log.png);
+  background-image: url(../css/log2.png);
+  height: 1.51rem;
+  vertical-align: top;
 }
 .header2 .nav-tabs {
   border-bottom: 2px solid #3d3d4f;
@@ -386,7 +397,7 @@ footer img {
 }
 .header2 .nav-tabs .nav-link {
   margin-bottom: -2px;
-  padding: 0.4rem 1rem;
+  padding: 0.26rem 1rem;
   color: rgba(247, 247, 246, 0.7);
   border: 1px solid;
   border-color: #3d3d4f #3d3d4f transparent;
@@ -509,6 +520,9 @@ footer img {
   }
 
   /*заголовок заказчик*/
+  .header2 .name-account h5 {
+    text-align: center;
+  }
   .header2 .nav-tabs .nav-item {
     margin: 0 5px;
   }

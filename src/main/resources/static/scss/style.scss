@@ -11,7 +11,7 @@ $color-head2-d: #f7f7f6;
 $color-head5: #378fbd;
 $color-bg-light: #f7f7f6;
 $color-bg-dark: #3d3d4f;
-$color-object: #cba5a9;
+$color-object: #d2c0c4;
 
 /* Базовые стили для всего сайта*/
 
@@ -395,23 +395,29 @@ footer {
   background-color: $main-color;
 
   .name-object {
+    height: 35px;
+    align-items: center;
     background-color: $color-object;
-    padding: 5px 0;
+   // padding: 3px 0;
 
     h5 {
       color: $color-head2-l;
+      margin-bottom: 0;
       text-align: center;
       font-size: 18px;
     }
   }
 
   .name-account {
-    padding: 5px 0;
+    height: 35px;
+    padding: 0px 10px;
+    align-items: center;
 
     h5 {
       color: $color-head2-d;
-      text-align: center;
-      font-size: 18px;
+      text-align: left;
+      font-size: 16px;
+      margin-bottom: 0;
     }
   }
 
@@ -443,7 +449,9 @@ footer {
     }
 
     .navbar-toggler-icon {
-      background-image: url(../css/log.png);
+      background-image: url(../css/log2.png);
+      height: 1.51rem;
+      vertical-align: top;
     }
 
   }
@@ -461,7 +469,7 @@ footer {
 
     .nav-link {
       margin-bottom: -2px;
-      padding: .4rem 1rem;
+      padding: .26rem 1rem;
       color: rgba(247, 247, 246, 0.7);
       border: 1px solid;
       border-color: $color-bg-dark $color-bg-dark transparent;
@@ -602,6 +610,11 @@ footer {
 
   /*заголовок заказчик*/
   .header2 {
+    .name-account {
+      h5 {
+        text-align: center;
+      }
+    }
     .nav-tabs {
       .nav-item {
         margin: 0 5px;
