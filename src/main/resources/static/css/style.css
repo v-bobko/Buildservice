@@ -560,6 +560,121 @@ footer img {
 }
 
 /*ПСД*/
+.pd .row, .sd .row {
+  margin: 0 15px;
+}
+.pd .name, .sd .name {
+  padding-top: 25px;
+  border-bottom: 1px solid #3d3d4f;
+}
+.pd .name h3, .sd .name h3 {
+  margin-bottom: 0;
+}
+.pd .list, .sd .list {
+  padding-top: 15px;
+}
+.pd .list ul, .sd .list ul {
+  text-align: left;
+  margin-bottom: 10px;
+}
+.pd .list ul li, .sd .list ul li {
+  border: none;
+  padding: 0.2rem 1rem;
+  font-size: 16px;
+}
+.pd .list ul li::marker, .sd .list ul li::marker {
+  content: "–";
+  font-weight: bold;
+  color: #68707e;
+}
+.pd .list ul li a, .sd .list ul li a {
+  text-decoration: none;
+  color: #3d3d4f;
+}
+.pd .list ul li a:hover, .sd .list ul li a:hover {
+  color: #378fbd;
+}
+
+/*Выполненные работы*/
+.date {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 25px 15px 0 15px;
+}
+.date .form-select {
+  display: inline;
+  width: 120px;
+}
+.date button {
+  margin-left: 5px;
+  padding: 5px 5px;
+  height: 32px;
+  width: 32px;
+  background-color: #378fbd;
+  color: #f7f7f6;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 3px;
+  border: none;
+  line-height: 3px;
+}
+.date button:hover {
+  background-color: rgba(113, 95, 187, 0.8);
+}
+
+.work-otchet {
+  padding: 25px;
+}
+.work-otchet .scroll-table {
+  overflow: auto;
+}
+.work-otchet .scroll-table td, .work-otchet .scroll-table th {
+  padding: 10px;
+  border: 2px solid #3d3d4f;
+}
+.work-otchet .scroll-table th {
+  color: #21217e;
+  text-align: center;
+  background-color: rgba(38, 38, 108, 0.2);
+}
+.work-otchet .scroll-table td {
+  text-align: justify;
+}
+.work-otchet .scroll-table tbody tr {
+  min-height: 150px;
+}
+.work-otchet .scroll-table .colum-work {
+  width: 25%;
+}
+.work-otchet .scroll-table .colum-process {
+  width: 20%;
+}
+.work-otchet .scroll-table .colum-problem {
+  width: 15%;
+  color: red;
+}
+.work-otchet .scroll-table .colum-comment-z {
+  width: 20%;
+}
+.work-otchet .scroll-table .colum-comment-i {
+  width: 20%;
+}
+
+.fotootchet {
+  margin: 0 15px 80px 15px;
+}
+.fotootchet .name {
+  padding-top: 25px;
+  border-bottom: 1px solid #3d3d4f;
+}
+.fotootchet .name h3 {
+  margin-bottom: 0;
+}
+.fotootchet .gal {
+  margin-top: 15px;
+}
+
 /*Отображение на маленьком экране*/
 @media screen and (max-width: 933px) {
   .header2 .nav-tabs {
@@ -690,6 +805,26 @@ footer img {
   }
   .calendar .accordion-body .colum .work, .calendar .accordion-body .colum .comment {
     height: auto;
+  }
+
+  /*PSD*/
+  .pd h3, .sd h3 {
+    text-align: center;
+  }
+
+  /*Выполненные работы*/
+  .work-otchet {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  .work-otchet .scroll-table {
+    width: 100%;
+  }
+  .work-otchet .scroll-table table {
+    width: 1775px;
+  }
+  .work-otchet .scroll-table table .colum-work, .work-otchet .scroll-table table .colum-process, .work-otchet .scroll-table table .colum-problem, .work-otchet .scroll-table table .colum-comment-i, .work-otchet .scroll-table table .colum-comment-z {
+    width: 355px;
   }
 
   /* Подвал*/
