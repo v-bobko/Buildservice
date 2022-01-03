@@ -407,7 +407,7 @@ footer {
   .name-object {
     height: 35px;
     align-items: center;
-    background-color: $color-object;
+    background-color: rgba(197, 134, 142, 0.8);
     // padding: 3px 0;
   }
 
@@ -581,7 +581,7 @@ footer {
       }
 
       .work {
-        height: 300px;
+        height: 400px;
         padding: 5px 10px;
         overflow: auto;
       }
@@ -815,6 +815,34 @@ footer {
   }
 }
 
+/*Трансляция*/
+.video{
+  margin-top: 40px;
+  margin-bottom: 100px;
+  .accordion-button {
+    &:focus, &:hover {
+      z-index: 3;
+      border-color: $color-object;
+      outline: 0;
+      box-shadow: 0 0 0 .25rem rgba(197, 134, 142, .25);
+    }
+
+
+    &:not(.collapsed) {
+      color: $color-object;
+      background-color: rgb(243, 238, 238);
+      font-weight: 600;
+    }
+  }
+  .camera1{
+    text-align: center;
+    iframe{
+      width:800px;
+      height:450px;
+    }
+  }
+}
+
 
 
 
@@ -868,6 +896,15 @@ footer {
           width: 250px;
           height: 150px;
         }
+      }
+    }
+  }
+  /*Трансляция*/
+  .video{
+    .camera1{
+      iframe{
+        width:560px;
+        height:315px;
       }
     }
   }
@@ -1030,6 +1067,16 @@ footer {
 
       }
 
+    }
+  }
+  /*Трансляция*/
+  .video{
+    .camera1{
+      text-align: left;
+      iframe{
+        width:315px;
+        height:180px;
+      }
     }
   }
 
