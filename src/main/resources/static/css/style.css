@@ -328,6 +328,61 @@ footer img {
 }
 
 /*ЛИЧНЫЙ КАБИНЕТ ЗАКАЗЧИКА*/
+/*Первая страница лк*/
+.header-start {
+  background-color: #68707e;
+}
+.header-start h5 {
+  color: #f7f7f6;
+  margin-bottom: 0;
+  text-align: center;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+.header-start .name-object {
+  height: 40px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: rgba(197, 134, 142, 0.8);
+}
+.header-start .name-account {
+  height: 40px;
+  padding: 0 10px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.header-start .name-account h5 {
+  opacity: 0.7;
+}
+
+/*Лист объектов*/
+.list-object {
+  margin: 25px 35px;
+}
+.list-object .list ul {
+  text-align: left;
+  margin-bottom: 10px;
+}
+.list-object .list ul li {
+  border: none;
+  padding: 0.3rem 1rem;
+  font-size: 20px;
+}
+.list-object .list ul li::marker {
+  content: "➤";
+  font-weight: bold;
+  color: #378fbd;
+}
+.list-object .list ul li a {
+  text-decoration: none;
+  color: #3d3d4f;
+}
+.list-object .list ul li a:hover {
+  color: #378fbd;
+}
+
 /*Заголовок*/
 .header2 {
   background-color: #68707e;
@@ -354,8 +409,17 @@ footer img {
 }
 .header2 .name-account h5 {
   text-align: left;
-  font-size: 16px;
   opacity: 0.7;
+}
+.header2 .name-account .col-home {
+  text-align: right;
+}
+.header2 .name-account .col-home a img {
+  width: 25px;
+  opacity: 0.7;
+}
+.header2 .name-account .col-home a img:hover {
+  opacity: 1;
 }
 .header2 .navbar {
   padding-top: 5px;
@@ -775,7 +839,6 @@ footer img {
     height: 150px;
   }
 
-  /*Трансляция*/
   .video .camera1 iframe {
     width: 560px;
     height: 315px;
@@ -845,9 +908,6 @@ footer img {
   }
 
   /*заголовок заказчик*/
-  .header2 .name-account h5 {
-    text-align: center;
-  }
   .header2 .nav-tabs .nav-item {
     margin: 0 5px;
   }
