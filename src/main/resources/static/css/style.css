@@ -671,8 +671,31 @@ footer img {
 .fotootchet .name h3 {
   margin-bottom: 0;
 }
-.fotootchet .gal {
+.fotootchet .gallery {
   margin-top: 15px;
+}
+.fotootchet .gallery .element-1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.fotootchet .gallery .element-1 a {
+  width: 420px;
+  height: 300px;
+  overflow: hidden;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0.25rem;
+}
+.fotootchet .gallery .element-1 img {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
 }
 
 /*Отображение на маленьком экране*/
@@ -720,6 +743,11 @@ footer img {
 
   .contacts {
     margin-top: 100px;
+  }
+
+  .fotootchet .gallery .element-1 a {
+    width: 250px;
+    height: 150px;
   }
 }
 @media screen and (max-width: 600px) {
@@ -825,6 +853,16 @@ footer img {
   }
   .work-otchet .scroll-table table .colum-work, .work-otchet .scroll-table table .colum-process, .work-otchet .scroll-table table .colum-problem, .work-otchet .scroll-table table .colum-comment-i, .work-otchet .scroll-table table .colum-comment-z {
     width: 355px;
+  }
+
+  /*Фото*/
+  .fotootchet h3 {
+    margin-bottom: 0;
+    text-align: center;
+  }
+  .fotootchet .gallery .element-1 a {
+    width: 170px;
+    height: 120px;
   }
 
   /* Подвал*/

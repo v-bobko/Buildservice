@@ -16,23 +16,23 @@ public class MainController {
     }
     @GetMapping("/customer/objects")
     public String customerObjects() {
-        return "customer-objects";
+        return "customer/customer-objects";
     }
     @GetMapping("/customer/calendar")
     public String customerCalendar() {
-        return "customer-calendar";
+        return "customer/customer-calendar";
     }
     @GetMapping("/customer/psd")
     public String customerPSD() {
-        return "customer-psd";
+        return "customer/customer-psd";
     }
     @GetMapping("/customer/work")
     public String customerWork() {
-        return "customer-work";
+        return "customer/customer-work";
     }
     @GetMapping("/customer/online")
     public String customerOnline() {
-        return "customer-online";
+        return "customer/customer-online";
     }
 
 
