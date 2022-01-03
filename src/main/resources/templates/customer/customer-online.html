@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ru">
+<!--Мета-теги-->
+<div th:replace="~{head::head}">
+</div>
+<body>
+<!--Заголовок-->
+<section class="header2">
+	<div class="container-fluid">
+		<div class="row name-account">
+			<h5>Личный кабинет Имя Клиента</h5>
+		</div>
+		<div class="row name-object">
+			<h5>Название Объекта</h5>
+		</div>
+		<div class="row menu navbar navbar-expand-lg navbar-light">
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="nav nav-tabs">
+					<li class="nav-item">
+						<a class="nav-link h" href="customer-calendar.html" th:href="@{/customer/calendar}">Календарь работ</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link h" href="customer-psd.html" th:href="@{/customer/psd}">Проектно-сметная документация</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link h" href="customer-work.html" th:href="@{/customer/work}">Отчет выполненныхработ/Фотоотчет</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="customer-online.html" th:href="@{/customer/online}">Онлайн-трансляция</a>
+					</li>
+				</ul>
+
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+<!--Подвал-->
+<section class="footer fixed-bottom">
+	<div th:replace="~{footer::footer1}"></div>
+</section>
+
+<!--Скрипты-->
+<div th:replace="~{scripts::scripts}"></div>
+</body>
+</html>
