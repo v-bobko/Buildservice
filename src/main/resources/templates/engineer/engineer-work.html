@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="ru">
+<!--Мета-теги-->
+<div th:replace="~{head::head}">
+</div>
+<head>
+	<!--Галерея-->
+	<link rel="stylesheet" href="../css/lightgallery.min.css">
+
+	<script src="//code.jquery.com/jquery-3.5.1.min.js"></script>
+	<script src="../js/lightgallery.min.js"></script>
+	<script src="../js/script.js"></script>
+</head>
+<body>
+<!--Заголовок-->
+<section class="header2">
+	<div class="container-fluid">
+		<div class="row name-account">
+			<div class="col">
+				<h5>Имя Инженера</h5>
+			</div>
+			<div class="col col-home">
+				<a class="admin-link" href="admin-objects.html" th:href="@{/engineer/adminObjects}">Администратор</a>
+				<a href="engineer-objects.html" th:href="@{/customer/objects}"><img src="../icon/home.png" alt="дом"></a>
+			</div>
+		</div>
+		<div class="row name-object">
+			<h5>Объект</h5>
+		</div>
+		<div class="row menu navbar navbar-expand-lg navbar-light">
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+			        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+			        aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="nav nav-tabs">
+					<li class="nav-item">
+						<a class="nav-link h" href="engineer-calendar.html"
+						   th:href="@{/engineer/calendar}">Календарь работ</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link h" href="engineer-psd.html" th:href="@{/engineer/psd}">Проектно-сметная
+							документация</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="engineer-work.html" th:href="@{/engineer/work}">Отчет
+							выполненных работ/Фотоотчет</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link h" href="engineer-online.html" th:href="@{/engineer/online}">Онлайн-трансляция</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link h" href="engineer-application.html" th:href="@{/engineer/application}">Заявки</a>
+					</li>
+				</ul>
+
+			</div>
+		</div>
+	</div>
+</section>
+
+<!--Название-->
+<div class="container-fluid">
+	<div class="row date">
+		<select class="form-select" aria-label="Default select example">
+			<option selected>Текущий месяц</option>
+			<option value="1">Январь</option>
+			<option value="2">Февраль</option>
+			<option value="3">Март</option>
+			<option value="4">Апрель</option>
+			<option value="5">Май</option>
+			<option value="6">Июнь</option>
+			<option value="7">Июль</option>
+			<option value="8">Август</option>
+			<option value="9">Сентябрь</option>
+			<option value="10">Октябрь</option>
+			<option value="11">Ноябрь</option>
+			<option value="12">Декабрь</option>
+		</select>
+		<select class="form-select" aria-label="Default select example">
+			<option selected>Текущий год</option>
+			<option value="1">2022</option>
+			<option value="2">2021</option>
+		</select>
+		<button type="button">ОК</button>
+	</div>
+
+</div>
+
+<!-- Таблица выполненных работ-->
+<section class="work-otchet">
+	<div class="scroll-table">
+		<table>
+			<thead>
+			<tr>
+				<th>РАБОТЫ</th>
+				<th>ВЫПОЛНЕНИЕ</th>
+				<th>ПРОБЛЕМЫ</th>
+				<th>КОММЕНТАРИИ ИНЖЕНЕРА</th>
+				<th>КОММЕНТАРИИ ЗАКАЗЧИКА</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td class="colum-work">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto,
+					excepturi!
+				</td>
+				<td class="colum-process">Lorem ipsum dolor.</td>
+				<td class="colum-problem">Lorem ipsum dolor sit amet.</td>
+				<td class="colum-comment-i">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+					Distinctio dolore illo nostrum, saepe tempora veniam.</td>
+				<td class="colum-comment-z"></td>
+			</tr>
+			<tr>
+				<td class="colum-work">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam
+					corporis cumque debitis dignissimos maxime necessitatibus omnis, perferendis porro
+					repellat repudiandae!
+				</td>
+				<td class="colum-process">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem,
+					natus.
+				</td>
+				<td class="colum-problem"></td>
+				<td class="colum-comment-i"></td>
+				<td class="colum-comment-z">Lorem ipsum dolor sit amet.	</td>
+			</tr>
+			<tr>
+				<td class="colum-work">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto,
+					excepturi!
+				</td>
+				<td class="colum-process">Lorem ipsum dolor.</td>
+				<td class="colum-problem">Lorem ipsum dolor sit amet.</td>
+				<td class="colum-comment-i">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero, quo.</td>
+				<td class="colum-comment-z">Lorem ipsum dolor sit amet.
+				</td>
+			</tr>
+			<tr>
+				<td class="colum-work">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto,
+					excepturi!
+				</td>
+				<td class="colum-process">Lorem ipsum dolor.</td>
+				<td class="colum-problem">Lorem ipsum dolor sit amet.</td>
+				<td class="colum-comment-i">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero, quo.</td>
+				<td class="colum-comment-z">Lorem ipsum dolor sit amet.
+				</td>
+			</tr>
+			<tr>
+				<td class="colum-work">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto,
+					excepturi!
+				</td>
+				<td class="colum-process">Lorem ipsum dolor.</td>
+				<td class="colum-problem">Lorem ipsum dolor sit amet.</td>
+				<td class="colum-comment-i">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero, quo.</td>
+				<td class="colum-comment-z">Lorem ipsum dolor sit amet.
+				</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+</section>
+
+<!-- Фотоотчет-->
+<section class="fotootchet">
+	<div class="container-fluid">
+		<div class="row name">
+			<h3>ФОТООТЧЕТ</h3>
+		</div>
+	</div>
+	<div class="row gallery">
+		<div class="element-1">
+
+			<a href="../images/c1.jpg">
+				<img src="../images/c1.jpg" alt="">
+			</a>
+
+			<a href="../images/c2.jpg">
+				<img src="../images/c2.jpg" alt="">
+			</a>
+
+			<a href="../images/c3.jpg">
+				<img src="../images/c3.jpg" alt="">
+			</a>
+
+			<a href="../images/c4.jpg">
+				<img src="../images/c4.jpg" alt="">
+			</a>
+
+			<a href="../images/c5.jpg">
+				<img src="../images/c5.jpg" alt="">
+			</a>
+
+			<a href="../images/c6.jpg">
+				<img src="../images/c6.jpg" alt="">
+			</a>
+		</div>
+
+	</div>
+</section>
+
+<!--Подвал-->
+<section class="footer fixed-bottom">
+	<div th:replace="~{footer::footer1}"></div>
+</section>
+
+<!--Скрипты-->
+<div th:replace="~{scripts::scripts}"></div>
+
+</body>
+</html>
