@@ -1,10 +1,92 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Title</title>
-</head>
+<!doctype html>
+<html lang="ru">
+<!--Мета-теги-->
+<div th:replace="~{head::head}">
+</div>
 <body>
+<!--Заголовок-->
+<section class="header2">
+	<div class="container-fluid">
+		<div class="row name-account">
+			<div class="col">
+				<h5>Имя Админа</h5>
+			</div>
+			<div class="col col-home">
+				<a class="admin-link" href="engineer-calendar.html" th:href="@{/engineer/objects}">Инженер</a>
+				<!--				<a href="engineer-objects.html" th:href="@{/customer/objects}"><img src="../icon/home.png" alt="дом"></a>-->
+				<a href="index.html" th:href="@{/}" data-bs-toggle="tooltip"
+				   data-bs-placement="top" title="Выход"><img src="../icon/logout.png" alt="выход"></a>
+			</div>
+		</div>
+		<div class="row name-object">
+			<h5>Объект</h5>
+		</div>
+		<div class="row menu navbar navbar-expand-lg navbar-light">
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+			        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+			        aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="nav nav-tabs">
+					<li class="nav-item">
+						<a class="nav-link h " href="admin-objects.html"
+						   th:href="@{/engineer/adminObjects}">Управление объектами</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link h" href="admin-create-account-page.html" th:href="@{/engineer/admin-create-account}">Создание ЛК</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="admin-create-object-page.html" th:href="@{/engineer/admin-create-object}">Создание Объекта</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>
 
+<!--Форма-->
+<section class="form-admin">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-5 col-md-6 col-12">
+				<form>
+					<div class="mb-3">
+						<label for="Name" class="form-label">Имя строительного объекта:</label>
+						<input type="text" class="form-control" id="Name" placeholder="Название">
+					</div>
+					<div class="mb-3">
+						<label for="LKZ" class="form-label">Выбрать заказчика:</label>
+						<select class="form-select" id="LKZ" aria-label="Default select example">
+							<option selected>Личные кабинеты заказчиков</option>
+							<option value="1">Имя1</option>
+							<option value="2">Имя2</option>
+							<option value="3">Имя3</option>
+						</select>
+					</div>
+					<div class="mb-3">
+						<label for="LKI" class="form-label">Выбрать исполнителя</label>
+						<select class="form-select" id="LKI" aria-label="Default select example">
+							<option selected>Личные кабинеты исполнителей</option>
+							<option value="1">Исполнитель1</option>
+							<option value="2">Исполнитель2</option>
+							<option value="3">Исполнитель3</option>
+						</select>
+					</div>
+					<div class="bt-form"><button type="submit" class="btn btn-primary">Создать</button></div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+</section>
+
+<!--Подвал-->
+<section class="footer fixed-bottom">
+	<div th:replace="~{footer::footer1}"></div>
+</section>
+
+<!--Скрипты-->
+<div th:replace="~{scripts::scripts}"></div>
 </body>
 </html>

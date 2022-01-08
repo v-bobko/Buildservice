@@ -21,7 +21,8 @@
 			</div>
 			<div class="col col-home">
 				<a class="admin-link" href="admin-objects.html" th:href="@{/engineer/adminObjects}">Администратор</a>
-				<a href="engineer-objects.html" th:href="@{/customer/objects}"><img src="../icon/home.png" alt="дом"></a>
+				<a href="engineer-objects.html" th:href="@{/customer/objects}"><img src="../icon/home.png"
+				                                                                    alt="дом"></a>
 			</div>
 		</div>
 		<div class="row name-object">
@@ -44,14 +45,16 @@
 							документация</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link active" aria-current="page" href="engineer-work.html" th:href="@{/engineer/work}">Отчет
+						<a class="nav-link active" aria-current="page" href="engineer-work.html"
+						   th:href="@{/engineer/work}">Отчет
 							выполненных работ/Фотоотчет</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link h" href="engineer-online.html" th:href="@{/engineer/online}">Онлайн-трансляция</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link h" href="engineer-application.html" th:href="@{/engineer/application}">Заявки</a>
+						<a class="nav-link h" href="engineer-application.html"
+						   th:href="@{/engineer/application}">Заявки</a>
 					</li>
 				</ul>
 
@@ -60,7 +63,7 @@
 	</div>
 </section>
 
-<!--Название-->
+<!--Выбор даты-->
 <div class="container-fluid">
 	<div class="row date">
 		<select class="form-select" aria-label="Default select example">
@@ -106,52 +109,105 @@
 				<td class="colum-work">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto,
 					excepturi!
 				</td>
-				<td class="colum-process">Lorem ipsum dolor.</td>
-				<td class="colum-problem">Lorem ipsum dolor sit amet.</td>
-				<td class="colum-comment-i">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-					Distinctio dolore illo nostrum, saepe tempora veniam.</td>
-				<td class="colum-comment-z"></td>
+				<td class="colum-process"><p>Lorem ipsum dolor.</p></td>
+				<td class="colum-problem"><p>Lorem ipsum dolor sit amet.</p></td>
+				<td class="colum-comment-i"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+					Distinctio dolore illo nostrum, saepe tempora veniam.</p>
+					<div class="bt-work-i">
+						<button class="btn-work" type="button" data-bs-toggle="tooltip"
+						        data-bs-placement="top" title="Добавить">
+							<img src="../icon/plus.png" style="vertical-align: middle"></button>
+						<button class="btn-work" type="button" data-bs-toggle="tooltip"
+						        data-bs-placement="top" title="Удалить">
+							<img src="../icon/basket.png" style="vertical-align: middle"></button>
+					</div>
+				</td>
+
+				<td class="colum-comment-z"><p></p></td>
 			</tr>
 			<tr>
-				<td class="colum-work">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam
+				<td class="colum-work"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam
 					corporis cumque debitis dignissimos maxime necessitatibus omnis, perferendis porro
-					repellat repudiandae!
+					repellat repudiandae!</p>
 				</td>
-				<td class="colum-process">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem,
-					natus.
+				<td class="colum-process"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+					Autem,
+					natus.</p>
 				</td>
 				<td class="colum-problem"></td>
-				<td class="colum-comment-i"></td>
-				<td class="colum-comment-z">Lorem ipsum dolor sit amet.	</td>
+				<td class="colum-comment-i">
+					<div class="bt-work-i">
+						<button class="btn-work" type="button" data-bs-toggle="tooltip"
+						        data-bs-placement="top" title="Добавить">
+							<img src="../icon/plus.png" style="vertical-align: middle"></button>
+						<button class="btn-work" type="button" data-bs-toggle="tooltip"
+						        data-bs-placement="top" title="Удалить">
+							<img src="../icon/basket.png" style="vertical-align: middle"></button>
+					</div>
+				</td>
+				<td class="colum-comment-z"><p>Lorem ipsum dolor sit amet.</p></td>
 			</tr>
 			<tr>
-				<td class="colum-work">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto,
-					excepturi!
+				<td class="colum-work"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+					Architecto,
+					excepturi!</p>
 				</td>
-				<td class="colum-process">Lorem ipsum dolor.</td>
-				<td class="colum-problem">Lorem ipsum dolor sit amet.</td>
-				<td class="colum-comment-i">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero, quo.</td>
-				<td class="colum-comment-z">Lorem ipsum dolor sit amet.
+				<td class="colum-process"><p>Lorem ipsum dolor.</p></td>
+				<td class="colum-problem"><p>Lorem ipsum dolor sit amet.</p></td>
+				<td class="colum-comment-i"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+					Libero, quo.</p>
+					<div class="bt-work-i">
+						<button class="btn-work" type="button" data-bs-toggle="tooltip"
+						        data-bs-placement="top" title="Добавить">
+							<img src="../icon/plus.png" style="vertical-align: middle"></button>
+						<button class="btn-work" type="button" data-bs-toggle="tooltip"
+						        data-bs-placement="top" title="Удалить">
+							<img src="../icon/basket.png" style="vertical-align: middle"></button>
+					</div>
+				</td>
+				<td class="colum-comment-z"><p>Lorem ipsum dolor sit amet.</p>
 				</td>
 			</tr>
 			<tr>
-				<td class="colum-work">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto,
-					excepturi!
+				<td class="colum-work"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+					Architecto,
+					excepturi!</p>
 				</td>
-				<td class="colum-process">Lorem ipsum dolor.</td>
-				<td class="colum-problem">Lorem ipsum dolor sit amet.</td>
-				<td class="colum-comment-i">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero, quo.</td>
-				<td class="colum-comment-z">Lorem ipsum dolor sit amet.
+				<td class="colum-process"><p>Lorem ipsum dolor.</p></td>
+				<td class="colum-problem"><p>Lorem ipsum dolor sit amet.</p></td>
+				<td class="colum-comment-i"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+					Libero, quo.</p>
+					<div class="bt-work-i">
+						<button class="btn-work" type="button" data-bs-toggle="tooltip"
+						        data-bs-placement="top" title="Добавить">
+							<img src="../icon/plus.png" style="vertical-align: middle"></button>
+						<button class="btn-work" type="button" data-bs-toggle="tooltip"
+						        data-bs-placement="top" title="Удалить">
+							<img src="../icon/basket.png" style="vertical-align: middle"></button>
+					</div>
+				</td>
+				<td class="colum-comment-z"><p>Lorem ipsum dolor sit amet.</p>
 				</td>
 			</tr>
 			<tr>
-				<td class="colum-work">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto,
-					excepturi!
+				<td class="colum-work"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+					Architecto,
+					excepturi.</p>
 				</td>
-				<td class="colum-process">Lorem ipsum dolor.</td>
-				<td class="colum-problem">Lorem ipsum dolor sit amet.</td>
-				<td class="colum-comment-i">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero, quo.</td>
-				<td class="colum-comment-z">Lorem ipsum dolor sit amet.
+				<td class="colum-process"><p>Lorem ipsum dolor.</p></td>
+				<td class="colum-problem"><p>Lorem ipsum dolor sit amet.</p></td>
+				<td class="colum-comment-i"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+					Libero, quo.</p>
+					<div class="bt-work-i">
+						<button class="btn-work" type="button" data-bs-toggle="tooltip"
+						        data-bs-placement="top" title="Добавить">
+							<img src="../icon/plus.png" style="vertical-align: middle"></button>
+						<button class="btn-work" type="button" data-bs-toggle="tooltip"
+						        data-bs-placement="top" title="Удалить">
+							<img src="../icon/basket.png" style="vertical-align: middle"></button>
+					</div>
+				</td>
+				<td class="colum-comment-z"><p>Lorem ipsum dolor sit amet.</p>
 				</td>
 			</tr>
 			</tbody>

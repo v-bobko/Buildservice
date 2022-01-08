@@ -1,10 +1,320 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Title</title>
-</head>
+<!doctype html>
+<html lang="ru">
+<!--Мета-теги-->
+<div th:replace="~{head::head}">
+</div>
 <body>
+<!--Заголовок-->
+<section class="header2">
+	<div class="container-fluid">
+		<div class="row name-account">
+			<div class="col">
+				<h5>Имя Админа</h5>
+			</div>
+			<div class="col col-home">
+				<a class="admin-link" href="engineer-calendar.html"
+				   th:href="@{/engineer/objects}">Инженер</a>
+				<!--				<a href="engineer-objects.html" th:href="@{/customer/objects}"><img src="../icon/home.png" alt="дом"></a>-->
+				<a href="index.html" th:href="@{/}" data-bs-toggle="tooltip"
+				   data-bs-placement="top" title="Выход"><img src="../icon/logout.png" alt="выход"></a>
+			</div>
+		</div>
+		<div class="row name-object">
+			<h5>Объект</h5>
+		</div>
+		<div class="row menu navbar navbar-expand-lg navbar-light">
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+			        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+			        aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="nav nav-tabs">
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="admin-objects.html"
+						   th:href="@{/engineer/adminObjects}">Управление объектами</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link h" href="admin-create-account-page.html"
+						   th:href="@{/engineer/admin-create-account}">Создание ЛК</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link h" href="admin-create-object-page.html"
+						   th:href="@{/engineer/admin-create-object}">Создание Объекта</a>
+					</li>
+				</ul>
 
+			</div>
+		</div>
+	</div>
+</section>
+
+<!--Список объектов-->
+<section class="list-object-accordion">
+	<div class="container-fluid">
+		<div class="row name">
+			<h3>СПИСОК СТРОИТЕЛЬНЫХ ОБЪЕКТОВ</h3>
+		</div>
+		<div class="row">
+			<div class="accordion" id="accordionExample">
+				<div class="accordion-item">
+					<h2 class="accordion-header" id="headingOne">
+						<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+						        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+							Имя объекта #1
+
+						</button>
+					</h2>
+					<div id="collapseOne" class="accordion-collapse collapse"
+					     aria-labelledby="headingOne">
+						<div class="accordion-body">
+							<ul class="list-group">
+								<li class="list-group-item">
+									<div class="text">Заказчик: Имя </div>
+									<div class="bt-o ">
+										<button class="btn-add" type="button" data-bs-toggle="tooltip"
+										        data-bs-placement="top" title="Редактировать">
+											<img src="../icon/edit.png" style="vertical-align: middle"></button>
+										<button class="btn-del" type="button" data-bs-toggle="tooltip"
+										        data-bs-placement="top" title="Удалить">
+											<img src="../icon/basket2.png" style="vertical-align: middle"></button>
+									</div>
+								</li>
+								<li class="list-group-item">
+									<div class="text">Иисполнитель: Имя </div>
+									<div class="bt-o ">
+										<button class="btn-add" type="button" data-bs-toggle="tooltip"
+										        data-bs-placement="top" title="Редактировать">
+											<img src="../icon/edit.png" style="vertical-align: middle"></button>
+										<button class="btn-del" type="button" data-bs-toggle="tooltip"
+										        data-bs-placement="top" title="Удалить">
+											<img src="../icon/basket2.png" style="vertical-align: middle"></button>
+									</div>
+								</li>
+							</ul>
+							<button class="btn btn-ac" type="button">Удалить объект</button>
+						</div>
+					</div>
+				</div>
+				<div class="accordion-item">
+					<h2 class="accordion-header" id="headingTwo">
+						<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+						        data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+							Имя объекта #2
+						</button>
+					</h2>
+					<div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo">
+						<div class="accordion-body">
+							<ul class="list-group">
+								<li class="list-group-item">
+									<div class="text">Заказчик: Имя </div>
+									<div class="bt-o ">
+										<button class="btn-add" type="button" data-bs-toggle="tooltip"
+										        data-bs-placement="top" title="Редактировать">
+											<img src="../icon/edit.png" style="vertical-align: middle"></button>
+										<button class="btn-del" type="button" data-bs-toggle="tooltip"
+										        data-bs-placement="top" title="Удалить">
+											<img src="../icon/basket2.png" style="vertical-align: middle"></button>
+									</div>
+								</li>
+								<li class="list-group-item">
+									<div class="text">Иисполнитель: Имя </div>
+									<div class="bt-o ">
+										<button class="btn-add" type="button" data-bs-toggle="tooltip"
+										        data-bs-placement="top" title="Редактировать">
+											<img src="../icon/edit.png" style="vertical-align: middle"></button>
+										<button class="btn-del" type="button" data-bs-toggle="tooltip"
+										        data-bs-placement="top" title="Удалить">
+											<img src="../icon/basket2.png" style="vertical-align: middle"></button>
+									</div>
+								</li>
+							</ul>
+							<button class="btn btn-ac" type="button">Удалить объект</button>
+						</div>
+					</div>
+				</div>
+				<div class="accordion-item">
+					<h2 class="accordion-header" id="headingThree">
+						<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+						        data-bs-target="#collapseThree" aria-expanded="true"
+						        aria-controls="collapseThree">
+							Имя объекта #3
+						</button>
+					</h2>
+					<div id="collapseThree" class="accordion-collapse collapse"
+					     aria-labelledby="headingThree">
+						<div class="accordion-body">
+							<ul class="list-group">
+								<li class="list-group-item">
+									<div class="text">Заказчик: Имя </div>
+									<div class="bt-o ">
+										<button class="btn-add" type="button" data-bs-toggle="tooltip"
+										        data-bs-placement="top" title="Редактировать">
+											<img src="../icon/edit.png" style="vertical-align: middle"></button>
+										<button class="btn-del" type="button" data-bs-toggle="tooltip"
+										        data-bs-placement="top" title="Удалить">
+											<img src="../icon/basket2.png" style="vertical-align: middle"></button>
+									</div>
+								</li>
+								<li class="list-group-item">
+									<div class="text">Иисполнитель: Имя </div>
+									<div class="bt-o ">
+										<button class="btn-add" type="button" data-bs-toggle="tooltip"
+										        data-bs-placement="top" title="Редактировать">
+											<img src="../icon/edit.png" style="vertical-align: middle"></button>
+										<button class="btn-del" type="button" data-bs-toggle="tooltip"
+										        data-bs-placement="top" title="Удалить">
+											<img src="../icon/basket2.png" style="vertical-align: middle"></button>
+									</div>
+								</li>
+							</ul>
+							<button class="btn btn-ac" type="button">Удалить объект</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!--Список лк заказчиков-->
+<section class="account-customer-list">
+	<div class="container-fluid">
+		<div class="row name ">
+			<h3>ЛИЧНЫЕ КАБИНЕТЫ ЗАКАЗЧИКОВ</h3>
+		</div>
+		<div class="row list">
+			<ul>
+				<li>
+					<div class="text"> Имя заказчика #1</div>
+					<div class="bt-o ">
+						<button class="btn-add" type="button" data-bs-toggle="tooltip"
+						        data-bs-placement="top" title="Редактировать">
+							<img src="../icon/edit.png" style="vertical-align: middle"></button>
+						<button class="btn-del" type="button" data-bs-toggle="tooltip"
+						        data-bs-placement="top" title="Удалить">
+							<img src="../icon/basket2.png" style="vertical-align: middle"></button>
+					</div>
+				</li>
+				<li>
+					<div class="text"> Имя заказчика #2</div>
+					<div class="bt-o ">
+						<button class="btn-add" type="button" data-bs-toggle="tooltip"
+						        data-bs-placement="top" title="Редактировать">
+							<img src="../icon/edit.png" style="vertical-align: middle"></button>
+						<button class="btn-del" type="button" data-bs-toggle="tooltip"
+						        data-bs-placement="top" title="Удалить">
+							<img src="../icon/basket2.png" style="vertical-align: middle"></button>
+					</div>
+				</li>
+				<li>
+					<div class="text"> Имя заказчика #3</div>
+					<div class="bt-o ">
+						<button class="btn-add" type="button" data-bs-toggle="tooltip"
+						        data-bs-placement="top" title="Редактировать">
+							<img src="../icon/edit.png" style="vertical-align: middle"></button>
+						<button class="btn-del" type="button" data-bs-toggle="tooltip"
+						        data-bs-placement="top" title="Удалить">
+							<img src="../icon/basket2.png" style="vertical-align: middle"></button>
+					</div>
+				</li>
+			</ul>
+		</div>
+
+	</div>
+</section>
+
+<!--Список лк исполнителей-->
+<section class="account-worker-list">
+	<div class="container-fluid">
+		<div class="row name ">
+			<h3>ЛИЧНЫЕ КАБИНЕТЫ ИСПОЛНИТЕЛЕЙ</h3>
+		</div>
+		<div class="row list">
+			<ul>
+				<li>
+					<div class="text"> Имя исполнителя #1</div>
+					<div class="bt-o ">
+						<button class="btn-add" type="button" data-bs-toggle="tooltip"
+						        data-bs-placement="top" title="Редактировать">
+							<img src="../icon/edit.png" style="vertical-align: middle"></button>
+						<button class="btn-del" type="button" data-bs-toggle="tooltip"
+						        data-bs-placement="top" title="Удалить">
+							<img src="../icon/basket2.png" style="vertical-align: middle"></button>
+					</div>
+				</li>
+				<li>
+					<div class="text"> Имя исполнителя #2</div>
+					<div class="bt-o ">
+						<button class="btn-add" type="button" data-bs-toggle="tooltip"
+						        data-bs-placement="top" title="Редактировать">
+							<img src="../icon/edit.png" style="vertical-align: middle"></button>
+						<button class="btn-del" type="button" data-bs-toggle="tooltip"
+						        data-bs-placement="top" title="Удалить">
+							<img src="../icon/basket2.png" style="vertical-align: middle"></button>
+					</div>
+				</li>
+				<li>
+					<div class="text"> Имя исполнителя #3</div>
+					<div class="bt-o ">
+						<button class="btn-add" type="button" data-bs-toggle="tooltip"
+						        data-bs-placement="top" title="Редактировать">
+							<img src="../icon/edit.png" style="vertical-align: middle"></button>
+						<button class="btn-del" type="button" data-bs-toggle="tooltip"
+						        data-bs-placement="top" title="Удалить">
+							<img src="../icon/basket2.png" style="vertical-align: middle"></button>
+					</div>
+				</li>
+			</ul>
+		</div>
+
+	</div>
+</section>
+
+<!--Список лк инженеров-->
+<section class="account-engineer-list">
+	<div class="container-fluid">
+		<div class="row name ">
+			<h3>ЛИЧНЫЕ КАБИНЕТЫ ИНЖЕНЕРОВ</h3>
+		</div>
+		<div class="row list">
+			<ul>
+				<li>
+					<div class="text"> Имя инженера #1</div>
+					<div class="bt-o ">
+						<button class="btn-add" type="button" data-bs-toggle="tooltip"
+						        data-bs-placement="top" title="Редактировать">
+							<img src="../icon/edit.png" style="vertical-align: middle"></button>
+						<button class="btn-del" type="button" data-bs-toggle="tooltip"
+						        data-bs-placement="top" title="Удалить">
+							<img src="../icon/basket2.png" style="vertical-align: middle"></button>
+					</div>
+				</li>
+				<li>
+					<div class="text"> Имя инженера #2</div>
+					<div class="bt-o ">
+						<button class="btn-add" type="button" data-bs-toggle="tooltip"
+						        data-bs-placement="top" title="Редактировать">
+							<img src="../icon/edit.png" style="vertical-align: middle"></button>
+						<button class="btn-del" type="button" data-bs-toggle="tooltip"
+						        data-bs-placement="top" title="Удалить">
+							<img src="../icon/basket2.png" style="vertical-align: middle"></button>
+					</div>
+				</li>
+
+			</ul>
+		</div>
+
+	</div>
+</section>
+
+
+<!--Подвал-->
+<section class="footer fixed-bottom">
+	<div th:replace="~{footer::footer1}"></div>
+</section>
+
+<!--Скрипты-->
+<div th:replace="~{scripts::scripts}"></div>
 </body>
 </html>

@@ -692,7 +692,7 @@ footer img {
   padding: 5px 5px;
   height: 32px;
   width: 32px;
-  background-color: #378fbd;
+  background-color: rgba(73, 53, 155, 0.8);
   color: #f7f7f6;
   font-size: 14px;
   font-weight: 600;
@@ -701,7 +701,7 @@ footer img {
   line-height: 3px;
 }
 .date button:hover {
-  background-color: rgba(113, 95, 187, 0.8);
+  background-color: #49359b;
 }
 
 .work-otchet {
@@ -722,8 +722,35 @@ footer img {
 .work-otchet .scroll-table td {
   text-align: justify;
 }
+.work-otchet .scroll-table td p {
+  font-size: 16px;
+  text-align: justify;
+  margin: 0 0 10px 0;
+}
 .work-otchet .scroll-table tbody tr {
   min-height: 150px;
+}
+.work-otchet .scroll-table tbody tr .bt-work-z, .work-otchet .scroll-table tbody tr .bt-work-i {
+  text-align: right;
+}
+.work-otchet .scroll-table tbody tr .bt-work-z .btn-work, .work-otchet .scroll-table tbody tr .bt-work-i .btn-work {
+  margin-right: 5px;
+  padding: 5px 5px;
+  width: 25px;
+  height: 25px;
+  background-color: rgba(73, 53, 155, 0.8);
+  border-radius: 3px;
+  border: none;
+  line-height: 3px;
+}
+.work-otchet .scroll-table tbody tr .bt-work-z .btn-work:hover, .work-otchet .scroll-table tbody tr .bt-work-i .btn-work:hover {
+  -webkit-transform: scale(1.04);
+          transform: scale(1.04);
+  background-color: #49359b;
+}
+.work-otchet .scroll-table tbody tr .bt-work-z .btn-work img, .work-otchet .scroll-table tbody tr .bt-work-i .btn-work img {
+  width: 15px;
+  height: 15px;
 }
 .work-otchet .scroll-table .colum-work {
   width: 25%;
@@ -886,22 +913,14 @@ footer img {
   margin-right: 5px;
   padding: 5px 5px;
   height: 30px;
+  width: 30px;
   background-color: rgba(55, 143, 189, 0.8);
-  color: #f7f7f6;
-  font-size: 14px;
-  font-weight: 600;
   border-radius: 3px;
   border: none;
   line-height: 3px;
 }
 .calendar .accordion-body .bt-i .btn-add:hover, .calendar .accordion-body .bt-i .btn-del:hover {
   background-color: rgba(55, 143, 189, 0.9);
-}
-.calendar .accordion-body .bt-i .btn-add {
-  width: 30px;
-}
-.calendar .accordion-body .bt-i .btn-del {
-  width: 30px;
 }
 .calendar .accordion-body .bt-i img {
   width: 20px;
@@ -918,9 +937,6 @@ footer img {
   width: 30px;
   height: 30px;
   background-color: #68707e;
-  color: #f7f7f6;
-  font-size: 14px;
-  font-weight: 600;
   border-radius: 3px;
   border: none;
   line-height: 3px;
@@ -933,6 +949,186 @@ footer img {
 .pd .btn-list .psd-btn img, .sd .btn-list .psd-btn img {
   width: 20px;
   height: 20px;
+}
+
+/*Формы*/
+.form-admin {
+  padding: 25px;
+  margin-bottom: 100px;
+  font-size: 18px;
+}
+.form-admin input, .form-admin select {
+  font-size: 18px;
+  height: 40px;
+}
+.form-admin .bt-form {
+  text-align: right;
+}
+.form-admin .btn-primary {
+  margin-top: 35px;
+  width: 100px;
+  height: 40px;
+  background-color: rgba(55, 143, 189, 0.8);
+  color: #f7f7f6;
+  font-size: 16px;
+  border: none;
+}
+.form-admin .btn-primary:hover {
+  background-color: #378fbd;
+}
+
+/*страница редактирования объектов и лк*/
+.list-object-accordion {
+  margin-bottom: 15px;
+}
+.list-object-accordion .row {
+  margin: 0 15px;
+}
+.list-object-accordion .name {
+  padding-top: 40px;
+  border-bottom: 1px solid #3d3d4f;
+}
+.list-object-accordion .name h3 {
+  margin-bottom: 0;
+}
+.list-object-accordion .accordion {
+  margin-top: 25px;
+  font-size: 16px;
+}
+.list-object-accordion .accordion .accordion-button {
+  font-size: 16px;
+}
+.list-object-accordion .accordion .accordion-button:focus, .list-object-accordion .accordion .accordion-button:hover {
+  z-index: 3;
+  border-color: #c5868e;
+  outline: 0;
+  -webkit-box-shadow: 0 0 0 0.25rem rgba(197, 134, 142, 0.25);
+          box-shadow: 0 0 0 0.25rem rgba(197, 134, 142, 0.25);
+}
+.list-object-accordion .accordion .accordion-button:not(.collapsed) {
+  color: #c5868e;
+  background-color: #f3eeee;
+  font-weight: 600;
+}
+.list-object-accordion .accordion .bt-o {
+  display: inline-block;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.list-object-accordion .accordion .bt-o .btn-add, .list-object-accordion .accordion .bt-o .btn-del {
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border: none;
+  line-height: 3px;
+  opacity: 0.8;
+}
+.list-object-accordion .accordion .bt-o .btn-add:hover, .list-object-accordion .accordion .bt-o .btn-del:hover {
+  opacity: 1;
+}
+.list-object-accordion .accordion .bt-o .btn-add img, .list-object-accordion .accordion .bt-o .btn-del img {
+  width: 20px;
+  height: 20px;
+}
+.list-object-accordion .accordion .text {
+  display: inline;
+  margin-right: 25px;
+}
+.list-object-accordion .accordion .btn-ac {
+  margin-top: 10px;
+  width: 200px;
+  height: 35px;
+  background-color: rgba(197, 134, 142, 0.8);
+  color: #f7f7f6;
+  font-size: 16px;
+  border: none;
+}
+.list-object-accordion .accordion .btn-ac:hover {
+  background-color: #c5868e;
+}
+
+.account-customer-list .row, .account-worker-list .row, .account-engineer-list .row {
+  margin: 0 15px;
+}
+.account-customer-list .name, .account-worker-list .name, .account-engineer-list .name {
+  padding-top: 25px;
+  border-bottom: 1px solid #3d3d4f;
+  margin-bottom: 30px;
+}
+.account-customer-list .name h3, .account-worker-list .name h3, .account-engineer-list .name h3 {
+  margin-bottom: 0;
+}
+.account-customer-list .list ul, .account-worker-list .list ul, .account-engineer-list .list ul {
+  text-align: left;
+  margin-bottom: 10px;
+}
+.account-customer-list .list ul li, .account-worker-list .list ul li, .account-engineer-list .list ul li {
+  border: none;
+  padding: 0rem 1rem;
+  font-size: 16px;
+  margin-bottom: 15px;
+  height: 30px;
+}
+.account-customer-list .list ul li .row-li, .account-worker-list .list ul li .row-li, .account-engineer-list .list ul li .row-li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: end;
+}
+.account-customer-list .list ul li::marker, .account-worker-list .list ul li::marker, .account-engineer-list .list ul li::marker {
+  content: "–";
+  font-weight: bold;
+  color: #68707e;
+}
+.account-customer-list .list ul li .text, .account-worker-list .list ul li .text, .account-engineer-list .list ul li .text {
+  display: inline;
+  margin-right: 25px;
+}
+.account-customer-list .list ul li .bt-o, .account-worker-list .list ul li .bt-o, .account-engineer-list .list ul li .bt-o {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.account-customer-list .list ul li .bt-o .btn-add, .account-customer-list .list ul li .bt-o .btn-del, .account-worker-list .list ul li .bt-o .btn-add, .account-worker-list .list ul li .bt-o .btn-del, .account-engineer-list .list ul li .bt-o .btn-add, .account-engineer-list .list ul li .bt-o .btn-del {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 10px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  border: none;
+  opacity: 0.8;
+}
+.account-customer-list .list ul li .bt-o .btn-add:hover, .account-customer-list .list ul li .bt-o .btn-del:hover, .account-worker-list .list ul li .bt-o .btn-add:hover, .account-worker-list .list ul li .bt-o .btn-del:hover, .account-engineer-list .list ul li .bt-o .btn-add:hover, .account-engineer-list .list ul li .bt-o .btn-del:hover {
+  opacity: 1;
+}
+.account-customer-list .list ul li .bt-o .btn-add img, .account-customer-list .list ul li .bt-o .btn-del img, .account-worker-list .list ul li .bt-o .btn-add img, .account-worker-list .list ul li .bt-o .btn-del img, .account-engineer-list .list ul li .bt-o .btn-add img, .account-engineer-list .list ul li .bt-o .btn-del img {
+  width: 20px;
+  height: 20px;
+}
+
+.account-engineer-list {
+  margin-bottom: 100px;
 }
 
 /*Отображение на маленьком экране*/
@@ -1147,5 +1343,18 @@ footer img {
   }
   .choice .choice-btn {
     margin: 20px;
+  }
+
+  /*Формы*/
+  .form-admin .bt-form {
+    text-align: center;
+  }
+
+  /*Список аккордеона*/
+  .list-object-accordion .accordion-body {
+    text-align: center;
+  }
+  .list-object-accordion .accordion-body .list-group-item {
+    text-align: left;
   }
 }
