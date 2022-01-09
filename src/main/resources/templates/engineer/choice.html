@@ -4,31 +4,24 @@
 <div th:replace="~{head::head}">
 </div>
 <body>
-<!--Заголовок-->
-<section class="header-start">
-	<div class="container-fluid">
-		<div class="row name-account">
-			<h5>имя клиента</h5>
-		</div>
-		<div class="row name-object">
-			<h5>КОНТРОЛИРУЕМЫЕ ОБЪЕКТЫ</h5>
-		</div>
-	</div>
-</section>
 
 <!--Выбор кабинета-->
 <section class="choice">
 	<div class="container-fluid">
 		<div class="row">
+			<a href="index.html" th:href="@{/}" data-bs-toggle="tooltip"
+			   data-bs-placement="top" title="Вернуться на начальную страницу"><img src="../icon/BACK.png" alt="назад"></a>
+		</div>
+		<div class="row row-btn">
+			<h2>Выберите тип кабинета:</h2>
+			<button class="choice-btn" type="button">Инженер</button>
+			<button class="choice-btn" type="button">Администратор</button>
 
 		</div>
 	</div>
 </section>
 
-<!--Подвал-->
-<section class="footer fixed-bottom">
-	<div th:replace="~{footer::footer1}"></div>
-</section>
+
 
 <!--Скрипты-->
 <div th:replace="~{scripts::scripts}"></div>

@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ru">
+<!--Мета-теги-->
+<div th:replace="~{head::head}">
+</div>
+<body>
+<!--Заголовок-->
+<section class="header2">
+	<div class="container-fluid">
+		<div class="row name-account">
+			<div class="col">
+				<h5>Имя Инженера</h5>
+			</div>
+			<div class="col col-home">
+				<a class="admin-link" href="admin-objects.html" th:href="@{/engineer/adminObjects}">Администратор</a>
+				<a href="engineer-objects.html" th:href="@{/customer/objects}"><img src="../icon/home.png" alt="дом"></a>
+			</div>
+		</div>
+		<div class="row name-object">
+			<h5>Объект</h5>
+		</div>
+		<div class="row menu navbar navbar-expand-lg navbar-light">
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+			        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+			        aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="nav nav-tabs">
+					<li class="nav-item">
+						<a class="nav-link h" href="engineer-calendar.html"
+						   th:href="@{/engineer/calendar}">Календарь работ</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="engineer-psd.html" th:href="@{/engineer/psd}">Проектно-сметная
+							документация</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link h" href="engineer-work.html" th:href="@{/engineer/work}">Отчет
+							выполненных работ/Фотоотчет</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link h" href="engineer-online.html" th:href="@{/engineer/online}">Онлайн-трансляция</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link h" href="engineer-application.html" th:href="@{/engineer/application}">Заявки</a>
+					</li>
+				</ul>
+
+			</div>
+		</div>
+	</div>
+</section>
+
+<!--Проектная Документация-->
+<section class="pd">
+	<div class="container-fluid">
+		<div class="row name ">
+			<h3>ПРОЕКТНАЯ ДОКУМЕНТАЦИЯ</h3>
+		</div>
+		<div class="row list">
+			<ul>
+				<li><a href="#">План архитектурных работ</a></li>
+				<li><a href="#">План электромонтажных работ</a></li>
+				<li><a href="#">Дизайн помещения</a></li>
+				<li><a href="#">План вентиляционной системы</a></li>
+				<li><a href="#">План водоснабжения и отопительной системы</a></li>
+			</ul>
+		</div>
+		<div class="row btn-list">
+			<button class="psd-btn" type="button" data-bs-toggle="tooltip"
+			        data-bs-placement="top" title="Добавить">
+				<img src="../icon/plus.png" style="vertical-align: middle"></button>
+			<button class="psd-btn" type="button" data-bs-toggle="tooltip"
+			        data-bs-placement="top" title="Удалить">
+				<img src="../icon/basket.png" style="vertical-align: middle"></button>
+
+		</div>
+	</div>
+</section>
+
+<!--Сметная Документация-->
+<section class="sd">
+	<div class="container-fluid">
+		<div class="row name ">
+			<h3>CМЕТНАЯ ДОКУМЕНТАЦИЯ</h3>
+		</div>
+		<div class="row list">
+			<ul>
+				<li><a href="#">Смета на строительные работы</a></li>
+				<li><a href="#">Смета на монтажные работы</a></li>
+				<li><a href="#">Смета на материалы</a></li>
+				<li><a href="#">...</a></li>
+				<li><a href="#">...</a></li>
+			</ul>
+		</div>
+		<div class="row btn-list">
+			<button class="psd-btn" type="button" data-bs-toggle="tooltip"
+			        data-bs-placement="top" title="Добавить">
+				<img src="../icon/plus.png" style="vertical-align: middle"></button>
+			<button class="psd-btn" type="button" data-bs-toggle="tooltip"
+			        data-bs-placement="top" title="Удалить">
+				<img src="../icon/basket.png" style="vertical-align: middle"></button>
+
+		</div>
+	</div>
+</section>
+
+<!--Подвал-->
+<section class="footer fixed-bottom">
+	<div th:replace="~{footer::footer1}"></div>
+</section>
+
+<!--Скрипты-->
+<div th:replace="~{scripts::scripts}"></div>
+</body>
+</html>
