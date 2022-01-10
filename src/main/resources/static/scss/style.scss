@@ -970,6 +970,22 @@ footer {
       height: 450px;
     }
   }
+
+  .btn-online-ac{
+    margin-top: 10px;
+    width: 150px;
+    height: 35px;
+    background-color: rgba(197, 134, 142, 0.8);
+    color: $color-btb-text;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+
+    &:hover {
+      background-color: $color-object;
+
+    }
+  }
 }
 
 /*ЛИЧНЫЙ КАБИНЕТ ИНЖЕНЕРА*/
@@ -1127,14 +1143,14 @@ footer {
     text-align: right;
   }
 
-  .btn-primary {
+  .btn-form {
     margin-top: 35px;
     width: 100px;
     height: 40px;
     background-color: rgba(55, 143, 189, 0.8);
     color: $color-btb-text;
     font-size: 16px;
-
+    border-radius: 4px;
     border: none;
 
     &:hover {
@@ -1218,6 +1234,7 @@ footer {
       color: $color-btb-text;
       font-size: 16px;
       border: none;
+      border-radius: 4px;
 
       &:hover {
         background-color: $color-object;
@@ -1306,6 +1323,67 @@ footer {
   margin-bottom: 100px;
 }
 
+//Модальное окно
+.modal-edit {
+  .modal-body {
+    h6 {
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+
+    input {
+      &:invalid {
+        border: 1px solid red;
+        box-shadow:  0 0 0 .25rem rgba(255, 0, 0, 0.25);
+      }
+    }
+    .form-control:focus{
+      border-color: $color-head5;
+      box-shadow: 0 0 0 .25rem rgba(55, 143, 189, 0.25);
+    }
+    textarea{
+      height: 150px;
+    }
+    .btn-outline-secondary{
+      border-color: #babfc2;
+      &:focus{
+        box-shadow: none;
+
+      }
+      &:active{
+        background-color: rgb(186, 191, 194);
+        border-color: #babfc2;
+      }
+      &:hover{
+        background-color: rgb(186, 191, 194);
+        border-color: #babfc2;
+      }
+    }
+
+  }
+
+  .modal-footer {
+    //justify-content: center;
+    .btn-modal {
+      width: 100px;
+      height: 35px;
+      background-color: rgba(55, 143, 189, 0.8);
+      color: $color-btb-text;
+      font-size: 16px;
+      border: none;
+
+      &:hover {
+        background-color: $color-head5;
+      }
+
+    }
+
+    .btn:focus {
+      box-shadow: none;
+      background-color: $color-head5;
+    }
+  }
+}
 
 
 /*Отображение на маленьком экране*/

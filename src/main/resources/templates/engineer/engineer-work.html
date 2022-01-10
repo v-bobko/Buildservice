@@ -114,8 +114,8 @@
 				<td class="colum-comment-i"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
 					Distinctio dolore illo nostrum, saepe tempora veniam.</p>
 					<div class="bt-work-i">
-						<button class="btn-work" type="button" data-bs-toggle="tooltip"
-						        data-bs-placement="top" title="Добавить">
+						<button class="btn-work" type="button" data-bs-toggle="modal" data-bs-target="#addComentModal-iw"
+						         title="Добавить">
 							<img src="../icon/plus.png" style="vertical-align: middle"></button>
 						<button class="btn-work" type="button" data-bs-toggle="tooltip"
 						        data-bs-placement="top" title="Удалить">
@@ -137,8 +137,8 @@
 				<td class="colum-problem"></td>
 				<td class="colum-comment-i">
 					<div class="bt-work-i">
-						<button class="btn-work" type="button" data-bs-toggle="tooltip"
-						        data-bs-placement="top" title="Добавить">
+						<button class="btn-work" type="button" data-bs-toggle="modal" data-bs-target="#addComentModal-iw"
+						         title="Добавить">
 							<img src="../icon/plus.png" style="vertical-align: middle"></button>
 						<button class="btn-work" type="button" data-bs-toggle="tooltip"
 						        data-bs-placement="top" title="Удалить">
@@ -157,8 +157,8 @@
 				<td class="colum-comment-i"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
 					Libero, quo.</p>
 					<div class="bt-work-i">
-						<button class="btn-work" type="button" data-bs-toggle="tooltip"
-						        data-bs-placement="top" title="Добавить">
+						<button class="btn-work" type="button" data-bs-toggle="modal" data-bs-target="#addComentModal-iw"
+						         title="Добавить">
 							<img src="../icon/plus.png" style="vertical-align: middle"></button>
 						<button class="btn-work" type="button" data-bs-toggle="tooltip"
 						        data-bs-placement="top" title="Удалить">
@@ -178,29 +178,8 @@
 				<td class="colum-comment-i"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
 					Libero, quo.</p>
 					<div class="bt-work-i">
-						<button class="btn-work" type="button" data-bs-toggle="tooltip"
-						        data-bs-placement="top" title="Добавить">
-							<img src="../icon/plus.png" style="vertical-align: middle"></button>
-						<button class="btn-work" type="button" data-bs-toggle="tooltip"
-						        data-bs-placement="top" title="Удалить">
-							<img src="../icon/basket.png" style="vertical-align: middle"></button>
-					</div>
-				</td>
-				<td class="colum-comment-z"><p>Lorem ipsum dolor sit amet.</p>
-				</td>
-			</tr>
-			<tr>
-				<td class="colum-work"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-					Architecto,
-					excepturi.</p>
-				</td>
-				<td class="colum-process"><p>Lorem ipsum dolor.</p></td>
-				<td class="colum-problem"><p>Lorem ipsum dolor sit amet.</p></td>
-				<td class="colum-comment-i"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-					Libero, quo.</p>
-					<div class="bt-work-i">
-						<button class="btn-work" type="button" data-bs-toggle="tooltip"
-						        data-bs-placement="top" title="Добавить">
+						<button class="btn-work" type="button" data-bs-toggle="modal" data-bs-target="#addComentModal-iw"
+						         title="Добавить">
 							<img src="../icon/plus.png" style="vertical-align: middle"></button>
 						<button class="btn-work" type="button" data-bs-toggle="tooltip"
 						        data-bs-placement="top" title="Удалить">
@@ -214,6 +193,33 @@
 		</table>
 	</div>
 </section>
+
+<!--Модальное окно для добавления комментария-->
+<div class="modal fade modal-edit" id="addComentModal-iw" tabindex="-1" aria-labelledby="addComentModalLabel-iw"
+     aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="addComentModalLabel-iw">Добавить комментарий </h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal"
+				        aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<div class="container-fluid">
+					<div class="row">
+						<form>
+							<h6>Заполните текстовое поле:</h6>
+							<textarea class="form-control" aria-label="With textarea"></textarea>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="submit" class="btn btn-modal">Добавить</button>
+			</div>
+		</div>
+	</div>
+</div>
 
 <!-- Фотоотчет-->
 <section class="fotootchet">

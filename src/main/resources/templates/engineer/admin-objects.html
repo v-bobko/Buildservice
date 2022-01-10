@@ -72,27 +72,23 @@
 								<li class="list-group-item">
 									<div class="text">Заказчик: Имя</div>
 									<div class="bt-o ">
-										<button class="btn-add" type="button" data-bs-toggle="tooltip"
+										<button class="btn-add" type="button" data-bs-toggle="modal" data-bs-target="#changeModal"
 										        data-bs-placement="top" title="Редактировать">
 											<img src="../icon/edit.png" style="vertical-align: middle"></button>
-										<button class="btn-del" type="button" data-bs-toggle="tooltip"
-										        data-bs-placement="top" title="Удалить">
-											<img src="../icon/basket2.png" style="vertical-align: middle"></button>
+
 									</div>
 								</li>
 								<li class="list-group-item">
 									<div class="text">Иисполнитель: Имя</div>
 									<div class="bt-o ">
-										<button class="btn-add" type="button" data-bs-toggle="tooltip"
+										<button class="btn-add" type="button" data-bs-toggle="modal" data-bs-target="#changeModal"
 										        data-bs-placement="top" title="Редактировать">
 											<img src="../icon/edit.png" style="vertical-align: middle"></button>
-										<button class="btn-del" type="button" data-bs-toggle="tooltip"
-										        data-bs-placement="top" title="Удалить">
-											<img src="../icon/basket2.png" style="vertical-align: middle"></button>
+
 									</div>
 								</li>
 							</ul>
-							<button class="btn btn-ac" type="button">Удалить объект</button>
+							<button class=" btn-ac" type="button">Удалить объект</button>
 						</div>
 					</div>
 				</div>
@@ -109,66 +105,22 @@
 								<li class="list-group-item">
 									<div class="text">Заказчик: Имя</div>
 									<div class="bt-o ">
-										<button class="btn-add" type="button" data-bs-toggle="tooltip"
+										<button class="btn-add" type="button" data-bs-toggle="modal" data-bs-target="#changeModal"
 										        data-bs-placement="top" title="Редактировать">
 											<img src="../icon/edit.png" style="vertical-align: middle"></button>
-										<button class="btn-del" type="button" data-bs-toggle="tooltip"
-										        data-bs-placement="top" title="Удалить">
-											<img src="../icon/basket2.png" style="vertical-align: middle"></button>
 									</div>
 								</li>
 								<li class="list-group-item">
 									<div class="text">Иисполнитель: Имя</div>
 									<div class="bt-o ">
-										<button class="btn-add" type="button" data-bs-toggle="tooltip"
+										<button class="btn-add" type="button" data-bs-toggle="modal" data-bs-target="#changeModal"
 										        data-bs-placement="top" title="Редактировать">
 											<img src="../icon/edit.png" style="vertical-align: middle"></button>
-										<button class="btn-del" type="button" data-bs-toggle="tooltip"
-										        data-bs-placement="top" title="Удалить">
-											<img src="../icon/basket2.png" style="vertical-align: middle"></button>
+
 									</div>
 								</li>
 							</ul>
-							<button class="btn btn-ac" type="button">Удалить объект</button>
-						</div>
-					</div>
-				</div>
-				<div class="accordion-item">
-					<h2 class="accordion-header" id="headingThree">
-						<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-						        data-bs-target="#collapseThree" aria-expanded="true"
-						        aria-controls="collapseThree">
-							Имя объекта #3
-						</button>
-					</h2>
-					<div id="collapseThree" class="accordion-collapse collapse"
-					     aria-labelledby="headingThree">
-						<div class="accordion-body">
-							<ul class="list-group">
-								<li class="list-group-item">
-									<div class="text">Заказчик: Имя</div>
-									<div class="bt-o ">
-										<button class="btn-add" type="button" data-bs-toggle="tooltip"
-										        data-bs-placement="top" title="Редактировать">
-											<img src="../icon/edit.png" style="vertical-align: middle"></button>
-										<button class="btn-del" type="button" data-bs-toggle="tooltip"
-										        data-bs-placement="top" title="Удалить">
-											<img src="../icon/basket2.png" style="vertical-align: middle"></button>
-									</div>
-								</li>
-								<li class="list-group-item">
-									<div class="text">Иисполнитель: Имя</div>
-									<div class="bt-o ">
-										<button class="btn-add" type="button" data-bs-toggle="tooltip"
-										        data-bs-placement="top" title="Редактировать">
-											<img src="../icon/edit.png" style="vertical-align: middle"></button>
-										<button class="btn-del" type="button" data-bs-toggle="tooltip"
-										        data-bs-placement="top" title="Удалить">
-											<img src="../icon/basket2.png" style="vertical-align: middle"></button>
-									</div>
-								</li>
-							</ul>
-							<button class="btn btn-ac" type="button">Удалить объект</button>
+							<button class="btn-ac" type="button">Удалить объект</button>
 						</div>
 					</div>
 				</div>
@@ -195,85 +147,21 @@
 						        data-bs-placement="top" title="Удалить">
 							<img src="../icon/basket2.png" style="vertical-align: middle"></button>
 					</div>
-					<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel"
-					     aria-hidden="true">
-						<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-							<div class="modal-content">
-								<div class="modal-header">
-									<h5 class="modal-title" id="editModalLabel">Редактировать данные</h5>
-									<button type="button" class="btn-close" data-bs-dismiss="modal"
-									        aria-label="Close"></button>
-								</div>
-								<div class="modal-body">
-									<div class="container-fluid">
-										<div class="row">
-											<form class="was-validated">
-												<h6>Выберите данные,которые необходимо изменить:</h6>
-												<div class="input-group mb-3">
-													<div class="input-group-text">
-														<input class="form-check-input " type="checkbox" value=""
-														       aria-label="Checkbox for following text input">
-													</div>
-													<input id="Name" type="text" class="form-control"
-													       aria-label="Text input with checkbox" placeholder="Фамилия И.О."
-													       pattern="[А-Яа-яЁё]{2,}\s[А-ЯЁ].[А-ЯЁ].">
-													<div class="invalid-feedback">Неверный формат данных</div>
-												</div>
-												<div class="input-group mb-3">
-													<div class="input-group-text">
-														<input class="form-check-input mt-0" type="checkbox" value=""
-														       aria-label="Checkbox for following text input">
-													</div>
-													<input type="tell" class="form-control"
-													       aria-label="Text input with checkbox"
-													       placeholder="Контакты: 8-999-99-99"
-													       pattern="8-[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}">
-													<div class="invalid-feedback">Неверный формат данных</div>
-												</div>
-												<div class="input-group mb-3">
-													<div class="input-group-text">
-														<input class="form-check-input mt-0" type="checkbox" value=""
-														       aria-label="Checkbox for following text input">
-													</div>
-													<input type="password" class="form-control"
-													       aria-label="Text input with checkbox" placeholder="Пароль">
-												</div>
-											</form>
-										</div>
-									</div>
-								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-primary">Сохранить</button>
-								</div>
-							</div>
-						</div>
-					</div>
 				</li>
 				<li>
 					<div class="text"> Имя заказчика #2</div>
 					<div class="bt-o ">
-						<button class="btn-add" type="button" data-bs-toggle="tooltip"
+						<button class="btn-add" type="button" data-bs-toggle="modal" data-bs-target="#editModal"
 						        data-bs-placement="top" title="Редактировать">
 							<img src="../icon/edit.png" style="vertical-align: middle"></button>
 						<button class="btn-del" type="button" data-bs-toggle="tooltip"
 						        data-bs-placement="top" title="Удалить">
 							<img src="../icon/basket2.png" style="vertical-align: middle"></button>
 					</div>
-				</li>
-				<li>
-					<div class="text"> Имя заказчика #3</div>
-					<div class="bt-o ">
-						<button class="btn-add" type="button" data-bs-toggle="tooltip"
-						        data-bs-placement="top" title="Редактировать">
-							<img src="../icon/edit.png" style="vertical-align: middle"></button>
-						<button class="btn-del" type="button" data-bs-toggle="tooltip"
-						        data-bs-placement="top" title="Удалить">
-							<img src="../icon/basket2.png" style="vertical-align: middle"></button>
-					</div>
+
 				</li>
 			</ul>
 		</div>
-
 	</div>
 </section>
 
@@ -288,7 +176,7 @@
 				<li>
 					<div class="text"> Имя исполнителя #1</div>
 					<div class="bt-o ">
-						<button class="btn-add" type="button" data-bs-toggle="tooltip"
+						<button class="btn-add" type="button" data-bs-toggle="modal" data-bs-target="#editModal"
 						        data-bs-placement="top" title="Редактировать">
 							<img src="../icon/edit.png" style="vertical-align: middle"></button>
 						<button class="btn-del" type="button" data-bs-toggle="tooltip"
@@ -299,7 +187,7 @@
 				<li>
 					<div class="text"> Имя исполнителя #2</div>
 					<div class="bt-o ">
-						<button class="btn-add" type="button" data-bs-toggle="tooltip"
+						<button class="btn-add" type="button" data-bs-toggle="modal" data-bs-target="#editModal"
 						        data-bs-placement="top" title="Редактировать">
 							<img src="../icon/edit.png" style="vertical-align: middle"></button>
 						<button class="btn-del" type="button" data-bs-toggle="tooltip"
@@ -310,7 +198,7 @@
 				<li>
 					<div class="text"> Имя исполнителя #3</div>
 					<div class="bt-o ">
-						<button class="btn-add" type="button" data-bs-toggle="tooltip"
+						<button class="btn-add" type="button" data-bs-toggle="modal" data-bs-target="#editModal"
 						        data-bs-placement="top" title="Редактировать">
 							<img src="../icon/edit.png" style="vertical-align: middle"></button>
 						<button class="btn-del" type="button" data-bs-toggle="tooltip"
@@ -335,7 +223,7 @@
 				<li>
 					<div class="text"> Имя инженера #1</div>
 					<div class="bt-o ">
-						<button class="btn-add" type="button" data-bs-toggle="tooltip"
+						<button class="btn-add" type="button" data-bs-toggle="modal" data-bs-target="#editModal"
 						        data-bs-placement="top" title="Редактировать">
 							<img src="../icon/edit.png" style="vertical-align: middle"></button>
 						<button class="btn-del" type="button" data-bs-toggle="tooltip"
@@ -346,7 +234,7 @@
 				<li>
 					<div class="text"> Имя инженера #2</div>
 					<div class="bt-o ">
-						<button class="btn-add" type="button" data-bs-toggle="tooltip"
+						<button class="btn-add" type="button" data-bs-toggle="modal" data-bs-target="#editModal"
 						        data-bs-placement="top" title="Редактировать">
 							<img src="../icon/edit.png" style="vertical-align: middle"></button>
 						<button class="btn-del" type="button" data-bs-toggle="tooltip"
@@ -361,6 +249,89 @@
 	</div>
 </section>
 
+<!--Модальное окно для редактирования ЛК-->
+<div class="modal fade modal-edit" id="editModal" tabindex="-1" aria-labelledby="editModalLabel"
+     aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="editModalLabel">Редактировать данные</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal"
+				        aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<div class="container-fluid">
+					<div class="row">
+						<form>
+							<h6>Выберите данные,которые необходимо изменить:</h6>
+							<div class="input-group mb-3">
+								<div class="input-group-text">
+									<input class="form-check-input " type="checkbox" value=""
+									       aria-label="Checkbox for following text input">
+								</div>
+								<input id="Name" type="text" class="form-control" value=""
+								       aria-label="Text input with checkbox" placeholder="Фамилия И.О." pattern="[А-Яа-яЁё]{2,}\s[А-ЯЁ].[А-ЯЁ].">
+
+							</div>
+							<div class="input-group mb-3">
+								<div class="input-group-text">
+									<input class="form-check-input mt-0" type="checkbox" value=""
+									       aria-label="Checkbox for following text input">
+								</div>
+								<input type="tell" class="form-control" value=""
+								       aria-label="Text input with checkbox"
+								       placeholder="Контакты: 8-999-99-99" pattern="8-[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}">
+
+							</div>
+							<div class="input-group mb-3">
+								<div class="input-group-text">
+									<input class="form-check-input mt-0" type="checkbox" value=""
+									       aria-label="Checkbox for following text input">
+								</div>
+								<input type="password" class="form-control" value=""
+								       aria-label="Text input with checkbox" placeholder="Пароль">
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="submit" class="btn btn-modal">Сохранить</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--Модальное окно для смены ЛК-->
+<div class="modal fade modal-edit" id="changeModal" tabindex="-1" aria-labelledby="changeModalLabel"
+     aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="changeModalLabel">Смена личного кабинета</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal"
+				        aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<div class="container-fluid">
+					<div class="row">
+						<form>
+							<h6>Выберите ЛК:</h6>
+							<select id="inputState" class="form-select">
+								<option selected>ЛК...</option>
+								<option>...</option>
+							</select>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="submit" class="btn btn-modal">Сменить</button>
+			</div>
+		</div>
+	</div>
+</div>
+
 
 <!--Подвал-->
 <section class="footer fixed-bottom">
@@ -369,5 +340,6 @@
 
 <!--Скрипты-->
 <div th:replace="~{scripts::scripts}"></div>
+
 </body>
 </html>

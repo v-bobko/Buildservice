@@ -830,6 +830,19 @@ footer img {
   width: 800px;
   height: 450px;
 }
+.video .btn-online-ac {
+  margin-top: 10px;
+  width: 150px;
+  height: 35px;
+  background-color: rgba(197, 134, 142, 0.8);
+  color: #f7f7f6;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+}
+.video .btn-online-ac:hover {
+  background-color: #c5868e;
+}
 
 /*ЛИЧНЫЙ КАБИНЕТ ИНЖЕНЕРА*/
 .header2 .name-account .admin-link {
@@ -964,16 +977,17 @@ footer img {
 .form-admin .bt-form {
   text-align: right;
 }
-.form-admin .btn-primary {
+.form-admin .btn-form {
   margin-top: 35px;
   width: 100px;
   height: 40px;
   background-color: rgba(55, 143, 189, 0.8);
   color: #f7f7f6;
   font-size: 16px;
+  border-radius: 4px;
   border: none;
 }
-.form-admin .btn-primary:hover {
+.form-admin .btn-form:hover {
   background-color: #378fbd;
 }
 
@@ -1046,6 +1060,7 @@ footer img {
   color: #f7f7f6;
   font-size: 16px;
   border: none;
+  border-radius: 4px;
 }
 .list-object-accordion .accordion .btn-ac:hover {
   background-color: #c5868e;
@@ -1129,6 +1144,55 @@ footer img {
 
 .account-engineer-list {
   margin-bottom: 100px;
+}
+
+.modal-edit .modal-body h6 {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+.modal-edit .modal-body input:invalid {
+  border: 1px solid red;
+  -webkit-box-shadow: 0 0 0 0.25rem rgba(255, 0, 0, 0.25);
+          box-shadow: 0 0 0 0.25rem rgba(255, 0, 0, 0.25);
+}
+.modal-edit .modal-body .form-control:focus {
+  border-color: #378fbd;
+  -webkit-box-shadow: 0 0 0 0.25rem rgba(55, 143, 189, 0.25);
+          box-shadow: 0 0 0 0.25rem rgba(55, 143, 189, 0.25);
+}
+.modal-edit .modal-body textarea {
+  height: 150px;
+}
+.modal-edit .modal-body .btn-outline-secondary {
+  border-color: #babfc2;
+}
+.modal-edit .modal-body .btn-outline-secondary:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+.modal-edit .modal-body .btn-outline-secondary:active {
+  background-color: #babfc2;
+  border-color: #babfc2;
+}
+.modal-edit .modal-body .btn-outline-secondary:hover {
+  background-color: #babfc2;
+  border-color: #babfc2;
+}
+.modal-edit .modal-footer .btn-modal {
+  width: 100px;
+  height: 35px;
+  background-color: rgba(55, 143, 189, 0.8);
+  color: #f7f7f6;
+  font-size: 16px;
+  border: none;
+}
+.modal-edit .modal-footer .btn-modal:hover {
+  background-color: #378fbd;
+}
+.modal-edit .modal-footer .btn:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  background-color: #378fbd;
 }
 
 /*Отображение на маленьком экране*/
