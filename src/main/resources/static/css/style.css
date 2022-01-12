@@ -339,6 +339,28 @@ footer img {
   font-size: 18px;
   text-transform: uppercase;
 }
+.header-start .col-home {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: right;
+      -ms-flex-pack: right;
+          justify-content: right;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+}
+.header-start .col-home a {
+  margin-left: 10px;
+}
+.header-start .col-home a img {
+  width: 25px;
+  opacity: 0.7;
+}
+.header-start .col-home a img:hover {
+  opacity: 1;
+}
 .header-start .name-object {
   height: 40px;
   -webkit-box-align: center;
@@ -355,6 +377,7 @@ footer img {
 }
 .header-start .name-account h5 {
   opacity: 0.7;
+  text-align: left;
 }
 
 /*Лист объектов*/
@@ -423,6 +446,9 @@ footer img {
       -ms-flex-align: center;
           align-items: center;
   height: 100%;
+}
+.header2 .name-account .col-home a {
+  margin-left: 10px;
 }
 .header2 .name-account .col-home a img {
   width: 25px;
@@ -773,11 +799,43 @@ footer img {
   margin: 0 15px 80px 15px;
 }
 .fotootchet .name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   padding-top: 25px;
   border-bottom: 1px solid #3d3d4f;
 }
 .fotootchet .name h3 {
+  display: inline;
   margin-bottom: 0;
+}
+.fotootchet .name h3 .btn-add-foto, .fotootchet .name h3 .btn-del-foto {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 3px;
+  padding: 0;
+  width: 19px;
+  height: 19px;
+  background-color: transparent;
+  border: none;
+  opacity: 0.8;
+}
+.fotootchet .name h3 .btn-add-foto:hover, .fotootchet .name h3 .btn-del-foto:hover {
+  opacity: 1;
+}
+.fotootchet .name h3 .btn-add-foto img, .fotootchet .name h3 .btn-del-foto img {
+  width: 19px;
+  height: 19px;
+}
+.fotootchet .name h3 .btn-add-foto {
+  margin-left: 15px;
 }
 .fotootchet .gallery {
   margin-top: 15px;
@@ -829,6 +887,19 @@ footer img {
 .video .camera1 iframe {
   width: 800px;
   height: 450px;
+}
+.video .btn-online-ac {
+  margin-top: 10px;
+  width: 150px;
+  height: 35px;
+  background-color: rgba(197, 134, 142, 0.8);
+  color: #f7f7f6;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+}
+.video .btn-online-ac:hover {
+  background-color: #c5868e;
 }
 
 /*ЛИЧНЫЙ КАБИНЕТ ИНЖЕНЕРА*/
@@ -964,16 +1035,17 @@ footer img {
 .form-admin .bt-form {
   text-align: right;
 }
-.form-admin .btn-primary {
+.form-admin .btn-form {
   margin-top: 35px;
   width: 100px;
   height: 40px;
   background-color: rgba(55, 143, 189, 0.8);
   color: #f7f7f6;
   font-size: 16px;
+  border-radius: 4px;
   border: none;
 }
-.form-admin .btn-primary:hover {
+.form-admin .btn-form:hover {
   background-color: #378fbd;
 }
 
@@ -1046,6 +1118,7 @@ footer img {
   color: #f7f7f6;
   font-size: 16px;
   border: none;
+  border-radius: 4px;
 }
 .list-object-accordion .accordion .btn-ac:hover {
   background-color: #c5868e;
@@ -1131,10 +1204,203 @@ footer img {
   margin-bottom: 100px;
 }
 
+.modal-edit .modal-body h6 {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+.modal-edit .modal-body input:invalid {
+  border: 1px solid red;
+  -webkit-box-shadow: 0 0 0 0.25rem rgba(255, 0, 0, 0.25);
+          box-shadow: 0 0 0 0.25rem rgba(255, 0, 0, 0.25);
+}
+.modal-edit .modal-body .form-control:focus {
+  border-color: #378fbd;
+  -webkit-box-shadow: 0 0 0 0.25rem rgba(55, 143, 189, 0.25);
+          box-shadow: 0 0 0 0.25rem rgba(55, 143, 189, 0.25);
+}
+.modal-edit .modal-body textarea {
+  height: 150px;
+}
+.modal-edit .modal-body .btn-outline-secondary {
+  border-color: #babfc2;
+}
+.modal-edit .modal-body .btn-outline-secondary:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+.modal-edit .modal-body .btn-outline-secondary:active {
+  background-color: #babfc2;
+  border-color: #babfc2;
+}
+.modal-edit .modal-body .btn-outline-secondary:hover {
+  background-color: #babfc2;
+  border-color: #babfc2;
+}
+.modal-edit .modal-footer .btn-modal {
+  width: 100px;
+  height: 35px;
+  background-color: rgba(55, 143, 189, 0.8);
+  color: #f7f7f6;
+  font-size: 16px;
+  border: none;
+}
+.modal-edit .modal-footer .btn-modal:hover {
+  background-color: #378fbd;
+}
+.modal-edit .modal-footer .btn:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  background-color: #378fbd;
+}
+
+/*ЛИЧНЫЙ КАБИНЕТ РАБОЧЕГО*/
+.journal {
+  padding: 25px;
+}
+.journal .j-table {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.journal .scroll-table {
+  overflow: auto;
+  width: 1230px;
+}
+.journal .scroll-table table td, .journal .scroll-table table th {
+  padding: 10px;
+  border: 2px solid #3d3d4f;
+}
+.journal .scroll-table table th {
+  color: #378fbd;
+  text-align: center;
+  background-color: rgba(55, 143, 189, 0.1);
+}
+.journal .scroll-table table td {
+  text-align: justify;
+}
+.journal .scroll-table table td p {
+  font-size: 16px;
+  text-align: justify;
+  margin: 0 0 10px 0;
+}
+.journal .scroll-table table tbody tr {
+  min-height: 50px;
+  text-align: center;
+}
+.journal .scroll-table table tbody .colum-num {
+  width: 30px;
+  text-align: center;
+}
+.journal .scroll-table table tbody .colum-data {
+  width: 100px;
+  text-align: center;
+}
+.journal .scroll-table table tbody .colum-fio {
+  width: 200px;
+  text-align: center;
+}
+.journal .scroll-table table tbody .colum-hour {
+  width: 100px;
+  text-align: center;
+}
+.journal .scroll-table table tbody .colum-work {
+  width: 800px;
+  text-align: justify;
+}
+.journal .bt-string {
+  margin-bottom: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.journal .bt-string .btn-add-string, .journal .bt-string .btn-del-string {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 5px;
+  padding: 5px 5px;
+  height: 30px;
+  width: 30px;
+  background-color: rgba(55, 143, 189, 0.1);
+  border-radius: 3px;
+  border: 2px solid #3d3d4f;
+  line-height: 3px;
+}
+.journal .bt-string .btn-add-string:hover, .journal .bt-string .btn-del-string:hover {
+  background-color: rgba(55, 143, 189, 0.2);
+}
+.journal .bt-string img {
+  width: 20px;
+  height: 20px;
+}
+
+/*АВТОРИЗАЦИЯ*/
+.btn-login {
+  margin-top: 30px;
+  color: #f7f7f6;
+  background-color: #c5868e;
+  border: none;
+  width: 100%;
+  height: 40px;
+  border-radius: 5px;
+  font-size: 18px;
+  opacity: 0.8;
+  -webkit-transition: all 0.1s ease-out;
+  transition: all 0.1s ease-out;
+}
+.btn-login:hover {
+  -webkit-transform: scale(1.04);
+          transform: scale(1.04);
+  opacity: 1;
+}
+
+.row-login {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+}
+.row-login form {
+  width: 500px;
+  margin: 5px;
+}
+.row-login form h3 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.row-login form .form-control:focus {
+  border-color: #c5868e;
+  -webkit-box-shadow: 0 0 0 0.25rem rgba(197, 134, 142, 0.25);
+          box-shadow: 0 0 0 0.25rem rgba(197, 134, 142, 0.25);
+}
+
 /*Отображение на маленьком экране*/
-@media screen and (max-width: 1020px) {
+@media screen and (max-width: 1152px) {
   .header2 .nav-tabs .nav-link {
-    padding: 0.26rem 0.7rem;
+    padding: 0.26rem 0.5rem;
   }
 
   .fotootchet .gallery .element-1 a {
@@ -1356,5 +1622,26 @@ footer img {
   }
   .list-object-accordion .accordion-body .list-group-item {
     text-align: left;
+  }
+
+  /*Журнал работ*/
+  .journal {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  .journal .scroll-table table {
+    width: 725px;
+  }
+  .journal .scroll-table table .colum-num {
+    width: 20px;
+  }
+  .journal .scroll-table table .colum-data, .journal .scroll-table table .colum-hour {
+    width: 100px;
+  }
+  .journal .scroll-table table .colum-fio {
+    width: 150px;
+  }
+  .journal .scroll-table table .colum-work {
+    width: 355px;
   }
 }

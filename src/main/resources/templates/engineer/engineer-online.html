@@ -12,8 +12,9 @@
 				<h5>Имя Инженера</h5>
 			</div>
 			<div class="col col-home">
-				<a class="admin-link" href="admin-objects.html" th:href="@{/engineer/adminObjects}">Администратор</a>
-				<a href="engineer-objects.html" th:href="@{/customer/objects}"><img src="../icon/home.png" alt="дом"></a>
+				<a class="admin-link" href="admin-objects.html" th:href="@{/engineer/adminObjects}">Админ</a>
+				<a href="engineer-objects.html" th:href="@{/customer/objects}" title="Выбор объекта"><img src="../icon/home.png" alt="дом"></a>
+				<a href="index.html" th:href="@{/}" title="Выход"><img src="../icon/logout.png" alt="выход"></a>
 			</div>
 		</div>
 		<div class="row name-object">
@@ -38,6 +39,10 @@
 					<li class="nav-item">
 						<a class="nav-link h" href="engineer-work.html" th:href="@{/engineer/work}">Отчет
 							выполненных работ/Фотоотчет</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link h" href="engineer-journal.html"
+						   th:href="@{/engineer/journal}">Журнал работ</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link active" aria-current="page" href="engineer-online.html" th:href="@{/engineer/online}">Онлайн-трансляция</a>
@@ -122,11 +127,46 @@
 						</div>
 					</div>
 				</div>
+				<button class="btn-online-ac" type="button" data-bs-toggle="modal" data-bs-target="#addCameraModal">Добавить камеру</button>
 			</div>
 		</div>
 	</div>
 </section>
 
+<!--Модальное окно для добавления камеры-->
+<div class="modal fade modal-edit" id="addCameraModal" tabindex="-1" aria-labelledby="addCameraModalLabel"
+     aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="addCameraModalLabel">Добавить камеру</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal"
+				        aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<div class="container-fluid">
+					<div class="row">
+						<form>
+							<h6>Введите название камеры и ссылку:</h6>
+							<div class="mb-3">
+								<label for="nameCamera" class="form-label">Название</label>
+								<input type="text" class="form-control" id="nameCamera">
+							</div>
+							<div class="mb-3">
+								<label for="urlCamera" class="form-label">Ссылка</label>
+								<input type="url" class="form-control" id="urlCamera">
+							</div>
+
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="submit" class="btn btn-modal">Добавить</button>
+			</div>
+		</div>
+	</div>
+</div>
 
 <!--Подвал-->
 <section class="footer fixed-bottom">

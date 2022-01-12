@@ -13,7 +13,7 @@
 			</div>
 			<div class="col col-home">
 				<a class="admin-link" href="admin-objects.html" th:href="@{/engineer/adminObjects}">Админ</a>
-				<a href="engineer-objects.html" th:href="@{/customer/objects}"><img src="../icon/home.png" alt="дом"></a>
+				<a href="engineer-objects.html" th:href="@{/customer/objects}" title="Выбор объекта"><img src="../icon/home.png" alt="дом"></a>
 				<a href="index.html" th:href="@{/}" title="Выход"><img src="../icon/logout.png" alt="выход"></a>
 			</div>
 		</div>
@@ -41,14 +41,14 @@
 							выполненных работ/Фотоотчет</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link h" href="engineer-journal.html"
+						<a class="nav-link active" aria-current="page" href="engineer-journal.html"
 						   th:href="@{/engineer/journal}">Журнал работ</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link h" href="engineer-online.html" th:href="@{/engineer/online}">Онлайн-трансляция</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link active" aria-current="page" href="engineer-application.html" th:href="@{/engineer/application}">Заявки</a>
+						<a class="nav-link h" href="engineer-application.html" th:href="@{/engineer/application}">Заявки</a>
 					</li>
 				</ul>
 
@@ -57,7 +57,56 @@
 	</div>
 </section>
 
-
+<!--Журнал работ-->
+<section class="journal">
+	<div class="j-table">
+	<div class="scroll-table">
+		<table>
+			<thead>
+			<tr>
+				<th>№</th>
+				<th>ДАТА</th>
+				<th>ФИО</th>
+				<th>ВРЕМЯ, ч</th>
+				<th>РАБОТЫ</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td class="colum-num">1</td>
+				<td class="colum-data">24.01.21
+				</td>
+				<td class="colum-fio">Иванов П.Р.</td>
+				<td class="colum-hour">8</td>
+				<td class="colum-work">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+					Distinctio dolore illo nostrum.
+				</td>
+			</tr>
+			<tr>
+				<td class="colum-num">2</td>
+				<td class="colum-data">24.01.21
+				</td>
+				<td class="colum-fio">Петров П.Р.</td>
+				<td class="colum-hour">8</td>
+				<td class="colum-work">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+					Distinctio dolore illo nostrum.
+				</td>
+			</tr>
+			<tr>
+				<td class="colum-num">3</td>
+				<td class="colum-data">24.01.21
+				</td>
+				<td class="colum-fio">Сидоров П.Р.</td>
+				<td class="colum-hour">8</td>
+				<td class="colum-work">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+					Distinctio dolore illo nostrum.
+				</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+	</div>
+</section>
 
 
 

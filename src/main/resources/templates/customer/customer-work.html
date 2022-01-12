@@ -20,8 +20,9 @@
 				<h5>Имя Клиента</h5>
 			</div>
 			<div class="col col-home">
-				<a href="customer-objects.html" th:href="@{/customer/objects}"><img src="../icon/home.png"
+				<a href="customer-objects.html" th:href="@{/customer/objects}" title="Выбор объекта"><img src="../icon/home.png"
 				                                                                    alt="дом"></a>
+				<a href="index.html" th:href="@{/}" title="Выход"><img src="../icon/logout.png" alt="выход"></a>
 			</div>
 		</div>
 		<div class="row name-object">
@@ -111,11 +112,10 @@
 				<td class="colum-comment-z">
 					<p></p>
 					<div class="bt-work-z">
-						<button class="btn-work" type="button" data-bs-toggle="tooltip"
-						        data-bs-placement="top" title="Добавить">
+						<button class="btn-work" type="button" data-bs-toggle="modal" data-bs-target="#addComentModal-zw"
+						         title="Добавить">
 							<img src="../icon/plus.png" style="vertical-align: middle"></button>
-						<button class="btn-work" type="button" data-bs-toggle="tooltip"
-						        data-bs-placement="top" title="Удалить">
+						<button class="btn-work" type="button" title="Удалить">
 							<img src="../icon/basket.png" style="vertical-align: middle"></button>
 					</div>
 				</td>
@@ -130,11 +130,10 @@
 				<td class="colum-comment-z">
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, minus?</p>
 					<div class="bt-work-z">
-						<button class="btn-work" type="button" data-bs-toggle="tooltip"
-						        data-bs-placement="top" title="Добавить">
+						<button class="btn-work" type="button" data-bs-toggle="modal" data-bs-target="#addComentModal-zw"
+						        title="Добавить">
 							<img src="../icon/plus.png" style="vertical-align: middle"></button>
-						<button class="btn-work" type="button" data-bs-toggle="tooltip"
-						        data-bs-placement="top" title="Удалить">
+						<button class="btn-work" type="button" title="Удалить">
 							<img src="../icon/basket.png" style="vertical-align: middle"></button>
 					</div>
 				</td>
@@ -150,11 +149,10 @@
 				<td class="colum-comment-z">
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
 					<div class="bt-work-z">
-						<button class="btn-work" type="button" data-bs-toggle="tooltip"
-						        data-bs-placement="top" title="Добавить">
+						<button class="btn-work" type="button" data-bs-toggle="modal" data-bs-target="#addComentModal-zw"
+						         title="Добавить">
 							<img src="../icon/plus.png" style="vertical-align: middle"></button>
-						<button class="btn-work" type="button" data-bs-toggle="tooltip"
-						        data-bs-placement="top" title="Удалить">
+						<button class="btn-work" type="button" title="Удалить">
 							<img src="../icon/basket.png" style="vertical-align: middle"></button>
 					</div>
 				</td>
@@ -171,41 +169,46 @@
 				<td class="colum-comment-z">
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, possimus?</p>
 					<div class="bt-work-z">
-						<button class="btn-work" type="button" data-bs-toggle="tooltip"
-						        data-bs-placement="top" title="Добавить">
+						<button class="btn-work" type="button" data-bs-toggle="modal" data-bs-target="#addComentModal-zw"
+						         title="Добавить">
 							<img src="../icon/plus.png" style="vertical-align: middle"></button>
-						<button class="btn-work" type="button" data-bs-toggle="tooltip"
-						        data-bs-placement="top" title="Удалить">
+						<button class="btn-work" type="button" title="Удалить">
 							<img src="../icon/basket.png" style="vertical-align: middle"></button>
 					</div>
 				</td>
 			</tr>
-			<tr>
-				<td class="colum-work"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-					Architecto,
-					excepturi!</p>
-				</td>
-				<td class="colum-process"><p></p></td>
-				<td class="colum-problem"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, sed.</p></td>
-				<td class="colum-comment-i"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-					Distinctio dolore illo nostrum, saepe tempora veniam.</p></td>
-				<td class="colum-comment-z">
-					<p>Lorem ipsum dolor sit amet.</p>
-					<div class="bt-work-z">
-						<button class="btn-work" type="button" data-bs-toggle="tooltip"
-						        data-bs-placement="top" title="Добавить">
-							<img src="../icon/plus.png" style="vertical-align: middle"></button>
-						<button class="btn-work" type="button" data-bs-toggle="tooltip"
-						        data-bs-placement="top" title="Удалить">
-							<img src="../icon/basket.png" style="vertical-align: middle"></button>
-					</div>
-				</td>
-			</tr>
-
 			</tbody>
 		</table>
 	</div>
 </section>
+
+<!--Модальное окно для добавление записи-->
+<div class="modal fade modal-edit" id="addComentModal-zw" tabindex="-1" aria-labelledby="addComentModalLabel-zw"
+     aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="addComentModalLabel-zw">Добавить комментарий </h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal"
+				        aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<div class="container-fluid">
+					<div class="row">
+						<form>
+							<h6>Заполните текстовое поле:</h6>
+							<textarea class="form-control" aria-label="With textarea"></textarea>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="submit" class="btn btn-modal">Добавить</button>
+			</div>
+		</div>
+	</div>
+</div>
+
 
 <!-- Фотоотчет-->
 <section class="fotootchet">

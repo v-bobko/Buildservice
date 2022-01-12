@@ -12,7 +12,8 @@
 				<h5>Имя Клиента</h5>
 			</div>
 			<div class="col col-home">
-				<a href="customer-objects.html" th:href="@{/customer/objects}"><img src="../icon/home.png" alt="дом"></a>
+				<a href="customer-objects.html" th:href="@{/customer/objects}" title="Выбор объекта"><img src="../icon/home.png" alt="дом"></a>
+				<a href="index.html" th:href="@{/}" title="Выход"><img src="../icon/logout.png" alt="выход"></a>
 			</div>
 		</div>
 		<div class="row name-object">
@@ -101,11 +102,11 @@
 											</ul>
 										</div>
 										<div class="bt b1-4">
-											<button class="btn-add" type="button" data-bs-toggle="tooltip"
-											        data-bs-placement="top" title="Добавить">
+											<button class="btn-add" type="button" data-bs-toggle="modal" data-bs-target="#addComentModal-z"
+											         title="Добавить">
 												<img src="../icon/plus.png" style="vertical-align: middle"></button>
-											<button class="btn-del" type="button" data-bs-toggle="tooltip"
-											        data-bs-placement="top" title="Удалить">
+											<button class="btn-del" type="button" data-bs-toggle="modal" data-bs-target="#dellComentModal-z"
+											         title="Удалить">
 												<img src="../icon/basket.png" style="vertical-align: middle"></button>
 										</div>
 									</div>
@@ -118,9 +119,6 @@
 												<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
 													modi?
 												</li>
-												<!--												<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, modi?</li>-->
-												<!--												<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, modi?</li>-->
-												<!--												<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, modi?</li>-->
 											</ul>
 										</div>
 										<div class="comment-name b2">
@@ -128,16 +126,15 @@
 										</div>
 										<div class="comment b3">
 											<ul>
-												<!--												<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, modi?</li>-->
-												<!--												<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, modi?</li>												-->
+
 											</ul>
 										</div>
 										<div class="bt b4">
-											<button class="btn-add" type="button" data-bs-toggle="tooltip"
-											        data-bs-placement="top" title="Добавить">
+											<button class="btn-add" type="button" data-bs-toggle="modal" data-bs-target="#addComentModal-z"
+											         title="Добавить">
 												<img src="../icon/plus.png" style="vertical-align: middle"></button>
-											<button class="btn-del" type="button" data-bs-toggle="tooltip"
-											        data-bs-placement="top" title="Удалить">
+											<button class="btn-del" type="button" data-bs-toggle="modal" data-bs-target="#dellComentModal-z"
+											         title="Удалить">
 												<img src="../icon/basket.png" style="vertical-align: middle"></button>
 										</div>
 									</div>
@@ -187,10 +184,10 @@
 											</ul>
 										</div>
 										<div class="bt b4">
-											<button class="btn-add" type="button" data-bs-toggle="tooltip"
+											<button class="btn-add" type="button" data-bs-toggle="modal" data-bs-target="#addComentModal-z"
 											        data-bs-placement="top" title="Добавить">
 												<img src="../icon/plus.png" style="vertical-align: middle"></button>
-											<button class="btn-del" type="button" data-bs-toggle="tooltip"
+											<button class="btn-del" type="button" data-bs-toggle="modal" data-bs-target="#dellComentModal-z"
 											        data-bs-placement="top" title="Удалить">
 												<img src="../icon/basket.png" style="vertical-align: middle"></button>
 										</div>
@@ -226,11 +223,11 @@
 											</ul>
 										</div>
 										<div class="bt b4">
-											<button class="btn-add" type="button" data-bs-toggle="tooltip"
-											        data-bs-placement="top" title="Добавить">
+											<button class="btn-add" type="button" data-bs-toggle="modal" data-bs-target="#addComentModal-z"
+											         title="Добавить">
 												<img src="../icon/plus.png" style="vertical-align: middle"></button>
-											<button class="btn-del" type="button" data-bs-toggle="tooltip"
-											        data-bs-placement="top" title="Удалить">
+											<button class="btn-del" type="button" data-bs-toggle="modal" data-bs-target="#dellComentModal-z"
+											         title="Удалить">
 												<img src="../icon/basket.png" style="vertical-align: middle"></button>
 										</div>
 									</div>
@@ -270,11 +267,11 @@
 											</ul>
 										</div>
 										<div class="bt b1-4">
-											<button class="btn-add" type="button" data-bs-toggle="tooltip"
-											        data-bs-placement="top" title="Добавить">
+											<button class="btn-add" type="button" data-bs-toggle="modal" data-bs-target="#addComentModal-z"
+											         title="Добавить">
 												<img src="../icon/plus.png" style="vertical-align: middle"></button>
-											<button class="btn-del" type="button" data-bs-toggle="tooltip"
-											        data-bs-placement="top" title="Удалить">
+											<button class="btn-del" type="button" data-bs-toggle="modal" data-bs-target="#dellComentModal-z"
+											         title="Удалить">
 												<img src="../icon/basket.png" style="vertical-align: middle"></button>
 										</div>
 									</div>
@@ -297,16 +294,15 @@
 										</div>
 										<div class="comment b3">
 											<ul>
-												<!--												<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, modi?</li>-->
-												<!--												<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, modi?</li>												-->
+
 											</ul>
 										</div>
 										<div class="bt b4">
-											<button class="btn-add" type="button" data-bs-toggle="tooltip"
-											        data-bs-placement="top" title="Добавить">
+											<button class="btn-add" type="button" data-bs-toggle="modal" data-bs-target="#addComentModal-z"
+											         title="Добавить">
 												<img src="../icon/plus.png" style="vertical-align: middle"></button>
-											<button class="btn-del" type="button" data-bs-toggle="tooltip"
-											        data-bs-placement="top" title="Удалить">
+											<button class="btn-del" type="button" data-bs-toggle="modal" data-bs-target="#dellComentModal-z"
+											         title="Удалить">
 												<img src="../icon/basket.png" style="vertical-align: middle"></button>
 										</div>
 									</div>
@@ -356,11 +352,11 @@
 											</ul>
 										</div>
 										<div class="bt b4">
-											<button class="btn-add" type="button" data-bs-toggle="tooltip"
-											        data-bs-placement="top" title="Добавить">
+											<button class="btn-add" type="button" data-bs-toggle="modal" data-bs-target="#addComentModal-z"
+											         title="Добавить">
 												<img src="../icon/plus.png" style="vertical-align: middle"></button>
-											<button class="btn-del" type="button" data-bs-toggle="tooltip"
-											        data-bs-placement="top" title="Удалить">
+											<button class="btn-del" type="button" data-bs-toggle="modal" data-bs-target="#dellComentModal-z"
+											         title="Удалить">
 												<img src="../icon/basket.png" style="vertical-align: middle"></button>
 										</div>
 									</div>
@@ -395,11 +391,11 @@
 											</ul>
 										</div>
 										<div class="bt b4">
-											<button class="btn-add" type="button" data-bs-toggle="tooltip"
-											        data-bs-placement="top" title="Добавить">
+											<button class="btn-add" type="button" data-bs-toggle="modal" data-bs-target="#addComentModal-z"
+											         title="Добавить">
 												<img src="../icon/plus.png" style="vertical-align: middle"></button>
-											<button class="btn-del" type="button" data-bs-toggle="tooltip"
-											        data-bs-placement="top" title="Удалить">
+											<button class="btn-del" type="button" data-bs-toggle="modal" data-bs-target="#dellComentModal-z"
+											         title="Удалить">
 												<img src="../icon/basket.png" style="vertical-align: middle"></button>
 										</div>
 									</div>
@@ -439,11 +435,11 @@
 											</ul>
 										</div>
 										<div class="bt b1-4">
-											<button class="btn-add" type="button" data-bs-toggle="tooltip"
-											        data-bs-placement="top" title="Добавить">
+											<button class="btn-add" type="button" data-bs-toggle="modal" data-bs-target="#addComentModal-z"
+											         title="Добавить">
 												<img src="../icon/plus.png" style="vertical-align: middle"></button>
-											<button class="btn-del" type="button" data-bs-toggle="tooltip"
-											        data-bs-placement="top" title="Удалить">
+											<button class="btn-del" type="button" data-bs-toggle="modal" data-bs-target="#dellComentModal-z"
+											         title="Удалить">
 												<img src="../icon/basket.png" style="vertical-align: middle"></button>
 										</div>
 									</div>
@@ -466,16 +462,15 @@
 										</div>
 										<div class="comment b3">
 											<ul>
-												<!--												<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, modi?</li>-->
-												<!--												<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, modi?</li>												-->
+
 											</ul>
 										</div>
 										<div class="bt b4">
-											<button class="btn-add" type="button" data-bs-toggle="tooltip"
-											        data-bs-placement="top" title="Добавить">
+											<button class="btn-add" type="button" data-bs-toggle="modal" data-bs-target="#addComentModal-z"
+											         title="Добавить">
 												<img src="../icon/plus.png" style="vertical-align: middle"></button>
-											<button class="btn-del" type="button" data-bs-toggle="tooltip"
-											        data-bs-placement="top" title="Удалить">
+											<button class="btn-del" type="button" data-bs-toggle="modal" data-bs-target="#dellComentModal-z"
+											         title="Удалить">
 												<img src="../icon/basket.png" style="vertical-align: middle"></button>
 										</div>
 									</div>
@@ -525,11 +520,11 @@
 											</ul>
 										</div>
 										<div class="bt b4">
-											<button class="btn-add" type="button" data-bs-toggle="tooltip"
-											        data-bs-placement="top" title="Добавить">
+											<button class="btn-add" type="button" data-bs-toggle="modal" data-bs-target="#addComentModal-z"
+											         title="Добавить">
 												<img src="../icon/plus.png" style="vertical-align: middle"></button>
-											<button class="btn-del" type="button" data-bs-toggle="tooltip"
-											        data-bs-placement="top" title="Удалить">
+											<button class="btn-del" type="button" data-bs-toggle="modal" data-bs-target="#dellComentModal-z"
+											        title="Удалить">
 												<img src="../icon/basket.png" style="vertical-align: middle"></button>
 										</div>
 									</div>
@@ -564,11 +559,11 @@
 											</ul>
 										</div>
 										<div class="bt b4">
-											<button class="btn-add" type="button" data-bs-toggle="tooltip"
-											        data-bs-placement="top" title="Добавить">
+											<button class="btn-add" type="button" data-bs-toggle="modal" data-bs-target="#addComentModal-z"
+											         title="Добавить">
 												<img src="../icon/plus.png" style="vertical-align: middle"></button>
-											<button class="btn-del" type="button" data-bs-toggle="tooltip"
-											        data-bs-placement="top" title="Удалить">
+											<button class="btn-del" type="button" data-bs-toggle="modal" data-bs-target="#dellComentModal-z"
+											         title="Удалить">
 												<img src="../icon/basket.png" style="vertical-align: middle"></button>
 										</div>
 									</div>
@@ -626,11 +621,11 @@
 											</ul>
 										</div>
 										<div class="bt b1-4">
-											<button class="btn-add" type="button" data-bs-toggle="tooltip"
-											        data-bs-placement="top" title="Добавить">
+											<button class="btn-add" type="button" data-bs-toggle="modal" data-bs-target="#addComentModal-z"
+											        title="Добавить">
 												<img src="../icon/plus.png" style="vertical-align: middle"></button>
-											<button class="btn-del" type="button" data-bs-toggle="tooltip"
-											        data-bs-placement="top" title="Удалить">
+											<button class="btn-del" type="button" data-bs-toggle="modal" data-bs-target="#dellComentModal-z"
+											        title="Удалить">
 												<img src="../icon/basket.png" style="vertical-align: middle"></button>
 										</div>
 									</div>
@@ -643,9 +638,6 @@
 												<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
 													modi?
 												</li>
-												<!--												<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, modi?</li>-->
-												<!--												<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, modi?</li>-->
-												<!--												<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, modi?</li>-->
 											</ul>
 										</div>
 										<div class="comment-name b2">
@@ -653,16 +645,15 @@
 										</div>
 										<div class="comment b3">
 											<ul>
-												<!--												<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, modi?</li>-->
-												<!--												<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, modi?</li>												-->
+
 											</ul>
 										</div>
 										<div class="bt b4">
-											<button class="btn-add" type="button" data-bs-toggle="tooltip"
-											        data-bs-placement="top" title="Добавить">
+											<button class="btn-add" type="button" data-bs-toggle="modal" data-bs-target="#addComentModal-z"
+											        title="Добавить">
 												<img src="../icon/plus.png" style="vertical-align: middle"></button>
-											<button class="btn-del" type="button" data-bs-toggle="tooltip"
-											        data-bs-placement="top" title="Удалить">
+											<button class="btn-del" type="button" data-bs-toggle="modal" data-bs-target="#dellComentModal-z"
+											        title="Удалить">
 												<img src="../icon/basket.png" style="vertical-align: middle"></button>
 										</div>
 									</div>
@@ -712,10 +703,10 @@
 											</ul>
 										</div>
 										<div class="bt b4">
-											<button class="btn-add" type="button" data-bs-toggle="tooltip"
+											<button class="btn-add" type="button" data-bs-toggle="modal" data-bs-target="#addComentModal-z"
 											        data-bs-placement="top" title="Добавить">
 												<img src="../icon/plus.png" style="vertical-align: middle"></button>
-											<button class="btn-del" type="button" data-bs-toggle="tooltip"
+											<button class="btn-del" type="button" data-bs-toggle="modal" data-bs-target="#dellComentModal-z"
 											        data-bs-placement="top" title="Удалить">
 												<img src="../icon/basket.png" style="vertical-align: middle"></button>
 										</div>
@@ -751,11 +742,11 @@
 											</ul>
 										</div>
 										<div class="bt b4">
-											<button class="btn-add" type="button" data-bs-toggle="tooltip"
-											        data-bs-placement="top" title="Добавить">
+											<button class="btn-add" type="button" data-bs-toggle="modal" data-bs-target="#addComentModal-z"
+											        title="Добавить">
 												<img src="../icon/plus.png" style="vertical-align: middle"></button>
-											<button class="btn-del" type="button" data-bs-toggle="tooltip"
-											        data-bs-placement="top" title="Удалить">
+											<button class="btn-del" type="button" data-bs-toggle="modal" data-bs-target="#dellComentModal-z"
+											        title="Удалить">
 												<img src="../icon/basket.png" style="vertical-align: middle"></button>
 										</div>
 									</div>
@@ -795,11 +786,11 @@
 											</ul>
 										</div>
 										<div class="bt b1-4">
-											<button class="btn-add" type="button" data-bs-toggle="tooltip"
-											        data-bs-placement="top" title="Добавить">
+											<button class="btn-add" type="button" data-bs-toggle="modal" data-bs-target="#addComentModal-z"
+											        title="Добавить">
 												<img src="../icon/plus.png" style="vertical-align: middle"></button>
-											<button class="btn-del" type="button" data-bs-toggle="tooltip"
-											        data-bs-placement="top" title="Удалить">
+											<button class="btn-del" type="button" data-bs-toggle="modal" data-bs-target="#dellComentModal-z"
+											        title="Удалить">
 												<img src="../icon/basket.png" style="vertical-align: middle"></button>
 										</div>
 									</div>
@@ -822,16 +813,15 @@
 										</div>
 										<div class="comment b3">
 											<ul>
-												<!--												<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, modi?</li>-->
-												<!--												<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, modi?</li>												-->
+
 											</ul>
 										</div>
 										<div class="bt b4">
-											<button class="btn-add" type="button" data-bs-toggle="tooltip"
-											        data-bs-placement="top" title="Добавить">
+											<button class="btn-add" type="button" data-bs-toggle="modal" data-bs-target="#addComentModal-z"
+											        title="Добавить">
 												<img src="../icon/plus.png" style="vertical-align: middle"></button>
-											<button class="btn-del" type="button" data-bs-toggle="tooltip"
-											        data-bs-placement="top" title="Удалить">
+											<button class="btn-del" type="button" data-bs-toggle="modal" data-bs-target="#dellComentModal-z"
+											        title="Удалить">
 												<img src="../icon/basket.png" style="vertical-align: middle"></button>
 										</div>
 									</div>
@@ -881,11 +871,11 @@
 											</ul>
 										</div>
 										<div class="bt b4">
-											<button class="btn-add" type="button" data-bs-toggle="tooltip"
-											        data-bs-placement="top" title="Добавить">
+											<button class="btn-add" type="button" data-bs-toggle="modal" data-bs-target="#addComentModal-z"
+											        title="Добавить">
 												<img src="../icon/plus.png" style="vertical-align: middle"></button>
-											<button class="btn-del" type="button" data-bs-toggle="tooltip"
-											        data-bs-placement="top" title="Удалить">
+											<button class="btn-del" type="button" data-bs-toggle="modal" data-bs-target="#dellComentModal-z"
+											        title="Удалить">
 												<img src="../icon/basket.png" style="vertical-align: middle"></button>
 										</div>
 									</div>
@@ -920,11 +910,11 @@
 											</ul>
 										</div>
 										<div class="bt b4">
-											<button class="btn-add" type="button" data-bs-toggle="tooltip"
-											        data-bs-placement="top" title="Добавить">
+											<button class="btn-add" type="button" data-bs-toggle="modal" data-bs-target="#addComentModal-z"
+											        title="Добавить">
 												<img src="../icon/plus.png" style="vertical-align: middle"></button>
-											<button class="btn-del" type="button" data-bs-toggle="tooltip"
-											        data-bs-placement="top" title="Удалить">
+											<button class="btn-del" type="button" data-bs-toggle="modal" data-bs-target="#dellComentModal-z"
+											        title="Удалить">
 												<img src="../icon/basket.png" style="vertical-align: middle"></button>
 										</div>
 									</div>
@@ -964,11 +954,11 @@
 											</ul>
 										</div>
 										<div class="bt b1-4">
-											<button class="btn-add" type="button" data-bs-toggle="tooltip"
-											        data-bs-placement="top" title="Добавить">
+											<button class="btn-add" type="button" data-bs-toggle="modal" data-bs-target="#addComentModal-z"
+											        title="Добавить">
 												<img src="../icon/plus.png" style="vertical-align: middle"></button>
-											<button class="btn-del" type="button" data-bs-toggle="tooltip"
-											        data-bs-placement="top" title="Удалить">
+											<button class="btn-del" type="button" data-bs-toggle="modal" data-bs-target="#dellComentModal-z"
+											        title="Удалить">
 												<img src="../icon/basket.png" style="vertical-align: middle"></button>
 										</div>
 									</div>
@@ -991,16 +981,15 @@
 										</div>
 										<div class="comment b3">
 											<ul>
-												<!--												<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, modi?</li>-->
-												<!--												<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, modi?</li>												-->
+
 											</ul>
 										</div>
 										<div class="bt b4">
-											<button class="btn-add" type="button" data-bs-toggle="tooltip"
-											        data-bs-placement="top" title="Добавить">
+											<button class="btn-add" type="button" data-bs-toggle="modal" data-bs-target="#addComentModal-z"
+											        title="Добавить">
 												<img src="../icon/plus.png" style="vertical-align: middle"></button>
-											<button class="btn-del" type="button" data-bs-toggle="tooltip"
-											        data-bs-placement="top" title="Удалить">
+											<button class="btn-del" type="button" data-bs-toggle="modal" data-bs-target="#dellComentModal-z"
+											        title="Удалить">
 												<img src="../icon/basket.png" style="vertical-align: middle"></button>
 										</div>
 									</div>
@@ -1050,11 +1039,11 @@
 											</ul>
 										</div>
 										<div class="bt b4">
-											<button class="btn-add" type="button" data-bs-toggle="tooltip"
-											        data-bs-placement="top" title="Добавить">
+											<button class="btn-add" type="button" data-bs-toggle="modal" data-bs-target="#addComentModal-z"
+											        title="Добавить">
 												<img src="../icon/plus.png" style="vertical-align: middle"></button>
-											<button class="btn-del" type="button" data-bs-toggle="tooltip"
-											        data-bs-placement="top" title="Удалить">
+											<button class="btn-del" type="button" data-bs-toggle="modal" data-bs-target="#dellComentModal-z"
+											        title="Удалить">
 												<img src="../icon/basket.png" style="vertical-align: middle"></button>
 										</div>
 									</div>
@@ -1089,11 +1078,11 @@
 											</ul>
 										</div>
 										<div class="bt b4">
-											<button class="btn-add" type="button" data-bs-toggle="tooltip"
-											        data-bs-placement="top" title="Добавить">
+											<button class="btn-add" type="button" data-bs-toggle="modal" data-bs-target="#addComentModal-z"
+											        title="Добавить">
 												<img src="../icon/plus.png" style="vertical-align: middle"></button>
-											<button class="btn-del" type="button" data-bs-toggle="tooltip"
-											        data-bs-placement="top" title="Удалить">
+											<button class="btn-del" type="button" data-bs-toggle="modal" data-bs-target="#dellComentModal-z"
+											        title="Удалить">
 												<img src="../icon/basket.png" style="vertical-align: middle"></button>
 										</div>
 									</div>
@@ -1107,6 +1096,71 @@
 		</div>
 	</div>
 </section>
+
+<!--Модальное окно для добавление записи-->
+<div class="modal fade modal-edit" id="addComentModal-z" tabindex="-1" aria-labelledby="addComentModalLabel-z"
+     aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="addComentModalLabel-z">Добавить комментарий </h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal"
+				        aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<div class="container-fluid">
+					<div class="row">
+						<form>
+							<h6>Заполните текстовое поле:</h6>
+							<textarea class="form-control" aria-label="With textarea"></textarea>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="submit" class="btn btn-modal">Добавить</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--Модальное окно для удаления записи-->
+<div class="modal fade modal-edit" id="dellComentModal-z" tabindex="-1" aria-labelledby="dellComentModalLabel-z"
+     aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="dellComentModalLabel-z">Удалить комментарий</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal"
+				        aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<div class="container-fluid">
+					<div class="row">
+						<form>
+							<h6>Выберите задания,которые хотите удалить:</h6>
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+								<label class="form-check-label" for="flexCheckDefault">
+									Задние...
+								</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+								<label class="form-check-label" for="flexCheckChecked">
+									Задание ...
+								</label>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="submit" class="btn btn-modal">Удалить</button>
+			</div>
+		</div>
+	</div>
+</div>
 
 <!--Подвал-->
 <section class="footer fixed-bottom">

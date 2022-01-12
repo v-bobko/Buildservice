@@ -12,8 +12,9 @@
 				<h5>Имя Инженера</h5>
 			</div>
 			<div class="col col-home">
-				<a class="admin-link" href="admin-objects.html" th:href="@{/engineer/adminObjects}">Администратор</a>
-				<a href="engineer-objects.html" th:href="@{/customer/objects}"><img src="../icon/home.png" alt="дом"></a>
+				<a class="admin-link" href="admin-objects.html" th:href="@{/engineer/adminObjects}">Админ</a>
+				<a href="engineer-objects.html" th:href="@{/customer/objects}" title="Выбор объекта"><img src="../icon/home.png" alt="дом"></a>
+				<a href="index.html" th:href="@{/}" title="Выход"><img src="../icon/logout.png" alt="выход"></a>
 			</div>
 		</div>
 		<div class="row name-object">
@@ -38,6 +39,10 @@
 					<li class="nav-item">
 						<a class="nav-link h" href="engineer-work.html" th:href="@{/engineer/work}">Отчет
 							выполненных работ/Фотоотчет</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link h" href="engineer-journal.html"
+						   th:href="@{/engineer/journal}">Журнал работ</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link h" href="engineer-online.html" th:href="@{/engineer/online}">Онлайн-трансляция</a>
@@ -68,11 +73,11 @@
 			</ul>
 		</div>
 		<div class="row btn-list">
-			<button class="psd-btn" type="button" data-bs-toggle="tooltip"
-			        data-bs-placement="top" title="Добавить">
+			<button class="psd-btn" type="button" data-bs-toggle="modal" data-bs-target="#addDocPModal"
+			        title="Добавить">
 				<img src="../icon/plus.png" style="vertical-align: middle"></button>
-			<button class="psd-btn" type="button" data-bs-toggle="tooltip"
-			        data-bs-placement="top" title="Удалить">
+			<button class="psd-btn" type="button" data-bs-toggle="modal" data-bs-target="#dellDocPModal"
+			        title="Удалить">
 				<img src="../icon/basket.png" style="vertical-align: middle"></button>
 
 		</div>
@@ -95,16 +100,166 @@
 			</ul>
 		</div>
 		<div class="row btn-list">
-			<button class="psd-btn" type="button" data-bs-toggle="tooltip"
-			        data-bs-placement="top" title="Добавить">
+			<button class="psd-btn" type="button" data-bs-toggle="modal" data-bs-target="#addDocSModal"
+			         title="Добавить">
 				<img src="../icon/plus.png" style="vertical-align: middle"></button>
-			<button class="psd-btn" type="button" data-bs-toggle="tooltip"
-			        data-bs-placement="top" title="Удалить">
+			<button class="psd-btn" type="button" data-bs-toggle="modal" data-bs-target="#dellDocSModal"
+			        title="Удалить">
 				<img src="../icon/basket.png" style="vertical-align: middle"></button>
 
 		</div>
 	</div>
 </section>
+
+<!--Модальное окно для добавления проектных документов-->
+<div class="modal fade modal-edit" id="addDocPModal" tabindex="-1" aria-labelledby="addDocPModalLabel"
+     aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="addDocPModalLabel">Добавить проектную документацию</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal"
+				        aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<div class="container-fluid">
+					<div class="row">
+						<form>
+							<h6>Выберите файл и дайте ему название:</h6>
+							<div class="mb-3">
+								<label for="inputGroupFile1" class="form-label">Файл</label>
+								<div class="input-group">
+									<input type="file" class="form-control" id="inputGroupFile1" aria-describedby="inputGroupFileAddon1" aria-label="Upload">
+									<button class="btn btn-outline-secondary" type="reset" id="inputGroupFileAddon1">X</button>
+								</div>
+							</div>
+							<div class="mb-3">
+								<label for="nameProject" class="form-label">Название</label>
+								<input type="text" class="form-control" id="nameProject">
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="submit" class="btn btn-modal">Добавить</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--Модальное окно для удаления проектных документов-->
+<div class="modal fade modal-edit" id="dellDocPModal" tabindex="-1" aria-labelledby="dellDocPModalLabel"
+     aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="dellDocPModalLabel">Удаление проектной документации</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal"
+				        aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<div class="container-fluid">
+					<div class="row">
+						<form>
+							<h6>Выберите файлы,которые хотите удалить:</h6>
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+								<label class="form-check-label" for="flexCheckDefault">
+									Документ...
+								</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+								<label class="form-check-label" for="flexCheckChecked">
+									Документ ...
+								</label>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="submit" class="btn btn-modal">Удалить</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--Модальное окно для добавления сметных документов-->
+<div class="modal fade modal-edit" id="addDocSModal" tabindex="-1" aria-labelledby="addDocSModalLabel"
+     aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="addDocSModalLabel">Добавить сметную документацию</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal"
+				        aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<div class="container-fluid">
+					<div class="row">
+						<form>
+							<h6>Выберите файл и дайте ему название:</h6>
+							<div class="mb-3">
+								<label for="inputGroupFile2" class="form-label">Файл</label>
+								<div class="input-group">
+									<input type="file" class="form-control" id="inputGroupFile2" aria-describedby="inputGroupFileAddon2" aria-label="Upload">
+									<button class="btn btn-outline-secondary" type="reset" id="inputGroupFileAddon2">X</button>
+								</div>
+							</div>
+							<div class="mb-3">
+								<label for="nameProjectS" class="form-label">Название</label>
+								<input type="text" class="form-control" id="nameProjectS">
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="submit" class="btn btn-modal">Добавить</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--Модальное окно для удаления сметных документов-->
+<div class="modal fade modal-edit" id="dellDocSModal" tabindex="-1" aria-labelledby="dellDocSModalLabel"
+     aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="dellDocSModalLabel">Удаление сметной документации</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal"
+				        aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<div class="container-fluid">
+					<div class="row">
+						<form>
+							<h6>Выберите файлы,которые хотите удалить:</h6>
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2">
+								<label class="form-check-label" for="flexCheckDefault">
+									Документ...
+								</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" value="" id="flexCheckChecked2" checked>
+								<label class="form-check-label" for="flexCheckChecked">
+									Документ ...
+								</label>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="submit" class="btn btn-modal">Удалить</button>
+			</div>
+		</div>
+	</div>
+</div>
 
 <!--Подвал-->
 <section class="footer fixed-bottom">

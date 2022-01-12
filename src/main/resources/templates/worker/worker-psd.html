@@ -9,11 +9,12 @@
 	<div class="container-fluid">
 		<div class="row name-account">
 			<div class="col">
-				<h5>Имя Клиента</h5>
+				<h5>Имя Исполнителя</h5>
 			</div>
 			<div class="col col-home">
-				<a href="customer-objects.html" th:href="@{/customer/objects}" title="Выбор объекта"><img src="../icon/home.png" alt="дом"></a>
-				<a href="index.html" th:href="@{/}" title="Выход"><img src="../icon/logout.png" alt="выход"></a>
+				<a href="customer-objects.html" th:href="@{/customer/objects}"><img src="../icon/home.png"
+				                                                                    alt="дом" title="Выбор объекта"></a>
+				<a href="index.html" th:href="@{/}"  title="Выход"><img src="../icon/logout.png" alt="выход"></a>
 			</div>
 		</div>
 		<div class="row name-object">
@@ -28,19 +29,16 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="nav nav-tabs">
 					<li class="nav-item">
-						<a class="nav-link h" href="customer-calendar.html" th:href="@{/customer/calendar}">Календарь
-							работ</a>
+						<a class="nav-link h" href="worker-work.html" th:href="@{/worker/work}">Текущие задачи/Отчетность</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link active" aria-current="page" href="customer-psd.html"
-						   th:href="@{/customer/psd}">Проектно-сметная документация</a>
+						<a class="nav-link h" href="worker-journal.html" th:href="@{/worker/journal}">Журнал работ</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link h" href="customer-work.html" th:href="@{/customer/work}">Отчет
-							выполненныхработ/Фотоотчет</a>
+						<a class="nav-link active" aria-current="page" href="worker-psd.html" th:href="@{/worker/psd}">Проектная документация</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link h" href="customer-online.html" th:href="@{/customer/online}">Онлайн-трансляция</a>
+						<a class="nav-link h" href="worker-application.html" th:href="@{/worker/application}">Заявка</a>
 					</li>
 				</ul>
 
@@ -62,24 +60,6 @@
 				<li><a href="#">Дизайн помещения</a></li>
 				<li><a href="#">План вентиляционной системы</a></li>
 				<li><a href="#">План водоснабжения и отопительной системы</a></li>
-			</ul>
-		</div>
-	</div>
-</section>
-
-<!--Сметная Документация-->
-<section class="sd">
-	<div class="container-fluid">
-		<div class="row name ">
-			<h3>CМЕТНАЯ ДОКУМЕНТАЦИЯ</h3>
-		</div>
-		<div class="row list">
-			<ul>
-				<li><a href="#">Смета на строительные работы</a></li>
-				<li><a href="#">Смета на монтажные работы</a></li>
-				<li><a href="#">Смета на материалы</a></li>
-				<li><a href="#">...</a></li>
-				<li><a href="#">...</a></li>
 			</ul>
 		</div>
 	</div>
