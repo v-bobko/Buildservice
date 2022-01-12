@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="ru">
+<!--Мета-теги-->
+<div th:replace="~{head::head}">
+</div>
+<body>
+<!--Заголовок-->
+<section class="header2">
+	<div class="container-fluid">
+		<div class="row name-account">
+			<div class="col">
+				<h5>Имя Инженера</h5>
+			</div>
+			<div class="col col-home">
+				<a class="admin-link" href="admin-objects.html" th:href="@{/engineer/adminObjects}">Администратор</a>
+				<a href="engineer-objects.html" th:href="@{/customer/objects}"><img src="../icon/home.png" alt="дом"></a>
+			</div>
+		</div>
+		<div class="row name-object">
+			<h5>Объект</h5>
+		</div>
+		<div class="row menu navbar navbar-expand-lg navbar-light">
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+			        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+			        aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="nav nav-tabs">
+					<li class="nav-item">
+						<a class="nav-link h " href="engineer-calendar.html"
+						   th:href="@{/engineer/calendar}">Календарь работ</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link h" href="engineer-psd.html" th:href="@{/engineer/psd}">Проектно-сметная
+							документация</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link h" href="engineer-work.html" th:href="@{/engineer/work}">Отчет
+							выполненных работ/Фотоотчет</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="engineer-online.html" th:href="@{/engineer/online}">Онлайн-трансляция</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link h" href="engineer-application.html" th:href="@{/engineer/application}">Заявки</a>
+					</li>
+				</ul>
+
+			</div>
+		</div>
+	</div>
+</section>
+
+<!--Трансляция-->
+<section class="video">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="accordion" id="accordionPanelsStayOpenExample">
+				<div class="accordion-item">
+					<h2 class="accordion-header" id="panelsStayOpen-headingOne">
+						<button class="accordion-button" type="button" data-bs-toggle="collapse"
+						        data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+						        aria-controls="panelsStayOpen-collapseOne">
+							Котельная
+						</button>
+					</h2>
+					<div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+					     aria-labelledby="panelsStayOpen-headingOne">
+						<div class="accordion-body">
+							<div class="camera1">
+								<iframe src="https://www.youtube.com/embed/7yFZ3-VanEM"
+								        title="YouTube video player" frameborder="0"
+								        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+								        allowfullscreen></iframe>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="accordion-item">
+					<h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+						<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+						        data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+						        aria-controls="panelsStayOpen-collapseTwo">
+							Гостинная
+						</button>
+					</h2>
+					<div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
+					     aria-labelledby="panelsStayOpen-headingTwo">
+						<div class="accordion-body">
+							Видео
+						</div>
+					</div>
+				</div>
+				<div class="accordion-item">
+					<h2 class="accordion-header" id="panelsStayOpen-headingThree">
+						<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+						        data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
+						        aria-controls="panelsStayOpen-collapseThree">
+							Коридор
+						</button>
+					</h2>
+					<div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
+					     aria-labelledby="panelsStayOpen-headingThree">
+						<div class="accordion-body">
+							Видео
+						</div>
+					</div>
+				</div>
+				<div class="accordion-item">
+					<h2 class="accordion-header" id="panelsStayOpen-headingFour">
+						<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+						        data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false"
+						        aria-controls="panelsStayOpen-collapseFour">
+							Гараж
+						</button>
+					</h2>
+					<div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse"
+					     aria-labelledby="panelsStayOpen-headingFour">
+						<div class="accordion-body">
+							Видео
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<!--Подвал-->
+<section class="footer fixed-bottom">
+	<div th:replace="~{footer::footer1}"></div>
+</section>
+
+<!--Скрипты-->
+<div th:replace="~{scripts::scripts}"></div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ru">
+<!--Мета-теги-->
+<div th:replace="~{head::head}">
+</div>
+<body>
+<!--Заголовок-->
+<section class="header-start">
+	<div class="container-fluid">
+		<div class="row name-account">
+			<h5>имя инженера</h5>
+		</div>
+		<div class="row name-object">
+			<h5>Действующие объекты</h5>
+		</div>
+	</div>
+</section>
+
+<!--Список объектов-->
+<section class="list-object">
+	<div class="container-fluid">
+		<div class="row list">
+			<ul>
+				<li><a href="#">Название объекта</a></li>
+				<li><a href="#">Название объекта</a></li>
+				<li><a href="#">Название объекта</a></li>
+				<li><a href="#">...</a></li>
+			</ul>
+		</div>
+	</div>
+</section>
+
+<!--Подвал-->
+<section class="footer fixed-bottom">
+	<div th:replace="~{footer::footer1}"></div>
+</section>
+
+<!--Скрипты-->
+<div th:replace="~{scripts::scripts}"></div>
+
+</body>
+</html>

@@ -17,15 +17,16 @@
 	<div class="container-fluid">
 		<div class="row name-account">
 			<div class="col">
-				<h5>Имя Клиента</h5>
+				<h5>Имя Инженера</h5>
 			</div>
 			<div class="col col-home">
-				<a href="customer-objects.html" th:href="@{/customer/objects}"><img src="../icon/home.png"
+				<a class="admin-link" href="admin-objects.html" th:href="@{/engineer/adminObjects}">Администратор</a>
+				<a href="engineer-objects.html" th:href="@{/customer/objects}"><img src="../icon/home.png"
 				                                                                    alt="дом"></a>
 			</div>
 		</div>
 		<div class="row name-object">
-			<h5>Название Объекта</h5>
+			<h5>Объект</h5>
 		</div>
 		<div class="row menu navbar navbar-expand-lg navbar-light">
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -36,19 +37,24 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="nav nav-tabs">
 					<li class="nav-item">
-						<a class="nav-link h" href="customer-calendar.html" th:href="@{/customer/calendar}">Календарь
-							работ</a>
+						<a class="nav-link h" href="engineer-calendar.html"
+						   th:href="@{/engineer/calendar}">Календарь работ</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link h" href="customer-psd.html" th:href="@{/customer/psd}">Проектно-сметная
+						<a class="nav-link h" href="engineer-psd.html" th:href="@{/engineer/psd}">Проектно-сметная
 							документация</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link active" aria-current="page" href="customer-work.html"
-						   th:href="@{/customer/work}">Отчет выполненныхработ/Фотоотчет</a>
+						<a class="nav-link active" aria-current="page" href="engineer-work.html"
+						   th:href="@{/engineer/work}">Отчет
+							выполненных работ/Фотоотчет</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link h" href="customer-online.html" th:href="@{/customer/online}">Онлайн-трансляция</a>
+						<a class="nav-link h" href="engineer-online.html" th:href="@{/engineer/online}">Онлайн-трансляция</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link h" href="engineer-application.html"
+						   th:href="@{/engineer/application}">Заявки</a>
 					</li>
 				</ul>
 
@@ -57,7 +63,7 @@
 	</div>
 </section>
 
-<!--дата-->
+<!--Выбор даты-->
 <div class="container-fluid">
 	<div class="row date">
 		<select class="form-select" aria-label="Default select example">
@@ -100,17 +106,14 @@
 			</thead>
 			<tbody>
 			<tr>
-				<td class="colum-work"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-					Architecto,
-					excepturi!</p>
+				<td class="colum-work">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto,
+					excepturi!
 				</td>
 				<td class="colum-process"><p>Lorem ipsum dolor.</p></td>
 				<td class="colum-problem"><p>Lorem ipsum dolor sit amet.</p></td>
 				<td class="colum-comment-i"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-					Distinctio dolore illo nostrum, saepe tempora veniam.</p></td>
-				<td class="colum-comment-z">
-					<p></p>
-					<div class="bt-work-z">
+					Distinctio dolore illo nostrum, saepe tempora veniam.</p>
+					<div class="bt-work-i">
 						<button class="btn-work" type="button" data-bs-toggle="tooltip"
 						        data-bs-placement="top" title="Добавить">
 							<img src="../icon/plus.png" style="vertical-align: middle"></button>
@@ -119,89 +122,94 @@
 							<img src="../icon/basket.png" style="vertical-align: middle"></button>
 					</div>
 				</td>
-			</tr>
-			<tr>
-				<td class="colum-work"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus
-					expedita minus natus pariatur quae qui quod, sit. Aperiam, magnam similique.</p>
-				</td>
-				<td class="colum-process"><p>Lorem ipsum dolor.</p></td>
-				<td class="colum-problem"><p></p></td>
-				<td class="colum-comment-i"><p>Lorem ipsum dolor sit amet.</p></td>
-				<td class="colum-comment-z">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, minus?</p>
-					<div class="bt-work-z">
-						<button class="btn-work" type="button" data-bs-toggle="tooltip"
-						        data-bs-placement="top" title="Добавить">
-							<img src="../icon/plus.png" style="vertical-align: middle"></button>
-						<button class="btn-work" type="button" data-bs-toggle="tooltip"
-						        data-bs-placement="top" title="Удалить">
-							<img src="../icon/basket.png" style="vertical-align: middle"></button>
-					</div>
-				</td>
-			</tr>
-			<tr>
-				<td class="colum-work"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-					Architecto,
-					excepturi!</p>
-				</td>
-				<td class="colum-process"><p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p></td>
-				<td class="colum-problem"><p>Lorem ipsum dolor sit amet.</p></td>
-				<td class="colum-comment-i"><p></p></td>
-				<td class="colum-comment-z">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-					<div class="bt-work-z">
-						<button class="btn-work" type="button" data-bs-toggle="tooltip"
-						        data-bs-placement="top" title="Добавить">
-							<img src="../icon/plus.png" style="vertical-align: middle"></button>
-						<button class="btn-work" type="button" data-bs-toggle="tooltip"
-						        data-bs-placement="top" title="Удалить">
-							<img src="../icon/basket.png" style="vertical-align: middle"></button>
-					</div>
-				</td>
-			</tr>
-			<tr>
-				<td class="colum-work"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-					Architecto,
-					excepturi!</p>
-				</td>
-				<td class="colum-process"><p>Lorem ipsum dolor.</p></td>
-				<td class="colum-problem"><p>Lorem ipsum dolor sit amet.</p></td>
-				<td class="colum-comment-i"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-					Distinctio dolore illo nostrum, saepe tempora veniam.</p></td>
-				<td class="colum-comment-z">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, possimus?</p>
-					<div class="bt-work-z">
-						<button class="btn-work" type="button" data-bs-toggle="tooltip"
-						        data-bs-placement="top" title="Добавить">
-							<img src="../icon/plus.png" style="vertical-align: middle"></button>
-						<button class="btn-work" type="button" data-bs-toggle="tooltip"
-						        data-bs-placement="top" title="Удалить">
-							<img src="../icon/basket.png" style="vertical-align: middle"></button>
-					</div>
-				</td>
-			</tr>
-			<tr>
-				<td class="colum-work"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-					Architecto,
-					excepturi!</p>
-				</td>
-				<td class="colum-process"><p></p></td>
-				<td class="colum-problem"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, sed.</p></td>
-				<td class="colum-comment-i"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-					Distinctio dolore illo nostrum, saepe tempora veniam.</p></td>
-				<td class="colum-comment-z">
-					<p>Lorem ipsum dolor sit amet.</p>
-					<div class="bt-work-z">
-						<button class="btn-work" type="button" data-bs-toggle="tooltip"
-						        data-bs-placement="top" title="Добавить">
-							<img src="../icon/plus.png" style="vertical-align: middle"></button>
-						<button class="btn-work" type="button" data-bs-toggle="tooltip"
-						        data-bs-placement="top" title="Удалить">
-							<img src="../icon/basket.png" style="vertical-align: middle"></button>
-					</div>
-				</td>
-			</tr>
 
+				<td class="colum-comment-z"><p></p></td>
+			</tr>
+			<tr>
+				<td class="colum-work"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam
+					corporis cumque debitis dignissimos maxime necessitatibus omnis, perferendis porro
+					repellat repudiandae!</p>
+				</td>
+				<td class="colum-process"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+					Autem,
+					natus.</p>
+				</td>
+				<td class="colum-problem"></td>
+				<td class="colum-comment-i">
+					<div class="bt-work-i">
+						<button class="btn-work" type="button" data-bs-toggle="tooltip"
+						        data-bs-placement="top" title="Добавить">
+							<img src="../icon/plus.png" style="vertical-align: middle"></button>
+						<button class="btn-work" type="button" data-bs-toggle="tooltip"
+						        data-bs-placement="top" title="Удалить">
+							<img src="../icon/basket.png" style="vertical-align: middle"></button>
+					</div>
+				</td>
+				<td class="colum-comment-z"><p>Lorem ipsum dolor sit amet.</p></td>
+			</tr>
+			<tr>
+				<td class="colum-work"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+					Architecto,
+					excepturi!</p>
+				</td>
+				<td class="colum-process"><p>Lorem ipsum dolor.</p></td>
+				<td class="colum-problem"><p>Lorem ipsum dolor sit amet.</p></td>
+				<td class="colum-comment-i"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+					Libero, quo.</p>
+					<div class="bt-work-i">
+						<button class="btn-work" type="button" data-bs-toggle="tooltip"
+						        data-bs-placement="top" title="Добавить">
+							<img src="../icon/plus.png" style="vertical-align: middle"></button>
+						<button class="btn-work" type="button" data-bs-toggle="tooltip"
+						        data-bs-placement="top" title="Удалить">
+							<img src="../icon/basket.png" style="vertical-align: middle"></button>
+					</div>
+				</td>
+				<td class="colum-comment-z"><p>Lorem ipsum dolor sit amet.</p>
+				</td>
+			</tr>
+			<tr>
+				<td class="colum-work"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+					Architecto,
+					excepturi!</p>
+				</td>
+				<td class="colum-process"><p>Lorem ipsum dolor.</p></td>
+				<td class="colum-problem"><p>Lorem ipsum dolor sit amet.</p></td>
+				<td class="colum-comment-i"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+					Libero, quo.</p>
+					<div class="bt-work-i">
+						<button class="btn-work" type="button" data-bs-toggle="tooltip"
+						        data-bs-placement="top" title="Добавить">
+							<img src="../icon/plus.png" style="vertical-align: middle"></button>
+						<button class="btn-work" type="button" data-bs-toggle="tooltip"
+						        data-bs-placement="top" title="Удалить">
+							<img src="../icon/basket.png" style="vertical-align: middle"></button>
+					</div>
+				</td>
+				<td class="colum-comment-z"><p>Lorem ipsum dolor sit amet.</p>
+				</td>
+			</tr>
+			<tr>
+				<td class="colum-work"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+					Architecto,
+					excepturi.</p>
+				</td>
+				<td class="colum-process"><p>Lorem ipsum dolor.</p></td>
+				<td class="colum-problem"><p>Lorem ipsum dolor sit amet.</p></td>
+				<td class="colum-comment-i"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+					Libero, quo.</p>
+					<div class="bt-work-i">
+						<button class="btn-work" type="button" data-bs-toggle="tooltip"
+						        data-bs-placement="top" title="Добавить">
+							<img src="../icon/plus.png" style="vertical-align: middle"></button>
+						<button class="btn-work" type="button" data-bs-toggle="tooltip"
+						        data-bs-placement="top" title="Удалить">
+							<img src="../icon/basket.png" style="vertical-align: middle"></button>
+					</div>
+				</td>
+				<td class="colum-comment-z"><p>Lorem ipsum dolor sit amet.</p>
+				</td>
+			</tr>
 			</tbody>
 		</table>
 	</div>

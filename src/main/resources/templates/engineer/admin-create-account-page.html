@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ru">
+<!--Мета-теги-->
+<div th:replace="~{head::head}">
+</div>
+<body>
+<!--Заголовок-->
+<section class="header2">
+	<div class="container-fluid">
+		<div class="row name-account">
+			<div class="col">
+				<h5>Имя Админа</h5>
+			</div>
+			<div class="col col-home">
+				<a class="admin-link" href="engineer-calendar.html" th:href="@{/engineer/objects}">Инженер</a>
+<!--				<a href="engineer-objects.html" th:href="@{/customer/objects}"><img src="../icon/home.png" alt="дом"></a>-->
+				<a href="index.html" th:href="@{/}" data-bs-toggle="tooltip"
+				   data-bs-placement="top" title="Выход"><img src="../icon/logout.png" alt="выход"></a>
+			</div>
+		</div>
+		<div class="row name-object">
+			<h5>Объект</h5>
+		</div>
+		<div class="row menu navbar navbar-expand-lg navbar-light">
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+			        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+			        aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="nav nav-tabs">
+					<li class="nav-item">
+						<a class="nav-link h" href="admin-objects.html"
+						   th:href="@{/engineer/adminObjects}">Управление объектами</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="admin-create-account-page.html" th:href="@{/engineer/admin-create-account}">Создание ЛК</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link h" href="admin-create-object-page.html" th:href="@{/engineer/admin-create-object}">Создание Объекта</a>
+					</li>
+				</ul>
+
+			</div>
+		</div>
+	</div>
+</section>
+
+<!--Форма-->
+<section class="form-admin">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-5 col-md-6 col-12">
+				<form>
+					<div class="mb-3">
+						<label for="FIO" class="form-label">ФИО:</label>
+						<input type="text" class="form-control" id="FIO" placeholder="Фамилия И.О." pattern="[А-Яа-яЁё]{2,}\s[А-ЯЁ].[А-ЯЁ].">
+					</div>
+					<div class="mb-3">
+						<label for="Contact" class="form-label">Телефон:</label>
+						<input type="tel" class="form-control" id="Contact" placeholder="8-999-99-99" pattern="8-[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}">
+					</div>
+					<div class="mb-3">
+						<label for="Type" class="form-label">Тип личного кабинета:</label>
+						<select class="form-select" id="Type" aria-label="Default select example">
+							<option value="1">Заказчик</option>
+							<option value="2">Исполнитель</option>
+							<option value="3">Инженер</option>
+						</select>
+					</div>
+					<div class="mb-3">
+						<label for="Password" class="form-label">Пароль:</label>
+						<input type="password" class="form-control" id="Password">
+					</div>
+					<div class="bt-form"><button type="submit" class="btn btn-primary">Создать</button></div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+</section>
+
+<!--Подвал-->
+<section class="footer fixed-bottom">
+	<div th:replace="~{footer::footer1}"></div>
+</section>
+
+<!--Скрипты-->
+<div th:replace="~{scripts::scripts}"></div>
+</body>
+</html>
