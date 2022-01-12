@@ -407,6 +407,26 @@ footer {
     text-transform: uppercase;
   }
 
+  .col-home {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    height: 100%;
+
+    a {
+      margin-left: 10px;
+
+      img {
+        width: 25px;
+        opacity: 0.7;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
   .name-object {
     height: 40px;
     align-items: center;
@@ -418,8 +438,11 @@ footer {
     padding: 0 10px;
     align-items: center;
 
+
     h5 {
+
       opacity: 0.7;
+      text-align: left;
     }
   }
 }
@@ -495,6 +518,8 @@ footer {
       height: 100%;
 
       a {
+        margin-left: 10px;
+
         img {
           width: 25px;
           opacity: 0.7;
@@ -908,11 +933,39 @@ footer {
   margin: 0 15px 80px 15px;
 
   .name {
+    display: flex;
     padding-top: 25px;
     border-bottom: 1px solid $color-bg-dark;
 
     h3 {
+      display: inline;
       margin-bottom: 0;
+
+      .btn-add-foto, .btn-del-foto {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 3px;
+        padding: 0;
+        width: 19px;
+        height: 19px;
+        background-color: transparent;
+        border: none;
+        opacity: 0.8;
+
+        &:hover {
+          opacity: 1;
+        }
+
+        img {
+          width: 19px;
+          height: 19px;
+        }
+      }
+
+      .btn-add-foto {
+        margin-left: 15px;
+      }
     }
   }
 
@@ -971,7 +1024,7 @@ footer {
     }
   }
 
-  .btn-online-ac{
+  .btn-online-ac {
     margin-top: 10px;
     width: 150px;
     height: 35px;
@@ -1178,9 +1231,10 @@ footer {
     }
   }
 
-  .accordion{
+  .accordion {
     margin-top: 25px;
     font-size: 16px;
+
     .accordion-button {
       font-size: 16px;
 
@@ -1198,6 +1252,7 @@ footer {
         font-weight: 600;
       }
     }
+
     .bt-o {
       display: inline-block;
       justify-content: center;
@@ -1221,12 +1276,14 @@ footer {
         }
       }
     }
-    .text{
+
+    .text {
       display: inline;
       margin-right: 25px;
 
     }
-    .btn-ac{
+
+    .btn-ac {
       margin-top: 10px;
       width: 200px;
       height: 35px;
@@ -1243,7 +1300,8 @@ footer {
     }
   }
 }
-.account-customer-list,.account-worker-list,.account-engineer-list{
+
+.account-customer-list, .account-worker-list, .account-engineer-list {
   .row {
     margin: 0 15px;
   }
@@ -1269,7 +1327,8 @@ footer {
         font-size: 16px;
         margin-bottom: 15px;
         height: 30px;
-        .row-li{
+
+        .row-li {
           display: flex;
           align-items: end;
         }
@@ -1279,11 +1338,13 @@ footer {
           font-weight: bold;
           color: $main-color;
         }
-        .text{
-          display:inline;
+
+        .text {
+          display: inline;
           margin-right: 25px;
 
         }
+
         .bt-o {
           display: inline-flex;
           justify-content: center;
@@ -1292,7 +1353,7 @@ footer {
           .btn-add, .btn-del {
             display: flex;
             justify-content: center;
-            align-items:center;
+            align-items: center;
             margin-right: 10px;
             padding: 0;
             width: 20px;
@@ -1319,7 +1380,7 @@ footer {
 
 }
 
-.account-engineer-list{
+.account-engineer-list {
   margin-bottom: 100px;
 }
 
@@ -1334,27 +1395,33 @@ footer {
     input {
       &:invalid {
         border: 1px solid red;
-        box-shadow:  0 0 0 .25rem rgba(255, 0, 0, 0.25);
+        box-shadow: 0 0 0 .25rem rgba(255, 0, 0, 0.25);
       }
     }
-    .form-control:focus{
+
+    .form-control:focus {
       border-color: $color-head5;
       box-shadow: 0 0 0 .25rem rgba(55, 143, 189, 0.25);
     }
-    textarea{
+
+    textarea {
       height: 150px;
     }
-    .btn-outline-secondary{
+
+    .btn-outline-secondary {
       border-color: #babfc2;
-      &:focus{
+
+      &:focus {
         box-shadow: none;
 
       }
-      &:active{
+
+      &:active {
         background-color: rgb(186, 191, 194);
         border-color: #babfc2;
       }
-      &:hover{
+
+      &:hover {
         background-color: rgb(186, 191, 194);
         border-color: #babfc2;
       }
@@ -1385,13 +1452,161 @@ footer {
   }
 }
 
+/*ЛИЧНЫЙ КАБИНЕТ РАБОЧЕГО*/
+.journal {
+  padding: 25px;
+
+  .j-table {
+    display: flex;
+    justify-content: center;
+  }
+
+  .scroll-table {
+    overflow: auto;
+    width: 1230px;
+
+    table {
+
+      td, th {
+        padding: 10px;
+        border: 2px solid $color-bg-dark;
+      }
+
+      th {
+        color: $color-head5;
+        text-align: center;
+        background-color: rgba(55, 143, 189, 0.1);
+      }
+
+      td {
+        text-align: justify;
+
+        p {
+          font-size: 16px;
+          text-align: justify;
+          margin: 0 0 10px 0;
+        }
+      }
+
+      tbody {
+        tr {
+          min-height: 50px;
+          text-align: center;
+        }
+
+        .colum-num {
+          width: 30px;
+          text-align: center;
+        }
+
+        .colum-data {
+          width: 100px;
+          text-align: center;
+        }
+
+        .colum-fio {
+          width: 200px;
+          text-align: center;
+        }
+
+        .colum-hour {
+          width: 100px;
+          text-align: center;
+        }
+
+        .colum-work {
+          width: 800px;
+          text-align: justify;
+        }
+      }
+    }
+  }
+
+  .bt-string {
+    margin-bottom: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .btn-add-string, .btn-del-string {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      margin-right: 5px;
+      padding: 5px 5px;
+      height: 30px;
+      width: 30px;
+      background-color: rgba(55, 143, 189, 0.1);
+      border-radius: 3px;
+      border: 2px solid $color-usual-text;
+      line-height: 3px;
+
+      &:hover {
+        background-color: rgba(55, 143, 189, 0.2);
+      }
+    }
+
+    img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+}
+
+/*АВТОРИЗАЦИЯ*/
+
+.btn-login {
+  margin-top: 30px;
+  color: $color-bg-light;
+  background-color: $color-btn;
+  border: none;
+  width: 100%;
+  height: 40px;
+  border-radius: 5px;
+  font-size: 18px;
+  opacity: 0.8;
+  transition: all .1s ease-out;
+
+  &:hover {
+    transform: scale(1.04);
+    opacity: 1;
+  }
+
+}
+
+.row-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+
+  form {
+    width: 500px;
+    margin: 5px;
+
+    h3 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .form-control:focus {
+      border-color: $color-btn;
+      box-shadow: 0 0 0 .25rem rgba(197, 134, 142, 0.25);
+    }
+
+  }
+}
+
 
 /*Отображение на маленьком экране*/
-@media screen and (max-width: 1020px) {
+@media screen and (max-width: 1152px) {
   .header2 {
     .nav-tabs {
       .nav-link {
-        padding: .26rem 0.7rem;
+        padding: .26rem 0.5rem;
       }
     }
   }
@@ -1687,12 +1902,41 @@ footer {
   }
 
   /*Список аккордеона*/
-  .list-object-accordion{
-    .accordion-body{
+  .list-object-accordion {
+    .accordion-body {
       text-align: center;
 
-      .list-group-item{
+      .list-group-item {
         text-align: left;
+      }
+    }
+  }
+
+  /*Журнал работ*/
+  .journal {
+    padding-left: 5px;
+    padding-right: 5px;
+
+    .scroll-table {
+
+      table {
+        width: 725px;
+
+        .colum-num {
+          width: 20px;
+        }
+
+        .colum-data, .colum-hour {
+          width: 100px;
+        }
+
+        .colum-fio {
+          width: 150px;
+        }
+
+        .colum-work {
+          width: 355px;
+        }
       }
     }
   }

@@ -92,6 +92,11 @@ public class MainController {
         return "engineer/engineer-work";
     }
 
+    @GetMapping("/engineer/journal")
+    public String engineerJournal() {
+        return "engineer/engineer-journal";
+    }
+
     @GetMapping("/engineer/online")
     public String engineerOnline() {
         return "engineer/engineer-online";
@@ -100,6 +105,33 @@ public class MainController {
     @GetMapping("/engineer/application")
     public String engineerApplication() {
         return "engineer/engineer-application";
+    }
+
+    //Личный кабинет рабочего
+
+    @GetMapping("/worker/objects")
+    public String workerObjects() {
+        return "worker/worker-objects";
+    }
+
+    @GetMapping("/worker/psd")
+    public String workerPSD() {
+        return "worker/worker-psd";
+    }
+
+    @GetMapping("/worker/work")
+    public String workerWork() {
+        return "worker/worker-work";
+    }
+
+    @GetMapping("/worker/journal")
+    public String workerJournal() {
+        return "worker/worker-journal";
+    }
+
+    @GetMapping("/worker/application")
+    public String workerApplication() {
+        return "worker/worker-application";
     }
 
 }

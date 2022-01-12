@@ -8,7 +8,13 @@
 <section class="header-start">
 	<div class="container-fluid">
 		<div class="row name-account">
-			<h5>имя инженера</h5>
+			<div class="col">
+				<h5>имя инженера</h5>
+			</div>
+			<div class="col col-home">
+				<a href="index.html" th:href="@{/}" data-bs-toggle="tooltip"
+				   data-bs-placement="top" title="Выход"><img src="../icon/logout.png" alt="выход"></a>
+			</div>
 		</div>
 		<div class="row name-object">
 			<h5>Действующие объекты</h5>

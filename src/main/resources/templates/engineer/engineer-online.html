@@ -12,8 +12,9 @@
 				<h5>Имя Инженера</h5>
 			</div>
 			<div class="col col-home">
-				<a class="admin-link" href="admin-objects.html" th:href="@{/engineer/adminObjects}">Администратор</a>
-				<a href="engineer-objects.html" th:href="@{/customer/objects}"><img src="../icon/home.png" alt="дом"></a>
+				<a class="admin-link" href="admin-objects.html" th:href="@{/engineer/adminObjects}">Админ</a>
+				<a href="engineer-objects.html" th:href="@{/customer/objects}" title="Выбор объекта"><img src="../icon/home.png" alt="дом"></a>
+				<a href="index.html" th:href="@{/}" title="Выход"><img src="../icon/logout.png" alt="выход"></a>
 			</div>
 		</div>
 		<div class="row name-object">
@@ -38,6 +39,10 @@
 					<li class="nav-item">
 						<a class="nav-link h" href="engineer-work.html" th:href="@{/engineer/work}">Отчет
 							выполненных работ/Фотоотчет</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link h" href="engineer-journal.html"
+						   th:href="@{/engineer/journal}">Журнал работ</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link active" aria-current="page" href="engineer-online.html" th:href="@{/engineer/online}">Онлайн-трансляция</a>
