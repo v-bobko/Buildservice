@@ -15,7 +15,7 @@ import java.util.Collection;
 @Component
 public class CustomSuccessHandler implements AuthenticationSuccessHandler {
 
-    //TODO: ADD ROLE
+
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
                                         Authentication authentication) throws IOException, ServletException {
@@ -23,14 +23,19 @@ public class CustomSuccessHandler implements AuthenticationSuccessHandler {
         String redirectUrl = null;
 
         Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
+        label:
         for (GrantedAuthority grantedAuthority : authorities) {
             System.out.println("role " + grantedAuthority.getAuthority());
-            if (grantedAuthority.getAuthority().equals("ROLE_CUSTOMER")) {
-                redirectUrl = "/customer/objects";
-                break;
-            } else if (grantedAuthority.getAuthority().equals("ROLE_ADMIN")) {
-                redirectUrl = "/";
-                break;
+            switch (grantedAuthority.getAuthority()) {
+                case "ROLE_CUSTOMER":
+                    redirectUrl = "/customer/objects";
+                    break label;
+                case "ROLE_ADMIN":
+                    redirectUrl = "/engineer/choice";
+                    break label;
+                case "ROLE_WORKER":
+                    redirectUrl = "/worker/objects";
+                    break label;
             }
         }
         System.out.println("redirectUrl " + redirectUrl);
