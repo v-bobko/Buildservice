@@ -39,11 +39,11 @@ public class CalendarService {
     @Column(name = "comment_of_engineer")
     private String commentOfEngineer;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "object_id")
     private Objects objects;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "user_id")
     private Users users;
 

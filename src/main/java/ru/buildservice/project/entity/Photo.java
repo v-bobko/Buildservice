@@ -21,7 +21,7 @@ public class Photo {
     @Column(name = "photo")
     private String photo;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "object_id")
     private Objects objects;
 

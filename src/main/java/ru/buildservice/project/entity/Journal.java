@@ -34,7 +34,7 @@ public class Journal {
     private String report;
 
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "object_id")
     private Objects objects;
 

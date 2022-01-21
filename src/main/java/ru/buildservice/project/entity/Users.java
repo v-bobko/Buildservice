@@ -26,19 +26,20 @@ public class Users {
     @Column(name="password")
     private String password;
 
+
+
     @Getter
     @Setter
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "role_id")
     private Roles roles;
 
-    @OneToOne(mappedBy = "users",cascade = CascadeType.ALL)
-    private Objects objects;
 
+    @OneToMany(mappedBy ="users",cascade = CascadeType.ALL)
+    private List<Objects> objects;
 
-
-
-
+    @OneToMany(mappedBy ="users",cascade = CascadeType.ALL)
+    private List<CalendarService> calendarService;
 
 
     public String getPassword() {
@@ -52,10 +53,13 @@ public class Users {
     public Users() {
     }
 
-    public Users(String username, String password, Roles roles, Objects objects) {
+    public Users(String username, String password, Roles roles) {
         this.username = username;
-        this.password = password;
+        this.password = BCrypt.hashpw(password, BCrypt.gensalt());
         this.roles = roles;
-        this.objects = objects;
     }
+
+
+
+
 }
