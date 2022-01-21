@@ -22,22 +22,32 @@ public class Objects {
     private String nameOfObject;
 
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "user_id")
     private Users users;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "objects",fetch = FetchType.EAGER)
+    @OneToMany(mappedBy ="objects",cascade = CascadeType.ALL)
+    private List<CalendarService> calendarService;
 
+    @OneToMany(mappedBy ="objects",cascade = CascadeType.ALL)
+    private List<Journal> journal;
+
+    @OneToMany(mappedBy ="objects",cascade = CascadeType.ALL)
     private List<Photo> photo;
+
+    @OneToMany(mappedBy ="objects",cascade = CascadeType.ALL)
+    private List<Projects> project;
 
 
 
     public Objects() {
     }
 
-    public Objects(String nameOfObject, Users users, List<Photo> photo) {
+    public Objects(String nameOfObject, Users users) {
         this.nameOfObject = nameOfObject;
         this.users = users;
-        this.photo = photo;
+
     }
+
+
 }

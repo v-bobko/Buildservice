@@ -22,7 +22,7 @@ public class Projects {
     @Column(name = "project")
     private String project;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "object_id")
     private Objects objects;
 

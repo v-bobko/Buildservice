@@ -6,336 +6,385 @@
 <body>
 <!--Заголовок-->
 <section class="header2">
-	<div class="container-fluid">
-		<div class="row name-account">
-			<div class="col">
-				<h5>Имя Админа</h5>
-			</div>
-			<div class="col col-home">
-				<a class="admin-link" href="engineer-calendar.html"
-				   th:href="@{/engineer/objects}">Инженер</a>
-				<!--				<a href="engineer-objects.html" th:href="@{/customer/objects}"><img src="../icon/home.png" alt="дом"></a>-->
-				<a href="index.html" th:href="@{/}" data-bs-toggle="tooltip"
-				   data-bs-placement="top" title="Выход"><img src="../icon/logout.png" alt="выход"></a>
-			</div>
-		</div>
-		<div class="row name-object">
-			<h5>Объект</h5>
-		</div>
-		<div class="row menu navbar navbar-expand-lg navbar-light">
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-			        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-			        aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="nav nav-tabs">
-					<li class="nav-item">
-						<a class="nav-link active" aria-current="page" href="admin-objects.html"
-						   th:href="@{/engineer/adminObjects}">Управление объектами</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link h" href="admin-create-account-page.html"
-						   th:href="@{/engineer/admin-create-account}">Создание ЛК</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link h" href="admin-create-object-page.html"
-						   th:href="@{/engineer/admin-create-object}">Создание Объекта</a>
-					</li>
-				</ul>
+    <div class="container-fluid">
+        <div class="row name-account">
+            <div class="col">
+                <h5>Имя Админа</h5>
+            </div>
+            <div class="col col-home">
+                <a class="admin-link" href="engineer-calendar.html"
+                   th:href="@{/engineer/objects}">Инженер</a>
+                <!--				<a href="engineer-objects.html" th:href="@{/customer/objects}"><img src="../icon/home.png" alt="дом"></a>-->
+                <a href="index.html" th:href="@{/}" data-bs-toggle="tooltip"
+                   data-bs-placement="top" title="Выход"><img src="../icon/logout.png" alt="выход"></a>
+            </div>
+        </div>
+        <div class="row name-object">
+            <h5>Объект</h5>
+        </div>
+        <div class="row menu navbar navbar-expand-lg navbar-light">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="admin-objects.html"
+                           th:href="@{/engineer/adminObjects}">Управление объектами</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link h" href="admin-create-account-page.html"
+                           th:href="@{/engineer/admin-create-account}">Создание ЛК</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link h" href="admin-create-object-page.html"
+                           th:href="@{/engineer/admin-create-object}">Создание Объекта</a>
+                    </li>
+                </ul>
 
-			</div>
-		</div>
-	</div>
+            </div>
+        </div>
+    </div>
 </section>
 
 <!--Список объектов-->
 <section class="list-object-accordion">
-	<div class="container-fluid">
-		<div class="row name">
-			<h3>СПИСОК СТРОИТЕЛЬНЫХ ОБЪЕКТОВ</h3>
-		</div>
-		<div class="row">
-			<div class="accordion" id="accordionExample">
-				<div class="accordion-item">
-					<h2 class="accordion-header" id="headingOne">
-						<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-						        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-							Имя объекта #1
+    <div class="container-fluid">
+        <div class="row name">
+            <h3>СПИСОК СТРОИТЕЛЬНЫХ ОБЪЕКТОВ</h3>
+        </div>
+        <div class="row">
+            <div class="accordion" id="accordionExample">
+                <div class="div" th:each="lk : ${objects}">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" th:id="'heading_'+${lk.objectId}">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    th:data-bs-target="'#collapse_'+${lk.objectId}" aria-expanded="true"
+                                    th:aria-controls="'collapse_'+${lk.nameOfObject}" th:text="${lk.nameOfObject}">
+                                Имя объекта
+                            </button>
+                        </h2>
+                        <div th:id="'collapse_'+${lk.objectId}" class="accordion-collapse collapse"
+                             th:aria-labelledby="'heading_'+${lk.objectId}">
+                            <div class="accordion-body">
+                                <ul class="list-group">
+                                    <li class="list-group-item">
+                                        <div class="text" th:text="${lk.users.username}">Заказчик: Имя</div>
+                                        <div class="bt-o ">
+                                            <button class="btn-add" type="button" data-bs-toggle="modal"
+                                                    th:data-bs-target="'#changeModal'+${lk.objectId}"
+                                                    data-bs-placement="top" title="Редактировать">
+                                                <img src="../icon/edit.png" style="vertical-align: middle"></button>
 
-						</button>
-					</h2>
-					<div id="collapseOne" class="accordion-collapse collapse"
-					     aria-labelledby="headingOne">
-						<div class="accordion-body">
-							<ul class="list-group">
-								<li class="list-group-item">
-									<div class="text">Заказчик: Имя</div>
-									<div class="bt-o ">
-										<button class="btn-add" type="button" data-bs-toggle="modal" data-bs-target="#changeModal"
-										        data-bs-placement="top" title="Редактировать">
-											<img src="../icon/edit.png" style="vertical-align: middle"></button>
+                                        </div>
+                                    </li>
 
-									</div>
-								</li>
-								<li class="list-group-item">
-									<div class="text">Иисполнитель: Имя</div>
-									<div class="bt-o ">
-										<button class="btn-add" type="button" data-bs-toggle="modal" data-bs-target="#changeModal"
-										        data-bs-placement="top" title="Редактировать">
-											<img src="../icon/edit.png" style="vertical-align: middle"></button>
+                                </ul>
 
-									</div>
-								</li>
-							</ul>
-							<button class=" btn-ac" type="button">Удалить объект</button>
-						</div>
-					</div>
-				</div>
-				<div class="accordion-item">
-					<h2 class="accordion-header" id="headingTwo">
-						<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-						        data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-							Имя объекта #2
-						</button>
-					</h2>
-					<div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo">
-						<div class="accordion-body">
-							<ul class="list-group">
-								<li class="list-group-item">
-									<div class="text">Заказчик: Имя</div>
-									<div class="bt-o ">
-										<button class="btn-add" type="button" data-bs-toggle="modal" data-bs-target="#changeModal"
-										        data-bs-placement="top" title="Редактировать">
-											<img src="../icon/edit.png" style="vertical-align: middle"></button>
-									</div>
-								</li>
-								<li class="list-group-item">
-									<div class="text">Иисполнитель: Имя</div>
-									<div class="bt-o ">
-										<button class="btn-add" type="button" data-bs-toggle="modal" data-bs-target="#changeModal"
-										        data-bs-placement="top" title="Редактировать">
-											<img src="../icon/edit.png" style="vertical-align: middle"></button>
+                                <form action="/engineer/adminObjects/deleteObject" method="post">
+                                    <input type="hidden" id="objectIdOnDelete" name="objectIdDelete" th:value="${lk.objectId}">
+                                    <button class=" btn-ac" type="submit">Удалить объект</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-									</div>
-								</li>
-							</ul>
-							<button class="btn-ac" type="button">Удалить объект</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+            </div>
+        </div>
+    </div>
 </section>
 
 <!--Список лк заказчиков-->
 <section class="account-customer-list">
-	<div class="container-fluid">
-		<div class="row name ">
-			<h3>ЛИЧНЫЕ КАБИНЕТЫ ЗАКАЗЧИКОВ</h3>
-		</div>
-		<div class="row list">
-			<ul>
-				<li>
-					<div class="text"> Имя заказчика #1</div>
-					<div class="bt-o ">
-						<button class="btn-add" type="button"
-						        title="Редактировать" data-bs-toggle="modal" data-bs-target="#editModal">
-							<img src="../icon/edit.png" style="vertical-align: middle"></button>
-						<button class="btn-del" type="button" data-bs-toggle="tooltip"
-						        data-bs-placement="top" title="Удалить">
-							<img src="../icon/basket2.png" style="vertical-align: middle"></button>
-					</div>
-				</li>
-				<li>
-					<div class="text"> Имя заказчика #2</div>
-					<div class="bt-o ">
-						<button class="btn-add" type="button" data-bs-toggle="modal" data-bs-target="#editModal"
-						        data-bs-placement="top" title="Редактировать">
-							<img src="../icon/edit.png" style="vertical-align: middle"></button>
-						<button class="btn-del" type="button" data-bs-toggle="tooltip"
-						        data-bs-placement="top" title="Удалить">
-							<img src="../icon/basket2.png" style="vertical-align: middle"></button>
-					</div>
+    <div class="container-fluid">
+        <div class="row name ">
+            <h3>ЛИЧНЫЕ КАБИНЕТЫ ЗАКАЗЧИКОВ</h3>
+        </div>
+        <div class="row list">
+            <ul>
+                <div th:each="lk : ${users}">
+                    <li>
+                        <div class="text" th:text="${lk.username}"> Имя заказчика #1</div>
+                        <div class="bt-o ">
+                            <button class="btn-add" type="button"
+                                    title="Редактировать" data-bs-toggle="modal"
+                                    th:data-bs-target="'#editModal'+${lk.user_id}">
+                                <img src="../icon/edit.png" style="vertical-align: middle"></button>
+                            <form action="/engineer/adminObjects/delete" method="post">
+                                <input type="hidden" id="userIdOnDelete" name="userIdDelete" th:value="${lk.user_id}">
+                                <button class="btn-del" type="submit" data-bs-toggle="tooltip"
+                                        data-bs-placement="top" title="Удалить">
+                                    <img src="../icon/basket2.png" style="vertical-align: middle"></button>
+                            </form>
+                        </div>
+                    </li>
+                </div>
 
-				</li>
-			</ul>
-		</div>
-	</div>
+            </ul>
+        </div>
+    </div>
 </section>
 
 <!--Список лк исполнителей-->
 <section class="account-worker-list">
-	<div class="container-fluid">
-		<div class="row name ">
-			<h3>ЛИЧНЫЕ КАБИНЕТЫ ИСПОЛНИТЕЛЕЙ</h3>
-		</div>
-		<div class="row list">
-			<ul>
-				<li>
-					<div class="text"> Имя исполнителя #1</div>
-					<div class="bt-o ">
-						<button class="btn-add" type="button" data-bs-toggle="modal" data-bs-target="#editModal"
-						        data-bs-placement="top" title="Редактировать">
-							<img src="../icon/edit.png" style="vertical-align: middle"></button>
-						<button class="btn-del" type="button" data-bs-toggle="tooltip"
-						        data-bs-placement="top" title="Удалить">
-							<img src="../icon/basket2.png" style="vertical-align: middle"></button>
-					</div>
-				</li>
-				<li>
-					<div class="text"> Имя исполнителя #2</div>
-					<div class="bt-o ">
-						<button class="btn-add" type="button" data-bs-toggle="modal" data-bs-target="#editModal"
-						        data-bs-placement="top" title="Редактировать">
-							<img src="../icon/edit.png" style="vertical-align: middle"></button>
-						<button class="btn-del" type="button" data-bs-toggle="tooltip"
-						        data-bs-placement="top" title="Удалить">
-							<img src="../icon/basket2.png" style="vertical-align: middle"></button>
-					</div>
-				</li>
-				<li>
-					<div class="text"> Имя исполнителя #3</div>
-					<div class="bt-o ">
-						<button class="btn-add" type="button" data-bs-toggle="modal" data-bs-target="#editModal"
-						        data-bs-placement="top" title="Редактировать">
-							<img src="../icon/edit.png" style="vertical-align: middle"></button>
-						<button class="btn-del" type="button" data-bs-toggle="tooltip"
-						        data-bs-placement="top" title="Удалить">
-							<img src="../icon/basket2.png" style="vertical-align: middle"></button>
-					</div>
-				</li>
-			</ul>
-		</div>
+    <div class="container-fluid">
+        <div class="row name ">
+            <h3>ЛИЧНЫЕ КАБИНЕТЫ ИСПОЛНИТЕЛЕЙ</h3>
+        </div>
+        <div class="row list">
+            <ul>
+                <div th:each="lk : ${workers}">
+                    <li>
+                        <div class="text" th:text="${lk.username}"> Имя исполнителя #1</div>
+                        <div class="bt-o ">
+                            <button class="btn-add" type="button" data-bs-toggle="modal"  th:data-bs-target="'#editModalW'+${lk.user_id}"
+                                    data-bs-placement="top" title="Редактировать" >
+                                <img src="../icon/edit.png" style="vertical-align: middle"></button>
+                            <form action="/engineer/adminObjects/delete" method="post">
+                                <input type="hidden" id="userIdOnDeleteW" name="userIdDelete" th:value="${lk.user_id}">
+                                <button class="btn-del" type="submit" data-bs-toggle="tooltip"
+                                        data-bs-placement="top" title="Удалить">
+                                    <img src="../icon/basket2.png" style="vertical-align: middle"></button>
+                            </form>
+                        </div>
+                    </li>
+                </div>
+            </ul>
+        </div>
 
-	</div>
+    </div>
 </section>
 
 <!--Список лк инженеров-->
 <section class="account-engineer-list">
-	<div class="container-fluid">
-		<div class="row name ">
-			<h3>ЛИЧНЫЕ КАБИНЕТЫ ИНЖЕНЕРОВ</h3>
-		</div>
-		<div class="row list">
-			<ul>
-				<li>
-					<div class="text"> Имя инженера #1</div>
-					<div class="bt-o ">
-						<button class="btn-add" type="button" data-bs-toggle="modal" data-bs-target="#editModal"
-						        data-bs-placement="top" title="Редактировать">
-							<img src="../icon/edit.png" style="vertical-align: middle"></button>
-						<button class="btn-del" type="button" data-bs-toggle="tooltip"
-						        data-bs-placement="top" title="Удалить">
-							<img src="../icon/basket2.png" style="vertical-align: middle"></button>
-					</div>
-				</li>
-				<li>
-					<div class="text"> Имя инженера #2</div>
-					<div class="bt-o ">
-						<button class="btn-add" type="button" data-bs-toggle="modal" data-bs-target="#editModal"
-						        data-bs-placement="top" title="Редактировать">
-							<img src="../icon/edit.png" style="vertical-align: middle"></button>
-						<button class="btn-del" type="button" data-bs-toggle="tooltip"
-						        data-bs-placement="top" title="Удалить">
-							<img src="../icon/basket2.png" style="vertical-align: middle"></button>
-					</div>
-				</li>
+    <div class="container-fluid">
+        <div class="row name ">
+            <h3>ЛИЧНЫЕ КАБИНЕТЫ ИНЖЕНЕРОВ</h3>
+        </div>
+        <div class="row list">
+            <ul>
+                <div th:each="lk : ${admins}">
+                    <li>
+                        <div class="text" th:text="${lk.username}"> Имя инженера #1</div>
+                        <div class="bt-o ">
+                            <button class="btn-add" type="button" data-bs-toggle="modal" th:data-bs-target="'#editModalA'+${lk.user_id}"
+                                    data-bs-placement="top" title="Редактировать">
+                                <img src="../icon/edit.png" style="vertical-align: middle"></button>
+                            <form action="/engineer/adminObjects/delete" method="post">
+                                <input type="hidden" id="userIdOnDeleteA" name="userIdDelete" th:value="${lk.user_id}">
+                                <button class="btn-del" type="submit" data-bs-toggle="tooltip"
+                                        data-bs-placement="top" title="Удалить">
+                                    <img src="../icon/basket2.png" style="vertical-align: middle"></button>
+                            </form>
+                        </div>
+                    </li>
 
-			</ul>
-		</div>
+                </div>
+            </ul>
 
-	</div>
+        </div>
+
+    </div>
 </section>
 
-<!--Модальное окно для редактирования ЛК-->
-<div class="modal fade modal-edit" id="editModal" tabindex="-1" aria-labelledby="editModalLabel"
-     aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title" id="editModalLabel">Редактировать данные</h5>
-				<button type="button" class="btn-close" data-bs-dismiss="modal"
-				        aria-label="Close"></button>
-			</div>
-			<div class="modal-body">
-				<div class="container-fluid">
-					<div class="row">
-						<form>
-							<h6>Выберите данные,которые необходимо изменить:</h6>
-							<div class="input-group mb-3">
-								<div class="input-group-text">
-									<input class="form-check-input " type="checkbox" value=""
-									       aria-label="Checkbox for following text input">
-								</div>
-								<input id="Name" type="text" class="form-control" value=""
-								       aria-label="Text input with checkbox" placeholder="Фамилия И.О." pattern="[А-Яа-яЁё]{2,}\s[А-ЯЁ].[А-ЯЁ].">
+<!--Модальное окно для редактирования ЛК заказчика-->
+<div th:each="lk : ${users}">
 
-							</div>
-							<div class="input-group mb-3">
-								<div class="input-group-text">
-									<input class="form-check-input mt-0" type="checkbox" value=""
-									       aria-label="Checkbox for following text input">
-								</div>
-								<input type="tell" class="form-control" value=""
-								       aria-label="Text input with checkbox"
-								       placeholder="Контакты: 8-999-99-99" pattern="8-[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}">
+    <div class="modal fade modal-edit" th:id="'editModal'+${lk.user_id}" tabindex="-1"
+         th:aria-labelledby="'editModallabel'+${lk.user_id}"
+         aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" th:id="'editModallabel'+${lk.user_id}">Редактировать данные</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <form method="post">
+                                <h6>Выберите данные,которые необходимо изменить:</h6>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-text">
+                                        <input class="form-check-input " type="checkbox" value=""
+                                               aria-label="Checkbox for following text input">
+                                    </div>
+                                    <input id="Name" name="username" type="text" class="form-control" autocomplete="off"
+                                           th:value="${lk.username}"
+                                           aria-label="Text input with checkbox" placeholder="Фамилия И.О."
+                                           pattern="[А-Яа-яЁё]{2,}\s[А-ЯЁ].[А-ЯЁ].">
 
-							</div>
-							<div class="input-group mb-3">
-								<div class="input-group-text">
-									<input class="form-check-input mt-0" type="checkbox" value=""
-									       aria-label="Checkbox for following text input">
-								</div>
-								<input type="password" class="form-control" value=""
-								       aria-label="Text input with checkbox" placeholder="Пароль">
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-			<div class="modal-footer">
-				<button type="submit" class="btn btn-modal">Сохранить</button>
-			</div>
-		</div>
-	</div>
+                                </div>
+
+                                <div class="input-group mb-3">
+                                    <div class="input-group-text">
+                                        <input class="form-check-input mt-0" type="checkbox" value=""
+                                               aria-label="Checkbox for following text input">
+                                    </div>
+                                    <input type="password" name="password" class="form-control" autocomplete="off"
+                                           value=""
+                                           aria-label="Text input with checkbox" placeholder="Пароль">
+                                </div>
+                                <input type="hidden" id="userId" name="userId" th:value="${lk.user_id}">
+                                <button type="submit" class="btn btn-modal">Сохранить</button>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+<!--Модальное окно для редактирования ЛК рабочего-->
+<div th:each="lk : ${workers}">
 
+    <div class="modal fade modal-edit" th:id="'editModalW'+${lk.user_id}" tabindex="-1"
+         th:aria-labelledby="'editModallabelW'+${lk.user_id}"
+         aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" th:id="'editModallabelW'+${lk.user_id}">Редактировать данные</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <form method="post">
+                                <h6>Выберите данные,которые необходимо изменить:</h6>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-text">
+                                        <input class="form-check-input " type="checkbox" value=""
+                                               aria-label="Checkbox for following text input">
+                                    </div>
+                                    <input id="Name" name="username" type="text" class="form-control" autocomplete="off"
+                                           th:value="${lk.username}"
+                                           aria-label="Text input with checkbox" placeholder="Фамилия И.О."
+                                           pattern="[А-Яа-яЁё]{2,}\s[А-ЯЁ].[А-ЯЁ].">
+
+                                </div>
+
+                                <div class="input-group mb-3">
+                                    <div class="input-group-text">
+                                        <input class="form-check-input mt-0" type="checkbox" value=""
+                                               aria-label="Checkbox for following text input">
+                                    </div>
+                                    <input type="password" name="password" class="form-control" autocomplete="off"
+                                           value=""
+                                           aria-label="Text input with checkbox" placeholder="Пароль">
+                                </div>
+                                <input type="hidden" id="userId" name="userId" th:value="${lk.user_id}">
+                                <button type="submit" class="btn btn-modal">Сохранить</button>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Модальное окно для редактирования ЛК инженера-->
+<div th:each="lk : ${admins}">
+
+    <div class="modal fade modal-edit" th:id="'editModalA'+${lk.user_id}" tabindex="-1"
+         th:aria-labelledby="'editModallabelA'+${lk.user_id}"
+         aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" th:id="'editModallabelA'+${lk.user_id}">Редактировать данные</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <form method="post">
+                                <h6>Выберите данные,которые необходимо изменить:</h6>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-text">
+                                        <input class="form-check-input " type="checkbox" value=""
+                                               aria-label="Checkbox for following text input">
+                                    </div>
+                                    <input id="Name" name="username" type="text" class="form-control" autocomplete="off"
+                                           th:value="${lk.username}"
+                                           aria-label="Text input with checkbox" placeholder="Фамилия И.О."
+                                           pattern="[А-Яа-яЁё]{2,}\s[А-ЯЁ].[А-ЯЁ].">
+
+                                </div>
+
+                                <div class="input-group mb-3">
+                                    <div class="input-group-text">
+                                        <input class="form-check-input mt-0" type="checkbox" value=""
+                                               aria-label="Checkbox for following text input">
+                                    </div>
+                                    <input type="password" name="password" class="form-control" autocomplete="off"
+                                           value=""
+                                           aria-label="Text input with checkbox" placeholder="Пароль">
+                                </div>
+                                <input type="hidden" id="userId" name="userId" th:value="${lk.user_id}">
+                                <button type="submit" class="btn btn-modal">Сохранить</button>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <!--Модальное окно для смены ЛК-->
-<div class="modal fade modal-edit" id="changeModal" tabindex="-1" aria-labelledby="changeModalLabel"
+<div th:each="ob : ${objects}">
+<div class="modal fade modal-edit" th:id="'changeModal'+${ob.objectId}" tabindex="-1" th:aria-labelledby="'changeModalLabel'+${ob.objectId}"
      aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title" id="changeModalLabel">Смена личного кабинета</h5>
-				<button type="button" class="btn-close" data-bs-dismiss="modal"
-				        aria-label="Close"></button>
-			</div>
-			<div class="modal-body">
-				<div class="container-fluid">
-					<div class="row">
-						<form>
-							<h6>Выберите ЛК:</h6>
-							<select id="inputState" class="form-select">
-								<option selected>ЛК...</option>
-								<option>...</option>
-							</select>
-						</form>
-					</div>
-				</div>
-			</div>
-			<div class="modal-footer">
-				<button type="submit" class="btn btn-modal">Сменить</button>
-			</div>
-		</div>
-	</div>
-</div>
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" th:id="'changeModalLabel'+${ob.objectId}">Смена личного кабинета</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <form action="/engineer/adminObjects/editOb" method="post">
+                            <h6>Выберите ЛК:</h6>
+                            <select id="inputState" name="userId" class="form-select">
+                                <option selected th:value="${ob.users.user_id}" th:text="${ob.users.username}">...</option>
+                                <div th:each="lk : ${users}">
+                                <option th:value="${lk.user_id}" th:text="${lk.username}">...</option>
+                                </div>
+                            </select>
+                            <input type="hidden" id="objectId" name="objectId" th:value="${ob.objectId}">
+                            <button type="submit" class="btn btn-modal">Сменить</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
 
+            </div>
+        </div>
+    </div>
+</div>
+</div>
 
 <!--Подвал-->
 <section class="footer fixed-bottom">
-	<div th:replace="~{footer::footer1}"></div>
+    <div th:replace="~{footer::footer1}"></div>
 </section>
 
 <!--Скрипты-->

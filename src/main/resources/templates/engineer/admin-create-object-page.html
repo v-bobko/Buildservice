@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="ru">
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+
 <!--Мета-теги-->
 <div th:replace="~{head::head}">
 </div>
@@ -50,29 +51,21 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-lg-5 col-md-6 col-12">
-				<form>
+				<form action="/engineer/admin-create-object" method="post">
 					<div class="mb-3">
 						<label for="Name" class="form-label">Имя строительного объекта:</label>
-						<input type="text" class="form-control" id="Name" placeholder="Название">
+						<input type="text" name="nameObject" class="form-control" id="Name" placeholder="Название">
 					</div>
 					<div class="mb-3">
 						<label for="LKZ" class="form-label">Выбрать заказчика:</label>
-						<select class="form-select" id="LKZ" aria-label="Default select example">
+						<select class="form-select" name="nameUserId" id="LKZ" aria-label="Default select example">
 							<option selected>Личные кабинеты заказчиков</option>
-							<option value="1">Имя1</option>
-							<option value="2">Имя2</option>
-							<option value="3">Имя3</option>
+							<div th:each="lk : ${users}">
+							<option th:value="${lk.username}" th:text="${lk.username}"></option>
+							</div>
 						</select>
 					</div>
-					<div class="mb-3">
-						<label for="LKI" class="form-label">Выбрать исполнителя</label>
-						<select class="form-select" id="LKI" aria-label="Default select example">
-							<option selected>Личные кабинеты исполнителей</option>
-							<option value="1">Исполнитель1</option>
-							<option value="2">Исполнитель2</option>
-							<option value="3">Исполнитель3</option>
-						</select>
-					</div>
+
 					<div class="bt-form"><button type="submit" class="btn-form">Создать</button></div>
 				</form>
 			</div>
