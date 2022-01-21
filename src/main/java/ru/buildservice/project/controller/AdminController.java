@@ -68,18 +68,20 @@ public class AdminController {
 
     }
     @PostMapping("/engineer/adminObjects")
-    public String editLk(@RequestParam String username, @RequestParam String password, @RequestParam Integer userId, Model model) {
+    public String editLk(@RequestParam String username, @RequestParam String password,
+                         @RequestParam Integer userId,@RequestParam Optional<String> booln,@RequestParam Optional<String> boolp, Model model) {
 
 
         Users user = userRepository.findById(userId).orElseThrow();
 
-        if (!username.equals("")){
+        if (booln.isPresent()&!username.equals("")){
             user.setUsername(username);
+            userRepository.save(user);
         }
-        if (!password.equals("")){
+        if (boolp.isPresent()&!password.equals("")){
             user.setPassword(password);
+            userRepository.save(user);
         }
-        userRepository.save(user);
 
 
         return "redirect:/engineer/adminObjects";

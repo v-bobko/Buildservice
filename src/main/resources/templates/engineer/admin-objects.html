@@ -206,11 +206,11 @@
                 <div class="modal-body">
                     <div class="container-fluid">
                         <div class="row">
-                            <form method="post">
+                            <form th:id="'editLKc'+${lk.user_id}" method="post">
                                 <h6>Выберите данные,которые необходимо изменить:</h6>
                                 <div class="input-group mb-3">
                                     <div class="input-group-text">
-                                        <input class="form-check-input " type="checkbox" value=""
+                                        <input name="booln" class="form-check-input " type="checkbox" value="1"
                                                aria-label="Checkbox for following text input">
                                     </div>
                                     <input id="Name" name="username" type="text" class="form-control" autocomplete="off"
@@ -222,7 +222,7 @@
 
                                 <div class="input-group mb-3">
                                     <div class="input-group-text">
-                                        <input class="form-check-input mt-0" type="checkbox" value=""
+                                        <input name="boolp" class="form-check-input mt-0" type="checkbox" value="1"
                                                aria-label="Checkbox for following text input">
                                     </div>
                                     <input type="password" name="password" class="form-control" autocomplete="off"
@@ -230,18 +230,19 @@
                                            aria-label="Text input with checkbox" placeholder="Пароль">
                                 </div>
                                 <input type="hidden" id="userId" name="userId" th:value="${lk.user_id}">
-                                <button type="submit" class="btn btn-modal">Сохранить</button>
 
                             </form>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
+	                <button th:form="'editLKc'+${lk.user_id}" type="submit" class="btn btn-modal">Сохранить</button>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 <!--Модальное окно для редактирования ЛК рабочего-->
 <div th:each="lk : ${workers}">
 
@@ -258,14 +259,14 @@
                 <div class="modal-body">
                     <div class="container-fluid">
                         <div class="row">
-                            <form method="post">
+                            <form th:id="'editLKw'+${lk.user_id}" method="post">
                                 <h6>Выберите данные,которые необходимо изменить:</h6>
                                 <div class="input-group mb-3">
                                     <div class="input-group-text">
                                         <input class="form-check-input " type="checkbox" value=""
                                                aria-label="Checkbox for following text input">
                                     </div>
-                                    <input id="Name" name="username" type="text" class="form-control" autocomplete="off"
+                                    <input id="NameW" name="username" type="text" class="form-control" autocomplete="off"
                                            th:value="${lk.username}"
                                            aria-label="Text input with checkbox" placeholder="Фамилия И.О."
                                            pattern="[А-Яа-яЁё]{2,}\s[А-ЯЁ].[А-ЯЁ].">
@@ -281,19 +282,20 @@
                                            value=""
                                            aria-label="Text input with checkbox" placeholder="Пароль">
                                 </div>
-                                <input type="hidden" id="userId" name="userId" th:value="${lk.user_id}">
-                                <button type="submit" class="btn btn-modal">Сохранить</button>
+                                <input type="hidden" id="userIdW" name="userId" th:value="${lk.user_id}">
 
                             </form>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
+	                <button th:form="'editLKw'+${lk.user_id}" type="submit" class="btn btn-modal">Сохранить</button>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 <!--Модальное окно для редактирования ЛК инженера-->
 <div th:each="lk : ${admins}">
 
@@ -310,14 +312,14 @@
                 <div class="modal-body">
                     <div class="container-fluid">
                         <div class="row">
-                            <form method="post">
+                            <form th:id="'editLKa'+${lk.user_id}" method="post">
                                 <h6>Выберите данные,которые необходимо изменить:</h6>
                                 <div class="input-group mb-3">
                                     <div class="input-group-text">
                                         <input class="form-check-input " type="checkbox" value=""
                                                aria-label="Checkbox for following text input">
                                     </div>
-                                    <input id="Name" name="username" type="text" class="form-control" autocomplete="off"
+                                    <input id="NameA" name="username" type="text" class="form-control" autocomplete="off"
                                            th:value="${lk.username}"
                                            aria-label="Text input with checkbox" placeholder="Фамилия И.О."
                                            pattern="[А-Яа-яЁё]{2,}\s[А-ЯЁ].[А-ЯЁ].">
@@ -333,19 +335,20 @@
                                            value=""
                                            aria-label="Text input with checkbox" placeholder="Пароль">
                                 </div>
-                                <input type="hidden" id="userId" name="userId" th:value="${lk.user_id}">
-                                <button type="submit" class="btn btn-modal">Сохранить</button>
+                                <input type="hidden" id="userIdA" name="userId" th:value="${lk.user_id}">
 
                             </form>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
+	                <button th:form="'editLKa'+${lk.user_id}" type="submit" class="btn btn-modal" >Сохранить</button>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 <!--Модальное окно для смены ЛК-->
 <div th:each="ob : ${objects}">
 <div class="modal fade modal-edit" th:id="'changeModal'+${ob.objectId}" tabindex="-1" th:aria-labelledby="'changeModalLabel'+${ob.objectId}"
@@ -360,7 +363,7 @@
             <div class="modal-body">
                 <div class="container-fluid">
                     <div class="row">
-                        <form action="/engineer/adminObjects/editOb" method="post">
+                        <form th:id="'editLkOb' +${ob.objectId}" action="/engineer/adminObjects/editOb" method="post">
                             <h6>Выберите ЛК:</h6>
                             <select id="inputState" name="userId" class="form-select">
                                 <option selected th:value="${ob.users.user_id}" th:text="${ob.users.username}">...</option>
@@ -369,13 +372,12 @@
                                 </div>
                             </select>
                             <input type="hidden" id="objectId" name="objectId" th:value="${ob.objectId}">
-                            <button type="submit" class="btn btn-modal">Сменить</button>
                         </form>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-
+	            <button th:form="'editLkOb' +${ob.objectId}" type="submit" class="btn btn-modal">Сменить</button>
             </div>
         </div>
     </div>
