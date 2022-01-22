@@ -38,7 +38,7 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
           //    .csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
           //   .and()
                 .authorizeRequests()
-                .antMatchers("/**", "index", "/contacts", "/css/**", "/css/#", "/js/**", "/images/**", "/icon/**").permitAll()
+                .antMatchers("/", "index", "/contacts", "/css/**", "/css/#", "/js/**", "/images/**", "/icon/**").permitAll()
                 .antMatchers("/customer/*", "/css/*", "/css/#", "/js/*", "/images/*").hasRole("CUSTOMER")
                 .antMatchers("/engineer/*", "/css/*", "/css/#", "/js/*", "/images/*").hasRole("ADMIN")
                 .antMatchers("/worker/*", "/css/*", "/css/#", "/js/*", "/images/*").hasRole("WORKER")
@@ -53,28 +53,7 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
 
-    @Override
-    @Bean
-    protected UserDetailsService userDetailsService() {
-        UserDetails bobko = User.builder()
-                .username("bobko")
-                .password(passwordEncoder.encode("bobko"))
-                .roles("ADMIN")
-                .build();
-        UserDetails worker = User.builder()
-                .username("worker")
-                .password(passwordEncoder.encode("worker"))
-                .roles("WORKER")
-                .build();
-        UserDetails customer = User.builder()
-                .username("customer")
-                .password(passwordEncoder.encode("customer"))
-                .roles("CUSTOMER")
-                .build();
-
-
-        return new InMemoryUserDetailsManager(bobko, worker, customer);
-    }
+   
 
 
 }

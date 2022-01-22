@@ -36,6 +36,17 @@ body h5 {
   padding: 0 25px;
 }
 
+@-webkit-keyframes autofill {
+  to {
+    color: #000;
+    background: transparent;
+  }
+}
+input:-webkit-autofill {
+  -webkit-animation-name: autofill;
+  -webkit-animation-fill-mode: both;
+}
+
 /*Оформление заголовка*/
 .header1 .navbar {
   padding-top: 0.2rem;
