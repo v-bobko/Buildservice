@@ -925,13 +925,13 @@ footer img {
 }
 
 /*Страница выбора кабинетов*/
-.choice .row a {
+.choice .row .icon {
   margin: 25px 15px;
 }
-.choice .row a img {
+.choice .row .icon img {
   width: 50px;
 }
-.choice .row a img:hover {
+.choice .row .icon img:hover {
   -webkit-transform: scale(1.04);
           transform: scale(1.04);
 }
@@ -950,12 +950,14 @@ footer img {
   margin-bottom: 150px;
 }
 .choice .choice-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   margin-right: 100px;
   margin-left: 100px;
   padding: 10px 30px;
   width: 300px;
   height: 60px;
-  line-height: 1;
   background-color: #c5868e;
   color: #f7f7f6;
   font-size: 22px;
@@ -967,6 +969,13 @@ footer img {
   -webkit-transition: all 0.1s ease-out;
   transition: all 0.1s ease-out;
   text-transform: uppercase;
+  text-decoration: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 .choice .choice-btn:hover {
   -webkit-transform: scale(1.04);
@@ -1418,6 +1427,13 @@ footer img {
     width: 25%;
     height: 150px;
   }
+
+  .choice .row-btn h2 {
+    margin-bottom: 100px;
+  }
+  .choice .choice-btn {
+    margin: 20px;
+  }
 }
 @media screen and (max-width: 933px) {
   .header2 .nav-tabs {
@@ -1473,13 +1489,6 @@ footer img {
   .video .camera1 iframe {
     width: 560px;
     height: 315px;
-  }
-
-  .choice .row-btn h2 {
-    margin-bottom: 100px;
-  }
-  .choice .choice-btn {
-    margin: 20px;
   }
 }
 @media screen and (max-width: 600px) {

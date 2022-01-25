@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ru">
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
 <!--Мета-теги-->
 <div th:replace="~{head::head}">
 </div>
@@ -9,13 +9,13 @@
 <section class="choice">
 	<div class="container-fluid">
 		<div class="row">
-			<a href="index.html" th:href="@{/}" data-bs-toggle="tooltip"
+			<a class="icon" href="index.html" th:href="@{/}" data-bs-toggle="tooltip"
 			   data-bs-placement="top" title="Выход"><img src="../icon/BACK.png" alt="назад"></a>
 		</div>
 		<div class="row row-btn">
 			<h2>Выберите тип кабинета:</h2>
-			<button class="choice-btn" type="button">Инженер</button>
-			<button class="choice-btn" type="button">Администратор</button>
+			<a class="choice-btn" th:href="@{/engineer/objects}">Инженер</a>
+			<a class="choice-btn" th:href="@{/engineer/adminObjects}">Администратор</a>
 
 		</div>
 	</div>
