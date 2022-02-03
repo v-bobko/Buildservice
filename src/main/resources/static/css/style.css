@@ -520,85 +520,116 @@ footer img {
 }
 
 /*Аккордeон-Календарь*/
+.year-calendar {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 50px 15px 0 15px;
+}
+.year-calendar .form-select {
+  display: inline;
+  width: 150px;
+}
+.year-calendar button {
+  margin-left: 5px;
+  padding: 5px 5px;
+  height: 32px;
+  width: 32px;
+  background-color: rgba(55, 143, 189, 0.8);
+  color: #f7f7f6;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 3px;
+  border: none;
+  line-height: 3px;
+}
+.year-calendar button:hover {
+  background-color: #378fbd;
+}
+.year-calendar .btn-addYear {
+  padding: 0;
+  background-color: transparent;
+  opacity: 0.6;
+}
+.year-calendar .btn-addYear:hover {
+  opacity: 1;
+  background-color: transparent;
+}
+.year-calendar .btn-addYear img {
+  width: 24px;
+  height: 24px;
+}
+
 .calendar {
-  margin-top: 40px;
+  margin-top: 25px;
   margin-bottom: 100px;
 }
-.calendar .accordion-button:focus, .calendar .accordion-button:hover {
-  z-index: 3;
-  border-color: #c5868e;
-  outline: 0;
-  -webkit-box-shadow: 0 0 0 0.25rem rgba(197, 134, 142, 0.25);
-          box-shadow: 0 0 0 0.25rem rgba(197, 134, 142, 0.25);
+.calendar .table-body {
+  padding: 15px;
 }
-.calendar .accordion-button:not(.collapsed) {
-  color: #c5868e;
-  background-color: #f3eeee;
-  font-weight: 600;
-}
-.calendar .accordion-body .row {
+.calendar .table-body .row {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
 }
-.calendar .accordion-body .colum {
+.calendar .table-body .colum {
   padding: 0;
 }
-.calendar .accordion-body .colum .b1 {
+.calendar .table-body .colum .b1 {
   border: 2px solid #3d3d4f;
 }
-.calendar .accordion-body .colum .b1 + .b1 {
+.calendar .table-body .colum .b1 + .b1 {
   margin: -2px 0px;
 }
-.calendar .accordion-body .colum .b2 {
+.calendar .table-body .colum .b2 {
   border-top: 2px solid #3d3d4f;
   border-right: 2px solid #3d3d4f;
   border-bottom: 2px solid #3d3d4f;
 }
-.calendar .accordion-body .colum .b2 + .b2 {
+.calendar .table-body .colum .b2 + .b2 {
   margin: -2px 0px;
 }
-.calendar .accordion-body .colum .b1 + .b2 {
+.calendar .table-body .colum .b1 + .b2 {
   margin: -2px 0px;
 }
-.calendar .accordion-body .colum .b3 {
+.calendar .table-body .colum .b3 {
   border-right: 2px solid #3d3d4f;
 }
-.calendar .accordion-body .colum .b4 {
+.calendar .table-body .colum .b4 {
   border-right: 2px solid #3d3d4f;
   border-bottom: 2px solid #3d3d4f;
 }
-.calendar .accordion-body .colum .b1-3 {
+.calendar .table-body .colum .b1-3 {
   border-right: 2px solid #3d3d4f;
   border-left: 2px solid #3d3d4f;
 }
-.calendar .accordion-body .colum .b1-4 {
+.calendar .table-body .colum .b1-4 {
   border-right: 2px solid #3d3d4f;
   border-bottom: 2px solid #3d3d4f;
   border-left: 2px solid #3d3d4f;
 }
-.calendar .accordion-body .colum .b1-4 + .b1 {
+.calendar .table-body .colum .b1-4 + .b1 {
   margin: -2px 0px;
 }
-.calendar .accordion-body .colum .b4 + .b1 {
+.calendar .table-body .colum .b4 + .b1 {
   margin: -2px 0px;
 }
-.calendar .accordion-body .colum .b4 + .b2 {
+.calendar .table-body .colum .b4 + .b2 {
   margin: -2px 0px;
 }
-.calendar .accordion-body .colum ul {
+.calendar .table-body .colum ul {
   padding: 5px;
 }
-.calendar .accordion-body .colum ul li {
+.calendar .table-body .colum ul li {
   font-size: 16px;
   padding: 5px 0 5px 10px;
 }
-.calendar .accordion-body .colum ul li::marker {
+.calendar .table-body .colum ul li::marker {
   content: "–";
   font-weight: bold;
   color: #378fbd;
 }
-.calendar .accordion-body .colum .colum-name {
+.calendar .table-body .colum .colum-name {
   margin-top: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -615,12 +646,12 @@ footer img {
   font-weight: 600;
   font-size: 18px;
 }
-.calendar .accordion-body .colum .work {
+.calendar .table-body .colum .work {
   height: 400px;
   padding: 5px 10px;
   overflow: auto;
 }
-.calendar .accordion-body .colum .comment-name {
+.calendar .table-body .colum .comment-name {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -636,15 +667,15 @@ footer img {
   color: #49359b;
   background-color: rgba(73, 53, 155, 0.16);
 }
-.calendar .accordion-body .colum .comment {
+.calendar .table-body .colum .comment {
   height: 180px;
   padding: 5px 10px;
   overflow: auto;
 }
-.calendar .accordion-body .colum .comment li::marker {
+.calendar .table-body .colum .comment li::marker {
   color: #49359b;
 }
-.calendar .accordion-body .colum .bt {
+.calendar .table-body .colum .bt {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -655,7 +686,7 @@ footer img {
       -ms-flex-align: center;
           align-items: center;
 }
-.calendar .accordion-body .colum .bt .btn-add, .calendar .accordion-body .colum .bt .btn-del {
+.calendar .table-body .colum .bt .btn-add, .calendar .table-body .colum .bt .btn-del {
   margin-bottom: 10px;
   margin-right: 5px;
   padding: 5px 5px;
@@ -669,10 +700,10 @@ footer img {
   border: none;
   line-height: 3px;
 }
-.calendar .accordion-body .colum .bt .btn-add:hover, .calendar .accordion-body .colum .bt .btn-del:hover {
+.calendar .table-body .colum .bt .btn-add:hover, .calendar .table-body .colum .bt .btn-del:hover {
   background-color: rgba(113, 95, 187, 0.8);
 }
-.calendar .accordion-body .colum .bt img {
+.calendar .table-body .colum .bt img {
   width: 20px;
   height: 20px;
 }
@@ -992,7 +1023,7 @@ footer img {
 }
 
 /*Календарь работ*/
-.calendar .accordion-body .bt-i {
+.calendar .table-body .bt-i {
   margin-bottom: 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1004,7 +1035,7 @@ footer img {
       -ms-flex-align: center;
           align-items: center;
 }
-.calendar .accordion-body .bt-i .btn-add, .calendar .accordion-body .bt-i .btn-del {
+.calendar .table-body .bt-i .btn-add, .calendar .table-body .bt-i .btn-del {
   margin-top: 10px;
   margin-bottom: 10px;
   margin-right: 5px;
@@ -1016,10 +1047,10 @@ footer img {
   border: none;
   line-height: 3px;
 }
-.calendar .accordion-body .bt-i .btn-add:hover, .calendar .accordion-body .bt-i .btn-del:hover {
+.calendar .table-body .bt-i .btn-add:hover, .calendar .table-body .bt-i .btn-del:hover {
   background-color: rgba(55, 143, 189, 0.9);
 }
-.calendar .accordion-body .bt-i img {
+.calendar .table-body .bt-i img {
   width: 20px;
   height: 20px;
 }
@@ -1569,13 +1600,13 @@ footer img {
   }
 
   /*Каледарь*/
-  .calendar .accordion-body .colum .b2 {
+  .calendar .table-body .colum .b2 {
     border: 2px solid #3d3d4f;
   }
-  .calendar .accordion-body .colum .b3, .calendar .accordion-body .colum .b4 {
+  .calendar .table-body .colum .b3, .calendar .table-body .colum .b4 {
     border-left: 2px solid #3d3d4f;
   }
-  .calendar .accordion-body .colum .work, .calendar .accordion-body .colum .comment {
+  .calendar .table-body .colum .work, .calendar .table-body .colum .comment {
     height: auto;
   }
 
