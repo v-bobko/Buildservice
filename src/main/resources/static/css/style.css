@@ -546,6 +546,19 @@ footer img {
 .year-calendar button:hover {
   background-color: #378fbd;
 }
+.year-calendar .btn-addYear {
+  padding: 0;
+  background-color: transparent;
+  opacity: 0.6;
+}
+.year-calendar .btn-addYear:hover {
+  opacity: 1;
+  background-color: transparent;
+}
+.year-calendar .btn-addYear img {
+  width: 24px;
+  height: 24px;
+}
 
 .calendar {
   margin-top: 25px;

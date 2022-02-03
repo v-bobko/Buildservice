@@ -65,11 +65,7 @@
 		</div>
 		<div class="row list">
 			<ul>
-				<li><a href="#">План архитектурных работ</a></li>
-				<li><a href="#">План электромонтажных работ</a></li>
-				<li><a href="#">Дизайн помещения</a></li>
-				<li><a href="#">План вентиляционной системы</a></li>
-				<li><a href="#">План водоснабжения и отопительной системы</a></li>
+				<li th:each="pj : ${projects}" > <a th:href="${pj.project}" download="" th:text="${pj.nameOfProject}">name of project</a> </li>
 			</ul>
 		</div>
 		<div class="row btn-list">

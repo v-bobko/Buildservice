@@ -73,8 +73,17 @@
 				<div th:each="ya : ${years}">
 					<option th:value="${ya}" th:text="${ya}"></option>
 				</div>
+
 			</select>
 			<button type="submit">ОК</button>
+
+			<button class="btn-addYear" type="button" data-bs-toggle="modal"
+			        data-bs-target="#addYear"
+			        data-bs-placement="top" title="Добавить год">
+				<img th:src="@{/icon/plus-b.png}" style="vertical-align: middle"></button>
+
+
+
 		</div>
 
 
@@ -97,15 +106,7 @@
 								<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
 									modi?
 								</li>
-								<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
-									modi?
-								</li>
-								<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
-									modi?
-								</li>
-								<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
-									modi?
-								</li>
+
 							</ul>
 						</div>
 						<div class="bt-i b1-4">

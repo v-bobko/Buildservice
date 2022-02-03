@@ -10,9 +10,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import ru.buildservice.project.entity.Objects;
+import ru.buildservice.project.entity.Projects;
 import ru.buildservice.project.entity.Roles;
 import ru.buildservice.project.entity.Users;
 import ru.buildservice.project.repository.ObjectRepository;
+import ru.buildservice.project.repository.ProjectRepository;
 import ru.buildservice.project.repository.RolesRepository;
 import ru.buildservice.project.repository.UserRepository;
 
@@ -30,6 +32,8 @@ public class EngineerController {
     private RolesRepository rolesRepository;
     @Autowired
     private ObjectRepository objectRepository;
+    @Autowired
+    private ProjectRepository projectRepository;
 
 
     //Личный кабинет инженера
@@ -64,6 +68,11 @@ public class EngineerController {
         Authentication auth= SecurityContextHolder.getContext().getAuthentication();
         String name=auth.getName();
         model.addAttribute("nameEngineer",name);
+
+        List<Projects> projects = projectRepository.findByObjects(object);
+
+        model.addAttribute("projects", projects);
+
         return "engineer/engineer-psd";
     }
 

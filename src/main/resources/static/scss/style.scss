@@ -637,6 +637,21 @@ footer {
     }
 
   }
+  .btn-addYear {
+
+    padding: 0;
+    background-color: transparent;
+    opacity: 0.6;
+
+    &:hover {
+      opacity: 1;
+      background-color: transparent;
+    }
+    img {
+      width: 24px;
+      height: 24px;
+    }
+  }
 }
 .calendar {
   margin-top: 25px;
