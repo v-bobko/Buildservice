@@ -747,30 +747,33 @@ footer img {
 .work-otchet .scroll-table {
   overflow: auto;
 }
-.work-otchet .scroll-table td, .work-otchet .scroll-table th {
+.work-otchet .scroll-table table {
+  width: 100%;
+}
+.work-otchet .scroll-table table td, .work-otchet .scroll-table table th {
   padding: 10px;
   border: 2px solid #3d3d4f;
 }
-.work-otchet .scroll-table th {
+.work-otchet .scroll-table table th {
   color: #21217e;
   text-align: center;
   background-color: rgba(38, 38, 108, 0.2);
 }
-.work-otchet .scroll-table td {
+.work-otchet .scroll-table table td {
   text-align: justify;
 }
-.work-otchet .scroll-table td p {
+.work-otchet .scroll-table table td p {
   font-size: 16px;
   text-align: justify;
   margin: 0 0 10px 0;
 }
-.work-otchet .scroll-table tbody tr {
+.work-otchet .scroll-table table tbody .tr-row {
   min-height: 150px;
 }
-.work-otchet .scroll-table tbody tr .bt-work-z, .work-otchet .scroll-table tbody tr .bt-work-i {
+.work-otchet .scroll-table table tbody .tr-row .bt-work-z, .work-otchet .scroll-table table tbody .tr-row .bt-work-i {
   text-align: right;
 }
-.work-otchet .scroll-table tbody tr .bt-work-z .btn-work, .work-otchet .scroll-table tbody tr .bt-work-i .btn-work {
+.work-otchet .scroll-table table tbody .tr-row .bt-work-z .btn-work, .work-otchet .scroll-table table tbody .tr-row .bt-work-i .btn-work {
   margin-right: 5px;
   padding: 5px 5px;
   width: 25px;
@@ -780,29 +783,32 @@ footer img {
   border: none;
   line-height: 3px;
 }
-.work-otchet .scroll-table tbody tr .bt-work-z .btn-work:hover, .work-otchet .scroll-table tbody tr .bt-work-i .btn-work:hover {
+.work-otchet .scroll-table table tbody .tr-row .bt-work-z .btn-work:hover, .work-otchet .scroll-table table tbody .tr-row .bt-work-i .btn-work:hover {
   -webkit-transform: scale(1.04);
           transform: scale(1.04);
   background-color: #49359b;
 }
-.work-otchet .scroll-table tbody tr .bt-work-z .btn-work img, .work-otchet .scroll-table tbody tr .bt-work-i .btn-work img {
+.work-otchet .scroll-table table tbody .tr-row .bt-work-z .btn-work img, .work-otchet .scroll-table table tbody .tr-row .bt-work-i .btn-work img {
   width: 15px;
   height: 15px;
 }
-.work-otchet .scroll-table .colum-work {
+.work-otchet .scroll-table table tbody .tr-row .bt-work-z form, .work-otchet .scroll-table table tbody .tr-row .bt-work-i form {
+  display: inline;
+}
+.work-otchet .scroll-table table .colum-work {
   width: 25%;
 }
-.work-otchet .scroll-table .colum-process {
+.work-otchet .scroll-table table .colum-process {
   width: 20%;
 }
-.work-otchet .scroll-table .colum-problem {
+.work-otchet .scroll-table table .colum-problem {
   width: 15%;
   color: red;
 }
-.work-otchet .scroll-table .colum-comment-z {
+.work-otchet .scroll-table table .colum-comment-z {
   width: 20%;
 }
-.work-otchet .scroll-table .colum-comment-i {
+.work-otchet .scroll-table table .colum-comment-i {
   width: 20%;
 }
 

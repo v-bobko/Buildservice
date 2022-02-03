@@ -865,78 +865,84 @@ footer {
 
   .scroll-table {
     overflow: auto;
+    table {
+      width: 100%;
 
-    td, th {
-      padding: 10px;
-      border: 2px solid $color-bg-dark;
-    }
-
-    th {
-      color: rgb(33, 33, 126);
-      text-align: center;
-      background-color: rgba(38, 38, 108, 0.2);
-    }
-
-    td {
-      text-align: justify;
-
-      p {
-        font-size: 16px;
-        text-align: justify;
-        margin: 0 0 10px 0;
+      td, th {
+        padding: 10px;
+        border: 2px solid $color-bg-dark;
       }
-    }
 
-    tbody {
-      tr {
-        min-height: 150px;
+      th {
+        color: rgb(33, 33, 126);
+        text-align: center;
+        background-color: rgba(38, 38, 108, 0.2);
+      }
 
-        .bt-work-z, .bt-work-i {
-          text-align: right;
+      td {
+        text-align: justify;
 
-          .btn-work {
-            margin-right: 5px;
-            padding: 5px 5px;
-            width: 25px;
-            height: 25px;
-            background-color: rgba(73, 53, 155, 0.8);
-            border-radius: 3px;
-            border: none;
-            line-height: 3px;
+        p {
+          font-size: 16px;
+          text-align: justify;
+          margin: 0 0 10px 0;
+        }
+      }
 
-            &:hover {
-              transform: scale(1.04);
-              background-color: $color-calendar-btn-com;
+      tbody {
+        .tr-row {
+          min-height: 150px;
+
+          .bt-work-z, .bt-work-i {
+            text-align: right;
+
+            .btn-work {
+              margin-right: 5px;
+              padding: 5px 5px;
+              width: 25px;
+              height: 25px;
+              background-color: rgba(73, 53, 155, 0.8);
+              border-radius: 3px;
+              border: none;
+              line-height: 3px;
+
+              &:hover {
+                transform: scale(1.04);
+                background-color: $color-calendar-btn-com;
+              }
+
+              img {
+                width: 15px;
+                height: 15px;
+              }
             }
-
-            img {
-              width: 15px;
-              height: 15px;
+            form{
+              display: inline;
             }
           }
         }
       }
-    }
 
-    .colum-work {
-      width: 25%;
-    }
+      .colum-work {
+        width: 25%;
+      }
 
-    .colum-process {
-      width: 20%;
-    }
+      .colum-process {
+        width: 20%;
+      }
 
-    .colum-problem {
-      width: 15%;
-      color: red;
-    }
+      .colum-problem {
+        width: 15%;
+        color: red;
+      }
 
-    .colum-comment-z {
-      width: 20%;
-    }
+      .colum-comment-z {
+        width: 20%;
+      }
 
-    .colum-comment-i {
-      width: 20%;
+      .colum-comment-i {
+        width: 20%;
+      }
     }
   }
 }

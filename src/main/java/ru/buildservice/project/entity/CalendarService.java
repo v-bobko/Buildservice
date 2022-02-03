@@ -24,8 +24,12 @@ public class CalendarService {
     @Column(name = "year")
     private int year;
 
+
     @Column(name = "task")
     private String task;
+
+    @Column(name = "execution")
+    private String execution;
 
     @Column(name = "comment_of_worker")
     private String commentOfWorker;
@@ -52,8 +56,10 @@ public class CalendarService {
     }
 
     public CalendarService(String month, int year, String task, String commentOfWorker, String problems, String commentOfClient, String commentOfEngineer, Objects objects, Users users) {
-        this.month = month;
+
         this.year = year;
+        this.month = month;
+
         this.task = task;
         this.commentOfWorker = commentOfWorker;
         this.problems = problems;
