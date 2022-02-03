@@ -1,6 +1,8 @@
 package ru.buildservice.project.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.expression.SecurityExpressionOperations;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,11 +33,12 @@ public class AdminController {
     @Autowired
     private ObjectRepository objectRepository;
 
-
+//    SecurityExpressionOperations;
     //Личный кабинет инженера-администратора
 
 
     @GetMapping("/engineer/choice")
+
     public String engineerChoice() {
         return "engineer/choice";
     }
@@ -141,7 +144,7 @@ public class AdminController {
         Objects objects = new Objects(nameObject,users);
         objectRepository.save(objects);
       //
-        return "redirect:/engineer/adminObjects";
+        return "redirect:/engineer/adminObjects/";
     }
 
 

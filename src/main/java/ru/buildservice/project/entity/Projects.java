@@ -22,6 +22,9 @@ public class Projects {
     @Column(name = "project")
     private String project;
 
+    @Column(name = "name_of_project")
+    private String nameOfProject;
+
     @ManyToOne
     @JoinColumn(name = "object_id")
     private Objects objects;
