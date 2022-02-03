@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ru">
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
 <!--Мета-теги-->
 <div th:replace="~{head::head}">
 </div>
@@ -9,16 +9,16 @@
 	<div class="container-fluid">
 		<div class="row name-account">
 			<div class="col">
-				<h5>Имя Инженера</h5>
+				<h5 th:text="${nameEngineer}">Имя Инженера</h5>
 			</div>
 			<div class="col col-home">
 				<a class="admin-link" href="admin-objects.html" th:href="@{/engineer/adminObjects}">Админ</a>
-				<a href="engineer-objects.html" th:href="@{/customer/objects}" title="Выбор объекта"><img src="../icon/home.png" alt="дом"></a>
-				<a href="index.html" th:href="@{/}" title="Выход"><img src="../icon/logout.png" alt="выход"></a>
+				<a href="engineer-objects.html" th:href="@{/engineer/objects}" title="Выбор объекта"><img th:src="@{/icon/home.png}" alt="дом"></a>
+				<a href="index.html" th:href="@{/logout}" title="Выход"><img th:src="@{/icon/logout.png}" alt="выход"></a>
 			</div>
 		</div>
 		<div class="row name-object">
-			<h5>Объект</h5>
+			<h5 th:text="${object.nameOfObject}">Объект</h5>
 		</div>
 		<div class="row menu navbar navbar-expand-lg navbar-light">
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -30,25 +30,25 @@
 				<ul class="nav nav-tabs">
 					<li class="nav-item">
 						<a class="nav-link h" href="engineer-calendar.html"
-						   th:href="@{/engineer/calendar}">Календарь работ</a>
+						   th:href="'/engineer/calendar/'+${object.objectId}">Календарь работ</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link active" aria-current="page" href="engineer-psd.html" th:href="@{/engineer/psd}">Проектно-сметная
+						<a class="nav-link active" aria-current="page" href="engineer-psd.html" th:href="'/engineer/psd/'+${object.objectId}">Проектно-сметная
 							документация</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link h" href="engineer-work.html" th:href="@{/engineer/work}">Отчет
+						<a class="nav-link h" href="engineer-work.html" th:href="'/engineer/work/'+${object.objectId}">Отчет
 							выполненных работ/Фотоотчет</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link h" href="engineer-journal.html"
-						   th:href="@{/engineer/journal}">Журнал работ</a>
+						   th:href="'/engineer/journal/'+${object.objectId}">Журнал работ</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link h" href="engineer-online.html" th:href="@{/engineer/online}">Онлайн-трансляция</a>
+						<a class="nav-link h" href="engineer-online.html" th:href="'/engineer/online/'+${object.objectId}">Онлайн-трансляция</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link h" href="engineer-application.html" th:href="@{/engineer/application}">Заявки</a>
+						<a class="nav-link h" href="engineer-application.html" th:href="'/engineer/application/'+${object.objectId}">Заявки</a>
 					</li>
 				</ul>
 

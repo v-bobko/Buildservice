@@ -1083,7 +1083,7 @@ footer {
 /*Страница выбора кабинетов*/
 .choice {
   .row {
-    a {
+    .icon {
       margin: 25px 15px;
 
       img {
@@ -1110,12 +1110,13 @@ footer {
   }
 
   .choice-btn {
+    display: flex;
     margin-right: 100px;
     margin-left: 100px;
     padding: 10px 30px;
     width: 300px;
     height: 60px;
-    line-height: 1;
+    //line-height: 1;
     background-color: $color-btn;
     color: $color-btb-text;
     font-size: 22px;
@@ -1125,6 +1126,9 @@ footer {
     box-shadow: 0 8px 8px rgba(61, 61, 79, 0.2);
     transition: all .1s ease-out;
     text-transform: uppercase;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
 
     &:hover {
       transform: scale(1.04);
@@ -1639,6 +1643,17 @@ footer {
       }
     }
   }
+  .choice {
+    .row-btn {
+      h2 {
+        margin-bottom: 100px;
+      }
+    }
+
+    .choice-btn {
+      margin: 20px;
+    }
+  }
 }
 
 @media screen and (max-width: 933px) {
@@ -1701,17 +1716,7 @@ footer {
       }
     }
   }
-  .choice {
-    .row-btn {
-      h2 {
-        margin-bottom: 100px;
-      }
-    }
 
-    .choice-btn {
-      margin: 20px;
-    }
-  }
 }
 
 @media screen and (max-width: 600px) {
