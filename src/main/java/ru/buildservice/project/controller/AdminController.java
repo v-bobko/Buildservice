@@ -32,7 +32,7 @@ public class AdminController {
     private ObjectRepository objectRepository;
 
 
-    //Личный кабинет инженера-администратора
+    //Личный кабинет администратора
 
 
     @GetMapping("/engineer/choice")
@@ -160,42 +160,6 @@ public class AdminController {
 
 
         return "redirect:/engineer/adminObjects";
-    }
-
-
-    @GetMapping("/engineer/objects")
-    public String engineerObjects() {
-        return "engineer/engineer-objects";
-    }
-
-    @GetMapping("/engineer/calendar")
-    public String engineerCalendar() {
-        return "engineer/engineer-calendar";
-    }
-
-    @GetMapping("/engineer/psd")
-    public String engineerPSD() {
-        return "engineer/engineer-psd";
-    }
-
-    @GetMapping("/engineer/work")
-    public String engineerWork() {
-        return "engineer/engineer-work";
-    }
-
-    @GetMapping("/engineer/journal")
-    public String engineerJournal() {
-        return "engineer/engineer-journal";
-    }
-
-    @GetMapping("/engineer/online")
-    public String engineerOnline() {
-        return "engineer/engineer-online";
-    }
-
-    @GetMapping("/engineer/application")
-    public String engineerApplication() {
-        return "engineer/engineer-application";
     }
 
 

@@ -18,11 +18,11 @@ public class CalendarService {
     @Column(name = "calendar_id")
     private int calendarId;
 
+    @Column(name = "month")
+    private String month;
 
-    @Temporal(TemporalType.DATE)
-    @Column(name = "date_start")
-    private java.util.Date dateStart;
-
+    @Column(name = "year")
+    private int year;
 
     @Column(name = "task")
     private String task;
@@ -51,8 +51,9 @@ public class CalendarService {
     public CalendarService() {
     }
 
-    public CalendarService(Date dateStart, String task, String commentOfWorker, String problems, String commentOfClient, String commentOfEngineer, Objects objects, Users users) {
-        this.dateStart = dateStart;
+    public CalendarService(String month, int year, String task, String commentOfWorker, String problems, String commentOfClient, String commentOfEngineer, Objects objects, Users users) {
+        this.month = month;
+        this.year = year;
         this.task = task;
         this.commentOfWorker = commentOfWorker;
         this.problems = problems;
