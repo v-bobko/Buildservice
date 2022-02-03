@@ -12,8 +12,10 @@
 				<h5 th:text="${object.users.username}">Имя Клиента</h5>
 			</div>
 			<div class="col col-home">
-				<a href="customer-objects.html" th:href="@{/customer/objects}" title="Выбор объекта"><img th:src="@{/icon/home.png}" alt="дом"></a>
-				<a href="index.html" th:href="@{/logout}" title="Выход"><img th:src="@{/icon/logout.png}" alt="выход"></a>
+				<a href="customer-objects.html" th:href="@{/customer/objects}" title="Выбор объекта"><img
+						th:src="@{/icon/home.png}" alt="дом"></a>
+				<a href="index.html" th:href="@{/logout}" title="Выход"><img th:src="@{/icon/logout.png}"
+				                                                             alt="выход"></a>
 			</div>
 		</div>
 		<div class="row name-object">
@@ -32,15 +34,18 @@
 						   th:href="'/customer/calendar/'+${object.objectId}">Календарь работ</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link h" href="customer-psd.html" th:href="'/customer/psd/'+${object.objectId}">Проектно-сметная
+						<a class="nav-link h" href="customer-psd.html"
+						   th:href="'/customer/psd/'+${object.objectId}">Проектно-сметная
 							документация</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link h" href="customer-work.html" th:href="'/customer/work/'+${object.objectId}">Отчет
+						<a class="nav-link h" href="customer-work.html"
+						   th:href="'/customer/work/'+${object.objectId}">Отчет
 							выполненныхработ/Фотоотчет</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link h" href="customer-online.html" th:href="'/customer/online/'+${object.objectId}">Онлайн-трансляция</a>
+						<a class="nav-link h" href="customer-online.html"
+						   th:href="'/customer/online/'+${object.objectId}">Онлайн-трансляция</a>
 					</li>
 				</ul>
 
@@ -49,418 +54,442 @@
 	</div>
 </section>
 
+<!--Выбор года-->
+<form method="post" th:action="'/customer/work/' +${object.objectId}">
+	<div class="container-fluid">
+		<div class="row year-calendar">
+			<select class="form-select" name="year" aria-label="Default select example">
+				<option th:value="${year}" th:text="${year}">Текущий год</option>
+				<div th:each="ya : ${years}">
+					<option th:value="${ya}" th:text="${ya}"></option>
+				</div>
+			</select>
+			<button type="submit">ОК</button>
+		</div>
+
+
+	</div>
+</form>
+
 <!--Календарь-->
 <section class="calendar">
 	<div class="container-fluid">
-		<div class="row">
-			<div class="accordion accordion-flush" id="accordionFlushExample">
-				<div th:each = "ye : ${years}" >
-				<div class="accordion-item">
-					<h2 class="accordion-header" th:id="'flush-heading'+${ye}">
-						<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-						        th:data-bs-target="'#flush-collapse'+${ye}" aria-expanded="true"
-						        th:aria-controls="'#flush-collapse'+${ye}" th:text="${ye}">
+		<div class="table-body">
+			<!-- Таблица-->
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-3 col-12 colum">
+						<div class="colum-name b1">
+							ЯНВАРЬ
+						</div>
+						<div class="work b1">
+							<ul>
 
-						</button>
-					</h2>
-					<div th:id="'flush-collapse'+${ye}" class="accordion-collapse collapse"
-					     th:aria-labelledby="'flush-heading'+${ye}" >
-						<div class="accordion-body">
-							<!-- Таблица-->
-							<div class="container-fluid">
-								<div class="row">
-									<div class="col-md-3 col-12 colum">
-										<div class="colum-name b1">
-											ЯНВАРЬ
-										</div>
-										<div class="work b1">
-											<ul>
-<!--												<div th:each="work:${january}">-->
-											<li><!--	 th:text="${work.task}"-->>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
-													modi?
-												</li>
-<!--													</div>-->
+								<li>Lorem ipsum dolor sit amet, consectetur
+									adipisicing elit. Cupiditate,
+									modi?
+								</li>
 
-											</ul>
-										</div>
-										<div class="comment-name b1">
-											КОММЕНТАРИЙ
-										</div>
-										<div class="comment b1-3">
-											<ul>
-												<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
-													modi?
-												</li>
+							</ul>
+						</div>
+						<div class="comment-name b1">
+							КОММЕНТАРИЙ
+						</div>
+						<div class="comment b1-3">
+							<ul>
+								<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
+									modi?
+								</li>
 
-											</ul>
-										</div>
-										<div class="bt b1-4">
-											<button class="btn-add" type="button" data-bs-toggle="modal" data-bs-target="#addComentModal-z"
-											         title="Добавить">
-												<img  th:src="@{/icon/plus.png}" style="vertical-align: middle"></button>
-											<button class="btn-del" type="button" data-bs-toggle="modal" data-bs-target="#dellComentModal-z"
-											         title="Удалить">
-												<img th:src="@{/icon/basket.png}" style="vertical-align: middle"></button>
-										</div>
-									</div>
-									<div class="col-md-3 col-12 colum">
-										<div class="colum-name b2">
-											ФЕВРАЛЬ
-										</div>
-										<div class="work b2">
-											<ul>
-												<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
-													modi?
-												</li>
-											</ul>
-										</div>
-										<div class="comment-name b2">
-											КОММЕНТАРИЙ
-										</div>
-										<div class="comment b3">
-											<ul>
+							</ul>
+						</div>
+						<div class="bt b1-4">
+							<button class="btn-add" type="button" data-bs-toggle="modal"
+							        data-bs-target="#addComentModal-z"
+							        title="Добавить">
+								<img th:src="@{/icon/plus.png}" style="vertical-align: middle"></button>
+							<button class="btn-del" type="button" data-bs-toggle="modal"
+							        data-bs-target="#dellComentModal-z"
+							        title="Удалить">
+								<img th:src="@{/icon/basket.png}" style="vertical-align: middle"></button>
+						</div>
+					</div>
+					<div class="col-md-3 col-12 colum">
+						<div class="colum-name b2">
+							ФЕВРАЛЬ
+						</div>
+						<div class="work b2">
+							<ul>
+								<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
+									modi?
+								</li>
+							</ul>
+						</div>
+						<div class="comment-name b2">
+							КОММЕНТАРИЙ
+						</div>
+						<div class="comment b3">
+							<ul>
 
-											</ul>
-										</div>
-										<div class="bt b4">
-											<button class="btn-add" type="button" data-bs-toggle="modal" data-bs-target="#addComentModal-z"
-													title="Добавить">
-												<img  th:src="@{/icon/plus.png}" style="vertical-align: middle"></button>
-											<button class="btn-del" type="button" data-bs-toggle="modal" data-bs-target="#dellComentModal-z"
-													title="Удалить">
-												<img th:src="@{/icon/basket.png}" style="vertical-align: middle"></button>
-										</div>
-									</div>
-									<div class="col-md-3 col-12 colum">
-										<div class="colum-name b2">
-											МАРТ
-										</div>
-										<div class="work b2">
-											<ul>
-												<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
-													modi?
-												</li>
+							</ul>
+						</div>
+						<div class="bt b4">
+							<button class="btn-add" type="button" data-bs-toggle="modal"
+							        data-bs-target="#addComentModal-z"
+							        title="Добавить">
+								<img th:src="@{/icon/plus.png}" style="vertical-align: middle"></button>
+							<button class="btn-del" type="button" data-bs-toggle="modal"
+							        data-bs-target="#dellComentModal-z"
+							        title="Удалить">
+								<img th:src="@{/icon/basket.png}" style="vertical-align: middle"></button>
+						</div>
+					</div>
+					<div class="col-md-3 col-12 colum">
+						<div class="colum-name b2">
+							МАРТ
+						</div>
+						<div class="work b2">
+							<ul>
+								<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
+									modi?
+								</li>
 
-											</ul>
-										</div>
-										<div class="comment-name b2">
-											КОММЕНТАРИЙ
-										</div>
-										<div class="comment b3">
-											<ul>
-												<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
-													modi?
-												</li>
+							</ul>
+						</div>
+						<div class="comment-name b2">
+							КОММЕНТАРИЙ
+						</div>
+						<div class="comment b3">
+							<ul>
+								<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
+									modi?
+								</li>
 
-											</ul>
-										</div>
-										<div class="bt b4">
-											<button class="btn-add" type="button" data-bs-toggle="modal" data-bs-target="#addComentModal-z"
-													title="Добавить">
-												<img  th:src="@{/icon/plus.png}" style="vertical-align: middle"></button>
-											<button class="btn-del" type="button" data-bs-toggle="modal" data-bs-target="#dellComentModal-z"
-													title="Удалить">
-												<img th:src="@{/icon/basket.png}" style="vertical-align: middle"></button>
-										</div>
-									</div>
-									<div class="col-md-3 col-12 colum">
-										<div class="colum-name b2">
-											АПРЕЛЬ
-										</div>
-										<div class="work b2">
-											<ul>
-												<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
-													modi?
-												</li>
+							</ul>
+						</div>
+						<div class="bt b4">
+							<button class="btn-add" type="button" data-bs-toggle="modal"
+							        data-bs-target="#addComentModal-z"
+							        title="Добавить">
+								<img th:src="@{/icon/plus.png}" style="vertical-align: middle"></button>
+							<button class="btn-del" type="button" data-bs-toggle="modal"
+							        data-bs-target="#dellComentModal-z"
+							        title="Удалить">
+								<img th:src="@{/icon/basket.png}" style="vertical-align: middle"></button>
+						</div>
+					</div>
+					<div class="col-md-3 col-12 colum">
+						<div class="colum-name b2">
+							АПРЕЛЬ
+						</div>
+						<div class="work b2">
+							<ul>
+								<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
+									modi?
+								</li>
 
-											</ul>
-										</div>
-										<div class="comment-name b2">
-											КОММЕНТАРИЙ
-										</div>
-										<div class="comment b3">
-											<ul>
-												<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
-													modi?
-												</li>
-											</ul>
-										</div>
-										<div class="bt b4">
-											<button class="btn-add" type="button" data-bs-toggle="modal" data-bs-target="#addComentModal-z"
-													title="Добавить">
-												<img  th:src="@{/icon/plus.png}" style="vertical-align: middle"></button>
-											<button class="btn-del" type="button" data-bs-toggle="modal" data-bs-target="#dellComentModal-z"
-													title="Удалить">
-												<img th:src="@{/icon/basket.png}" style="vertical-align: middle"></button>
-										</div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-md-3 col-12 colum">
-										<div class="colum-name b1">
-											МАЙ
-										</div>
-										<div class="work b1">
-											<ul>
-												<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
-													modi?
-												</li>
+							</ul>
+						</div>
+						<div class="comment-name b2">
+							КОММЕНТАРИЙ
+						</div>
+						<div class="comment b3">
+							<ul>
+								<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
+									modi?
+								</li>
+							</ul>
+						</div>
+						<div class="bt b4">
+							<button class="btn-add" type="button" data-bs-toggle="modal"
+							        data-bs-target="#addComentModal-z"
+							        title="Добавить">
+								<img th:src="@{/icon/plus.png}" style="vertical-align: middle"></button>
+							<button class="btn-del" type="button" data-bs-toggle="modal"
+							        data-bs-target="#dellComentModal-z"
+							        title="Удалить">
+								<img th:src="@{/icon/basket.png}" style="vertical-align: middle"></button>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3 col-12 colum">
+						<div class="colum-name b1">
+							МАЙ
+						</div>
+						<div class="work b1">
+							<ul>
+								<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
+									modi?
+								</li>
 
-											</ul>
-										</div>
-										<div class="comment-name b1">
-											КОММЕНТАРИЙ
-										</div>
-										<div class="comment b1-3">
-											<ul>
-												<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
-													modi?
-												</li>
+							</ul>
+						</div>
+						<div class="comment-name b1">
+							КОММЕНТАРИЙ
+						</div>
+						<div class="comment b1-3">
+							<ul>
+								<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
+									modi?
+								</li>
 
-											</ul>
-										</div>
-										<div class="bt b1-4">
-											<button class="btn-add" type="button" data-bs-toggle="modal" data-bs-target="#addComentModal-z"
-													title="Добавить">
-												<img  th:src="@{/icon/plus.png}" style="vertical-align: middle"></button>
-											<button class="btn-del" type="button" data-bs-toggle="modal" data-bs-target="#dellComentModal-z"
-													title="Удалить">
-												<img th:src="@{/icon/basket.png}" style="vertical-align: middle"></button>
-										</div>
-									</div>
-									<div class="col-md-3 col-12 colum">
-										<div class="colum-name b2">
-											ИЮНЬ
-										</div>
-										<div class="work b2">
-											<ul>
-												<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
-													modi?
-												</li>
+							</ul>
+						</div>
+						<div class="bt b1-4">
+							<button class="btn-add" type="button" data-bs-toggle="modal"
+							        data-bs-target="#addComentModal-z"
+							        title="Добавить">
+								<img th:src="@{/icon/plus.png}" style="vertical-align: middle"></button>
+							<button class="btn-del" type="button" data-bs-toggle="modal"
+							        data-bs-target="#dellComentModal-z"
+							        title="Удалить">
+								<img th:src="@{/icon/basket.png}" style="vertical-align: middle"></button>
+						</div>
+					</div>
+					<div class="col-md-3 col-12 colum">
+						<div class="colum-name b2">
+							ИЮНЬ
+						</div>
+						<div class="work b2">
+							<ul>
+								<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
+									modi?
+								</li>
 
-											</ul>
-										</div>
-										<div class="comment-name b2">
-											КОММЕНТАРИЙ
-										</div>
-										<div class="comment b3">
-											<ul>
+							</ul>
+						</div>
+						<div class="comment-name b2">
+							КОММЕНТАРИЙ
+						</div>
+						<div class="comment b3">
+							<ul>
 
-											</ul>
-										</div>
-										<div class="bt b4">
-											<button class="btn-add" type="button" data-bs-toggle="modal" data-bs-target="#addComentModal-z"
-													title="Добавить">
-												<img  th:src="@{/icon/plus.png}" style="vertical-align: middle"></button>
-											<button class="btn-del" type="button" data-bs-toggle="modal" data-bs-target="#dellComentModal-z"
-													title="Удалить">
-												<img th:src="@{/icon/basket.png}" style="vertical-align: middle"></button>
-										</div>
-									</div>
-									<div class="col-md-3 col-12 colum">
-										<div class="colum-name b2">
-											ИЮЛЬ
-										</div>
-										<div class="work b2">
-											<ul>
-												<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
-													modi?
-												</li>
+							</ul>
+						</div>
+						<div class="bt b4">
+							<button class="btn-add" type="button" data-bs-toggle="modal"
+							        data-bs-target="#addComentModal-z"
+							        title="Добавить">
+								<img th:src="@{/icon/plus.png}" style="vertical-align: middle"></button>
+							<button class="btn-del" type="button" data-bs-toggle="modal"
+							        data-bs-target="#dellComentModal-z"
+							        title="Удалить">
+								<img th:src="@{/icon/basket.png}" style="vertical-align: middle"></button>
+						</div>
+					</div>
+					<div class="col-md-3 col-12 colum">
+						<div class="colum-name b2">
+							ИЮЛЬ
+						</div>
+						<div class="work b2">
+							<ul>
+								<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
+									modi?
+								</li>
 
-											</ul>
-										</div>
-										<div class="comment-name b2">
-											КОММЕНТАРИЙ
-										</div>
-										<div class="comment b3">
-											<ul>
-												<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
-													modi?
-												</li>
+							</ul>
+						</div>
+						<div class="comment-name b2">
+							КОММЕНТАРИЙ
+						</div>
+						<div class="comment b3">
+							<ul>
+								<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
+									modi?
+								</li>
 
-											</ul>
-										</div>
-										<div class="bt b4">
-											<button class="btn-add" type="button" data-bs-toggle="modal" data-bs-target="#addComentModal-z"
-													title="Добавить">
-												<img  th:src="@{/icon/plus.png}" style="vertical-align: middle"></button>
-											<button class="btn-del" type="button" data-bs-toggle="modal" data-bs-target="#dellComentModal-z"
-													title="Удалить">
-												<img th:src="@{/icon/basket.png}" style="vertical-align: middle"></button>
-										</div>
-									</div>
-									<div class="col-md-3 col-12 colum">
-										<div class="colum-name b2">
-											АВГУСТ
-										</div>
-										<div class="work b2">
-											<ul>
-												<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
-													modi?
-												</li>
+							</ul>
+						</div>
+						<div class="bt b4">
+							<button class="btn-add" type="button" data-bs-toggle="modal"
+							        data-bs-target="#addComentModal-z"
+							        title="Добавить">
+								<img th:src="@{/icon/plus.png}" style="vertical-align: middle"></button>
+							<button class="btn-del" type="button" data-bs-toggle="modal"
+							        data-bs-target="#dellComentModal-z"
+							        title="Удалить">
+								<img th:src="@{/icon/basket.png}" style="vertical-align: middle"></button>
+						</div>
+					</div>
+					<div class="col-md-3 col-12 colum">
+						<div class="colum-name b2">
+							АВГУСТ
+						</div>
+						<div class="work b2">
+							<ul>
+								<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
+									modi?
+								</li>
 
-											</ul>
-										</div>
-										<div class="comment-name b2">
-											КОММЕНТАРИЙ
-										</div>
-										<div class="comment b3">
-											<ul>
-												<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
-													modi?
-												</li>
-											</ul>
-										</div>
-										<div class="bt b4">
-											<button class="btn-add" type="button" data-bs-toggle="modal" data-bs-target="#addComentModal-z"
-													title="Добавить">
-												<img  th:src="@{/icon/plus.png}" style="vertical-align: middle"></button>
-											<button class="btn-del" type="button" data-bs-toggle="modal" data-bs-target="#dellComentModal-z"
-													title="Удалить">
-												<img th:src="@{/icon/basket.png}" style="vertical-align: middle"></button>
-										</div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-md-3 col-12 colum">
-										<div class="colum-name b1">
-											СЕНТЯБРЬ
-										</div>
-										<div class="work b1">
-											<ul>
-												<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
-													modi?
-												</li>
+							</ul>
+						</div>
+						<div class="comment-name b2">
+							КОММЕНТАРИЙ
+						</div>
+						<div class="comment b3">
+							<ul>
+								<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
+									modi?
+								</li>
+							</ul>
+						</div>
+						<div class="bt b4">
+							<button class="btn-add" type="button" data-bs-toggle="modal"
+							        data-bs-target="#addComentModal-z"
+							        title="Добавить">
+								<img th:src="@{/icon/plus.png}" style="vertical-align: middle"></button>
+							<button class="btn-del" type="button" data-bs-toggle="modal"
+							        data-bs-target="#dellComentModal-z"
+							        title="Удалить">
+								<img th:src="@{/icon/basket.png}" style="vertical-align: middle"></button>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3 col-12 colum">
+						<div class="colum-name b1">
+							СЕНТЯБРЬ
+						</div>
+						<div class="work b1">
+							<ul>
+								<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
+									modi?
+								</li>
 
-											</ul>
-										</div>
-										<div class="comment-name b1">
-											КОММЕНТАРИЙ
-										</div>
-										<div class="comment b1-3">
-											<ul>
-												<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
-													modi?
-												</li>
+							</ul>
+						</div>
+						<div class="comment-name b1">
+							КОММЕНТАРИЙ
+						</div>
+						<div class="comment b1-3">
+							<ul>
+								<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
+									modi?
+								</li>
 
-											</ul>
-										</div>
-										<div class="bt b1-4">
-											<button class="btn-add" type="button" data-bs-toggle="modal" data-bs-target="#addComentModal-z"
-													title="Добавить">
-												<img  th:src="@{/icon/plus.png}" style="vertical-align: middle"></button>
-											<button class="btn-del" type="button" data-bs-toggle="modal" data-bs-target="#dellComentModal-z"
-													title="Удалить">
-												<img th:src="@{/icon/basket.png}" style="vertical-align: middle"></button>
-										</div>
-									</div>
-									<div class="col-md-3 col-12 colum">
-										<div class="colum-name b2">
-											ОКТЯБРЬ
-										</div>
-										<div class="work b2">
-											<ul>
-												<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
-													modi?
-												</li>
+							</ul>
+						</div>
+						<div class="bt b1-4">
+							<button class="btn-add" type="button" data-bs-toggle="modal"
+							        data-bs-target="#addComentModal-z"
+							        title="Добавить">
+								<img th:src="@{/icon/plus.png}" style="vertical-align: middle"></button>
+							<button class="btn-del" type="button" data-bs-toggle="modal"
+							        data-bs-target="#dellComentModal-z"
+							        title="Удалить">
+								<img th:src="@{/icon/basket.png}" style="vertical-align: middle"></button>
+						</div>
+					</div>
+					<div class="col-md-3 col-12 colum">
+						<div class="colum-name b2">
+							ОКТЯБРЬ
+						</div>
+						<div class="work b2">
+							<ul>
+								<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
+									modi?
+								</li>
 
-											</ul>
-										</div>
-										<div class="comment-name b2">
-											КОММЕНТАРИЙ
-										</div>
-										<div class="comment b3">
-											<ul>
+							</ul>
+						</div>
+						<div class="comment-name b2">
+							КОММЕНТАРИЙ
+						</div>
+						<div class="comment b3">
+							<ul>
 
-											</ul>
-										</div>
-										<div class="bt b4">
-											<button class="btn-add" type="button" data-bs-toggle="modal" data-bs-target="#addComentModal-z"
-													title="Добавить">
-												<img  th:src="@{/icon/plus.png}" style="vertical-align: middle"></button>
-											<button class="btn-del" type="button" data-bs-toggle="modal" data-bs-target="#dellComentModal-z"
-													title="Удалить">
-												<img th:src="@{/icon/basket.png}" style="vertical-align: middle"></button>
-										</div>
-									</div>
-									<div class="col-md-3 col-12 colum">
-										<div class="colum-name b2">
-											НОЯБРЬ
-										</div>
-										<div class="work b2">
-											<ul>
-												<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
-													modi?
-												</li>
+							</ul>
+						</div>
+						<div class="bt b4">
+							<button class="btn-add" type="button" data-bs-toggle="modal"
+							        data-bs-target="#addComentModal-z"
+							        title="Добавить">
+								<img th:src="@{/icon/plus.png}" style="vertical-align: middle"></button>
+							<button class="btn-del" type="button" data-bs-toggle="modal"
+							        data-bs-target="#dellComentModal-z"
+							        title="Удалить">
+								<img th:src="@{/icon/basket.png}" style="vertical-align: middle"></button>
+						</div>
+					</div>
+					<div class="col-md-3 col-12 colum">
+						<div class="colum-name b2">
+							НОЯБРЬ
+						</div>
+						<div class="work b2">
+							<ul>
+								<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
+									modi?
+								</li>
 
-											</ul>
-										</div>
-										<div class="comment-name b2">
-											КОММЕНТАРИЙ
-										</div>
-										<div class="comment b3">
-											<ul>
-												<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
-													modi?
-												</li>
+							</ul>
+						</div>
+						<div class="comment-name b2">
+							КОММЕНТАРИЙ
+						</div>
+						<div class="comment b3">
+							<ul>
+								<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
+									modi?
+								</li>
 
-											</ul>
-										</div>
-										<div class="bt b4">
-											<button class="btn-add" type="button" data-bs-toggle="modal" data-bs-target="#addComentModal-z"
-													title="Добавить">
-												<img  th:src="@{/icon/plus.png}" style="vertical-align: middle"></button>
-											<button class="btn-del" type="button" data-bs-toggle="modal" data-bs-target="#dellComentModal-z"
-													title="Удалить">
-												<img th:src="@{/icon/basket.png}" style="vertical-align: middle"></button>
-										</div>
-									</div>
-									<div class="col-md-3 col-12 colum">
-										<div class="colum-name b2">
-											ДЕКАБРЬ
-										</div>
-										<div class="work b2">
-											<ul>
-												<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
-													modi?
-												</li>
+							</ul>
+						</div>
+						<div class="bt b4">
+							<button class="btn-add" type="button" data-bs-toggle="modal"
+							        data-bs-target="#addComentModal-z"
+							        title="Добавить">
+								<img th:src="@{/icon/plus.png}" style="vertical-align: middle"></button>
+							<button class="btn-del" type="button" data-bs-toggle="modal"
+							        data-bs-target="#dellComentModal-z"
+							        title="Удалить">
+								<img th:src="@{/icon/basket.png}" style="vertical-align: middle"></button>
+						</div>
+					</div>
+					<div class="col-md-3 col-12 colum">
+						<div class="colum-name b2">
+							ДЕКАБРЬ
+						</div>
+						<div class="work b2">
+							<ul>
+								<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
+									modi?
+								</li>
 
-											</ul>
-										</div>
-										<div class="comment-name b2">
-											КОММЕНТАРИЙ
-										</div>
-										<div class="comment b3">
-											<ul>
-												<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
-													modi?
-												</li>
-											</ul>
-										</div>
-										<div class="bt b4">
-											<button class="btn-add" type="button" data-bs-toggle="modal" data-bs-target="#addComentModal-z"
-													title="Добавить">
-												<img  th:src="@{/icon/plus.png}" style="vertical-align: middle"></button>
-											<button class="btn-del" type="button" data-bs-toggle="modal" data-bs-target="#dellComentModal-z"
-													title="Удалить">
-												<img th:src="@{/icon/basket.png}" style="vertical-align: middle"></button>
-										</div>
-									</div>
-								</div>
-
-							</div>
+							</ul>
+						</div>
+						<div class="comment-name b2">
+							КОММЕНТАРИЙ
+						</div>
+						<div class="comment b3">
+							<ul>
+								<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
+									modi?
+								</li>
+							</ul>
+						</div>
+						<div class="bt b4">
+							<button class="btn-add" type="button" data-bs-toggle="modal"
+							        data-bs-target="#addComentModal-z"
+							        title="Добавить">
+								<img th:src="@{/icon/plus.png}" style="vertical-align: middle"></button>
+							<button class="btn-del" type="button" data-bs-toggle="modal"
+							        data-bs-target="#dellComentModal-z"
+							        title="Удалить">
+								<img th:src="@{/icon/basket.png}" style="vertical-align: middle"></button>
 						</div>
 					</div>
 				</div>
 
 			</div>
-			</div>
+
 		</div>
 	</div>
 </section>
 
 <!--Модальное окно для добавление записи-->
-<div class="modal fade modal-edit" id="addComentModal-z" tabindex="-1" aria-labelledby="addComentModalLabel-z"
+<div class="modal fade modal-edit" id="addComentModal-z" tabindex="-1"
+     aria-labelledby="addComentModalLabel-z"
      aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
 		<div class="modal-content">
@@ -487,7 +516,8 @@
 </div>
 
 <!--Модальное окно для удаления записи-->
-<div class="modal fade modal-edit" id="dellComentModal-z" tabindex="-1" aria-labelledby="dellComentModalLabel-z"
+<div class="modal fade modal-edit" id="dellComentModal-z" tabindex="-1"
+     aria-labelledby="dellComentModalLabel-z"
      aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
 		<div class="modal-content">
@@ -508,7 +538,8 @@
 								</label>
 							</div>
 							<div class="form-check">
-								<input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+								<input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"
+								       checked>
 								<label class="form-check-label" for="flexCheckChecked">
 									Задание ...
 								</label>

@@ -610,27 +610,40 @@ footer {
 }
 
 /*Аккордeон-Календарь*/
-.calendar {
-  margin-top: 40px;
-  margin-bottom: 100px;
+.year-calendar {
+  justify-content: center;
+  margin: 50px 15px 0 15px;
 
-  .accordion-button {
-    &:focus, &:hover {
-      z-index: 3;
-      border-color: $color-object;
-      outline: 0;
-      box-shadow: 0 0 0 .25rem rgba(197, 134, 142, .25);
-    }
-
-
-    &:not(.collapsed) {
-      color: $color-object;
-      background-color: rgb(243, 238, 238);
-      font-weight: 600;
-    }
+  .form-select {
+    display: inline;
+    width: 150px;
   }
 
-  .accordion-body {
+  button {
+    margin-left: 5px;
+    padding: 5px 5px;
+    height: 32px;
+    width: 32px;
+    background-color: rgba(55, 143, 189, 0.8);
+    color: $color-btb-text;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 3px;
+    border: none;
+    line-height: 3px;
+
+    &:hover {
+      background-color: $color-head5;
+    }
+
+  }
+}
+.calendar {
+  margin-top: 25px;
+  margin-bottom: 100px;
+
+  .table-body {
+    padding: 15px;
     .row {
       display: inline-flex;
     }
@@ -1143,7 +1156,7 @@ footer {
 /*Календарь работ*/
 .calendar {
 
-  .accordion-body {
+  .table-body {
     .bt-i {
       margin-bottom: 0;
       display: flex;
@@ -1813,7 +1826,7 @@ footer {
 
   /*Каледарь*/
   .calendar {
-    .accordion-body {
+    .table-body {
       .colum {
         //границы
         .b2 {
