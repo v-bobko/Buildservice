@@ -63,6 +63,7 @@
 				<li th:each="pj : ${projects}" > <a th:href="${pj.project}" download="" th:text="${pj.nameOfProject}">name of project</a> </li>
 			</ul>
 		</div>
+
 	</div>
 </section>
 
@@ -74,11 +75,7 @@
 		</div>
 		<div class="row list">
 			<ul>
-				<li><a href="#">Смета на строительные работы</a></li>
-				<li><a href="#">Смета на монтажные работы</a></li>
-				<li><a href="#">Смета на материалы</a></li>
-				<li><a href="#">...</a></li>
-				<li><a href="#">...</a></li>
+				<li th:each="es : ${estimates}" > <a th:href="${es.estimate}" download="" th:text="${es.nameOfEstimate}">name of project</a> </li>
 			</ul>
 		</div>
 	</div>

@@ -39,7 +39,11 @@ public class Objects {
     private List<Projects> project;
 
     @OneToMany(mappedBy ="objects",cascade = CascadeType.ALL)
+    private List<Estimates> estimates;
+  
+    @OneToMany(mappedBy ="objects",cascade = CascadeType.ALL)
     private List<CalendarComment> calendarComments;
+
 
 
 
