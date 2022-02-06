@@ -549,7 +549,7 @@ footer img {
 .year-calendar .btn-addYear {
   padding: 0;
   background-color: transparent;
-  opacity: 0.6;
+  opacity: 0.8;
 }
 .year-calendar .btn-addYear:hover {
   opacity: 1;
@@ -568,9 +568,9 @@ footer img {
   padding: 15px;
 }
 .calendar .table-body .row {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 .calendar .table-body .colum {
   padding: 0;
