@@ -55,11 +55,11 @@
 </section>
 
 <!--Выбор года-->
-<form method="post" th:action="'/customer/work/' +${object.objectId}">
+<form method="get" th:action="'/customer/calendar/' +${object.objectId}">
 	<div class="container-fluid">
 		<div class="row year-calendar">
 			<select class="form-select" name="year" aria-label="Default select example">
-				<option th:value="${year}" th:text="${year}">Текущий год</option>
+				<option th:value="${year}" th:text="${year}" >Текущий год</option>
 				<div th:each="ya : ${years}">
 					<option th:value="${ya}" th:text="${ya}"></option>
 				</div>
@@ -85,7 +85,7 @@
 						<div class="work b1">
 							<ul>
 
-								<li>Lorem ipsum dolor sit amet, consectetur
+								<li th:each="j : ${jan}"  th:text="${j.task}">Lorem ipsum dolor sit amet, consectetur
 									adipisicing elit. Cupiditate,
 									modi?
 								</li>
@@ -97,7 +97,7 @@
 						</div>
 						<div class="comment b1-3">
 							<ul>
-								<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
+								<li th:each="j : ${jan}"  th:text="${j.commentOfEngineer}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
 									modi?
 								</li>
 
@@ -120,7 +120,7 @@
 						</div>
 						<div class="work b2">
 							<ul>
-								<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
+								<li th:each="j : ${feb}"  th:text="${j.task}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
 									modi?
 								</li>
 							</ul>
@@ -130,7 +130,9 @@
 						</div>
 						<div class="comment b3">
 							<ul>
-
+								<li th:each="j : ${feb}"  th:text="${j.commentOfEngineer}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
+									modi?
+								</li>
 							</ul>
 						</div>
 						<div class="bt b4">
@@ -150,7 +152,7 @@
 						</div>
 						<div class="work b2">
 							<ul>
-								<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
+								<li th:each="j : ${mar}"  th:text="${j.task}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
 									modi?
 								</li>
 
@@ -161,7 +163,7 @@
 						</div>
 						<div class="comment b3">
 							<ul>
-								<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
+								<li th:each="j : ${mar}"  th:text="${j.commentOfEngineer}"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
 									modi?
 								</li>
 
@@ -184,7 +186,7 @@
 						</div>
 						<div class="work b2">
 							<ul>
-								<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
+								<li th:each="j : ${apr}"  th:text="${j.task}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
 									modi?
 								</li>
 
@@ -195,7 +197,7 @@
 						</div>
 						<div class="comment b3">
 							<ul>
-								<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
+								<li th:each="j : ${apr}"  th:text="${j.commentOfEngineer}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
 									modi?
 								</li>
 							</ul>
@@ -219,7 +221,7 @@
 						</div>
 						<div class="work b1">
 							<ul>
-								<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
+								<li th:each="j : ${may}"  th:text="${j.task}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
 									modi?
 								</li>
 
@@ -230,7 +232,7 @@
 						</div>
 						<div class="comment b1-3">
 							<ul>
-								<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
+								<li th:each="j : ${may}"  th:text="${j.commentOfEngineer}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
 									modi?
 								</li>
 
@@ -253,7 +255,7 @@
 						</div>
 						<div class="work b2">
 							<ul>
-								<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
+								<li th:each="j : ${jun}"  th:text="${j.task}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
 									modi?
 								</li>
 
@@ -264,7 +266,9 @@
 						</div>
 						<div class="comment b3">
 							<ul>
-
+								<li th:each="j : ${jun}"  th:text="${j.commentOfEngineer}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
+									modi?
+								</li>
 							</ul>
 						</div>
 						<div class="bt b4">
@@ -284,7 +288,7 @@
 						</div>
 						<div class="work b2">
 							<ul>
-								<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
+								<li th:each="j : ${jul}"  th:text="${j.task}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
 									modi?
 								</li>
 
@@ -295,7 +299,7 @@
 						</div>
 						<div class="comment b3">
 							<ul>
-								<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
+								<li th:each="j : ${jul}"  th:text="${j.commentOfEngineer}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
 									modi?
 								</li>
 
@@ -318,7 +322,7 @@
 						</div>
 						<div class="work b2">
 							<ul>
-								<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
+								<li th:each="j : ${aug}"  th:text="${j.task}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
 									modi?
 								</li>
 
@@ -329,7 +333,7 @@
 						</div>
 						<div class="comment b3">
 							<ul>
-								<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
+								<li th:each="j : ${aug}"  th:text="${j.commentOfEngineer}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
 									modi?
 								</li>
 							</ul>
@@ -353,7 +357,7 @@
 						</div>
 						<div class="work b1">
 							<ul>
-								<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
+								<li th:each="j : ${sep}"  th:text="${j.task}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
 									modi?
 								</li>
 
@@ -364,7 +368,7 @@
 						</div>
 						<div class="comment b1-3">
 							<ul>
-								<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
+								<li th:each="j : ${sep}"  th:text="${j.commentOfEngineer}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
 									modi?
 								</li>
 
@@ -387,7 +391,7 @@
 						</div>
 						<div class="work b2">
 							<ul>
-								<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
+								<li th:each="j : ${oct}"  th:text="${j.task}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
 									modi?
 								</li>
 
@@ -398,7 +402,9 @@
 						</div>
 						<div class="comment b3">
 							<ul>
-
+								<li th:each="j : ${oct}"  th:text="${j.commentOfEngineer}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
+									modi?
+								</li>
 							</ul>
 						</div>
 						<div class="bt b4">
@@ -418,7 +424,7 @@
 						</div>
 						<div class="work b2">
 							<ul>
-								<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
+								<li th:each="j : ${nov}"  th:text="${j.task}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
 									modi?
 								</li>
 
@@ -429,7 +435,7 @@
 						</div>
 						<div class="comment b3">
 							<ul>
-								<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
+								<li th:each="j : ${nov}"  th:text="${j.commentOfEngineer}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
 									modi?
 								</li>
 
@@ -452,7 +458,7 @@
 						</div>
 						<div class="work b2">
 							<ul>
-								<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
+								<li th:each="j : ${dec}"  th:text="${j.task}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
 									modi?
 								</li>
 
@@ -463,7 +469,7 @@
 						</div>
 						<div class="comment b3">
 							<ul>
-								<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
+								<li th:each="j : ${dec}"  th:text="${j.commentOfEngineer}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
 									modi?
 								</li>
 							</ul>

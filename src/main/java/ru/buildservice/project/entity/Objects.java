@@ -38,6 +38,9 @@ public class Objects {
     @OneToMany(mappedBy ="objects",cascade = CascadeType.ALL)
     private List<Projects> project;
 
+    @OneToMany(mappedBy ="objects",cascade = CascadeType.ALL)
+    private List<Estimates> estimates;
+
 
 
     public Objects() {

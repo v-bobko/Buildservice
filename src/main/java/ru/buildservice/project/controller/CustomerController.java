@@ -36,6 +36,11 @@ public class CustomerController {
     @Autowired
     private ProjectRepository projectRepository;
 
+
+
+    @Autowired
+    private EstimateRepository estimateRepository;
+
     @Autowired
     private PhotoRepozitory photoRepozitory;
 
@@ -53,7 +58,7 @@ public class CustomerController {
     }
 
     @GetMapping("/customer/calendar/{id}")
-    public String customerCalendar(@PathVariable(value = "id") int id, Model model) {
+    public String customerCalendar(@PathVariable(value = "id") int id, @RequestParam(required = false, value = "year") Integer curYear, Model model) {
 
         Objects object = objectRepository.findById(id).orElseThrow();
         model.addAttribute("object", object);
@@ -63,13 +68,40 @@ public class CustomerController {
         List<CalendarService> calendarServices = calendarServiceRepository.findByObjects(object);
 
         ArrayList<Integer> years = calendarServiceRepository.findYears();
-        // нужно передать год он будет как запрос
+        Integer year;
+        if(curYear==null) {
+            Datetime datetime = new Datetime();
+            year = datetime.extractYear();
+        } else year=curYear;
 
-
-        //если значение нулевое, тогда отобразить текущий месяц и текущий год иначе в соответствии со значением
+        List<CalendarService> jan = calendarServiceRepository.findByObjectsAndMonthAndYearOrderByCalendarIdAsc(object, "Январь", year);
+        model.addAttribute("jan", jan);
+        List<CalendarService> feb = calendarServiceRepository.findByObjectsAndMonthAndYearOrderByCalendarIdAsc(object, "Февраль", year);
+        model.addAttribute("feb", feb);
+        List<CalendarService> mar = calendarServiceRepository.findByObjectsAndMonthAndYearOrderByCalendarIdAsc(object, "Март", year);
+        model.addAttribute("mar", mar);
+        List<CalendarService> apr = calendarServiceRepository.findByObjectsAndMonthAndYearOrderByCalendarIdAsc(object, "Апрель", year);
+        model.addAttribute("apr", apr);
+        List<CalendarService> may = calendarServiceRepository.findByObjectsAndMonthAndYearOrderByCalendarIdAsc(object, "Май", year);
+        model.addAttribute("may", may);
+        List<CalendarService> jun = calendarServiceRepository.findByObjectsAndMonthAndYearOrderByCalendarIdAsc(object, "Июнь", year);
+        model.addAttribute("jun", jun);
+        List<CalendarService> jul = calendarServiceRepository.findByObjectsAndMonthAndYearOrderByCalendarIdAsc(object, "Июль", year);
+        model.addAttribute("jul", jul);
+        List<CalendarService> aug = calendarServiceRepository.findByObjectsAndMonthAndYearOrderByCalendarIdAsc(object, "Август", year);
+        model.addAttribute("aug", aug);
+        List<CalendarService> sep = calendarServiceRepository.findByObjectsAndMonthAndYearOrderByCalendarIdAsc(object, "Сентябрь", year);
+        model.addAttribute("sep", sep);
+        List<CalendarService> oct = calendarServiceRepository.findByObjectsAndMonthAndYearOrderByCalendarIdAsc(object, "Октябрь", year);
+        model.addAttribute("oct", oct);
+        List<CalendarService> nov = calendarServiceRepository.findByObjectsAndMonthAndYearOrderByCalendarIdAsc(object, "Ноябрь", year);
+        model.addAttribute("nov", nov);
+        List<CalendarService> dec = calendarServiceRepository.findByObjectsAndMonthAndYearOrderByCalendarIdAsc(object, "Декабрь", year);
+        model.addAttribute("dec", dec);
 
 
         model.addAttribute("years", years);
+        model.addAttribute("year", year);
         model.addAttribute("calendar", calendarServices);
 
 
@@ -79,24 +111,7 @@ public class CustomerController {
         return "redirect:/customer/objects";
     }
 
-    @PostMapping("/customer/calendar/{id}")
-    public String editObject(@PathVariable(value = "id") int id, @RequestParam String month, @RequestParam Integer year, Model model) {
 
-        Objects object = objectRepository.findById(id).orElseThrow();
-        model.addAttribute("object", object);
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        Users user = userRepository.findByUsername(auth.getName());
-//
-//        !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-//                !!!!!!!!!!!!!!!!!!!!!
-//                        !!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-
-        if (user.getUser_id() == object.getUsers().getUser_id()) {
-            return "customer/customer-calendar";
-        }
-        return "redirect:/customer/objects";
-    }
 
 
     @GetMapping("/customer/psd/{id}")
@@ -107,8 +122,9 @@ public class CustomerController {
         Users user = userRepository.findByUsername(auth.getName());
 
         List<Projects> projects = projectRepository.findByObjects(object);
-
         model.addAttribute("projects", projects);
+        List<Estimates> estimates = estimateRepository.findByObjects(object);
+        model.addAttribute("estimates", estimates);
 
         if (user.getUser_id() == object.getUsers().getUser_id()) {
             return "customer/customer-psd";
@@ -118,7 +134,7 @@ public class CustomerController {
 
 
     @GetMapping("/customer/work/{id}")
-    public String customerWork(@PathVariable(value = "id") int id, Model model) {
+    public String customerWork(@PathVariable(value = "id") int id, @RequestParam(required = false, value = "month") String curMonth, @RequestParam(required = false, value = "year") Integer curYear, Model model) {
         Objects object = objectRepository.findById(id).orElseThrow();
         model.addAttribute("object", object);
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -128,18 +144,27 @@ public class CustomerController {
 
 
         model.addAttribute("years", years);
+        String month;
+        Integer year;
 
-        Datetime datetime = new Datetime();
-        String month = datetime.extractMonth();
-        int year = datetime.extractYear();
-        model.addAttribute("month",month);
-        model.addAttribute("year",year);
+        if (curMonth == null) {
+            Datetime datetime = new Datetime();
+            month = datetime.extractMonth();
+            year = datetime.extractYear();
+        } else {
+           year=curYear;
+            month=curMonth;
+        }
+
+
+        model.addAttribute("month", month);
+        model.addAttribute("year", year);
 
         List<CalendarService> calendarServices1 = calendarServiceRepository.findByObjectsAndMonthAndYearOrderByCalendarIdAsc(object, month, year);
         model.addAttribute("calendar", calendarServices1);
 
         List<Photo> photo = photoRepozitory.findByObjects(object);
-        model.addAttribute("photo",photo);
+        model.addAttribute("photo", photo);
 
 
         if (user.getUser_id() == object.getUsers().getUser_id()) {
@@ -147,38 +172,6 @@ public class CustomerController {
         }
         return "redirect:/customer/objects";
     }
-
-    @PostMapping("/customer/work/{id}")
-    public String customerWorkCustomDate(@PathVariable(value = "id") int ids,  @RequestParam String month, @RequestParam int year, Model model) {
-         Objects object = objectRepository.findById(ids).orElseThrow();
-        model.addAttribute("object", object);
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        Users user = userRepository.findByUsername(auth.getName());
-    model.addAttribute("month", month);
-    model.addAttribute("year", year);
-
-
-        ArrayList<Integer> years = calendarServiceRepository.findYears();
-        List<CalendarService> calendarServices1 = calendarServiceRepository.findByObjectsAndMonthAndYearOrderByCalendarIdAsc(object, month, year);
-        //List<CalendarService> calendarServices = calendarServiceRepository.findByObjects(object);
-
-
-        model.addAttribute("years", years);
-
-
-        model.addAttribute("calendar", calendarServices1);
-        List<Photo> photo = photoRepozitory.findByObjects(object);
-        model.addAttribute("photo",photo);
-
-
-        if (user.getUser_id() == object.getUsers().getUser_id()) {
-            return "customer/customer-work";
-        }
-        return "redirect:/customer/objects";
-    }
-
-
-
 
 
     @PostMapping("/customer/edit-comment")
