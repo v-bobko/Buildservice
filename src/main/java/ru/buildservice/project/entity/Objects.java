@@ -40,6 +40,10 @@ public class Objects {
 
     @OneToMany(mappedBy ="objects",cascade = CascadeType.ALL)
     private List<Estimates> estimates;
+  
+    @OneToMany(mappedBy ="objects",cascade = CascadeType.ALL)
+    private List<CalendarComment> calendarComments;
+
 
 
 

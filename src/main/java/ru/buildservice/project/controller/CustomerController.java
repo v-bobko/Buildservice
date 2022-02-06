@@ -141,8 +141,6 @@ public class CustomerController {
         Users user = userRepository.findByUsername(auth.getName());
 
         ArrayList<Integer> years = calendarServiceRepository.findYears();
-
-
         model.addAttribute("years", years);
         String month;
         Integer year;
