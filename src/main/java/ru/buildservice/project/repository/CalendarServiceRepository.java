@@ -22,6 +22,8 @@ public interface CalendarServiceRepository extends JpaRepository<CalendarService
     @Query(nativeQuery = true, value = "select distinct year from calendar_service;")
     ArrayList<Integer> findYears();
 
+    CalendarService findByCalendarIdOrderByCalendarIdAsc(Integer task);
+
 
 
 //
