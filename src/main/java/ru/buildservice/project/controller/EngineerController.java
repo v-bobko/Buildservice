@@ -13,6 +13,8 @@ import ru.buildservice.project.Datetime;
 import ru.buildservice.project.entity.*;
 import ru.buildservice.project.repository.*;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -33,6 +35,8 @@ public class EngineerController {
     private CalendarServiceRepository calendarServiceRepository;
     @Autowired
     private CalendarCommentRepository calendarCommentRepository;
+    @Autowired
+    private PhotoRepozitory photoRepozitory;
 
 
     //Личный кабинет инженера
@@ -190,13 +194,74 @@ public class EngineerController {
     }
 
     @GetMapping("/engineer/work/{id}")
-    public String engineerWork(@PathVariable(value = "id") int id, Model model) {
+    public String engineerWork(@PathVariable(value = "id") int id,
+                               @RequestParam(required = false, value = "month") String curMonth,
+                               @RequestParam(required = false, value = "year") Integer curYear,
+                               Model model) {
         Objects object = objectRepository.findById(id).orElseThrow();
         model.addAttribute("object", object);
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String name = auth.getName();
         model.addAttribute("nameEngineer", name);
+        Users user = userRepository.findByUsername(name);
+
+        ArrayList<Integer> years = calendarServiceRepository.findYears();
+        model.addAttribute("years", years);
+        String month;
+        Integer year;
+
+        if (curMonth == null) {
+            Datetime datetime = new Datetime();
+            month = datetime.extractMonth();
+            year = datetime.extractYear();
+        } else {
+            year = curYear;
+            month = curMonth;
+        }
+
+        model.addAttribute("month", month);
+        model.addAttribute("year", year);
+
+        List<CalendarService> calendarServices1 = calendarServiceRepository.findByObjectsAndMonthAndYearOrderByCalendarIdAsc(object, month, year);
+        model.addAttribute("calendar", calendarServices1);
+
+        List<Photo> photo = photoRepozitory.findByObjects(object);
+        model.addAttribute("photo", photo);
+
         return "engineer/engineer-work";
+    }
+
+    @PostMapping("/engineer/edit-comment")
+    public String createCommentEngineer(@RequestParam Integer calendarId,
+                                        @RequestParam String commentOfEngineer,
+                                        Model model) {
+
+        CalendarService calendarService = calendarServiceRepository.findById(calendarId).orElseThrow();
+
+        calendarService.setCommentOfEngineer(commentOfEngineer);
+
+        calendarServiceRepository.save(calendarService);
+        int objectId = calendarService.getObjects().getObjectId();
+
+        String month=URLEncoder.encode(calendarService.getMonth(), StandardCharsets.UTF_8);
+        int year=calendarService.getYear();
+        return "redirect:/engineer/work/"+objectId+"?month="+month+"&year="+year;
+    }
+
+
+    @PostMapping("/engineer/deleteComments")
+    public String deleteCommentEngineer(@RequestParam Integer calendarId,
+                                        Model model) {
+
+        CalendarService calendarService = calendarServiceRepository.findById(calendarId).orElseThrow();
+        calendarService.setCommentOfEngineer(null);
+
+        calendarServiceRepository.save(calendarService);
+        int objectId = calendarService.getObjects().getObjectId();
+
+        String month=URLEncoder.encode(calendarService.getMonth(), StandardCharsets.UTF_8);
+        int year=calendarService.getYear();
+        return "redirect:/engineer/work/" + objectId+"?month="+month +"&year="+year;
     }
 
     @GetMapping("/engineer/journal/{id}")

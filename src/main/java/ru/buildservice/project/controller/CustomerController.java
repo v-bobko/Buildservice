@@ -20,6 +20,8 @@ import ru.buildservice.project.entity.Objects;
 import ru.buildservice.project.repository.*;
 import ru.buildservice.project.security.auth.CustomUserDetailService;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.sql.Timestamp;
 import java.util.*;
 
@@ -181,7 +183,11 @@ public class CustomerController {
 
         calendarServiceRepository.save(calendarService);
         int objectId = calendarService.getObjects().getObjectId();
-        return "redirect:/customer/work/" + objectId;
+
+        String month=URLEncoder.encode(calendarService.getMonth(), StandardCharsets.UTF_8);
+        int year=calendarService.getYear();
+
+        return "redirect:/customer/work/" + objectId+"?month="+month +"&year="+year;
     }
 
 
@@ -193,7 +199,11 @@ public class CustomerController {
 
         calendarServiceRepository.save(calendarService);
         int objectId = calendarService.getObjects().getObjectId();
-        return "redirect:/customer/work/" + objectId;
+
+        String month= URLEncoder.encode(calendarService.getMonth(), StandardCharsets.UTF_8);
+        int year=calendarService.getYear();
+
+        return "redirect:/customer/work/" + objectId+"?month="+month +"&year="+year;
     }
 
 
