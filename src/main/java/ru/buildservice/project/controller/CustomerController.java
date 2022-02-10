@@ -2,12 +2,8 @@ package ru.buildservice.project.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.neo4j.Neo4jProperties;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,9 +14,8 @@ import ru.buildservice.project.Datetime;
 import ru.buildservice.project.entity.*;
 import ru.buildservice.project.entity.Objects;
 import ru.buildservice.project.repository.*;
-import ru.buildservice.project.security.auth.CustomUserDetailService;
 
-import java.sql.Timestamp;
+
 import java.util.*;
 
 @Controller
@@ -35,6 +30,8 @@ public class CustomerController {
     private CalendarServiceRepository calendarServiceRepository;
     @Autowired
     private ProjectRepository projectRepository;
+    @Autowired
+    private CalendarCommentRepository calendarCommentRepository;
 
 
 
@@ -42,9 +39,9 @@ public class CustomerController {
     private EstimateRepository estimateRepository;
 
     @Autowired
-    private PhotoRepozitory photoRepozitory;
+    private PhotoRepository photoRepository;
 
-
+//  Страница с объектами
     @GetMapping("/customer/objects")
     public String customerObjects(Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -56,7 +53,7 @@ public class CustomerController {
 
         return "customer/customer-objects";
     }
-
+// очень некрасивый способ отображения работ по месяцам, но если это работает то это не глупо
     @GetMapping("/customer/calendar/{id}")
     public String customerCalendar(@PathVariable(value = "id") int id, @RequestParam(required = false, value = "year") Integer curYear, Model model) {
 
@@ -100,6 +97,33 @@ public class CustomerController {
         model.addAttribute("dec", dec);
 
 
+        //Работы, вносит закзачик
+        List<CalendarComment> janCom = calendarCommentRepository.findByObjectsAndMonthAndYearOrderByCommentIdAsc(object, "Январь", year);
+        model.addAttribute("janCom", janCom);
+        List<CalendarComment> febCom = calendarCommentRepository.findByObjectsAndMonthAndYearOrderByCommentIdAsc(object, "Февраль", year);
+        model.addAttribute("febCom", febCom);
+        List<CalendarComment> marCom = calendarCommentRepository.findByObjectsAndMonthAndYearOrderByCommentIdAsc(object, "Март", year);
+        model.addAttribute("marCom", marCom);
+        List<CalendarComment> aprCom = calendarCommentRepository.findByObjectsAndMonthAndYearOrderByCommentIdAsc(object, "Апрель", year);
+        model.addAttribute("aprCom", aprCom);
+        List<CalendarComment> mayCom = calendarCommentRepository.findByObjectsAndMonthAndYearOrderByCommentIdAsc(object, "Май", year);
+        model.addAttribute("mayCom", mayCom);
+        List<CalendarComment> junCom = calendarCommentRepository.findByObjectsAndMonthAndYearOrderByCommentIdAsc(object, "Июнь", year);
+        model.addAttribute("junCom", junCom);
+        List<CalendarComment> julCom = calendarCommentRepository.findByObjectsAndMonthAndYearOrderByCommentIdAsc(object, "Июль", year);
+        model.addAttribute("julCom", julCom);
+        List<CalendarComment> augCom = calendarCommentRepository.findByObjectsAndMonthAndYearOrderByCommentIdAsc(object, "Август", year);
+        model.addAttribute("augCom", augCom);
+        List<CalendarComment> sepCom = calendarCommentRepository.findByObjectsAndMonthAndYearOrderByCommentIdAsc(object, "Сентябрь", year);
+        model.addAttribute("sepCom", sepCom);
+        List<CalendarComment> octCom = calendarCommentRepository.findByObjectsAndMonthAndYearOrderByCommentIdAsc(object, "Октябрь", year);
+        model.addAttribute("octCom", octCom);
+        List<CalendarComment> novCom = calendarCommentRepository.findByObjectsAndMonthAndYearOrderByCommentIdAsc(object, "Ноябрь", year);
+        model.addAttribute("novCom", novCom);
+        List<CalendarComment> decCom = calendarCommentRepository.findByObjectsAndMonthAndYearOrderByCommentIdAsc(object, "Декабрь", year);
+        model.addAttribute("decCom", decCom);
+
+
         model.addAttribute("years", years);
         model.addAttribute("year", year);
         model.addAttribute("calendar", calendarServices);
@@ -110,10 +134,25 @@ public class CustomerController {
         }
         return "redirect:/customer/objects";
     }
+// Добавление комментария клиентом в календаре работ
+    @PostMapping("/customer/calendar/addComment/{id}")
+    public String createCustomerComment(@PathVariable(value = "id") int id, @RequestParam(value = "month") String month, @RequestParam(value = "commentOfClient") String commentOfClient, @RequestParam(value = "year") Integer year, Model model) {
+        Objects objects = objectRepository.findById(id).orElseThrow();
+        CalendarComment calendarComment = new CalendarComment();
+        calendarComment.setYear(year);
+        calendarComment.setComment(commentOfClient);
+        calendarComment.setMonth(month);
+        calendarComment.setObjects(objects);
+        calendarCommentRepository.save(calendarComment);
+
+
+        return "redirect:/customer/calendar/{id}/?year=" + year;
+    }
 
 
 
 
+//  страница со сметами и проектами
     @GetMapping("/customer/psd/{id}")
     public String customerPSD(@PathVariable(value = "id") int id, Model model) {
         Objects object = objectRepository.findById(id).orElseThrow();
@@ -132,7 +171,7 @@ public class CustomerController {
         return "redirect:/customer/objects";
     }
 
-
+// страница с работами за месяц
     @GetMapping("/customer/work/{id}")
     public String customerWork(@PathVariable(value = "id") int id, @RequestParam(required = false, value = "month") String curMonth, @RequestParam(required = false, value = "year") Integer curYear, Model model) {
         Objects object = objectRepository.findById(id).orElseThrow();
@@ -161,7 +200,7 @@ public class CustomerController {
         List<CalendarService> calendarServices1 = calendarServiceRepository.findByObjectsAndMonthAndYearOrderByCalendarIdAsc(object, month, year);
         model.addAttribute("calendar", calendarServices1);
 
-        List<Photo> photo = photoRepozitory.findByObjects(object);
+        List<Photo> photo = photoRepository.findByObjects(object);
         model.addAttribute("photo", photo);
 
 
@@ -171,7 +210,7 @@ public class CustomerController {
         return "redirect:/customer/objects";
     }
 
-
+// Добавление комментария на странице с работами за месяц
     @PostMapping("/customer/edit-comment")
     public String createComment(@RequestParam Integer calendarId, @RequestParam String commentOfClient, Model model) {
 
@@ -185,6 +224,7 @@ public class CustomerController {
     }
 
 
+    // Удаление комментария на странице с работами за месяц
     @PostMapping("/customer/deleteComments")
     public String deleteComment(@RequestParam Integer calendarId, Model model) {
 
