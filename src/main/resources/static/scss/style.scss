@@ -784,7 +784,7 @@ footer {
         .btn-add, .btn-del {
           margin-bottom: 10px;
           margin-right: 5px;
-          padding: 5px 5px;
+          padding: 5px;
           width: 30px;
           height: 30px;
           background-color: rgba(73, 53, 155, 0.8);
@@ -1045,8 +1045,17 @@ footer {
 .video {
   margin-top: 40px;
   margin-bottom: 100px;
+  .accordion {
+    text-align: center;
+  }
+
 
   .accordion-button {
+    font-size: 17px;
+    font-weight: 400;
+    color: rgb(75, 23, 30);
+
+
     &:focus, &:hover {
       z-index: 3;
       border-color: $color-object;
@@ -1073,17 +1082,24 @@ footer {
 
   .btn-online-ac {
     margin-top: 10px;
-    width: 150px;
+    padding: 5px;
+    width: 35px;
     height: 35px;
     background-color: rgba(197, 134, 142, 0.8);
     color: $color-btb-text;
     font-size: 16px;
     border: none;
     border-radius: 4px;
+    line-height: 3px;
 
     &:hover {
       background-color: $color-object;
 
+    }
+
+    img{
+      height: 25px;
+      width: 25px;
     }
   }
 }
@@ -1517,6 +1533,7 @@ footer {
     width: 1230px;
 
     table {
+      width: 100%;
 
       td, th {
         padding: 10px;
@@ -1551,7 +1568,7 @@ footer {
         }
 
         .colum-data {
-          width: 100px;
+          width: 150px;
           text-align: center;
         }
 

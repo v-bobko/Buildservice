@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ru">
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
 <!--Мета-теги-->
 <div th:replace="~{head::head}">
 </div>
@@ -61,6 +61,7 @@
     </div>
 </section>
 
+<!--Выбор даты-->
 
 <form method="get" th:action="'/customer/work/' +${object.objectId}">
     <div class="container-fluid">
@@ -172,7 +173,7 @@
                                 <h6>Заполните текстовое поле:</h6>
 
                                 <textarea class="form-control" aria-label="With textarea"
-                                          name="commentOfClient">  </textarea>
+                                          name="commentOfClient" th:text="${cal.commentOfClient}"> </textarea>
 
                                 <input type="hidden" id="calendarId" name="calendarId" th:value="${cal.calendarId}">
                             </form>

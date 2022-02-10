@@ -13,9 +13,10 @@ import ru.buildservice.project.Datetime;
 import ru.buildservice.project.entity.*;
 import ru.buildservice.project.repository.*;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 
 @Controller
@@ -33,6 +34,12 @@ public class EngineerController {
     private CalendarServiceRepository calendarServiceRepository;
     @Autowired
     private CalendarCommentRepository calendarCommentRepository;
+    @Autowired
+    private PhotoRepository photoRepository;
+    @Autowired
+    private JournalRepository journalRepository;
+    @Autowired
+    private CameraRepository cameraRepository;
 
 
     //Личный кабинет инженера
@@ -40,34 +47,37 @@ public class EngineerController {
 
     @GetMapping("/engineer/objects")
     public String engineerObjects(Model model) {
-        Authentication auth= SecurityContextHolder.getContext().getAuthentication();
-        Users user= userRepository.findByUsername(auth.getName());
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        Users user = userRepository.findByUsername(auth.getName());
         List<Objects> objects = objectRepository.findAll();
 //        ArrayList<Objects> listOfObjects = new ArrayList<>();
 //        objects.forEach(listOfObjects::add);
-        model.addAttribute("object",objects);
-        model.addAttribute("user",user);
+        model.addAttribute("object", objects);
+        model.addAttribute("user", user);
         return "engineer/engineer-objects";
     }
 
     @GetMapping("/engineer/calendar/{id}")
-    public String engineerCalendar(@PathVariable(value = "id") int id, @RequestParam(required = false,value = "year") Integer curYear, Model model) {
-        Objects object=objectRepository.findById(id).orElseThrow();
-        model.addAttribute("object",object);
-        Authentication auth= SecurityContextHolder.getContext().getAuthentication();
-        String name=auth.getName();
-        model.addAttribute("nameEngineer",name);
+    public String engineerCalendar(@PathVariable(value = "id") int id, @RequestParam(required = false, value = "year") Integer curYear, Model model) {
+        Objects object = objectRepository.findById(id).orElseThrow();
+        model.addAttribute("object", object);
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String name = auth.getName();
+        model.addAttribute("nameEngineer", name);
         ArrayList<Integer> years = calendarServiceRepository.findYears();
         model.addAttribute("years", years);
 
         Integer year;
 
-        if(curYear==null){
+        if (curYear == null) {
             Datetime datetime = new Datetime();
             year = datetime.extractYear();
-        } else year= curYear;
+        } else year = curYear;
 
-        model.addAttribute("year",year);
+        model.addAttribute("year", year);
+        // Все рабочие
+        List<Users> workers = userRepository.findRoleUser("WORKER");
+        model.addAttribute("workers", workers);
 
         //Работы, которые занес инженер
 
@@ -95,6 +105,7 @@ public class EngineerController {
         model.addAttribute("nov", nov);
         List<CalendarService> dec = calendarServiceRepository.findByObjectsAndMonthAndYearOrderByCalendarIdAsc(object, "Декабрь", year);
         model.addAttribute("dec", dec);
+
 
         //Работы, которые занес заказчик в поле комментарии
         List<CalendarComment> janCom = calendarCommentRepository.findByObjectsAndMonthAndYearOrderByCommentIdAsc(object, "Январь", year);
@@ -126,22 +137,57 @@ public class EngineerController {
     }
 
     @PostMapping("/engineer/calendar/{id}")
-    public String engineerCalendarAddYearPost(@PathVariable(value = "id") int id, @RequestParam(required = false,value = "newYear") Integer newYear, Model model){
+    public String engineerCalendarAddYearPost(@PathVariable(value = "id") int id, @RequestParam(required = false, value = "newYear") Integer newYear, Model model) {
         //Добавление года
-        CalendarService calendarService=new CalendarService();
+        CalendarService calendarService = new CalendarService();
         calendarService.setYear(newYear);
         calendarServiceRepository.save(calendarService);
         return "redirect:/engineer/calendar/{id}";
     }
 
+    @PostMapping("/engineer/calendar/{id}/addwork")
+    public String engineerCalendarAddWorkPost(@PathVariable(value = "id") int id,
+                                              @RequestParam(required = false, value = "work") String work,
+                                              @RequestParam(value = "month") String month,
+                                              @RequestParam(value = "year") Integer year,
+                                              @RequestParam(value = "workername") String workername, Model model) {
+
+        if (!workername.isEmpty() & !work.isEmpty()) {
+            Objects object = objectRepository.findById(id).orElseThrow();
+            Users worker = userRepository.findByUsername(workername);
+            CalendarService calendarService = new CalendarService();
+            calendarService.setYear(year);
+            calendarService.setMonth(month);
+            calendarService.setObjects(object);
+            calendarService.setUsers(worker);
+            calendarService.setTask(work);
+            calendarServiceRepository.save(calendarService);
+        }
+        return "redirect:/engineer/calendar/{id}/?year=" + year;
+    }
+
+    @PostMapping("/engineer/calendar/{id}/deleteTasks")
+    public String deleteTasks(@PathVariable(value = "id") int id,
+                              @RequestParam(required = false, value = "task") List<Integer> task,
+                              @RequestParam(value = "year") Integer year,
+                              Model model) {
+
+        for (Integer el : task) {
+            CalendarService calendarService = calendarServiceRepository.findByCalendarIdOrderByCalendarIdAsc(el);
+            calendarServiceRepository.delete(calendarService);
+        }
+
+        return "redirect:/engineer/calendar/{id}/?year=" + year;
+    }
+
 
     @GetMapping("/engineer/psd/{id}")
     public String engineerPSD(@PathVariable(value = "id") int id, Model model) {
-        Objects object=objectRepository.findById(id).orElseThrow();
-        model.addAttribute("object",object);
-        Authentication auth= SecurityContextHolder.getContext().getAuthentication();
-        String name=auth.getName();
-        model.addAttribute("nameEngineer",name);
+        Objects object = objectRepository.findById(id).orElseThrow();
+        model.addAttribute("object", object);
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String name = auth.getName();
+        model.addAttribute("nameEngineer", name);
 
         List<Projects> projects = projectRepository.findByObjects(object);
 
@@ -151,42 +197,139 @@ public class EngineerController {
     }
 
     @GetMapping("/engineer/work/{id}")
-    public String engineerWork(@PathVariable(value = "id") int id, Model model) {
-        Objects object=objectRepository.findById(id).orElseThrow();
-        model.addAttribute("object",object);
-        Authentication auth= SecurityContextHolder.getContext().getAuthentication();
-        String name=auth.getName();
-        model.addAttribute("nameEngineer",name);
+    public String engineerWork(@PathVariable(value = "id") int id,
+                               @RequestParam(required = false, value = "month") String curMonth,
+                               @RequestParam(required = false, value = "year") Integer curYear,
+                               Model model) {
+        Objects object = objectRepository.findById(id).orElseThrow();
+        model.addAttribute("object", object);
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String name = auth.getName();
+        model.addAttribute("nameEngineer", name);
+        Users user = userRepository.findByUsername(name);
+
+        ArrayList<Integer> years = calendarServiceRepository.findYears();
+        model.addAttribute("years", years);
+        String month;
+        Integer year;
+
+        if (curMonth == null) {
+            Datetime datetime = new Datetime();
+            month = datetime.extractMonth();
+            year = datetime.extractYear();
+        } else {
+            year = curYear;
+            month = curMonth;
+        }
+
+        model.addAttribute("month", month);
+        model.addAttribute("year", year);
+
+        List<CalendarService> calendarServices1 = calendarServiceRepository.findByObjectsAndMonthAndYearOrderByCalendarIdAsc(object, month, year);
+        model.addAttribute("calendar", calendarServices1);
+
+        List<Photo> photo = photoRepository.findByObjectsAndMonthAndYearOrderByPhotoIdDesc(object, month, year);
+        model.addAttribute("photo", photo);
+
         return "engineer/engineer-work";
     }
 
+    @PostMapping("/engineer/edit-comment")
+    public String createCommentEngineer(@RequestParam Integer calendarId,
+                                        @RequestParam String commentOfEngineer,
+                                        Model model) {
+
+        CalendarService calendarService = calendarServiceRepository.findById(calendarId).orElseThrow();
+
+        calendarService.setCommentOfEngineer(commentOfEngineer);
+
+        calendarServiceRepository.save(calendarService);
+        int objectId = calendarService.getObjects().getObjectId();
+
+        String month = URLEncoder.encode(calendarService.getMonth(), StandardCharsets.UTF_8);
+        int year = calendarService.getYear();
+        return "redirect:/engineer/work/" + objectId + "?month=" + month + "&year=" + year;
+    }
+
+
+    @PostMapping("/engineer/deleteComments")
+    public String deleteCommentEngineer(@RequestParam Integer calendarId,
+                                        Model model) {
+
+        CalendarService calendarService = calendarServiceRepository.findById(calendarId).orElseThrow();
+        calendarService.setCommentOfEngineer(null);
+
+        calendarServiceRepository.save(calendarService);
+        int objectId = calendarService.getObjects().getObjectId();
+
+        String month = URLEncoder.encode(calendarService.getMonth(), StandardCharsets.UTF_8);
+        int year = calendarService.getYear();
+        return "redirect:/engineer/work/" + objectId + "?month=" + month + "&year=" + year;
+    }
+
     @GetMapping("/engineer/journal/{id}")
-    public String engineerJournal(@PathVariable(value = "id") int id, Model model) {
-        Objects object=objectRepository.findById(id).orElseThrow();
-        model.addAttribute("object",object);
-        Authentication auth= SecurityContextHolder.getContext().getAuthentication();
-        String name=auth.getName();
-        model.addAttribute("nameEngineer",name);
+    public String engineerJournal(@PathVariable(value = "id") int id,
+                                  Model model) {
+        Objects object = objectRepository.findById(id).orElseThrow();
+        model.addAttribute("object", object);
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String name = auth.getName();
+        model.addAttribute("nameEngineer", name);
+
+        List<Journal> journals = journalRepository.findByObjects(object);
+        model.addAttribute("journal", journals);
+
         return "engineer/engineer-journal";
     }
 
     @GetMapping("/engineer/online/{id}")
     public String engineerOnline(@PathVariable(value = "id") int id, Model model) {
-        Objects object=objectRepository.findById(id).orElseThrow();
-        model.addAttribute("object",object);
-        Authentication auth= SecurityContextHolder.getContext().getAuthentication();
-        String name=auth.getName();
-        model.addAttribute("nameEngineer",name);
+        Objects object = objectRepository.findById(id).orElseThrow();
+        model.addAttribute("object", object);
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String name = auth.getName();
+        model.addAttribute("nameEngineer", name);
+
+        List<Cameras> cameras = cameraRepository.findByObjectsOrderByCameraIdAsc(object);
+        model.addAttribute("cameras", cameras);
         return "engineer/engineer-online";
     }
 
+    @PostMapping("/engineer/online/{id}/addCamera")
+    public String addCameraEngineer(@PathVariable(value = "id") int id,
+                                    @RequestParam(value = "nameCamera") String nameCamera,
+                                    @RequestParam(value = "urlCamera") String urlCamera,
+                                    Model model) {
+
+        Objects object = objectRepository.findById(id).orElseThrow();
+        Cameras camera = new Cameras(urlCamera, nameCamera, object);
+
+        cameraRepository.save(camera);
+        return "redirect:/engineer/online/{id}";
+    }
+
+    @PostMapping("/engineer/online/{id}/deleteCamera")
+    public String deleteCameraEngineer(@PathVariable(value = "id") int id,
+                                       @RequestParam(required = false, value = "cameraId") List<Integer> cameraId) {
+
+        Objects object = objectRepository.findById(id).orElseThrow();
+
+        for (Integer idCam : cameraId) {
+            Cameras camera = cameraRepository.findById(idCam).orElseThrow();;
+            cameraRepository.delete(camera);
+        }
+
+        return "redirect:/engineer/online/{id}";
+    }
+
+
     @GetMapping("/engineer/application/{id}")
     public String engineerApplication(@PathVariable(value = "id") int id, Model model) {
-        Objects object=objectRepository.findById(id).orElseThrow();
-        model.addAttribute("object",object);
-        Authentication auth= SecurityContextHolder.getContext().getAuthentication();
-        String name=auth.getName();
-        model.addAttribute("nameEngineer",name);
+        Objects object = objectRepository.findById(id).orElseThrow();
+        model.addAttribute("object", object);
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String name = auth.getName();
+        model.addAttribute("nameEngineer", name);
         return "engineer/engineer-application";
     }
 

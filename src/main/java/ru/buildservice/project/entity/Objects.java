@@ -44,7 +44,8 @@ public class Objects {
     @OneToMany(mappedBy ="objects",cascade = CascadeType.ALL)
     private List<CalendarComment> calendarComments;
 
-
+    @OneToMany(mappedBy ="objects",cascade = CascadeType.ALL)
+    private List<Cameras> cameras;
 
 
     public Objects() {
