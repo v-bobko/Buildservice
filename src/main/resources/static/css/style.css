@@ -689,7 +689,7 @@ footer img {
 .calendar .table-body .colum .bt .btn-add, .calendar .table-body .colum .bt .btn-del {
   margin-bottom: 10px;
   margin-right: 5px;
-  padding: 5px 5px;
+  padding: 5px;
   width: 30px;
   height: 30px;
   background-color: rgba(73, 53, 155, 0.8);
@@ -917,6 +917,14 @@ footer img {
   margin-top: 40px;
   margin-bottom: 100px;
 }
+.video .accordion {
+  text-align: center;
+}
+.video .accordion-button {
+  font-size: 17px;
+  font-weight: 400;
+  color: #4b171e;
+}
 .video .accordion-button:focus, .video .accordion-button:hover {
   z-index: 3;
   border-color: #c5868e;
@@ -938,16 +946,22 @@ footer img {
 }
 .video .btn-online-ac {
   margin-top: 10px;
-  width: 150px;
+  padding: 5px;
+  width: 35px;
   height: 35px;
   background-color: rgba(197, 134, 142, 0.8);
   color: #f7f7f6;
   font-size: 16px;
   border: none;
   border-radius: 4px;
+  line-height: 3px;
 }
 .video .btn-online-ac:hover {
   background-color: #c5868e;
+}
+.video .btn-online-ac img {
+  height: 25px;
+  width: 25px;
 }
 
 /*ЛИЧНЫЙ КАБИНЕТ ИНЖЕНЕРА*/
@@ -1326,6 +1340,9 @@ footer img {
   overflow: auto;
   width: 1230px;
 }
+.journal .scroll-table table {
+  width: 100%;
+}
 .journal .scroll-table table td, .journal .scroll-table table th {
   padding: 10px;
   border: 2px solid #3d3d4f;
@@ -1352,7 +1369,7 @@ footer img {
   text-align: center;
 }
 .journal .scroll-table table tbody .colum-data {
-  width: 100px;
+  width: 150px;
   text-align: center;
 }
 .journal .scroll-table table tbody .colum-fio {

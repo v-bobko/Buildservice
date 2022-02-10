@@ -20,9 +20,12 @@
 				<h5 th:text="${nameEngineer}">Имя Инженера</h5>
 			</div>
 			<div class="col col-home">
-				<a class="admin-link" href="admin-objects.html" th:href="@{/engineer/adminObjects}">Админ</a>
-				<a href="engineer-objects.html" th:href="@{/engineer/objects}" title="Выбор объекта"><img th:src="@{/icon/home.png}" alt="дом"></a>
-				<a href="index.html" th:href="@{/logout}" title="Выход"><img th:src="@{/icon/logout.png}" alt="выход"></a>
+				<a class="admin-link" href="admin-objects.html"
+				   th:href="@{/engineer/adminObjects}">Админ</a>
+				<a href="engineer-objects.html" th:href="@{/engineer/objects}" title="Выбор объекта"><img
+						th:src="@{/icon/home.png}" alt="дом"></a>
+				<a href="index.html" th:href="@{/logout}" title="Выход"><img th:src="@{/icon/logout.png}"
+				                                                             alt="выход"></a>
 			</div>
 		</div>
 		<div class="row name-object">
@@ -41,7 +44,8 @@
 						   th:href="'/engineer/calendar/'+${object.objectId}">Календарь работ</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link h" href="engineer-psd.html" th:href="'/engineer/psd/'+${object.objectId}">Проектно-сметная
+						<a class="nav-link h" href="engineer-psd.html"
+						   th:href="'/engineer/psd/'+${object.objectId}">Проектно-сметная
 							документация</a>
 					</li>
 					<li class="nav-item">
@@ -54,7 +58,8 @@
 						   th:href="'/engineer/journal/'+${object.objectId}">Журнал работ</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link h" href="engineer-online.html" th:href="'/engineer/online/'+${object.objectId}">Онлайн-трансляция</a>
+						<a class="nav-link h" href="engineer-online.html"
+						   th:href="'/engineer/online/'+${object.objectId}">Онлайн-трансляция</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link h" href="engineer-application.html"
@@ -68,32 +73,35 @@
 </section>
 
 <!--Выбор даты-->
-<div class="container-fluid">
-	<div class="row date">
-		<select class="form-select" aria-label="Default select example">
-			<option selected>Текущий месяц</option>
-			<option value="1">Январь</option>
-			<option value="2">Февраль</option>
-			<option value="3">Март</option>
-			<option value="4">Апрель</option>
-			<option value="5">Май</option>
-			<option value="6">Июнь</option>
-			<option value="7">Июль</option>
-			<option value="8">Август</option>
-			<option value="9">Сентябрь</option>
-			<option value="10">Октябрь</option>
-			<option value="11">Ноябрь</option>
-			<option value="12">Декабрь</option>
-		</select>
-		<select class="form-select" aria-label="Default select example">
-			<option selected>Текущий год</option>
-			<option value="1">2022</option>
-			<option value="2">2021</option>
-		</select>
-		<button type="button">ОК</button>
-	</div>
+<form method="get" th:action="'/engineer/work/' +${object.objectId}">
+	<div class="container-fluid">
+		<div class="row date">
 
-</div>
+			<select class="form-select" name="month" aria-label="Default select example">
+				<option th:value="${month}" th:text="${month}" selected>Текущий месяц</option>
+				<option value="Январь">Январь</option>
+				<option value="Февраль">Февраль</option>
+				<option value="Март">Март</option>
+				<option value="Апрель">Апрель</option>
+				<option value="Май">Май</option>
+				<option value="Июнь">Июнь</option>
+				<option value="Июль">Июль</option>
+				<option value="Август">Август</option>
+				<option value="Сентябрь">Сентябрь</option>
+				<option value="Октябрь">Октябрь</option>
+				<option value="Ноябрь">Ноябрь</option>
+				<option value="Декабрь">Декабрь</option>
+			</select>
+			<select class="form-select" name="year" aria-label="Default select example">
+				<option th:value="${year}" th:text="${year}">Текущий год</option>
+				<div th:each="ya : ${years}">
+					<option th:value="${ya}" th:text="${ya}"></option>
+				</div>
+			</select>
+			<button type="submit">ОК</button>
+		</div>
+	</div>
+</form>
 
 <!-- Таблица выполненных работ-->
 <section class="work-otchet">
@@ -109,117 +117,62 @@
 			</tr>
 			</thead>
 			<tbody>
-			<tr>
-				<td class="colum-work">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto,
-					excepturi!
-				</td>
-				<td class="colum-process"><p>Lorem ipsum dolor.</p></td>
-				<td class="colum-problem"><p>Lorem ipsum dolor sit amet.</p></td>
-				<td class="colum-comment-i"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-					Distinctio dolore illo nostrum, saepe tempora veniam.</p>
-					<div class="bt-work-i">
-						<button class="btn-work" type="button" data-bs-toggle="modal" data-bs-target="#addComentModal-iw"
-						         title="Добавить">
-							<img src="../icon/plus.png" style="vertical-align: middle"></button>
-						<button class="btn-work" type="button" data-bs-toggle="tooltip"
-						        data-bs-placement="top" title="Удалить">
-							<img src="../icon/basket.png" style="vertical-align: middle"></button>
-					</div>
-				</td>
+			<div th:each="cal : ${calendar}">
+				<tr class="tr-row">
+					<td class="colum-work"><p th:text="${cal.task}"></p>
+					</td>
+					<td class="colum-process"><p th:text="${cal.execution}"></p></td>
+					<td class="colum-problem"><p th:text="${cal.problems}"></p></td>
+					<td class="colum-comment-i"><p th:text="${cal.commentOfEngineer}"></p>
+						<div class="bt-work-i">
+							<button class="btn-work" type="button" data-bs-toggle="modal"
+							        th:data-bs-target="'#addComentModal-iw'+${cal.calendarId}"
+							        title="Добавить">
+								<img th:src="@{/icon/plus.png}" style="vertical-align: middle"></button>
+							<form action="/engineer/deleteComments" method="post">
+								<input type="hidden" id="calendarIdDel" name="calendarId"
+								       th:value="${cal.calendarId}">
+								<button class="btn-work" type="submit" title="Удалить">
+									<img th:src="@{/icon/basket.png}" style="vertical-align: middle"></button>
 
-				<td class="colum-comment-z"><p></p></td>
-			</tr>
-			<tr>
-				<td class="colum-work"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam
-					corporis cumque debitis dignissimos maxime necessitatibus omnis, perferendis porro
-					repellat repudiandae!</p>
-				</td>
-				<td class="colum-process"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-					Autem,
-					natus.</p>
-				</td>
-				<td class="colum-problem"></td>
-				<td class="colum-comment-i">
-					<div class="bt-work-i">
-						<button class="btn-work" type="button" data-bs-toggle="modal" data-bs-target="#addComentModal-iw"
-						         title="Добавить">
-							<img src="../icon/plus.png" style="vertical-align: middle"></button>
-						<button class="btn-work" type="button" data-bs-toggle="tooltip"
-						        data-bs-placement="top" title="Удалить">
-							<img src="../icon/basket.png" style="vertical-align: middle"></button>
-					</div>
-				</td>
-				<td class="colum-comment-z"><p>Lorem ipsum dolor sit amet.</p></td>
-			</tr>
-			<tr>
-				<td class="colum-work"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-					Architecto,
-					excepturi!</p>
-				</td>
-				<td class="colum-process"><p>Lorem ipsum dolor.</p></td>
-				<td class="colum-problem"><p>Lorem ipsum dolor sit amet.</p></td>
-				<td class="colum-comment-i"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-					Libero, quo.</p>
-					<div class="bt-work-i">
-						<button class="btn-work" type="button" data-bs-toggle="modal" data-bs-target="#addComentModal-iw"
-						         title="Добавить">
-							<img src="../icon/plus.png" style="vertical-align: middle"></button>
-						<button class="btn-work" type="button" data-bs-toggle="tooltip"
-						        data-bs-placement="top" title="Удалить">
-							<img src="../icon/basket.png" style="vertical-align: middle"></button>
-					</div>
-				</td>
-				<td class="colum-comment-z"><p>Lorem ipsum dolor sit amet.</p>
-				</td>
-			</tr>
-			<tr>
-				<td class="colum-work"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-					Architecto,
-					excepturi!</p>
-				</td>
-				<td class="colum-process"><p>Lorem ipsum dolor.</p></td>
-				<td class="colum-problem"><p>Lorem ipsum dolor sit amet.</p></td>
-				<td class="colum-comment-i"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-					Libero, quo.</p>
-					<div class="bt-work-i">
-						<button class="btn-work" type="button" data-bs-toggle="modal" data-bs-target="#addComentModal-iw"
-						         title="Добавить">
-							<img src="../icon/plus.png" style="vertical-align: middle"></button>
-						<button class="btn-work" type="button" data-bs-toggle="tooltip"
-						        data-bs-placement="top" title="Удалить">
-							<img src="../icon/basket.png" style="vertical-align: middle"></button>
-					</div>
-				</td>
-				<td class="colum-comment-z"><p>Lorem ipsum dolor sit amet.</p>
-				</td>
-			</tr>
+							</form>
+						</div>
+					</td>
+					<td class="colum-comment-z"><p th:text="${cal.commentOfClient}"></p></td>
+				</tr>
+			</div>
 			</tbody>
 		</table>
 	</div>
 </section>
 
 <!--Модальное окно для добавления комментария-->
-<div class="modal fade modal-edit" id="addComentModal-iw" tabindex="-1" aria-labelledby="addComentModalLabel-iw"
-     aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title" id="addComentModalLabel-iw">Добавить комментарий </h5>
-				<button type="button" class="btn-close" data-bs-dismiss="modal"
-				        aria-label="Close"></button>
-			</div>
-			<div class="modal-body">
-				<div class="container-fluid">
-					<div class="row">
-						<form>
-							<h6>Заполните текстовое поле:</h6>
-							<textarea class="form-control" aria-label="With textarea"></textarea>
-						</form>
+<div th:each="cal : ${calendar}">
+	<div class="modal fade modal-edit" th:id="'addComentModal-iw'+${cal.calendarId}" tabindex="-1"
+	     th:aria-labelledby="'addComentModalLabel-iw'+${cal.calendarId}"
+	     aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" th:id="'addComentModalLabel-iw'+${cal.calendarId}">Добавить комментарий </h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal"
+					        aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="container-fluid">
+						<div class="row">
+							<form action="/engineer/edit-comment" th:id="'createComment'+${cal.calendarId}"
+							      method="post">
+								<h6>Заполните текстовое поле:</h6>
+								<textarea class="form-control" name="commentOfEngineer" aria-label="With textarea" th:text="${cal.getCommentOfEngineer()}"></textarea>
+								<input type="hidden" id="calendarId" name="calendarId" th:value="${cal.calendarId}">
+							</form>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="modal-footer">
-				<button type="submit" class="btn btn-modal">Добавить</button>
+				<div class="modal-footer">
+					<button th:form="'createComment'+${cal.calendarId}" type="submit" class="btn btn-modal">Добавить</button>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -234,29 +187,8 @@
 	</div>
 	<div class="row gallery">
 		<div class="element-1">
-
-			<a href="../images/c1.jpg">
-				<img src="../images/c1.jpg" alt="">
-			</a>
-
-			<a href="../images/c2.jpg">
-				<img src="../images/c2.jpg" alt="">
-			</a>
-
-			<a href="../images/c3.jpg">
-				<img src="../images/c3.jpg" alt="">
-			</a>
-
-			<a href="../images/c4.jpg">
-				<img src="../images/c4.jpg" alt="">
-			</a>
-
-			<a href="../images/c5.jpg">
-				<img src="../images/c5.jpg" alt="">
-			</a>
-
-			<a href="../images/c6.jpg">
-				<img src="../images/c6.jpg" alt="">
+			<a th:each="ph : ${photo}" th:href="${ph.photo}" >
+				<img th:src="${ph.photo}" alt="">
 			</a>
 		</div>
 

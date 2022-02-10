@@ -72,36 +72,15 @@
 			</tr>
 			</thead>
 			<tbody>
+			<div th:each="str,iStat : ${journal}">
 			<tr>
-				<td class="colum-num">1</td>
-				<td class="colum-data">24.01.21
-				</td>
-				<td class="colum-fio">Иванов П.Р.</td>
-				<td class="colum-hour">8</td>
-				<td class="colum-work">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-					Distinctio dolore illo nostrum.
-				</td>
+				<td class="colum-num" th:text="${iStat.count}"></td>
+				<td class="colum-data" th:text="${str.date}"></td>
+				<td class="colum-fio" th:text="${str.fio}"></td>
+				<td class="colum-hour" th:text="${str.time}"></td>
+				<td class="colum-work" th:text="${str.report}"></td>
 			</tr>
-			<tr>
-				<td class="colum-num">2</td>
-				<td class="colum-data">24.01.21
-				</td>
-				<td class="colum-fio">Петров П.Р.</td>
-				<td class="colum-hour">8</td>
-				<td class="colum-work">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-					Distinctio dolore illo nostrum.
-				</td>
-			</tr>
-			<tr>
-				<td class="colum-num">3</td>
-				<td class="colum-data">24.01.21
-				</td>
-				<td class="colum-fio">Сидоров П.Р.</td>
-				<td class="colum-hour">8</td>
-				<td class="colum-work">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-					Distinctio dolore illo nostrum.
-				</td>
-			</tr>
+			</div>
 			</tbody>
 		</table>
 	</div>

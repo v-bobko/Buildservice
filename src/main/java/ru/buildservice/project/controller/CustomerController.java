@@ -2,12 +2,8 @@ package ru.buildservice.project.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.neo4j.Neo4jProperties;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,9 +14,9 @@ import ru.buildservice.project.Datetime;
 import ru.buildservice.project.entity.*;
 import ru.buildservice.project.entity.Objects;
 import ru.buildservice.project.repository.*;
-import ru.buildservice.project.security.auth.CustomUserDetailService;
 
-import java.sql.Timestamp;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 @Controller
@@ -35,14 +31,12 @@ public class CustomerController {
     private CalendarServiceRepository calendarServiceRepository;
     @Autowired
     private ProjectRepository projectRepository;
-
-
-
     @Autowired
     private EstimateRepository estimateRepository;
-
     @Autowired
-    private PhotoRepozitory photoRepozitory;
+    private PhotoRepository photoRepository;
+    @Autowired
+    private CameraRepository cameraRepository;
 
 
     @GetMapping("/customer/objects")
@@ -161,7 +155,7 @@ public class CustomerController {
         List<CalendarService> calendarServices1 = calendarServiceRepository.findByObjectsAndMonthAndYearOrderByCalendarIdAsc(object, month, year);
         model.addAttribute("calendar", calendarServices1);
 
-        List<Photo> photo = photoRepozitory.findByObjects(object);
+        List<Photo> photo = photoRepository.findByObjectsAndMonthAndYearOrderByPhotoIdDesc(object,month,year);
         model.addAttribute("photo", photo);
 
 
@@ -181,7 +175,11 @@ public class CustomerController {
 
         calendarServiceRepository.save(calendarService);
         int objectId = calendarService.getObjects().getObjectId();
-        return "redirect:/customer/work/" + objectId;
+
+        String month=URLEncoder.encode(calendarService.getMonth(), StandardCharsets.UTF_8);
+        int year=calendarService.getYear();
+
+        return "redirect:/customer/work/" + objectId+"?month="+month +"&year="+year;
     }
 
 
@@ -193,7 +191,11 @@ public class CustomerController {
 
         calendarServiceRepository.save(calendarService);
         int objectId = calendarService.getObjects().getObjectId();
-        return "redirect:/customer/work/" + objectId;
+
+        String month= URLEncoder.encode(calendarService.getMonth(), StandardCharsets.UTF_8);
+        int year=calendarService.getYear();
+
+        return "redirect:/customer/work/" + objectId+"?month="+month +"&year="+year;
     }
 
 
@@ -203,6 +205,9 @@ public class CustomerController {
         model.addAttribute("object", object);
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         Users user = userRepository.findByUsername(auth.getName());
+
+        List<Cameras> cameras = cameraRepository.findByObjectsOrderByCameraIdAsc(object);
+        model.addAttribute("cameras", cameras);
 
         if (user.getUser_id() == object.getUsers().getUser_id()) {
             return "customer/customer-online";
