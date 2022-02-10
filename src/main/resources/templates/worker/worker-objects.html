@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ru">
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
 <!--Мета-теги-->
 <div th:replace="~{head::head}">
 </div>
@@ -9,10 +9,10 @@
 	<div class="container-fluid">
 		<div class="row name-account">
 			<div class="col">
-				<h5>имя исполнителя</h5>
+				<h5 th:text="${user.username}"></h5>
 			</div>
 			<div class="col col-home">
-				<a href="index.html" th:href="@{/}" data-bs-toggle="tooltip"
+				<a href="index.html" th:href="@{/logout}" data-bs-toggle="tooltip"
 				   data-bs-placement="top" title="Выход"><img src="../icon/logout.png" alt="выход"></a>
 			</div>
 		</div>
@@ -27,9 +27,10 @@
 	<div class="container-fluid">
 		<div class="row list">
 			<ul>
-				<li><a href="#">Название объекта</a></li>
-				<li><a href="#">Название объекта</a></li>
-				<li><a href="#">...</a></li>
+				<div th:each="ob : ${objects}">
+
+					<li><a th:href="'/worker/work/'+${ob.objectId}"  th:text="${ob.nameOfObject}">Название объекта</a></li>
+				</div>
 			</ul>
 		</div>
 	</div>

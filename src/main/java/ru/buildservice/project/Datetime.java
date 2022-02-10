@@ -22,31 +22,32 @@ public class Datetime {
     }
 
 
-
     public String extractMonth() {
 
-        if (ingaborga - jan < feb) {
+        if (ingaborga < jan) {
             month = "Январь";
-        } else if (ingaborga - jan - feb < jan) {
+        } else if (ingaborga - jan < feb) {
             month = "Февраль";
-        } else if (ingaborga - (2 * jan) - feb < apr) {
+
+        } else if (ingaborga - jan - feb < jan) {
             month = "Март";
-        } else if (ingaborga - (2 * jan) - feb - apr < jan) {
+        } else if (ingaborga - (2 * jan) - feb < apr) {
             month = "Апрель";
-        } else if (ingaborga - (3 * jan) - feb - apr < apr) {
+        } else if (ingaborga - (2 * jan) - feb - apr < jan) {
             month = "Май";
-        } else if (ingaborga - (3 * jan) - feb - (2 * apr) < jan) {
+        } else if (ingaborga - (3 * jan) - feb - apr < apr) {
             month = "Июнь";
-        } else if (ingaborga - (4 * jan) - feb - (2 * apr) < apr) {
+        } else if (ingaborga - (3 * jan) - feb - (2 * apr) < jan) {
             month = "Июль";
-        } else if (ingaborga - (4 * jan) - feb - (3 * apr) < jan) {
+        } else if (ingaborga - (4 * jan) - feb - (2 * apr) < apr) {
             month = "Август";
-        } else if (ingaborga - (5 * jan) - feb - (3 * apr) < apr) {
+        } else if (ingaborga - (4 * jan) - feb - (3 * apr) < jan) {
             month = "Сентябрь";
-        } else if (ingaborga - (5 * jan) - feb - (4 * apr) < jan) {
+        } else if (ingaborga - (5 * jan) - feb - (3 * apr) < apr) {
             month = "Октябрь";
-        } else if (ingaborga - (6 * jan) - feb - (4 * apr) < jan) {
+        } else if (ingaborga - (5 * jan) - feb - (4 * apr) < jan) {
             month = "Ноябрь";
+
         } else month = "Декабрь";
 
         return month;

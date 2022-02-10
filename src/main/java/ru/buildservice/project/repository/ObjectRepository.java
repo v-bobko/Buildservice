@@ -2,6 +2,7 @@ package ru.buildservice.project.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import ru.buildservice.project.entity.CalendarService;
 import ru.buildservice.project.entity.Objects;
 import ru.buildservice.project.entity.Users;
@@ -16,5 +17,7 @@ public interface ObjectRepository extends JpaRepository<Objects,Integer> {
     List<Objects> findUsernameWithObjects();
 
     List<Objects> findByUsers(Users user);
+
+    Objects findByObjectId(Integer objectId);
 
 }
