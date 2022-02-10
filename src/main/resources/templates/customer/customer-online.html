@@ -54,69 +54,25 @@
 <section class="video">
 	<div class="container-fluid">
 		<div class="row">
-			<div class="accordion" id="accordionPanelsStayOpenExample">
-				<div class="accordion-item">
-					<h2 class="accordion-header" id="panelsStayOpen-headingOne">
-						<button class="accordion-button" type="button" data-bs-toggle="collapse"
-						        data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
-						        aria-controls="panelsStayOpen-collapseOne">
-							Котельная
-						</button>
-					</h2>
-					<div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
-					     aria-labelledby="panelsStayOpen-headingOne">
-						<div class="accordion-body">
-							<div class="camera1">
-								<iframe src="https://www.youtube.com/embed/7yFZ3-VanEM"
-								        title="YouTube video player" frameborder="0"
-								        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-								        allowfullscreen></iframe>
+			<div class="accordion" id="accordionExample">
+				<div th:each="el:${cameras}">
+					<div class="accordion-item">
+						<h2 class="accordion-header" th:id="'panels-heading'+${el.cameraId}">
+							<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+							        th:data-bs-target="'#panels-collapse'+${el.cameraId}" aria-expanded="false"
+							        th:aria-controls="'panels-collapse'+${el.cameraId}" th:text="${el.nameCamera}">
+							</button>
+						</h2>
+						<div th:id="'panels-collapse'+${el.cameraId}" class="accordion-collapse collapse"
+						     th:aria-labelledby="'panels-heading'+${el.cameraId}" data-bs-parent="#accordionExample">
+							<div class="accordion-body">
+								<div class="camera1">
+									<iframe th:src="${el.cameraURL}"
+									        title="YouTube video player"
+									        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+									        allowfullscreen></iframe>
+								</div>
 							</div>
-						</div>
-					</div>
-				</div>
-				<div class="accordion-item">
-					<h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-						<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-						        data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
-						        aria-controls="panelsStayOpen-collapseTwo">
-							Гостинная
-						</button>
-					</h2>
-					<div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
-					     aria-labelledby="panelsStayOpen-headingTwo">
-						<div class="accordion-body">
-							Видео
-						</div>
-					</div>
-				</div>
-				<div class="accordion-item">
-					<h2 class="accordion-header" id="panelsStayOpen-headingThree">
-						<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-						        data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
-						        aria-controls="panelsStayOpen-collapseThree">
-							Коридор
-						</button>
-					</h2>
-					<div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
-					     aria-labelledby="panelsStayOpen-headingThree">
-						<div class="accordion-body">
-							Видео
-						</div>
-					</div>
-				</div>
-				<div class="accordion-item">
-					<h2 class="accordion-header" id="panelsStayOpen-headingFour">
-						<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-						        data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false"
-						        aria-controls="panelsStayOpen-collapseFour">
-							Гараж
-						</button>
-					</h2>
-					<div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse"
-					     aria-labelledby="panelsStayOpen-headingFour">
-						<div class="accordion-body">
-							Видео
 						</div>
 					</div>
 				</div>

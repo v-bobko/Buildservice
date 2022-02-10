@@ -35,6 +35,8 @@ public class CustomerController {
     private EstimateRepository estimateRepository;
     @Autowired
     private PhotoRepository photoRepository;
+    @Autowired
+    private CameraRepository cameraRepository;
 
 
     @GetMapping("/customer/objects")
@@ -203,6 +205,9 @@ public class CustomerController {
         model.addAttribute("object", object);
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         Users user = userRepository.findByUsername(auth.getName());
+
+        List<Cameras> cameras = cameraRepository.findByObjectsOrderByCameraIdAsc(object);
+        model.addAttribute("cameras", cameras);
 
         if (user.getUser_id() == object.getUsers().getUser_id()) {
             return "customer/customer-online";
