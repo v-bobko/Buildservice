@@ -21,6 +21,12 @@ public class Photo {
     @Column(name = "photo")
     private String photo;
 
+    @Column(name = "month")
+    private String month;
+
+    @Column(name = "year")
+    private int year;
+
     @ManyToOne
     @JoinColumn(name = "object_id")
     private Objects objects;
@@ -28,8 +34,10 @@ public class Photo {
     public Photo() {
     }
 
-    public Photo(String photo, Objects objects) {
+    public Photo(String photo, String month, int year, Objects objects) {
         this.photo = photo;
+        this.month = month;
+        this.year = year;
         this.objects = objects;
     }
 }

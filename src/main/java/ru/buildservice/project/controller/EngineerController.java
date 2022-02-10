@@ -17,7 +17,6 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 
 @Controller
@@ -36,7 +35,11 @@ public class EngineerController {
     @Autowired
     private CalendarCommentRepository calendarCommentRepository;
     @Autowired
-    private PhotoRepozitory photoRepozitory;
+    private PhotoRepository photoRepository;
+    @Autowired
+    private JournalRepository journalRepository;
+    @Autowired
+    private CameraRepository cameraRepository;
 
 
     //Личный кабинет инженера
@@ -225,7 +228,7 @@ public class EngineerController {
         List<CalendarService> calendarServices1 = calendarServiceRepository.findByObjectsAndMonthAndYearOrderByCalendarIdAsc(object, month, year);
         model.addAttribute("calendar", calendarServices1);
 
-        List<Photo> photo = photoRepozitory.findByObjects(object);
+        List<Photo> photo = photoRepository.findByObjectsAndMonthAndYearOrderByPhotoIdDesc(object, month, year);
         model.addAttribute("photo", photo);
 
         return "engineer/engineer-work";
@@ -243,9 +246,9 @@ public class EngineerController {
         calendarServiceRepository.save(calendarService);
         int objectId = calendarService.getObjects().getObjectId();
 
-        String month=URLEncoder.encode(calendarService.getMonth(), StandardCharsets.UTF_8);
-        int year=calendarService.getYear();
-        return "redirect:/engineer/work/"+objectId+"?month="+month+"&year="+year;
+        String month = URLEncoder.encode(calendarService.getMonth(), StandardCharsets.UTF_8);
+        int year = calendarService.getYear();
+        return "redirect:/engineer/work/" + objectId + "?month=" + month + "&year=" + year;
     }
 
 
@@ -259,18 +262,23 @@ public class EngineerController {
         calendarServiceRepository.save(calendarService);
         int objectId = calendarService.getObjects().getObjectId();
 
-        String month=URLEncoder.encode(calendarService.getMonth(), StandardCharsets.UTF_8);
-        int year=calendarService.getYear();
-        return "redirect:/engineer/work/" + objectId+"?month="+month +"&year="+year;
+        String month = URLEncoder.encode(calendarService.getMonth(), StandardCharsets.UTF_8);
+        int year = calendarService.getYear();
+        return "redirect:/engineer/work/" + objectId + "?month=" + month + "&year=" + year;
     }
 
     @GetMapping("/engineer/journal/{id}")
-    public String engineerJournal(@PathVariable(value = "id") int id, Model model) {
+    public String engineerJournal(@PathVariable(value = "id") int id,
+                                  Model model) {
         Objects object = objectRepository.findById(id).orElseThrow();
         model.addAttribute("object", object);
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String name = auth.getName();
         model.addAttribute("nameEngineer", name);
+
+        List<Journal> journals = journalRepository.findByObjects(object);
+        model.addAttribute("journal", journals);
+
         return "engineer/engineer-journal";
     }
 
@@ -281,8 +289,39 @@ public class EngineerController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String name = auth.getName();
         model.addAttribute("nameEngineer", name);
+
+        List<Cameras> cameras = cameraRepository.findByObjectsOrderByCameraIdAsc(object);
+        model.addAttribute("cameras", cameras);
         return "engineer/engineer-online";
     }
+
+    @PostMapping("/engineer/online/{id}/addCamera")
+    public String addCameraEngineer(@PathVariable(value = "id") int id,
+                                    @RequestParam(value = "nameCamera") String nameCamera,
+                                    @RequestParam(value = "urlCamera") String urlCamera,
+                                    Model model) {
+
+        Objects object = objectRepository.findById(id).orElseThrow();
+        Cameras camera = new Cameras(urlCamera, nameCamera, object);
+
+        cameraRepository.save(camera);
+        return "redirect:/engineer/online/{id}";
+    }
+
+    @PostMapping("/engineer/online/{id}/deleteCamera")
+    public String deleteCameraEngineer(@PathVariable(value = "id") int id,
+                                       @RequestParam(required = false, value = "cameraId") List<Integer> cameraId) {
+
+        Objects object = objectRepository.findById(id).orElseThrow();
+
+        for (Integer idCam : cameraId) {
+            Cameras camera = cameraRepository.findById(idCam).orElseThrow();;
+            cameraRepository.delete(camera);
+        }
+
+        return "redirect:/engineer/online/{id}";
+    }
+
 
     @GetMapping("/engineer/application/{id}")
     public String engineerApplication(@PathVariable(value = "id") int id, Model model) {
