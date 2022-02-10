@@ -1,22 +1,32 @@
 package ru.buildservice.project.controller;
 
+import org.apache.tomcat.util.http.fileupload.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import ru.buildservice.project.Datetime;
 import ru.buildservice.project.entity.*;
 import ru.buildservice.project.repository.*;
 
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 
 @Controller
@@ -40,6 +50,10 @@ public class EngineerController {
     private JournalRepository journalRepository;
     @Autowired
     private CameraRepository cameraRepository;
+    @Autowired
+    private EstimateRepository estimateRepository;
+
+
 
 
     //Личный кабинет инженера
@@ -190,10 +204,97 @@ public class EngineerController {
         model.addAttribute("nameEngineer", name);
 
         List<Projects> projects = projectRepository.findByObjects(object);
-
         model.addAttribute("projects", projects);
+        List<Estimates> estimates = estimateRepository.findByObjects(object);
+        model.addAttribute("estimates", estimates);
 
         return "engineer/engineer-psd";
+    }
+
+    @PostMapping("/engineer/psd/{id}/addDoc")
+    public String engineerAddDoc(@PathVariable(value = "id") int id,
+                                 @RequestParam(value = "fileURL") MultipartFile fileURL,
+                                 @RequestParam(value = "fileName") String nameFile,
+                                 Model model) throws IOException {
+
+        Objects object = objectRepository.findById(id).orElseThrow();
+
+        if (!fileURL.isEmpty()&!nameFile.isEmpty()) {
+
+            String dotExtendName = fileURL.getOriginalFilename().substring(fileURL.getOriginalFilename().lastIndexOf("."));// Получить расширение
+            String fileName = UUID.randomUUID().toString().replace("-", "") + dotExtendName;// Имя UUID + расширение.
+            String filePath = "C:\\Users\\79818\\Desktop\\Diplom\\src\\main\\resources\\static\\files\\";
+
+            File path = new File(filePath);
+            if (!path.exists()) {
+                path.mkdirs();
+            }
+            // Загрузить
+            BufferedOutputStream out = new BufferedOutputStream(new FileOutputStream(new File(filePath + fileName)));
+            out.write(fileURL.getBytes());
+            out.flush();
+            out.close();
+
+            String filenameBD = "/files/" + fileName;
+
+            Projects project=new Projects(filenameBD,nameFile,object);
+            projectRepository.save(project);
+        }
+        return "redirect:/engineer/psd/{id}";
+    }
+
+    @PostMapping("/engineer/psd/{id}/dellDoc")
+    public String engineerDellDoc(@PathVariable(value = "id") int id,
+                                  @RequestParam(required = false, value = "files") List<Integer> files) {
+
+        for (Integer fileId : files) {
+            Projects project = projectRepository.findById(fileId).orElseThrow();
+            projectRepository.delete(project);
+        }
+        return "redirect:/engineer/psd/{id}";
+    }
+
+    @PostMapping("/engineer/psd/{id}/addSmet")
+    public String engineerAddSmet(@PathVariable(value = "id") int id,
+                                 @RequestParam(value = "fileURL") MultipartFile fileURL,
+                                 @RequestParam(value = "fileName") String nameFile,
+                                 Model model) throws IOException {
+
+        Objects object = objectRepository.findById(id).orElseThrow();
+
+        if (!fileURL.isEmpty()&!nameFile.isEmpty()) {
+
+            String dotExtendName = fileURL.getOriginalFilename().substring(fileURL.getOriginalFilename().lastIndexOf("."));// Получить расширение
+            String fileName = UUID.randomUUID().toString().replace("-", "") + dotExtendName;// Имя UUID + расширение.
+            String filePath = "C:\\Users\\79818\\Desktop\\Diplom\\src\\main\\resources\\static\\files\\";
+
+            File path = new File(filePath);
+            if (!path.exists()) {
+                path.mkdirs();
+            }
+            // Загрузить
+            BufferedOutputStream out = new BufferedOutputStream(new FileOutputStream(new File(filePath + fileName)));
+            out.write(fileURL.getBytes());
+            out.flush();
+            out.close();
+
+            String filenameBD = "/files/" + fileName;
+
+            Estimates estimate =new Estimates(filenameBD,nameFile,object);
+            estimateRepository.save(estimate);
+        }
+        return "redirect:/engineer/psd/{id}";
+    }
+
+    @PostMapping("/engineer/psd/{id}/dellSmet")
+    public String engineerDellSmet(@PathVariable(value = "id") int id,
+                                  @RequestParam(required = false, value = "files") List<Integer> files) {
+
+        for (Integer fileId : files) {
+            Estimates estimate  = estimateRepository.findById(fileId).orElseThrow();
+            estimateRepository.delete(estimate);
+        }
+        return "redirect:/engineer/psd/{id}";
     }
 
     @GetMapping("/engineer/work/{id}")
@@ -315,7 +416,8 @@ public class EngineerController {
         Objects object = objectRepository.findById(id).orElseThrow();
 
         for (Integer idCam : cameraId) {
-            Cameras camera = cameraRepository.findById(idCam).orElseThrow();;
+            Cameras camera = cameraRepository.findById(idCam).orElseThrow();
+            ;
             cameraRepository.delete(camera);
         }
 

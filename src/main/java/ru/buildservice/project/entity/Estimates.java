@@ -32,8 +32,9 @@ public class Estimates {
     public Estimates() {
     }
 
-    public Estimates(String estimate, Objects objects) {
+    public Estimates(String estimate, String nameOfEstimate, Objects objects) {
         this.estimate = estimate;
+        this.nameOfEstimate = nameOfEstimate;
         this.objects = objects;
     }
 }

@@ -73,20 +73,13 @@
 				<div th:each="ya : ${years}">
 					<option th:value="${ya}" th:text="${ya}"></option>
 				</div>
-
 			</select>
 			<button type="submit">ОК</button>
-
 			<button class="btn-addYear" type="button" data-bs-toggle="modal"
 			        data-bs-target="#addYearModal"
 			        data-bs-placement="top" title="Добавить год">
 				<img th:src="@{/icon/plus-b.png}" style="vertical-align: middle"></button>
-
-
-
 		</div>
-
-
 	</div>
 </form>
 
@@ -105,7 +98,6 @@
 							<ul class="calendar-list">
 								<li class="li-cal-list" th:each="work : ${jan}" th:text="${work.task}">
 								</li>
-
 							</ul>
 						</div>
 						<div class="bt-i b1-4">

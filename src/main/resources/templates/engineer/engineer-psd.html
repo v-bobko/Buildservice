@@ -71,10 +71,10 @@
 		<div class="row btn-list">
 			<button class="psd-btn" type="button" data-bs-toggle="modal" data-bs-target="#addDocPModal"
 			        title="Добавить">
-				<img src="../icon/plus.png" style="vertical-align: middle"></button>
+				<img th:src="@{/icon/plus.png}" style="vertical-align: middle"></button>
 			<button class="psd-btn" type="button" data-bs-toggle="modal" data-bs-target="#dellDocPModal"
 			        title="Удалить">
-				<img src="../icon/basket.png" style="vertical-align: middle"></button>
+				<img th:src="@{/icon/basket.png}" style="vertical-align: middle"></button>
 
 		</div>
 	</div>
@@ -88,20 +88,16 @@
 		</div>
 		<div class="row list">
 			<ul>
-				<li><a href="#">Смета на строительные работы</a></li>
-				<li><a href="#">Смета на монтажные работы</a></li>
-				<li><a href="#">Смета на материалы</a></li>
-				<li><a href="#">...</a></li>
-				<li><a href="#">...</a></li>
+				<li th:each="es : ${estimates}" > <a th:href="${es.estimate}" download="" th:text="${es.nameOfEstimate}"></a> </li>
 			</ul>
 		</div>
 		<div class="row btn-list">
 			<button class="psd-btn" type="button" data-bs-toggle="modal" data-bs-target="#addDocSModal"
 			         title="Добавить">
-				<img src="../icon/plus.png" style="vertical-align: middle"></button>
+				<img th:src="@{/icon/plus.png}" style="vertical-align: middle"></button>
 			<button class="psd-btn" type="button" data-bs-toggle="modal" data-bs-target="#dellDocSModal"
 			        title="Удалить">
-				<img src="../icon/basket.png" style="vertical-align: middle"></button>
+				<img th:src="@{/icon/basket.png}" style="vertical-align: middle"></button>
 
 		</div>
 	</div>
@@ -120,25 +116,25 @@
 			<div class="modal-body">
 				<div class="container-fluid">
 					<div class="row">
-						<form>
+						<form id="addDoc" method="post" enctype="multipart/form-data" th:action="'/engineer/psd/'+${object.objectId}+'/addDoc'">
 							<h6>Выберите файл и дайте ему название:</h6>
 							<div class="mb-3">
 								<label for="inputGroupFile1" class="form-label">Файл</label>
 								<div class="input-group">
-									<input type="file" class="form-control" id="inputGroupFile1" aria-describedby="inputGroupFileAddon1" aria-label="Upload">
+									<input type="file" class="form-control" name="fileURL" id="inputGroupFile1" aria-describedby="inputGroupFileAddon1" aria-label="Upload">
 									<button class="btn btn-outline-secondary" type="reset" id="inputGroupFileAddon1">X</button>
 								</div>
 							</div>
 							<div class="mb-3">
 								<label for="nameProject" class="form-label">Название</label>
-								<input type="text" class="form-control" id="nameProject">
+								<input type="text" name="fileName" class="form-control" id="nameProject">
 							</div>
 						</form>
 					</div>
 				</div>
 			</div>
 			<div class="modal-footer">
-				<button type="submit" class="btn btn-modal">Добавить</button>
+				<button form="addDoc" type="submit" class="btn btn-modal">Добавить</button>
 			</div>
 		</div>
 	</div>
@@ -157,26 +153,22 @@
 			<div class="modal-body">
 				<div class="container-fluid">
 					<div class="row">
-						<form>
+						<form id="dellDoc" method="post" th:action="'/engineer/psd/'+${object.objectId}+'/dellDoc'">
 							<h6>Выберите файлы,которые хотите удалить:</h6>
+							<div th:each="file : ${projects}">
 							<div class="form-check">
-								<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-								<label class="form-check-label" for="flexCheckDefault">
+								<input class="form-check-input" type="checkbox" name="files" th:value="${file.projectId}" th:id="'flexCheckDefault'+${file.projectId}">
+								<label class="form-check-label" th:for="'flexCheckDefault'+${file.projectId}" th:text="${file.nameOfProject}">
 									Документ...
 								</label>
 							</div>
-							<div class="form-check">
-								<input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-								<label class="form-check-label" for="flexCheckChecked">
-									Документ ...
-								</label>
 							</div>
 						</form>
 					</div>
 				</div>
 			</div>
 			<div class="modal-footer">
-				<button type="submit" class="btn btn-modal">Удалить</button>
+				<button form="dellDoc" type="submit" class="btn btn-modal">Удалить</button>
 			</div>
 		</div>
 	</div>
@@ -195,25 +187,25 @@
 			<div class="modal-body">
 				<div class="container-fluid">
 					<div class="row">
-						<form>
+						<form id="addSmet" method="post" enctype="multipart/form-data" th:action="'/engineer/psd/'+${object.objectId}+'/addSmet'">
 							<h6>Выберите файл и дайте ему название:</h6>
 							<div class="mb-3">
 								<label for="inputGroupFile2" class="form-label">Файл</label>
 								<div class="input-group">
-									<input type="file" class="form-control" id="inputGroupFile2" aria-describedby="inputGroupFileAddon2" aria-label="Upload">
+									<input type="file" name="fileURL" class="form-control" id="inputGroupFile2" aria-describedby="inputGroupFileAddon2" aria-label="Upload">
 									<button class="btn btn-outline-secondary" type="reset" id="inputGroupFileAddon2">X</button>
 								</div>
 							</div>
 							<div class="mb-3">
 								<label for="nameProjectS" class="form-label">Название</label>
-								<input type="text" class="form-control" id="nameProjectS">
+								<input type="text" name="fileName" class="form-control" id="nameProjectS">
 							</div>
 						</form>
 					</div>
 				</div>
 			</div>
 			<div class="modal-footer">
-				<button type="submit" class="btn btn-modal">Добавить</button>
+				<button form="addSmet" type="submit" class="btn btn-modal">Добавить</button>
 			</div>
 		</div>
 	</div>
@@ -232,26 +224,22 @@
 			<div class="modal-body">
 				<div class="container-fluid">
 					<div class="row">
-						<form>
+						<form id="dellSmet" method="post" th:action="'/engineer/psd/'+${object.objectId}+'/dellSmet'">
 							<h6>Выберите файлы,которые хотите удалить:</h6>
+							<div th:each="file : ${estimates}">
 							<div class="form-check">
-								<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2">
-								<label class="form-check-label" for="flexCheckDefault">
+								<input class="form-check-input" type="checkbox" name="files" th:value="${file.estimateId}" th:id="'flexCheckDefault'+${file.estimateId}">
+								<label class="form-check-label" th:for="'flexCheckDefault'+${file.estimateId}" th:text="${file.nameOfEstimate}">
 									Документ...
 								</label>
 							</div>
-							<div class="form-check">
-								<input class="form-check-input" type="checkbox" value="" id="flexCheckChecked2" checked>
-								<label class="form-check-label" for="flexCheckChecked">
-									Документ ...
-								</label>
 							</div>
 						</form>
 					</div>
 				</div>
 			</div>
 			<div class="modal-footer">
-				<button type="submit" class="btn btn-modal">Удалить</button>
+				<button form="dellSmet" type="submit" class="btn btn-modal">Удалить</button>
 			</div>
 		</div>
 	</div>
