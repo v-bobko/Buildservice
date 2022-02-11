@@ -1526,6 +1526,7 @@ footer {
   .j-table {
     display: flex;
     justify-content: center;
+    margin-bottom: 100px;
   }
 
   .scroll-table {
@@ -1591,10 +1592,11 @@ footer {
   }
 
   .bt-string {
-    margin-bottom: 100px;
+
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 5px;
 
     .btn-add-string, .btn-del-string {
       display: flex;

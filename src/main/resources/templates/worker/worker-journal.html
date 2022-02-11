@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ru">
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
 <!--Мета-теги-->
 <div th:replace="~{head::head}">
 </div>
@@ -9,17 +9,17 @@
 	<div class="container-fluid">
 		<div class="row name-account">
 			<div class="col">
-				<h5>Имя Исполнителя</h5>
+				<h5 th:text="${user.username}">Имя Исполнителя</h5>
 			</div>
 			<div class="col col-home">
-				<a href="customer-objects.html" th:href="@{/customer/objects}"><img src="../icon/home.png"
+				<a href="customer-objects.html" th:href="@{/worker/objects}"><img th:src="@{/icon/home.png}"
 				                                                                    alt="дом"
 				                                                                    title="Выбор объекта"></a>
-				<a href="index.html" th:href="@{/}" title="Выход"><img src="../icon/logout.png" alt="выход"></a>
+				<a href="index.html" th:href="@{/logout}" title="Выход"><img th:src="@{/icon/logout.png}" alt="выход"></a>
 			</div>
 		</div>
 		<div class="row name-object">
-			<h5>Название Объекта</h5>
+			<h5 th:text="${object.nameOfObject}">Название Объекта</h5>
 		</div>
 		<div class="row menu navbar navbar-expand-lg navbar-light">
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -30,19 +30,19 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="nav nav-tabs">
 					<li class="nav-item">
-						<a class="nav-link h" href="worker-work.html" th:href="@{/worker/work}">Текущие
+						<a class="nav-link h" href="worker-work.html" th:href="'/worker/work/' + ${object.objectId}">Текущие
 							задачи/Отчетность</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link active" aria-current="page" href="worker-journal.html"
-						   th:href="@{/worker/journal}">Журнал работ</a>
+						   th:href="'/worker/journal/'+ ${object.objectId}">Журнал работ</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link h" href="worker-psd.html"
-						   th:href="@{/worker/psd}">Проектная документация</a>
+						   th:href="'/worker/psd/' + ${object.objectId}">Проектная документация</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link h" href="worker-application.html" th:href="@{/worker/application}">Заявка</a>
+						<a class="nav-link h" href="worker-application.html" th:href="'/worker/application/' + ${object.objectId}">Заявка</a>
 					</li>
 				</ul>
 
@@ -53,62 +53,44 @@
 
 <!--Журнал работ-->
 <section class="journal">
-	<div class="j-table">
-	<div class="scroll-table">
-		<table>
-			<thead>
-			<tr>
-				<th>№</th>
-				<th>ДАТА</th>
-				<th>ФИО</th>
-				<th>ВРЕМЯ, ч</th>
-				<th>РАБОТЫ</th>
-			</tr>
-			</thead>
-			<tbody>
-			<tr>
-				<td class="colum-num">1</td>
-				<td class="colum-data">24.01.21
-				</td>
-				<td class="colum-fio">Иванов П.Р.</td>
-				<td class="colum-hour">8</td>
-				<td class="colum-work">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-					Distinctio dolore illo nostrum.
-				</td>
-			</tr>
-			<tr>
-				<td class="colum-num">2</td>
-				<td class="colum-data">24.01.21
-				</td>
-				<td class="colum-fio">Петров П.Р.</td>
-				<td class="colum-hour">8</td>
-				<td class="colum-work">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-					Distinctio dolore illo nostrum.
-				</td>
-			</tr>
-			<tr>
-				<td class="colum-num">3</td>
-				<td class="colum-data">24.01.21
-				</td>
-				<td class="colum-fio">Сидоров П.Р.</td>
-				<td class="colum-hour">8</td>
-				<td class="colum-work">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-					Distinctio dolore illo nostrum.
-				</td>
-			</tr>
-			</tbody>
-		</table>
-	</div>
-	</div>
 	<div class="bt-string">
 		<button class="btn-add-string" type="button" data-bs-toggle="modal"
 		        data-bs-target="#addStringModal"
 		        title="Добавить строку">
-			<img src="../icon/plus-b.png" style="vertical-align: middle"></button>
-		<button class="btn-del-string" type="button"
+			<img th:src="@{/icon/plus-b.png}" style="vertical-align: middle"></button>
+		<form method="post" th:action="'/worker/journal/'+${object.objectId}+'/dellStr'">
+		<button class="btn-del-string" type="submit"
 		        title="Удалить строку">
-			<img src="../icon/basket-b.png" style="vertical-align: middle"></button>
+			<img th:src="@{/icon/basket-b.png}" style="vertical-align: middle"></button>
+		</form>
 	</div>
+	<div class="j-table">
+		<div class="scroll-table">
+			<table>
+				<thead>
+				<tr>
+					<th>№</th>
+					<th>ДАТА</th>
+					<th>ФИО</th>
+					<th>ВРЕМЯ, ч</th>
+					<th>РАБОТЫ</th>
+				</tr>
+				</thead>
+				<tbody>
+				<div th:each="str,iStat : ${journal}">
+					<tr>
+						<td class="colum-num" th:text="${iStat.count}"></td>
+						<td class="colum-data" th:text="${str.date}"></td>
+						<td class="colum-fio" th:text="${str.fio}"></td>
+						<td class="colum-hour" th:text="${str.time}"></td>
+						<td class="colum-work" th:text="${str.report}"></td>
+					</tr>
+				</div>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
 </section>
 
 <!--Модальное окно для добавления строки-->
@@ -125,30 +107,31 @@
 			<div class="modal-body">
 				<div class="container-fluid">
 					<div class="row">
-						<form>
+						<form id="addStr" method="post" th:action="'/worker/journal/'+${object.objectId}+'/addStr'">
 							<h6>Заполните поля:</h6>
 							<div class="mb-3">
 								<label for="InputData" class="form-label">Дата</label>
-								<input type="date" class="form-control" id="InputData">
+								<input type="date" name="date" class="form-control" id="InputData">
 							</div>
 							<div class="mb-3">
 								<label for="InputFIO" class="form-label">ФИО работника</label>
-								<input type="text" class="form-control" id="InputFIO" placeholder="Фамилия И.О.">
+								<input type="text" name="fio" class="form-control" id="InputFIO" placeholder="Фамилия И.О.">
 							</div>
 							<div class="mb-3">
 								<label for="InputHour" class="form-label">Время,ч</label>
-								<input type="number" class="form-control" id="InputHour">
+								<input type="number" name="time" class="form-control" id="InputHour">
 							</div>
 							<div class="mb-3">
 								<label for="InputWork" class="form-label">Работы</label>
-								<input type="text" class="form-control" id="InputWork">
+								<input type="text" name="report" class="form-control" id="InputWork">
 							</div>
+							<input type="hidden" name="userId" th:value="${user.user_id}">
 						</form>
 					</div>
 				</div>
 			</div>
 			<div class="modal-footer">
-				<button type="submit" class="btn btn-modal">Добавить</button>
+				<button form="addStr" type="submit" class="btn btn-modal">Добавить</button>
 			</div>
 		</div>
 	</div>

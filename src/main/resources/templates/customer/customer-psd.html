@@ -55,15 +55,11 @@
 		<div class="row name ">
 			<h3>ПРОЕКТНАЯ ДОКУМЕНТАЦИЯ</h3>
 		</div>
-
-
 		<div class="row list">
-
 			<ul>
 				<li th:each="pj : ${projects}" > <a th:href="${pj.project}" download="" th:text="${pj.nameOfProject}">name of project</a> </li>
 			</ul>
 		</div>
-
 	</div>
 </section>
 

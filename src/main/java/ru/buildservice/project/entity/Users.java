@@ -41,6 +41,9 @@ public class Users {
     @OneToMany(mappedBy ="users",cascade = CascadeType.ALL)
     private List<CalendarService> calendarService;
 
+    @OneToMany(mappedBy ="users",cascade = CascadeType.ALL)
+    private List<Journal> journals;
+
 
     public String getPassword() {
         return password;

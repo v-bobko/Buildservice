@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ru">
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
 <!--Мета-теги-->
 <div th:replace="~{head::head}">
 </div>
@@ -9,16 +9,18 @@
 	<div class="container-fluid">
 		<div class="row name-account">
 			<div class="col">
-				<h5>Имя Исполнителя</h5>
+				<h5 th:text="${user.username}">Имя Исполнителя</h5>
 			</div>
 			<div class="col col-home">
-				<a href="customer-objects.html" th:href="@{/customer/objects}"><img src="../icon/home.png"
-				                                                                    alt="дом" title="Выбор объекта"></a>
-				<a href="index.html" th:href="@{/}" title="Выход"><img src="../icon/logout.png" alt="выход"></a>
+				<a href="customer-objects.html" th:href="@{/worker/objects}"><img th:src="@{/icon/home.png}"
+				                                                                  alt="дом"
+				                                                                  title="Выбор объекта"></a>
+				<a href="index.html" th:href="@{/logout}" title="Выход"><img th:src="@{/icon/logout.png}"
+				                                                             alt="выход"></a>
 			</div>
 		</div>
 		<div class="row name-object">
-			<h5>Название Объекта</h5>
+			<h5 th:text="${object.nameOfObject}">Название Объекта</h5>
 		</div>
 		<div class="row menu navbar navbar-expand-lg navbar-light">
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -29,17 +31,20 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="nav nav-tabs">
 					<li class="nav-item">
-						<a class="nav-link h" href="worker-work.html" th:href="@{/worker/work}">Текущие задачи/Отчетность</a>
+						<a class="nav-link h" href="worker-work.html"
+						   th:href="'/worker/work/' + ${object.objectId}">Текущие задачи/Отчетность</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link h" href="worker-journal.html" th:href="@{/worker/journal}">Журнал работ</a>
+						<a class="nav-link h" href="worker-journal.html"
+						   th:href="'/worker/journal/'+ ${object.objectId}">Журнал работ</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link h" href="worker-psd.html"
-						   th:href="@{/worker/psd}">Проектная документация</a>
+						   th:href="'/worker/psd/' + ${object.objectId}">Проектная документация</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link active" aria-current="page" href="worker-application.html" th:href="@{/worker/application}">Заявка</a>
+						<a class="nav-link active" aria-current="page" href="worker-application.html"
+						   th:href="'/worker/application/' + ${object.objectId}">Заявка</a>
 					</li>
 				</ul>
 
@@ -49,11 +54,8 @@
 </section>
 
 
-
-
-
 <!--Подвал-->
-<section class="footer fixed-bottom">
+<section class=" footer fixed-bottom">
 	<div th:replace="~{footer::footer1}"></div>
 </section>
 

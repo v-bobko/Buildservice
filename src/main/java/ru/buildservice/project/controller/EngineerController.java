@@ -2,6 +2,7 @@ package ru.buildservice.project.controller;
 
 import org.apache.tomcat.util.http.fileupload.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -53,11 +54,10 @@ public class EngineerController {
     @Autowired
     private EstimateRepository estimateRepository;
 
-
-
+    @Value("${filePath}")
+    private String filePath;
 
     //Личный кабинет инженера
-
 
     @GetMapping("/engineer/objects")
     public String engineerObjects(Model model) {
@@ -223,7 +223,7 @@ public class EngineerController {
 
             String dotExtendName = fileURL.getOriginalFilename().substring(fileURL.getOriginalFilename().lastIndexOf("."));// Получить расширение
             String fileName = UUID.randomUUID().toString().replace("-", "") + dotExtendName;// Имя UUID + расширение.
-            String filePath = "C:\\Users\\79818\\Desktop\\Diplom\\src\\main\\resources\\static\\files\\";
+
 
             File path = new File(filePath);
             if (!path.exists()) {
@@ -377,7 +377,7 @@ public class EngineerController {
         String name = auth.getName();
         model.addAttribute("nameEngineer", name);
 
-        List<Journal> journals = journalRepository.findByObjects(object);
+        List<Journal> journals = journalRepository.findByObjectsOrderByDateDescJournalIdDesc(object);
         model.addAttribute("journal", journals);
 
         return "engineer/engineer-journal";
