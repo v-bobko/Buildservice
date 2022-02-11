@@ -38,17 +38,22 @@ public class Journal {
     @JoinColumn(name = "object_id")
     private Objects objects;
 
+    @ManyToOne
+    @JoinColumn(name = "worker_id")
+    private Users users;
+
 
 
     public Journal() {
     }
 
-    public Journal(Date date, String fio, int time, String report, Objects objects) {
+    public Journal(Date date, String fio, int time, String report, Objects objects, Users users) {
         this.date = date;
         this.fio = fio;
         this.time = time;
         this.report = report;
         this.objects = objects;
+        this.users = users;
     }
 }
 
