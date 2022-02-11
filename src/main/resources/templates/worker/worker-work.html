@@ -221,12 +221,12 @@
             <div class="modal-body">
                 <div class="container-fluid">
                     <div class="row">
-                        <form id="addphoto" th:action="'/worker/work/addphoto/'+ ${object.objectId}" method="post">
+                        <form id="addphoto" th:action="'/worker/work/addphoto/'+ ${object.objectId}" method="post" enctype="multipart/form-data">
                             <h6>Выберите файлы:</h6>
                             <div class="mb-3">
                                 <label for="formFileMultiple" class="form-label">Файл</label>
                                 <div class="input-group">
-                                    <input type="file" name="photo" class="form-control" id="formFileMultiple" multiple>
+                                    <input type="file" name="photo" class="form-control" id="formFileMultiple" multiple >
                                     <input type="hidden" name="month" th:value="${month}">
                                     <input type="hidden" name="year" th:value="${year}">
                                     <button class="btn btn-outline-secondary" type="reset" id="inputGroupFotoAddon1">
