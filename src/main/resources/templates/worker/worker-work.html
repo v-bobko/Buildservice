@@ -192,32 +192,17 @@
             </h3>
         </div>
         <div class="row gallery">
-            <div class="element-1">
 
-                <a href="../images/c1.jpg">
-                    <img src="../images/c1.jpg" alt="">
-                </a>
 
-                <a href="../images/c2.jpg">
-                    <img src="../images/c2.jpg" alt="">
-                </a>
+                <div class="element-1" >
 
-                <a href="../images/c3.jpg">
-                    <img src="../images/c3.jpg" alt="">
-                </a>
+                    <a th:each="ph : ${photo}" th:href="${ph.photo}" >
+                        <img th:src="${ph.photo}" alt="">
+                    </a>
 
-                <a href="../images/c4.jpg">
-                    <img src="../images/c4.jpg" alt="">
-                </a>
+                </div>
 
-                <a href="../images/c5.jpg">
-                    <img src="../images/c5.jpg" alt="">
-                </a>
 
-                <a href="../images/c6.jpg">
-                    <img src="../images/c6.jpg" alt="">
-                </a>
-            </div>
         </div>
     </div>
 </section>
@@ -236,12 +221,14 @@
             <div class="modal-body">
                 <div class="container-fluid">
                     <div class="row">
-                        <form>
+                        <form id="addphoto" th:action="'/worker/work/addphoto/'+ ${object.objectId}" method="post">
                             <h6>Выберите файлы:</h6>
                             <div class="mb-3">
                                 <label for="formFileMultiple" class="form-label">Файл</label>
                                 <div class="input-group">
-                                    <input type="file" class="form-control" id="formFileMultiple" multiple>
+                                    <input type="file" name="photo" class="form-control" id="formFileMultiple" multiple>
+                                    <input type="hidden" name="month" th:value="${month}">
+                                    <input type="hidden" name="year" th:value="${year}">
                                     <button class="btn btn-outline-secondary" type="reset" id="inputGroupFotoAddon1">
                                         X
                                     </button>
@@ -252,7 +239,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="submit" class="btn btn-modal">Добавить</button>
+                <button form="addphoto" type="submit" class="btn btn-modal">Добавить</button>
             </div>
         </div>
     </div>

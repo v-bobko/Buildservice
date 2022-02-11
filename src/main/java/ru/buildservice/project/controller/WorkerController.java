@@ -8,12 +8,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import ru.buildservice.project.Datetime;
-import ru.buildservice.project.entity.CalendarService;
-import ru.buildservice.project.entity.Objects;
-import ru.buildservice.project.entity.Photo;
-import ru.buildservice.project.entity.Users;
+import ru.buildservice.project.entity.*;
 import ru.buildservice.project.repository.CalendarServiceRepository;
 import ru.buildservice.project.repository.ObjectRepository;
 import ru.buildservice.project.repository.PhotoRepository;
@@ -82,15 +81,39 @@ public class WorkerController {
             List<CalendarService> calendarServices1 = calendarServiceRepository.findByObjectsAndMonthAndYearAndUsersOrderByCalendarIdAsc(object, month, year, user);
             model.addAttribute("calendar", calendarServices1);
 
-            List<Photo> photo = photoRepository.findByObjects(object);
+            List<Photo> photo = photoRepository.findByObjectsAndMonthAndYearOrderByPhotoIdDesc(object,month,year);
             model.addAttribute("photo", photo);
 
 
-//            if (user.getUser_id() == calendarServiceRepository.findUserByObject(id)) {
                 return "worker/worker-work";
-//            }
-//            return "redirect:/worker/worker-objects";
+
         }
+
+
+    @PostMapping("/worker/work/addphoto/{id}")
+    public String addPhoto(@PathVariable(value = "id") int id, @RequestParam(value = "photo") MultipartFile file, @RequestParam(value = "month") String month, @RequestParam(value = "year") Integer year, Model model) {
+        Objects objects = objectRepository.findById(id).orElseThrow();
+        Photo photo = new Photo();
+        photo.setObjects(objects);
+        photo.setMonth(month);
+        photo.setYear(year);
+
+
+
+
+
+        photoRepository.save(photo);
+
+        CalendarComment calendarComment = new CalendarComment();
+        calendarComment.setYear(year);
+
+        calendarComment.setMonth(month);
+        calendarComment.setObjects(objects);
+
+
+
+        return "worker/worker-work";
+    }
 
 
 
