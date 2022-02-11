@@ -510,7 +510,7 @@ footer {
     height: 35px;
     align-items: center;
     background-color: rgba(197, 134, 142, 0.8);
-    // padding: 3px 0;
+    text-transform: uppercase;
   }
 
   .name-account {
@@ -834,7 +834,7 @@ footer {
       li {
         border: none;
         padding: .2rem 1rem;
-        font-size: 16px;
+        font-size: 18px;
 
         &::marker {
           content: "\2013";

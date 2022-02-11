@@ -433,6 +433,7 @@ footer img {
       -ms-flex-align: center;
           align-items: center;
   background-color: rgba(197, 134, 142, 0.8);
+  text-transform: uppercase;
 }
 .header2 .name-account {
   height: 35px;
@@ -729,7 +730,7 @@ footer img {
 .pd .list ul li, .sd .list ul li {
   border: none;
   padding: 0.2rem 1rem;
-  font-size: 16px;
+  font-size: 18px;
 }
 .pd .list ul li::marker, .sd .list ul li::marker {
   content: "–";

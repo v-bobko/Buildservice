@@ -32,8 +32,9 @@ public class Projects {
     public Projects() {
     }
 
-    public Projects(String project, Objects objects) {
+    public Projects(String project, String nameOfProject, Objects objects) {
         this.project = project;
+        this.nameOfProject = nameOfProject;
         this.objects = objects;
     }
 }

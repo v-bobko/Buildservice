@@ -82,7 +82,7 @@ public class WorkerController {
             List<CalendarService> calendarServices1 = calendarServiceRepository.findByObjectsAndMonthAndYearAndUsersOrderByCalendarIdAsc(object, month, year, user);
             model.addAttribute("calendar", calendarServices1);
 
-            List<Photo> photo = photoRepository.findByObjects(object);
+            List<Photo> photo = photoRepository.findByObjectsAndMonthAndYearOrderByPhotoIdDesc(object,month,year);
             model.addAttribute("photo", photo);
 
 
