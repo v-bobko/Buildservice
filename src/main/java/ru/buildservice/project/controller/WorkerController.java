@@ -2,6 +2,7 @@ package ru.buildservice.project.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -15,9 +16,15 @@ import ru.buildservice.project.Datetime;
 import ru.buildservice.project.entity.*;
 import ru.buildservice.project.repository.*;
 
+
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 
 @Controller
@@ -30,10 +37,15 @@ public class WorkerController {
     private ObjectRepository objectRepository;
     @Autowired
     private PhotoRepository photoRepository;
+
+@Value("${filePathPhoto}")
+   private String filePathPhoto;
+
     @Autowired
     private JournalRepository journalRepository;
     @Autowired
     private ProjectRepository projectRepository;
+
 
     //  Страница с объектами
     @GetMapping("/worker/objects")
@@ -56,7 +68,11 @@ public class WorkerController {
 
 
     @GetMapping("/worker/work/{id}")
-    public String workerWork(@PathVariable(value = "id") int id, @RequestParam(required = false, value = "month") String curMonth, @RequestParam(required = false, value = "year") Integer curYear, Model model) {
+
+    public String workerWork(@PathVariable(value = "id") int id,
+                             @RequestParam(required = false, value = "month") String curMonth,
+                             @RequestParam(required = false, value = "year") Integer curYear, Model model) {
+
         Objects object = objectRepository.findById(id).orElseThrow();
         model.addAttribute("object", object);
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -77,6 +93,7 @@ public class WorkerController {
         }
 
 
+
         model.addAttribute("month", month);
         model.addAttribute("year", year);
 
@@ -91,24 +108,51 @@ public class WorkerController {
     }
 
 
-    @PostMapping("/worker/work/addphoto/{id}")
-    public String addPhoto(@PathVariable(value = "id") int id, @RequestParam(value = "photo") MultipartFile file, @RequestParam(value = "month") String month, @RequestParam(value = "year") Integer year, Model model) {
-        Objects objects = objectRepository.findById(id).orElseThrow();
-        Photo photo = new Photo();
-        photo.setObjects(objects);
-        photo.setMonth(month);
-        photo.setYear(year);
 
-        photoRepository.save(photo);
+  @PostMapping("/worker/work/addphoto/{id}")
+    public String addPhoto(@PathVariable(value = "id") int id,
+                           @RequestParam(value = "photo") MultipartFile[] files,
+                           @RequestParam(value = "month") String month,
+                           @RequestParam(value = "year") Integer year, Model model) throws IOException {
 
-        CalendarComment calendarComment = new CalendarComment();
-        calendarComment.setYear(year);
+        Objects object = objectRepository.findById(id).orElseThrow();
 
-        calendarComment.setMonth(month);
-        calendarComment.setObjects(objects);
 
-        return "worker/worker-work";
-    }
+        for (MultipartFile file: files
+             ) {
+
+
+
+        if (!file.isEmpty()) {
+
+            String dotExtendName = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("."));// Получить расширение
+            String fileName = UUID.randomUUID().toString().replace("-", "") + dotExtendName;// Имя UUID + расширение.
+
+
+
+            File path = new File(filePathPhoto);
+            if (!path.exists()) {
+                path.mkdirs();
+            }
+            // Загрузить
+            BufferedOutputStream out = new BufferedOutputStream(new FileOutputStream(new File(filePathPhoto + fileName)));
+            out.write(file.getBytes());
+            out.flush();
+            out.close();
+
+            String filenameBD = "/images/" + fileName;
+
+            Photo photo = new Photo();
+            photo.setObjects(object);
+            photo.setMonth(month);
+            photo.setYear(year);
+            photo.setPhoto(filenameBD);
+            photoRepository.save(photo);
+            photoRepository.save(photo);
+        }}
+
+        model.addAttribute("object",object);
+        return "redirect:/worker/work/{id}"; }
 
     @GetMapping("/worker/psd/{id}")
     public String workerPSD(@PathVariable(value = "id") int id, Model model) {
@@ -120,9 +164,9 @@ public class WorkerController {
 
         List<Projects> projects = projectRepository.findByObjects(object);
         model.addAttribute("projects", projects);
-
         return "worker/worker-psd";
     }
+
 
 
     @GetMapping("/worker/journal/{id}")
@@ -149,15 +193,14 @@ public class WorkerController {
 
         Objects object = objectRepository.findById(id).orElseThrow();
         Users user=userRepository.findById(userId).orElseThrow();
-
         Journal journal=new Journal(date,fio,time,report,object,user);
         journalRepository.save(journal);
-
         return "redirect:/worker/journal/{id}";
     }
 
     @PostMapping("/worker/journal/{id}/dellStr")
     public String dellStringWorker(@PathVariable(value = "id") int id,Model model) {
+
 
         Objects object = objectRepository.findById(id).orElseThrow();
         model.addAttribute("object", object);
@@ -168,6 +211,7 @@ public class WorkerController {
         journalRepository.delete(journal);
 
         return "redirect:/worker/journal/{id}";
+
     }
 
     @GetMapping("/worker/application/{id}")
