@@ -48,8 +48,13 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin()
                 .loginPage("/login").permitAll()
-                .successHandler(successHandler);
-//                .defaultSuccessUrl("/customer/objects",true);
+                .successHandler(successHandler)
+
+
+
+                .and().logout().logoutSuccessUrl("/");
+
+
     }
 
 
