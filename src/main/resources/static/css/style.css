@@ -1427,6 +1427,16 @@ footer img {
   height: 20px;
 }
 
+.scroll-photo {
+  overflow: auto;
+}
+.scroll-photo .dellPhoto .ph {
+  display: inline;
+}
+.scroll-photo .dellPhoto .ph .form-check {
+  display: inline-block;
+}
+
 /*АВТОРИЗАЦИЯ*/
 .btn-login {
   margin-top: 30px;
@@ -1579,7 +1589,7 @@ footer img {
     padding-left: 0;
   }
   .about .carousel, .about .carousel-item {
-    height: 250px;
+    height: 380px;
   }
 
   /*Контакты*/
