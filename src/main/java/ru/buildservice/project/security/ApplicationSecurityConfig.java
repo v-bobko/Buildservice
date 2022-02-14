@@ -39,9 +39,9 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
           //   .and()
                 .authorizeRequests()
                 .antMatchers("/", "index", "/contacts", "/css/**", "/css/#", "/js/**", "/images/**", "/icon/**").permitAll()
-                .antMatchers("/customer/*", "/css/*", "/css/#", "/js/*", "/images/*").hasRole("CUSTOMER")
-                .antMatchers("/engineer/*", "/css/*", "/css/#", "/js/*", "/images/*").hasRole("ADMIN")
-                .antMatchers("/worker/*", "/css/*", "/css/#", "/js/*", "/images/*").hasRole("WORKER")
+                .antMatchers("/customer/**", "/css/*", "/css/#", "/js/*", "/images/*").hasRole("CUSTOMER")
+                .antMatchers("/engineer/**", "/css/*", "/css/#", "/js/*", "/images/*").hasRole("ADMIN")
+                .antMatchers("/worker/**", "/css/*", "/css/#", "/js/*", "/images/*").hasRole("WORKER")
 
                 .anyRequest()
                 .authenticated()

@@ -1,293 +1,332 @@
 <!doctype html>
-<html lang="ru">
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
 <!--Мета-теги-->
 <div th:replace="~{head::head}">
 </div>
 <head>
-    <!--Галерея-->
-    <link rel="stylesheet" th:href="@{/css/lightgallery.min.css}">
+	<!--Галерея-->
+	<link rel="stylesheet" th:href="@{/css/lightgallery.min.css}">
 
-    <script src="//code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script th:src="@{/js/lightgallery.min.js}"></script>
-    <script th:src="@{/js/script.js}"></script>
+	<script src="//code.jquery.com/jquery-3.5.1.min.js"></script>
+	<script th:src="@{/js/lightgallery.min.js}"></script>
+	<script th:src="@{/js/script.js}"></script>
 </head>
 <body>
 <!--Заголовок-->
 <section class="header2">
-    <div class="container-fluid">
-        <div class="row name-account">
-            <div class="col">
-                <h5 th:text="${user.username}" >Имя Исполнителя</h5>
-            </div>
-            <div class="col col-home">
-                <a href="worker-objects.html" th:href="@{/worker/objects}"><img  th:src="@{/icon/home.png}"
-                                                                                alt="дом"
-                                                                                title="Выбор объекта"></a>
-                <a href="index.html" th:href="@{/logout}" title="Выход"><img th:src="@{/icon/logout.png}" alt="выход"></a>
-            </div>
-        </div>
-        <div class="row name-object">
-            <h5 th:text="${object.nameOfObject}">Название Объекта</h5>
-        </div>
-        <div class="row menu navbar navbar-expand-lg navbar-light">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="nav nav-tabs">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="worker-work.html"
-                           th:href="'/worker/work/' + ${object.objectId}">Текущие задачи/Отчетность</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link h" href="worker-journal.html"
-                           th:href="'/worker/journal/'+ ${object.objectId}">Журнал
-                            работ</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link h" href="worker-psd.html"
-                           th:href="'/worker/psd/' + ${object.objectId}">Проектная документация</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link h" href="worker-application.html"
-                           th:href="'/worker/application/' + ${object.objectId}">Заявка</a>
-                    </li>
-                </ul>
+	<div class="container-fluid">
+		<div class="row name-account">
+			<div class="col">
+				<h5 th:text="${user.username}">Имя Исполнителя</h5>
+			</div>
+			<div class="col col-home">
+				<a href="worker-objects.html" th:href="@{/worker/objects}"><img th:src="@{/icon/home.png}"
+				                                                                alt="дом"
+				                                                                title="Выбор объекта"></a>
+				<a href="index.html" th:href="@{/logout}" title="Выход"><img th:src="@{/icon/logout.png}"
+				                                                             alt="выход"></a>
+			</div>
+		</div>
+		<div class="row name-object">
+			<h5 th:text="${object.nameOfObject}">Название Объекта</h5>
+		</div>
+		<div class="row menu navbar navbar-expand-lg navbar-light">
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+			        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+			        aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="nav nav-tabs">
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="worker-work.html"
+						   th:href="'/worker/work/' + ${object.objectId}">Текущие задачи/Отчетность</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link h" href="worker-journal.html"
+						   th:href="'/worker/journal/'+ ${object.objectId}">Журнал
+							работ</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link h" href="worker-psd.html"
+						   th:href="'/worker/psd/' + ${object.objectId}">Проектная документация</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link h" href="worker-application.html"
+						   th:href="'/worker/application/' + ${object.objectId}">Заявка</a>
+					</li>
+				</ul>
 
-            </div>
-        </div>
-    </div>
+			</div>
+		</div>
+	</div>
 </section>
 
 <!--дата-->
 <form method="get" th:action="'/worker/work/' +${object.objectId}">
-    <div class="container-fluid">
-        <div class="row date">
-            <select class="form-select" name="month" aria-label="Default select example">
-                <option th:value="${month}" th:text="${month}" selected>Текущий месяц</option>
-                <option value="Январь">Январь</option>
-                <option value="Февраль">Февраль</option>
-                <option value="Март">Март</option>
-                <option value="Апрель">Апрель</option>
-                <option value="Май">Май</option>
-                <option value="Июнь">Июнь</option>
-                <option value="Июль">Июль</option>
-                <option value="Август">Август</option>
-                <option value="Сентябрь">Сентябрь</option>
-                <option value="Октябрь">Октябрь</option>
-                <option value="Ноябрь">Ноябрь</option>
-                <option value="Декабрь">Декабрь</option>
-            </select>
-            <select class="form-select" name="year" aria-label="Default select example">
-                <option th:value="${year}" th:text="${year}">Текущий год</option>
-                <div th:each="ya : ${years}">
-                    <option th:value="${ya}" th:text="${ya}"></option>
-                </div>
+	<div class="container-fluid">
+		<div class="row date">
+			<select class="form-select" name="month" aria-label="Default select example">
+				<option th:value="${month}" th:text="${month}" selected>Текущий месяц</option>
+				<option value="Январь">Январь</option>
+				<option value="Февраль">Февраль</option>
+				<option value="Март">Март</option>
+				<option value="Апрель">Апрель</option>
+				<option value="Май">Май</option>
+				<option value="Июнь">Июнь</option>
+				<option value="Июль">Июль</option>
+				<option value="Август">Август</option>
+				<option value="Сентябрь">Сентябрь</option>
+				<option value="Октябрь">Октябрь</option>
+				<option value="Ноябрь">Ноябрь</option>
+				<option value="Декабрь">Декабрь</option>
+			</select>
+			<select class="form-select" name="year" aria-label="Default select example">
+				<option th:value="${year}" th:text="${year}">Текущий год</option>
+				<div th:each="ya : ${years}">
+					<option th:value="${ya}" th:text="${ya}"></option>
+				</div>
+			</select>
+			<button type="submit">ОК</button>
+		</div>
 
-            </select>
-
-            <button type="submit">ОК</button>
-        </div>
-
-    </div>
+	</div>
 </form>
 
 <!-- Таблица выполненных работ-->
 <section class="work-otchet">
 
-    <div class="scroll-table">
-        <table>
-            <thead>
-            <tr>
-                <th>РАБОТЫ</th>
-                <th>ВЫПОЛНЕНИЕ</th>
-                <th>ПРОБЛЕМЫ</th>
-                <th>КОММЕНТАРИИ ИНЖЕНЕРА</th>
-                <th>КОММЕНТАРИИ ЗАКАЗЧИКА</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr class="tr-row">
-                <td class="colum-work"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Architecto,
-                    excepturi!</p>
-                </td>
-                <td class="colum-process"><p>Lorem ipsum dolor.</p>
-                    <div class="bt-work-z">
-                        <button class="btn-work" type="button" data-bs-toggle="modal"
-                                data-bs-target="#addComentModal-zw"
-                                title="Добавить">
-                            <img th:src="@{/icon/plus.png}" style="vertical-align: middle"></button>
-                        <button class="btn-work" type="button" title="Удалить">
-                            <img  th:src="@{/icon/basket.png}" style="vertical-align: middle"></button>
-                    </div>
-                </td>
-                <td class="colum-problem"><p>Lorem ipsum dolor sit amet.</p>
-                    <div class="bt-work-z">
-                        <button class="btn-work" type="button" data-bs-toggle="modal"
-                                data-bs-target="#addComentModal-zw"
-                                title="Добавить">
-                            <img th:src="@{/icon/plus.png}" style="vertical-align: middle"></button>
-                        <button class="btn-work" type="button" title="Удалить">
-                            <img th:src="@{/icon/basket.png}" style="vertical-align: middle"></button>
-                    </div>
-                </td>
-                <td class="colum-comment-i"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Distinctio dolore illo nostrum, saepe tempora veniam.</p></td>
-                <td class="colum-comment-z">
-                    <p></p>
-                </td>
-            </tr>
-
-            </tbody>
-        </table>
-    </div>
-
+	<div class="scroll-table">
+		<table>
+			<thead>
+			<tr>
+				<th>РАБОТЫ</th>
+				<th>ВЫПОЛНЕНИЕ</th>
+				<th>ПРОБЛЕМЫ</th>
+				<th>КОММЕНТАРИИ ИНЖЕНЕРА</th>
+				<th>КОММЕНТАРИИ ЗАКАЗЧИКА</th>
+			</tr>
+			</thead>
+			<tbody>
+			<div th:each="cal : ${calendar}">
+				<tr class="tr-row">
+					<td class="colum-work"><p th:text="${cal.task}"></p>
+					</td>
+					<td class="colum-process"><p th:text="${cal.execution}"></p>
+						<div class="bt-work-z">
+							<button class="btn-work" type="button" data-bs-toggle="modal"
+							        th:data-bs-target="'#addProcessModal'+${cal.calendarId}"
+							        title="Добавить">
+								<img th:src="@{/icon/plus.png}" style="vertical-align: middle"></button>
+							<form method="post" action="/worker/deleteProcess">
+								<input type="hidden" name="calId" th:value="${cal.calendarId}">
+								<button class="btn-work" type="submit" title="Удалить">
+									<img th:src="@{/icon/basket.png}" style="vertical-align: middle"></button>
+							</form>
+						</div>
+					</td>
+					<td class="colum-problem"><p th:text="${cal.problems}"></p>
+						<div class="bt-work-z">
+							<button class="btn-work" type="button" data-bs-toggle="modal"
+							        th:data-bs-target="'#addProblemModal'+${cal.calendarId}"
+							        title="Добавить">
+								<img th:src="@{/icon/plus.png}" style="vertical-align: middle"></button>
+							<form method="post" action="/worker/deleteProblem">
+								<input type="hidden" name="calId" th:value="${cal.calendarId}">
+								<button class="btn-work" type="submit" title="Удалить">
+									<img th:src="@{/icon/basket.png}" style="vertical-align: middle"></button>
+							</form>
+						</div>
+					</td>
+					<td class="colum-comment-i"><p p th:text="${cal.commentOfEngineer}"></p></td>
+					<td class="colum-comment-z"><p th:text="${cal.commentOfClient}"></p></td>
+				</tr>
+			</div>
+			</tbody>
+		</table>
+	</div>
 </section>
 
-<!--Модальное окно для добавление записи-->
-<div class="modal fade modal-edit" id="addComentModal-zw" tabindex="-1"
-     aria-labelledby="addComentModalLabel-zw"
-     aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="addComentModalLabel-zw">Добавить комментарий </h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                        aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="container-fluid">
-                    <div class="row">
-                        <form>
-                            <h6>Заполните текстовое поле:</h6>
-                            <textarea class="form-control" aria-label="With textarea"></textarea>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-modal">Добавить</button>
-            </div>
-        </div>
-    </div>
+<!--Модальное окно для добавления процесса выполнения работ-->
+<div th:each="cal : ${calendar}">
+	<div class="modal fade modal-edit" th:id="'addProcessModal'+${cal.calendarId}" tabindex="-1"
+	     th:aria-labelledby="'addProcessModalLabel'+${cal.calendarId}"
+	     aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" th:id="'addProcessModalLabel'+${cal.calendarId}">Добавить
+						информацию по выполнению работ </h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal"
+					        aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="container-fluid">
+						<div class="row">
+							<form action="/worker/edit-process" th:id="'addProcess'+${cal.calendarId}"
+							      method="post">
+								<h6>Заполните текстовое поле:</h6>
+								<textarea class="form-control" name="process" aria-label="With textarea"
+								          th:text="${cal.getExecution()}"></textarea>
+								<input type="hidden" name="calId" th:value="${cal.calendarId}">
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button th:form="'addProcess'+${cal.calendarId}" type="submit" class="btn btn-modal">
+						Добавить
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 
+<!--Модальное окно для добавления проблем-->
+<div th:each="cal : ${calendar}">
+	<div class="modal fade modal-edit" th:id="'addProblemModal'+${cal.calendarId}" tabindex="-1"
+	     th:aria-labelledby="'addProblemModalLabel'+${cal.calendarId}"
+	     aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" th:id="'addProblemModalLabel'+${cal.calendarId}">Добавить
+						мнформацию о проблемах </h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal"
+					        aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="container-fluid">
+						<div class="row">
+							<form action="/worker/edit-problem" th:id="'addProblem'+${cal.calendarId}"
+							      method="post">
+								<h6>Заполните текстовое поле:</h6>
+								<textarea class="form-control" name="problem" aria-label="With textarea"
+								          th:text="${cal.getProblems()}"></textarea>
+								<input type="hidden" name="calId" th:value="${cal.calendarId}">
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button th:form="'addProblem'+${cal.calendarId}" type="submit" class="btn btn-modal">
+						Добавить
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
 <!-- Фотоотчет-->
 <section class="fotootchet">
-    <div class="container-fluid">
-        <div class="row name">
-            <h3>ФОТООТЧЕТ
-                <button class="btn-add-foto" type="button" data-bs-toggle="modal"
-                        data-bs-target="#addFotoModal"
-                        title="Добавить фото">
-                    <img th:src="@{/icon/plus-f.png}" style="vertical-align: middle"></button>
-                <button class="btn-del-foto" type="button" data-bs-toggle="modal"
-                        data-bs-target="#dellFotoModal"
-                        title="Удалить фото">
-                    <img th:src="@{/icon/basket-f.png}" style="vertical-align: middle"></button>
-            </h3>
-        </div>
-        <div class="row gallery">
-
-
-                <div class="element-1" >
-
-                    <a th:each="ph : ${photo}" th:href="${ph.photo}" >
-                        <img th:src="${ph.photo}" alt="">
-                    </a>
-
-                </div>
-
-
-        </div>
-    </div>
+	<div class="container-fluid">
+		<div class="row name">
+			<h3>ФОТООТЧЕТ
+				<button class="btn-add-foto" type="button" data-bs-toggle="modal"
+				        data-bs-target="#addFotoModal"
+				        title="Добавить фото">
+					<img th:src="@{/icon/plus-f.png}"  style="vertical-align: middle"></button>
+				<button class="btn-del-foto" type="button" data-bs-toggle="modal"
+				        data-bs-target="#dellFotoModal"
+				        title="Удалить фото">
+					<img th:src="@{/icon/basket-f.png}" style="vertical-align: middle"></button>
+			</h3>
+		</div>
+		<div class="row gallery">
+			<div class="element-1">
+				<a th:each="ph : ${photo}" th:href="${ph.photo}">
+					<img th:src="${ph.photo}" alt="">
+				</a>
+			</div>
+		</div>
+	</div>
 </section>
 
 <!--Модальное окно для добавления фото-->
 <div class="modal fade modal-edit" id="addFotoModal" tabindex="-1"
      aria-labelledby="addFotoModalLabel"
      aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="addFotoModalLabel">Добавить фотографии</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                        aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="container-fluid">
-                    <div class="row">
-                        <form id="addphoto" th:action="'/worker/work/addphoto/'+ ${object.objectId}" method="post" enctype="multipart/form-data">
-                            <h6>Выберите файлы:</h6>
-                            <div class="mb-3">
-                                <label for="formFileMultiple" class="form-label">Файл</label>
-                                <div class="input-group">
-                                    <input type="file" name="photo" class="form-control" id="formFileMultiple" multiple >
-                                    <input type="hidden" name="month" th:value="${month}">
-                                    <input type="hidden" name="year" th:value="${year}">
-                                    <button class="btn btn-outline-secondary" type="reset" id="inputGroupFotoAddon1">
-                                        X
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button form="addphoto" type="submit" class="btn btn-modal">Добавить</button>
-            </div>
-        </div>
-    </div>
+	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="addFotoModalLabel">Добавить фотографии</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal"
+				        aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<div class="container-fluid">
+					<div class="row">
+						<form id="addphoto" th:action="'/worker/work/addphoto/'+ ${object.objectId}"
+						      method="post" enctype="multipart/form-data">
+							<h6>Выберите файлы:</h6>
+							<div class="mb-3">
+								<label for="formFileMultiple" class="form-label">Файл</label>
+								<div class="input-group">
+									<input type="file" name="photo" class="form-control" id="formFileMultiple"
+									       multiple>
+									<input type="hidden" name="month" th:value="${month}">
+									<input type="hidden" name="year" th:value="${year}">
+									<button class="btn btn-outline-secondary" type="reset" id="inputGroupFotoAddon1">
+										X
+									</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button form="addphoto" type="submit" class="btn btn-modal">Добавить</button>
+			</div>
+		</div>
+	</div>
 </div>
 
 <!--Модальное окно для удаления фото-->
 <div class="modal fade modal-edit" id="dellFotoModal" tabindex="-1"
      aria-labelledby="dellFotoModalLabel"
      aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="dellFotoModalLabel">Удаление фотографий</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                        aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="container-fluid">
-                    <div class="row">
-                        <form>
-                            <h6>Выберите фото,которые хотите удалить:</h6>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <label class="form-check-label" for="flexCheckDefault">
-                                    Фото...
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"
-                                       checked>
-                                <label class="form-check-label" for="flexCheckChecked">
-                                    Фото ...
-                                </label>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-modal">Удалить</button>
-            </div>
-        </div>
-    </div>
+	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="dellFotoModalLabel">Удаление фотографий</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal"
+				        aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="scroll-photo">
+						<form class="dellPhoto" id="dellPhoto" method="post" th:action="'/worker/work/dellphoto/'+${object.objectId}">
+							<h6>Выберите фото,которые хотите удалить:</h6>
+							<div class="ph" th:each="ph : ${photo}">
+								<div class="form-check">
+									<input class="form-check-input" type="checkbox" name="photos" th:id="'flexCheckDefault'+${ph.photoId}"
+									       th:value="${ph.photoId}">
+									<label class="form-check-label" th:for="'flexCheckDefault'+${ph.photoId}">
+										<img th:src="${ph.photo}" width="50px" height="50px" alt="">
+									</label>
+								</div>
+							</div>
+							<input type="hidden" name="month" th:value="${month}">
+							<input type="hidden" name="year" th:value="${year}">
+						</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button form="dellPhoto" type="submit" class="btn btn-modal">Удалить</button>
+			</div>
+		</div>
+	</div>
 </div>
 
 <!--Подвал-->
 <section class="footer fixed-bottom">
-    <div th:replace="~{footer::footer1}"></div>
+	<div th:replace="~{footer::footer1}"></div>
 </section>
 
 <!--Скрипты-->

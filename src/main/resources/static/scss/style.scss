@@ -637,6 +637,7 @@ footer {
     }
 
   }
+
   .btn-addYear {
 
     padding: 0;
@@ -647,18 +648,21 @@ footer {
       opacity: 1;
       background-color: transparent;
     }
+
     img {
       width: 24px;
       height: 24px;
     }
   }
 }
+
 .calendar {
   margin-top: 25px;
   margin-bottom: 100px;
 
   .table-body {
     padding: 15px;
+
     .row {
       display: flex;
     }
@@ -893,6 +897,7 @@ footer {
 
   .scroll-table {
     overflow: auto;
+
     table {
       width: 100%;
 
@@ -944,7 +949,8 @@ footer {
                 height: 15px;
               }
             }
-            form{
+
+            form {
               display: inline;
             }
           }
@@ -1045,6 +1051,7 @@ footer {
 .video {
   margin-top: 40px;
   margin-bottom: 100px;
+
   .accordion {
     text-align: center;
   }
@@ -1097,7 +1104,7 @@ footer {
 
     }
 
-    img{
+    img {
       height: 25px;
       width: 25px;
     }
@@ -1626,6 +1633,20 @@ footer {
 
 }
 
+//модальное окно удаления фото
+.scroll-photo {
+  overflow: auto;
+  .dellPhoto {
+    .ph {
+      display: inline;
+
+      .form-check {
+        display: inline-block;
+      }
+    }
+  }
+}
+
 /*АВТОРИЗАЦИЯ*/
 
 .btn-login {
@@ -1662,6 +1683,7 @@ footer {
       text-align: center;
       margin-bottom: 20px;
     }
+
     .form-control:focus {
       border-color: $color-btn;
       box-shadow: 0 0 0 .25rem rgba(197, 134, 142, 0.25);
@@ -1808,7 +1830,7 @@ footer {
     }
 
     .carousel, .carousel-item {
-      height: 250px;
+      height: 380px;
     }
 
   }
