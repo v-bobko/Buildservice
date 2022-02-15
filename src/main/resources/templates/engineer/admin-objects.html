@@ -77,7 +77,7 @@
 											<button class="btn-add" type="button" data-bs-toggle="modal"
 											        th:data-bs-target="'#changeModal'+${lk.objectId}"
 											        data-bs-placement="top" title="Редактировать">
-												<img src="../icon/edit.png" style="vertical-align: middle"></button>
+												<img th:src="@{/icon/edit.png}" style="vertical-align: middle"></button>
 										</div>
 									</li>
 								</ul>
@@ -110,13 +110,13 @@
 							<button class="btn-add" type="button"
 							        title="Редактировать" data-bs-toggle="modal"
 							        th:data-bs-target="'#editModal'+${lk.user_id}">
-								<img src="../icon/edit.png" style="vertical-align: middle"></button>
+								<img th:src="@{/icon/edit.png}" style="vertical-align: middle"></button>
 							<form action="/engineer/adminObjects/delete" method="post">
 								<input type="hidden" id="userIdOnDelete" name="userIdDelete"
 								       th:value="${lk.user_id}">
 								<button class="btn-del" type="submit" data-bs-toggle="tooltip"
 								        data-bs-placement="top" title="Удалить">
-									<img src="../icon/basket2.png" style="vertical-align: middle"></button>
+									<img th:src="@{/icon/basket2.png}" style="vertical-align: middle"></button>
 							</form>
 						</div>
 					</li>
@@ -141,13 +141,13 @@
 							<button class="btn-add" type="button" data-bs-toggle="modal"
 							        th:data-bs-target="'#editModalW'+${lk.user_id}"
 							        data-bs-placement="top" title="Редактировать">
-								<img src="../icon/edit.png" style="vertical-align: middle"></button>
+								<img th:src="@{/icon/edit.png}" style="vertical-align: middle"></button>
 							<form action="/engineer/adminObjects/delete" method="post">
 								<input type="hidden" id="userIdOnDeleteW" name="userIdDelete"
 								       th:value="${lk.user_id}">
 								<button class="btn-del" type="submit" data-bs-toggle="tooltip"
 								        data-bs-placement="top" title="Удалить">
-									<img src="../icon/basket2.png" style="vertical-align: middle"></button>
+									<img th:src="@{/icon/basket2.png}" style="vertical-align: middle"></button>
 							</form>
 						</div>
 					</li>
@@ -173,22 +173,19 @@
 							<button class="btn-add" type="button" data-bs-toggle="modal"
 							        th:data-bs-target="'#editModalA'+${lk.user_id}"
 							        data-bs-placement="top" title="Редактировать">
-								<img src="../icon/edit.png" style="vertical-align: middle"></button>
+								<img th:src="@{/icon/edit.png}" style="vertical-align: middle"></button>
 							<form action="/engineer/adminObjects/delete" method="post">
 								<input type="hidden" id="userIdOnDeleteA" name="userIdDelete"
 								       th:value="${lk.user_id}">
 								<button class="btn-del" type="submit" data-bs-toggle="tooltip"
 								        data-bs-placement="top" title="Удалить">
-									<img src="../icon/basket2.png" style="vertical-align: middle"></button>
+									<img th:src="@{/icon/basket2.png}" style="vertical-align: middle"></button>
 							</form>
 						</div>
 					</li>
-
 				</div>
 			</ul>
-
 		</div>
-
 	</div>
 </section>
 
@@ -220,9 +217,7 @@
 									       th:value="${lk.username}"
 									       aria-label="Text input with checkbox" placeholder="Фамилия И.О.">
 									<!--pattern="[А-Яа-яЁё]{2,}\s[А-ЯЁ].[А-ЯЁ]."-->
-
 								</div>
-
 								<div class="input-group mb-3">
 									<div class="input-group-text">
 										<input name="boolp" class="form-check-input mt-0" type="checkbox" value="1"
@@ -233,7 +228,6 @@
 									       aria-label="Text input with checkbox" placeholder="Пароль">
 								</div>
 								<input type="hidden" id="userId" name="userId" th:value="${lk.user_id}">
-
 							</form>
 						</div>
 					</div>
@@ -249,7 +243,6 @@
 
 <!--Модальное окно для редактирования ЛК рабочего-->
 <div th:each="lk : ${workers}">
-
 	<div class="modal fade modal-edit" th:id="'editModalW'+${lk.user_id}" tabindex="-1"
 	     th:aria-labelledby="'editModallabelW'+${lk.user_id}"
 	     aria-hidden="true">
@@ -275,7 +268,6 @@
 									       th:value="${lk.username}"
 									       aria-label="Text input with checkbox" placeholder="Фамилия И.О."
 									       pattern="[А-Яа-яЁё]{2,}\s[А-ЯЁ].[А-ЯЁ].">
-
 								</div>
 
 								<div class="input-group mb-3">
@@ -288,7 +280,6 @@
 									       aria-label="Text input with checkbox" placeholder="Пароль">
 								</div>
 								<input type="hidden" id="userIdW" name="userId" th:value="${lk.user_id}">
-
 							</form>
 						</div>
 					</div>
@@ -330,9 +321,7 @@
 									       th:value="${lk.username}"
 									       aria-label="Text input with checkbox" placeholder="Фамилия И.О."
 									       pattern="[А-Яа-яЁё]{2,}\s[А-ЯЁ].[А-ЯЁ].">
-
 								</div>
-
 								<div class="input-group mb-3">
 									<div class="input-group-text">
 										<input class="form-check-input mt-0" type="checkbox" value=""
@@ -343,7 +332,6 @@
 									       aria-label="Text input with checkbox" placeholder="Пароль">
 								</div>
 								<input type="hidden" id="userIdA" name="userId" th:value="${lk.user_id}">
-
 							</form>
 						</div>
 					</div>
