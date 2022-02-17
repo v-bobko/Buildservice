@@ -12,6 +12,9 @@ import java.util.List;
 public interface CalendarCommentRepository extends JpaRepository<CalendarComment, Integer> {
 
     List<CalendarComment> findByObjects(Objects object);
+
     List<CalendarComment> findByObjectsAndMonthAndYearOrderByCommentIdAsc(Objects objects, String month, Integer year);
+
+    CalendarComment findByCommentId(Integer id);
 
 }

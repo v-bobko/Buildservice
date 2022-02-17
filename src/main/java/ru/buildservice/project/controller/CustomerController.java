@@ -42,8 +42,8 @@ public class CustomerController {
     @Autowired
     private CameraRepository cameraRepository;
 
-  
-//  Страница с объектами
+
+    //  Страница с объектами
     @GetMapping("/customer/objects")
     public String customerObjects(Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -55,7 +55,8 @@ public class CustomerController {
 
         return "customer/customer-objects";
     }
-// очень некрасивый способ отображения работ по месяцам, но если это работает то это не глупо
+
+    // очень некрасивый способ отображения работ по месяцам, но если это работает то это не глупо
     @GetMapping("/customer/calendar/{id}")
     public String customerCalendar(@PathVariable(value = "id") int id, @RequestParam(required = false, value = "year") Integer curYear, Model model) {
 
@@ -68,10 +69,10 @@ public class CustomerController {
 
         ArrayList<Integer> years = calendarServiceRepository.findYears();
         Integer year;
-        if(curYear==null) {
+        if (curYear == null) {
             Datetime datetime = new Datetime();
             year = datetime.extractYear();
-        } else year=curYear;
+        } else year = curYear;
 
         List<CalendarService> jan = calendarServiceRepository.findByObjectsAndMonthAndYearOrderByCalendarIdAsc(object, "Январь", year);
         model.addAttribute("jan", jan);
@@ -136,7 +137,8 @@ public class CustomerController {
         }
         return "redirect:/customer/objects";
     }
-// Добавление комментария клиентом в календаре работ
+
+    // Добавление комментария клиентом в календаре работ
     @PostMapping("/customer/calendar/addComment/{id}")
     public String createCustomerComment(@PathVariable(value = "id") int id, @RequestParam(value = "month") String month, @RequestParam(value = "commentOfClient") String commentOfClient, @RequestParam(value = "year") Integer year, Model model) {
         Objects objects = objectRepository.findById(id).orElseThrow();
@@ -152,9 +154,25 @@ public class CustomerController {
     }
 
 
+    // Удаление комментария клиентом в календаре работ
+    @PostMapping("/customer/calendar/{id}/deleteCom")
+    public String deleteCustomerComment(@PathVariable(value = "id") int id,
+                                        @RequestParam(required = false, value = "com") List<Integer> comments,
+                                        @RequestParam(value = "year") Integer year,
+                                        Model model) {
+        Objects object = objectRepository.findById(id).orElseThrow();
+        model.addAttribute("object", object);
+
+        for (Integer el : comments) {
+            CalendarComment calendarComment = calendarCommentRepository.findByCommentId(el);
+            calendarCommentRepository.delete(calendarComment);
+        }
+
+        return "redirect:/customer/calendar/{id}/?year=" + year;
+    }
 
 
-//  страница со сметами и проектами
+    //  страница со сметами и проектами
     @GetMapping("/customer/psd/{id}")
     public String customerPSD(@PathVariable(value = "id") int id, Model model) {
         Objects object = objectRepository.findById(id).orElseThrow();
@@ -173,7 +191,7 @@ public class CustomerController {
         return "redirect:/customer/objects";
     }
 
-// страница с работами за месяц
+    // страница с работами за месяц
     @GetMapping("/customer/work/{id}")
     public String customerWork(@PathVariable(value = "id") int id, @RequestParam(required = false, value = "month") String curMonth, @RequestParam(required = false, value = "year") Integer curYear, Model model) {
         Objects object = objectRepository.findById(id).orElseThrow();
@@ -191,8 +209,8 @@ public class CustomerController {
             month = datetime.extractMonth();
             year = datetime.extractYear();
         } else {
-           year=curYear;
-            month=curMonth;
+            year = curYear;
+            month = curMonth;
         }
 
 
@@ -202,7 +220,7 @@ public class CustomerController {
         List<CalendarService> calendarServices1 = calendarServiceRepository.findByObjectsAndMonthAndYearOrderByCalendarIdAsc(object, month, year);
         model.addAttribute("calendar", calendarServices1);
 
-        List<Photo> photo = photoRepository.findByObjectsAndMonthAndYearOrderByPhotoIdDesc(object,month,year);
+        List<Photo> photo = photoRepository.findByObjectsAndMonthAndYearOrderByPhotoIdDesc(object, month, year);
         model.addAttribute("photo", photo);
 
 
@@ -212,7 +230,7 @@ public class CustomerController {
         return "redirect:/customer/objects";
     }
 
-// Добавление комментария на странице с работами за месяц
+    // Добавление комментария на странице с работами за месяц
     @PostMapping("/customer/edit-comment")
     public String createComment(@RequestParam Integer calendarId, @RequestParam String commentOfClient, Model model) {
 
@@ -223,10 +241,10 @@ public class CustomerController {
         calendarServiceRepository.save(calendarService);
         int objectId = calendarService.getObjects().getObjectId();
 
-        String month=URLEncoder.encode(calendarService.getMonth(), StandardCharsets.UTF_8);
-        int year=calendarService.getYear();
+        String month = URLEncoder.encode(calendarService.getMonth(), StandardCharsets.UTF_8);
+        int year = calendarService.getYear();
 
-        return "redirect:/customer/work/" + objectId+"?month="+month +"&year="+year;
+        return "redirect:/customer/work/" + objectId + "?month=" + month + "&year=" + year;
     }
 
 
@@ -240,10 +258,10 @@ public class CustomerController {
         calendarServiceRepository.save(calendarService);
         int objectId = calendarService.getObjects().getObjectId();
 
-        String month= URLEncoder.encode(calendarService.getMonth(), StandardCharsets.UTF_8);
-        int year=calendarService.getYear();
+        String month = URLEncoder.encode(calendarService.getMonth(), StandardCharsets.UTF_8);
+        int year = calendarService.getYear();
 
-        return "redirect:/customer/work/" + objectId+"?month="+month +"&year="+year;
+        return "redirect:/customer/work/" + objectId + "?month=" + month + "&year=" + year;
     }
 
 
