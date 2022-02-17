@@ -845,44 +845,415 @@
 
 
 <!--Модальное окно для удаления записи-->
-<div class="modal fade modal-edit" id="dellComentModal-z" tabindex="-1"
-     aria-labelledby="dellComentModalLabel-z"
+<div class="modal fade modal-edit" id="dellComentModal-z-jan" tabindex="-1"
+     aria-labelledby="dellComentModalLabel-z-jan"
      aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title" id="dellComentModalLabel-z">Удалить комментарий</h5>
+				<h5 class="modal-title" id="dellComentModalLabel-z-jan">Удалить комментарий</h5>
 				<button type="button" class="btn-close" data-bs-dismiss="modal"
 				        aria-label="Close"></button>
 			</div>
 			<div class="modal-body">
 				<div class="container-fluid">
 					<div class="row">
-						<form>
-							<h6>Выберите задания,которые хотите удалить:</h6>
+						<form id="delComJan" method="post" th:action="'/customer/calendar/'+${object.objectId}+'/deleteCom'">
+							<h6>Выберите комментарии,которые хотите удалить:</h6>
+							<div th:each="comment : ${janCom}">
 							<div class="form-check">
-								<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-								<label class="form-check-label" for="flexCheckDefault">
+								<input class="form-check-input" name="com" type="checkbox" th:value="${comment.commentId}" id="flexCheckDefault1">
+								<label class="form-check-label" for="flexCheckDefault1" th:text="${comment.comment}">
 									Задние...
 								</label>
 							</div>
-							<div class="form-check">
-								<input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"
-								       checked>
-								<label class="form-check-label" for="flexCheckChecked">
-									Задание ...
-								</label>
 							</div>
+							<input type="hidden" name="year" th:value="${year}">
 						</form>
 					</div>
 				</div>
 			</div>
 			<div class="modal-footer">
-				<button type="submit" class="btn btn-modal">Удалить</button>
+				<button form="delComJan" type="submit" class="btn btn-modal">Удалить</button>
 			</div>
 		</div>
 	</div>
 </div>
+<div class="modal fade modal-edit" id="dellComentModal-z-feb" tabindex="-1"
+     aria-labelledby="dellComentModalLabel-z-feb"
+     aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="dellComentModalLabel-z-feb">Удалить комментарий</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal"
+				        aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<div class="container-fluid">
+					<div class="row">
+						<form id="delComFeb" method="post" th:action="'/customer/calendar/'+${object.objectId}+'/deleteCom'">
+							<h6>Выберите комментарии,которые хотите удалить:</h6>
+							<div th:each="comment : ${febCom}">
+								<div class="form-check">
+									<input class="form-check-input" name="com" type="checkbox" th:value="${comment.commentId}" id="flexCheckDefault2">
+									<label class="form-check-label" for="flexCheckDefault2" th:text="${comment.comment}">
+										Задние...
+									</label>
+								</div>
+							</div>
+							<input type="hidden" name="year" th:value="${year}">
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button form="delComFeb" type="submit" class="btn btn-modal">Удалить</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade modal-edit" id="dellComentModal-z-mar" tabindex="-1"
+     aria-labelledby="dellComentModalLabel-z-mar"
+     aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="dellComentModalLabel-z-mar">Удалить комментарий</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal"
+				        aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<div class="container-fluid">
+					<div class="row">
+						<form id="delComMar" method="post" th:action="'/customer/calendar/'+${object.objectId}+'/deleteCom'">
+							<h6>Выберите комментарии,которые хотите удалить:</h6>
+							<div th:each="comment : ${marCom}">
+								<div class="form-check">
+									<input class="form-check-input" name="com" type="checkbox" th:value="${comment.commentId}" id="flexCheckDefault3">
+									<label class="form-check-label" for="flexCheckDefault3" th:text="${comment.comment}">
+										Задние...
+									</label>
+								</div>
+							</div>
+							<input type="hidden" name="year" th:value="${year}">
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button form="delComMar" type="submit" class="btn btn-modal">Удалить</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade modal-edit" id="dellComentModal-z-apr" tabindex="-1"
+     aria-labelledby="dellComentModalLabel-z-apr"
+     aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="dellComentModalLabel-z-apr">Удалить комментарий</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal"
+				        aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<div class="container-fluid">
+					<div class="row">
+						<form id="delComApr" method="post" th:action="'/customer/calendar/'+${object.objectId}+'/deleteCom'">
+							<h6>Выберите комментарии,которые хотите удалить:</h6>
+							<div th:each="comment : ${aprCom}">
+								<div class="form-check">
+									<input class="form-check-input" name="com" type="checkbox" th:value="${comment.commentId}" id="flexCheckDefault4">
+									<label class="form-check-label" for="flexCheckDefault4" th:text="${comment.comment}">
+										Задние...
+									</label>
+								</div>
+							</div>
+							<input type="hidden" name="year" th:value="${year}">
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button form="delComApr" type="submit" class="btn btn-modal">Удалить</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade modal-edit" id="dellComentModal-z-may" tabindex="-1"
+     aria-labelledby="dellComentModalLabel-z-may"
+     aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="dellComentModalLabel-z-may">Удалить комментарий</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal"
+				        aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<div class="container-fluid">
+					<div class="row">
+						<form id="delComMay" method="post" th:action="'/customer/calendar/'+${object.objectId}+'/deleteCom'">
+							<h6>Выберите комментарии,которые хотите удалить:</h6>
+							<div th:each="comment : ${mayCom}">
+								<div class="form-check">
+									<input class="form-check-input" name="com" type="checkbox" th:value="${comment.commentId}" id="flexCheckDefault5">
+									<label class="form-check-label" for="flexCheckDefault5" th:text="${comment.comment}">
+										Задние...
+									</label>
+								</div>
+							</div>
+							<input type="hidden" name="year" th:value="${year}">
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button form="delComMay" type="submit" class="btn btn-modal">Удалить</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade modal-edit" id="dellComentModal-z-jun" tabindex="-1"
+     aria-labelledby="dellComentModalLabel-z-jun"
+     aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="dellComentModalLabel-z-jun">Удалить комментарий</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal"
+				        aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<div class="container-fluid">
+					<div class="row">
+						<form id="delComJun" method="post" th:action="'/customer/calendar/'+${object.objectId}+'/deleteCom'">
+							<h6>Выберите комментарии,которые хотите удалить:</h6>
+							<div th:each="comment : ${junCom}">
+								<div class="form-check">
+									<input class="form-check-input" name="com" type="checkbox" th:value="${comment.commentId}" id="flexCheckDefault6">
+									<label class="form-check-label" for="flexCheckDefault6" th:text="${comment.comment}">
+										Задние...
+									</label>
+								</div>
+							</div>
+							<input type="hidden" name="year" th:value="${year}">
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button form="delComJun" type="submit" class="btn btn-modal">Удалить</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade modal-edit" id="dellComentModal-z-jul" tabindex="-1"
+     aria-labelledby="dellComentModalLabel-z-jul"
+     aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="dellComentModalLabel-z-jul">Удалить комментарий</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal"
+				        aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<div class="container-fluid">
+					<div class="row">
+						<form id="delComJul" method="post" th:action="'/customer/calendar/'+${object.objectId}+'/deleteCom'">
+							<h6>Выберите комментарии,которые хотите удалить:</h6>
+							<div th:each="comment : ${julCom}">
+								<div class="form-check">
+									<input class="form-check-input" name="com" type="checkbox" th:value="${comment.commentId}" id="flexCheckDefault7">
+									<label class="form-check-label" for="flexCheckDefault7" th:text="${comment.comment}">
+										Задние...
+									</label>
+								</div>
+							</div>
+							<input type="hidden" name="year" th:value="${year}">
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button form="delComJul" type="submit" class="btn btn-modal">Удалить</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade modal-edit" id="dellComentModal-z-aug" tabindex="-1"
+     aria-labelledby="dellComentModalLabel-z-aug"
+     aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="dellComentModalLabel-z-aug">Удалить комментарий</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal"
+				        aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<div class="container-fluid">
+					<div class="row">
+						<form id="delComAug" method="post" th:action="'/customer/calendar/'+${object.objectId}+'/deleteCom'">
+							<h6>Выберите комментарии,которые хотите удалить:</h6>
+							<div th:each="comment : ${augCom}">
+								<div class="form-check">
+									<input class="form-check-input" name="com" type="checkbox" th:value="${comment.commentId}" id="flexCheckDefault8">
+									<label class="form-check-label" for="flexCheckDefault8" th:text="${comment.comment}">
+										Задние...
+									</label>
+								</div>
+							</div>
+							<input type="hidden" name="year" th:value="${year}">
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button form="delComAug" type="submit" class="btn btn-modal">Удалить</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade modal-edit" id="dellComentModal-z-sep" tabindex="-1"
+     aria-labelledby="dellComentModalLabel-z-sep"
+     aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="dellComentModalLabel-z-sep">Удалить комментарий</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal"
+				        aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<div class="container-fluid">
+					<div class="row">
+						<form id="delComSep" method="post" th:action="'/customer/calendar/'+${object.objectId}+'/deleteCom'">
+							<h6>Выберите комментарии,которые хотите удалить:</h6>
+							<div th:each="comment : ${sepCom}">
+								<div class="form-check">
+									<input class="form-check-input" name="com" type="checkbox" th:value="${comment.commentId}" id="flexCheckDefault9">
+									<label class="form-check-label" for="flexCheckDefault9" th:text="${comment.comment}">
+										Задние...
+									</label>
+								</div>
+							</div>
+							<input type="hidden" name="year" th:value="${year}">
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button form="delComSep" type="submit" class="btn btn-modal">Удалить</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade modal-edit" id="dellComentModal-z-oct" tabindex="-1"
+     aria-labelledby="dellComentModalLabel-z-oct"
+     aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="dellComentModalLabel-z-oct">Удалить комментарий</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal"
+				        aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<div class="container-fluid">
+					<div class="row">
+						<form id="delComOct" method="post" th:action="'/customer/calendar/'+${object.objectId}+'/deleteCom'">
+							<h6>Выберите комментарии,которые хотите удалить:</h6>
+							<div th:each="comment : ${octCom}">
+								<div class="form-check">
+									<input class="form-check-input" name="com" type="checkbox" th:value="${comment.commentId}" id="flexCheckDefault10">
+									<label class="form-check-label" for="flexCheckDefault10" th:text="${comment.comment}">
+										Задние...
+									</label>
+								</div>
+							</div>
+							<input type="hidden" name="year" th:value="${year}">
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button form="delComOct" type="submit" class="btn btn-modal">Удалить</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade modal-edit" id="dellComentModal-z-nov" tabindex="-1"
+     aria-labelledby="dellComentModalLabel-z-nov"
+     aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="dellComentModalLabel-z-nov">Удалить комментарий</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal"
+				        aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<div class="container-fluid">
+					<div class="row">
+						<form id="delComNov" method="post" th:action="'/customer/calendar/'+${object.objectId}+'/deleteCom'">
+							<h6>Выберите комментарии,которые хотите удалить:</h6>
+							<div th:each="comment : ${novCom}">
+								<div class="form-check">
+									<input class="form-check-input" name="com" type="checkbox" th:value="${comment.commentId}" id="flexCheckDefault11">
+									<label class="form-check-label" for="flexCheckDefault11" th:text="${comment.comment}">
+										Задние...
+									</label>
+								</div>
+							</div>
+							<input type="hidden" name="year" th:value="${year}">
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button form="delComNov" type="submit" class="btn btn-modal">Удалить</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade modal-edit" id="dellComentModal-z-dec" tabindex="-1"
+     aria-labelledby="dellComentModalLabel-z-dec"
+     aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="dellComentModalLabel-z-dec">Удалить комментарий</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal"
+				        aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<div class="container-fluid">
+					<div class="row">
+						<form id="delComDec" method="post" th:action="'/customer/calendar/'+${object.objectId}+'/deleteCom'">
+							<h6>Выберите комментарии,которые хотите удалить:</h6>
+							<div th:each="comment : ${decCom}">
+								<div class="form-check">
+									<input class="form-check-input" name="com" type="checkbox" th:value="${comment.commentId}" id="flexCheckDefault12">
+									<label class="form-check-label" for="flexCheckDefault12" th:text="${comment.comment}">
+										Задние...
+									</label>
+								</div>
+							</div>
+							<input type="hidden" name="year" th:value="${year}">
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button form="delComDec" type="submit" class="btn btn-modal">Удалить</button>
+			</div>
+		</div>
+	</div>
+</div>
+
 
 <!--Подвал-->
 <section class="footer fixed-bottom">

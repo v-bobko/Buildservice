@@ -1462,8 +1462,13 @@ footer {
 .modal-edit {
   .modal-body {
     h6 {
-      font-size: 16px;
+      font-size: 17px;
       margin-bottom: 15px;
+    }
+
+    .form-check{
+      font-size: 16px;
+      margin-bottom: 10px;
     }
 
     input {

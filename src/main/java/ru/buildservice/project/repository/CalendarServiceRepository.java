@@ -16,32 +16,20 @@ public interface CalendarServiceRepository extends JpaRepository<CalendarService
     List<CalendarService> findByObjects(Objects object);
 
     List<CalendarService> findByObjectsAndMonthAndYearOrderByCalendarIdAsc(Objects objects, String month, Integer year);
+
     List<CalendarService> findByObjectsAndMonthAndYearAndUsersOrderByCalendarIdAsc(Objects objects, String month, Integer year, Users users);
 
 
-//    List<CalendarService> findDistinctByUsers(Users users);
     @Query(nativeQuery = true, value = "select distinct object_id from calendar_service where user_id=:user")
-    List<Integer>  findObjectbyUserId(@Param("user")Integer userId);
-
-
-
+    List<Integer> findObjectbyUserId(@Param("user") Integer userId);
 
     CalendarService findByCalendarIdOrderByCalendarIdAsc(Integer task);
-
-
-
-
-
-
 
     @Query(nativeQuery = true, value = "select distinct year from calendar_service;")
     ArrayList<Integer> findYears();
 
     @Query(nativeQuery = true, value = "select distinct user_id from calendar_service where object_id=:object limit 1")
-    Integer  findUserByObject(@Param("object")Integer objectId);
-//
-//    @Query(nativeQuery = true, value = "select * from calendar_service where date_start= '2021-01-01'")
-//    List<CalendarService> findByYearsAndMonth();
+    Integer findUserByObject(@Param("object") Integer objectId);
 
 
 }
