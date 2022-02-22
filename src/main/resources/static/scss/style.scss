@@ -753,7 +753,7 @@ footer {
       }
 
       .work {
-        height: 400px;
+        height: 290px;
         padding: 5px 10px;
         overflow: auto;
       }
@@ -770,7 +770,7 @@ footer {
       }
 
       .comment {
-        height: 180px;
+        height: 150px;
         padding: 5px 10px;
         overflow: auto;
 
@@ -913,11 +913,10 @@ footer {
       }
 
       td {
-        text-align: justify;
+        //text-align: justify;
 
         p {
           font-size: 16px;
-          text-align: justify;
           margin: 0 0 10px 0;
         }
       }
@@ -1112,7 +1111,7 @@ footer {
 }
 
 /*ЛИЧНЫЙ КАБИНЕТ ИНЖЕНЕРА*/
-.header2 {
+.header2,.header-start {
   .name-account {
 
 
@@ -1484,7 +1483,7 @@ footer {
     }
 
     textarea {
-      height: 150px;
+      height: 90px;
     }
 
     .btn-outline-secondary {
