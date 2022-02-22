@@ -648,7 +648,7 @@ footer img {
   font-size: 18px;
 }
 .calendar .table-body .colum .work {
-  height: 400px;
+  height: 290px;
   padding: 5px 10px;
   overflow: auto;
 }
@@ -669,7 +669,7 @@ footer img {
   background-color: rgba(73, 53, 155, 0.16);
 }
 .calendar .table-body .colum .comment {
-  height: 180px;
+  height: 150px;
   padding: 5px 10px;
   overflow: auto;
 }
@@ -791,12 +791,8 @@ footer img {
   text-align: center;
   background-color: rgba(38, 38, 108, 0.2);
 }
-.work-otchet .scroll-table table td {
-  text-align: justify;
-}
 .work-otchet .scroll-table table td p {
   font-size: 16px;
-  text-align: justify;
   margin: 0 0 10px 0;
 }
 .work-otchet .scroll-table table tbody .tr-row {
@@ -966,13 +962,13 @@ footer img {
 }
 
 /*ЛИЧНЫЙ КАБИНЕТ ИНЖЕНЕРА*/
-.header2 .name-account .admin-link {
+.header2 .name-account .admin-link, .header-start .name-account .admin-link {
   margin-right: 15px;
   color: #f7f7f6;
   opacity: 0.7;
   font-size: 16px;
 }
-.header2 .name-account .admin-link:hover {
+.header2 .name-account .admin-link:hover, .header-start .name-account .admin-link:hover {
   opacity: 1;
 }
 
@@ -1295,7 +1291,7 @@ footer img {
           box-shadow: 0 0 0 0.25rem rgba(55, 143, 189, 0.25);
 }
 .modal-edit .modal-body textarea {
-  height: 150px;
+  height: 90px;
 }
 .modal-edit .modal-body .btn-outline-secondary {
   border-color: #babfc2;
