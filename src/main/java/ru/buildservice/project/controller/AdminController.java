@@ -77,7 +77,7 @@ public class AdminController {
 
     }
 
-    @PostMapping("/engineer/adminObjects")
+    @PostMapping("/engineer/adminObjects/edit")
     public String editLk(@RequestParam String username, @RequestParam String password,
                          @RequestParam Integer userId, @RequestParam Optional<String> booln, @RequestParam Optional<String> boolp, Model model) {
 
