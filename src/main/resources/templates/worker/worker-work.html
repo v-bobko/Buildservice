@@ -100,6 +100,7 @@
 		<table>
 			<thead>
 			<tr>
+				<th>№</th>
 				<th>РАБОТЫ</th>
 				<th>ВЫПОЛНЕНИЕ</th>
 				<th>ПРОБЛЕМЫ</th>
@@ -108,8 +109,9 @@
 			</tr>
 			</thead>
 			<tbody>
-			<div th:each="cal : ${calendar}">
+			<div th:each="cal,iStat : ${calendar}">
 				<tr class="tr-row">
+					<td class="colum-num" th:text="${iStat.count}"></td>
 					<td class="colum-work"><p th:text="${cal.task}"></p>
 					</td>
 					<td class="colum-process"><p th:text="${cal.execution}"></p>
