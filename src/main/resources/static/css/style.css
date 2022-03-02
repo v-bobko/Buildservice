@@ -1532,6 +1532,12 @@ footer img {
     margin: 20px;
   }
 }
+@media screen and (max-width: 1080px) {
+  .header2 .nav-tabs .nav-link {
+    font-size: 14px;
+    padding: 0.26rem 0.5rem;
+  }
+}
 @media screen and (max-width: 933px) {
   .header2 .nav-tabs {
     -webkit-box-orient: vertical;
@@ -1546,10 +1552,11 @@ footer img {
     margin: 0 50px;
   }
   .header2 .nav-tabs .nav-link {
+    font-size: 16px;
     margin-bottom: 0;
   }
 }
-@media screen and (max-width: 820px) {
+@media screen and (max-width: 834px) {
   .header1 .navbar-light .navbar-brand {
     font-size: 40px;
   }
