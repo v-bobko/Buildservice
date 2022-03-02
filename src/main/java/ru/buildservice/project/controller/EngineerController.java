@@ -235,7 +235,7 @@ public class EngineerController {
             out.flush();
             out.close();
 
-            String filenameBD = "/files/" + fileName;
+            String filenameBD = "/" + fileName;
 
             Projects project=new Projects(filenameBD,nameFile,object);
             projectRepository.save(project);
@@ -266,7 +266,7 @@ public class EngineerController {
 
             String dotExtendName = fileURL.getOriginalFilename().substring(fileURL.getOriginalFilename().lastIndexOf("."));// Получить расширение
             String fileName = UUID.randomUUID().toString().replace("-", "") + dotExtendName;// Имя UUID + расширение.
-            String filePath = "C:\\Users\\79818\\Desktop\\Diplom\\src\\main\\resources\\static\\files\\";
+           // String filePath = "C:\\Users\\79818\\Desktop\\Diplom\\src\\main\\resources\\static\\files\\";
 
             File path = new File(filePath);
             if (!path.exists()) {
@@ -278,7 +278,7 @@ public class EngineerController {
             out.flush();
             out.close();
 
-            String filenameBD = "/files/" + fileName;
+            String filenameBD = "/" + fileName;
 
             Estimates estimate =new Estimates(filenameBD,nameFile,object);
             estimateRepository.save(estimate);

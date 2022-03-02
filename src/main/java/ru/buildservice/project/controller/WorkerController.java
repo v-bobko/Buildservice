@@ -49,8 +49,8 @@ public class WorkerController {
     @Value("${filePathPhoto}")
     private String filePathPhoto;
 
-    @Value("${filePathPhotoDell}")
-    private String filePathPhotoDell;
+ //   @Value("${filePathPhotoDell}")
+ //   private String filePathPhotoDell;
 
 
     //  Страница с объектами
@@ -208,7 +208,7 @@ public class WorkerController {
                 out.flush();
                 out.close();
 
-                String filenameBD = "/images/" + fileName;
+                String filenameBD = "/" + fileName;
 
                 Photo photo = new Photo();
                 photo.setObjects(object);
@@ -238,7 +238,7 @@ public class WorkerController {
             Photo photo = photoRepository.findById(photoId).orElseThrow();
             String pathPhoto=photo.getPhoto();
             photoRepository.delete(photo);
-            Files.delete(Paths.get(filePathPhotoDell+pathPhoto));
+            Files.delete(Paths.get(filePathPhoto+pathPhoto));
         }
 
         month = URLEncoder.encode(month, StandardCharsets.UTF_8);
