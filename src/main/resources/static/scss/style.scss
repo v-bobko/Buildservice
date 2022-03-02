@@ -531,20 +531,24 @@ footer {
       text-align: left;
       opacity: 0.7;
       font-size: 16px;
+      text-transform: uppercase;
     }
 
     .col-home {
-      display: flex;
-      justify-content: right;
+      //display: flex;
+      //justify-content: right;
+      padding-top: 3px;
       text-align: right;
       align-items: center;
+      align-content: center;
       height: 100%;
+
 
       a {
         padding-left: 10px;
 
         img {
-          width: 25px;
+          width: 22px;
           opacity: 0.7;
 
           &:hover {
@@ -1152,21 +1156,19 @@ footer {
 /*ЛИЧНЫЙ КАБИНЕТ ИНЖЕНЕРА*/
 .header2, .header-start {
   .name-account {
-
-
     .admin-link {
-      margin-right: 15px;
+      margin-right: 2px;
       color: $color-bg-light;
       opacity: 0.7;
       font-size: 16px;
+      text-transform: uppercase;
+      z-index: 3;
 
       &:hover {
         opacity: 1;
       }
     }
   }
-
-
 }
 
 /*Страница выбора кабинетов*/
@@ -1781,7 +1783,7 @@ footer {
   }
 }
 
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 1112px) {
   .header2 {
     .nav-tabs {
       .nav-link {
