@@ -233,18 +233,22 @@ input:-webkit-autofill {
 .opportunities .card-body ul {
   text-align: left;
   margin-bottom: 25px;
+  margin-left: 15px;
 }
 .opportunities .card-body li {
   border: none;
-  margin-left: 15px;
   position: relative;
   padding: 0.5rem 1rem;
   font-size: 18px;
+  list-style-type: none;
+  position: relative;
 }
-.opportunities .card-body li::marker {
+.opportunities .card-body li::before {
+  position: absolute;
+  margin-left: -20px;
   content: "–";
   font-weight: bold;
-  color: #68707e;
+  color: #378fbd;
 }
 
 /*Личный кабинет*/
@@ -401,10 +405,14 @@ footer img {
 }
 .list-object .list ul li {
   border: none;
-  padding: 0.3rem 1rem;
+  padding: 0.3rem 0.5rem;
   font-size: 20px;
+  list-style-type: none;
+  position: relative;
 }
-.list-object .list ul li::marker {
+.list-object .list ul li::before {
+  position: absolute;
+  margin-left: -35px;
   content: "➤";
   font-weight: bold;
   color: #378fbd;
@@ -454,13 +462,14 @@ footer img {
   -webkit-box-pack: right;
       -ms-flex-pack: right;
           justify-content: right;
+  text-align: right;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   height: 100%;
 }
 .header2 .name-account .col-home a {
-  margin-left: 10px;
+  padding-left: 10px;
 }
 .header2 .name-account .col-home a img {
   width: 25px;
@@ -623,12 +632,19 @@ footer img {
 }
 .calendar .table-body .colum ul li {
   font-size: 16px;
-  padding: 5px 0 5px 10px;
+  padding: 5px;
+  margin-left: 10px;
+  list-style-type: none;
+  /* Убираем маркеры у списка */
+  position: relative;
 }
-.calendar .table-body .colum ul li::marker {
+.calendar .table-body .colum ul li::before {
+  margin-left: -20px;
   content: "–";
+  /* Добавляем в качестве маркера символ */
   font-weight: bold;
   color: #378fbd;
+  position: absolute;
 }
 .calendar .table-body .colum .colum-name {
   margin-top: 10px;
@@ -673,7 +689,7 @@ footer img {
   padding: 5px 10px;
   overflow: auto;
 }
-.calendar .table-body .colum .comment li::marker {
+.calendar .table-body .colum .comment li::before {
   color: #49359b;
 }
 .calendar .table-body .colum .bt {
@@ -729,10 +745,12 @@ footer img {
 }
 .pd .list ul li, .sd .list ul li {
   border: none;
-  padding: 0.2rem 1rem;
+  padding: 0.2rem;
   font-size: 18px;
+  list-style-type: none;
 }
-.pd .list ul li::marker, .sd .list ul li::marker {
+.pd .list ul li::before, .sd .list ul li::before {
+  margin-right: 5px;
   content: "–";
   font-weight: bold;
   color: #68707e;
@@ -1214,10 +1232,12 @@ footer img {
 }
 .account-customer-list .list ul li, .account-worker-list .list ul li, .account-engineer-list .list ul li {
   border: none;
-  padding: 0rem 1rem;
+  padding: 0 1rem;
   font-size: 16px;
   margin-bottom: 15px;
   height: 30px;
+  list-style-type: none;
+  position: relative;
 }
 .account-customer-list .list ul li .row-li, .account-worker-list .list ul li .row-li, .account-engineer-list .list ul li .row-li {
   display: -webkit-box;
@@ -1227,7 +1247,9 @@ footer img {
       -ms-flex-align: end;
           align-items: end;
 }
-.account-customer-list .list ul li::marker, .account-worker-list .list ul li::marker, .account-engineer-list .list ul li::marker {
+.account-customer-list .list ul li::before, .account-worker-list .list ul li::before, .account-engineer-list .list ul li::before {
+  position: absolute;
+  margin-left: -20px;
   content: "–";
   font-weight: bold;
   color: #68707e;
